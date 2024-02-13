@@ -66,7 +66,6 @@ To commit this file, type the following command
 git commit -m "my initial commit"
 ```
 
-
 The first time we push to this *remote* repository, we need to specify the an upstream, so that future `git push` will be directed to the correct remote branch. We can to this with the `--set-upstream` (or `-u`)
 
 Assuming your branch is called `main`, type the following command. You can check the name of your branch with command `git branch` (the default branch name is either `main` or `master`).
@@ -76,4 +75,3 @@ git push --set-upstream origin main
 ```
 
 This command prints a couple of messages, ending with the following statement: `Branch 'main' set up to track remote branch 'main' from 'origin'.`. Now that the upstream (i.e.) tracking branch is correctly set up, you can also push via the Git pane in RStudio (you might need to refresh the Git pane first).
-

@@ -15,7 +15,6 @@ Before starting with the task:
 ###### Once you have set everything up, commit your file to your git repo in the following manner: {#sec-commit}
 
 :::{.callout-note}
-
 ## Committing files with git
 
 1. Save your (R/RMarkdown/Quarto) file
@@ -24,7 +23,6 @@ Before starting with the task:
 4. Click in the checkbox next to the file(s) you want to commit
 5. Add a commit message to explain what you are committing (e.g. "`initial commit`")
 6. Click on "commit" to commit your changes
-
 :::
 
 ### Task 1: Import data
@@ -44,7 +42,6 @@ Move the file `wildschwein_BE.csv` into your project directory and import it int
 
 Note: We recommend using the `readr` package to import data[^readr]. These functions have an underscore in their name, e.g. `read_csv` in oppose to the base `R` functions, which have a period (e.g. `read.csv`). Specifically for the wild boar data, we recommend `read_delim()`.
 
-
 [^readr]: Our reasons for preferring `readr` over base-R import functions:
 
     1. ~~base `R` imports strings as factors by default~~ (since R 4.0.0, this is not the case anymore)
@@ -53,9 +50,6 @@ Note: We recommend using the `readr` package to import data[^readr]. These funct
     4. `data.frames` created by `readr` are prettier when printed to the console and contain more information using less characters
 
     HOWEVER: Using external libraries (such as `readr`) creates additional dependencies which has it's own downsides (which is one of the reasons we don't do `library("tidyverse")`). 
-
-
-
 
 ```{r}
 #| file: "solutions/week1/task_1.R"

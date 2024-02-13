@@ -17,10 +17,7 @@ You've read @laube2011 about segmenting trajectories. In the paper, the authors 
 
 We will **demonstrate** implementing this method on the wild boar "Sabi", restricting ourselves to a couple of tracking days. Your task will be to understand this implementation and apply it to your own movement data. 
 
-
 Open the RStudio Project [you have prepared](#w3-preparation) for this week. Next, copy the wildboar data you downloaded last week (wildschwein_BE_2056.csv) to your project folder. If you cannot find this dataset on your computer, you can re-download it [here](https://moodle.zhaw.ch/pluginfile.php/1168373/mod_folder/content/0/wildschwein_BE_2056.csv?forcedownload=1)
-
-
 
 ```{r}
 #| echo: true
@@ -117,7 +114,6 @@ sabi_filter |>
     theme(legend.position = "bottom")
 ```
 
-
 ### Preperation
 
 With the skills from the input above you can now implement the segmentation algorithm described in @laube2011 to your own movement data. Grab your data from last week (or get the most current data from your posmo interface or tracker device) and import it as `data.frame`. Add this data to the .gitignore file to prevent it from being uploaded to GitHub.
@@ -137,7 +133,6 @@ posmo <- select(posmo, datetime, lon_x, lat_y)
 ```
 
 As before, we will calculate the euclidean distance "by hand". This means we need the coordinates of our locations stored in a **Projected CRS**. Our data is stored in a geodetic coordinate reference system (WGS84, i.e. EPSG 4326). We can transform the data to EPSG 2056 with the function `st_transform`, as we explained in [the first week](#sec-week1-task3-reproject).
-
 
 ```{r}
 #| echo: true
@@ -208,8 +203,6 @@ Commit your changes with a meaningful commit message.
 
 ```
 
-
-
 ### Task 4: Segment-based analysis
 
 In applying @laube2011, we've come as far as step b) in @fig-laubeimg. In order to complete the last steps (c and d), we need a *unique* ID for each segment that we can use as a grouping variable. The following function does just that (it assigns unique IDs based on the column `static` which you created in Task 2). You will learn about functions next week. For now, just copy the following code chunk into your script and run it.
@@ -247,10 +240,7 @@ library("patchwork")
 p1 / p2 + patchwork::plot_annotation(title = "Moving segments coloured by segment ID")
 ```
 
-
-
 ### Task 5: Similarity measures 
-
 
 We will now calculate similarties between trajectories using a new dataset [pedestrian.csv](https://moodle.zhaw.ch/pluginfile.php/1168373/mod_folder/content/0/pedestrian.csv?forcedownload=1). Download an import this dataset as a `data.frame` or `tibble`. It it a set of six different but similar trajectories from pedestrians walking on a path. 
 
@@ -283,10 +273,6 @@ Commit your changes with a meaningful commit message. Now push all your changes 
 
 ```
 
-
-
-
 ### Submission
 
 To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#create-github-repo-2).
-

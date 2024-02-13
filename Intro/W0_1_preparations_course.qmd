@@ -63,7 +63,6 @@ install.packages("tidyr")
 install.packages("sf")
 install.packages("terra")
 install.packages("tmap")
-
 ```
 
 ## Install Git{#install-git}
@@ -129,9 +128,7 @@ Now use the terminal in RStudio to introduce yourself:
 
 Of course, replace the name and address with your credentials. **Use the email address that you will use to create your Git*Hub* account** (which we will do in the second week). We propose using your student mail address, you can always change this later.
 
-
 :::{.callout-note}
-
 ## Note to users who already have a Github account
 
 If you already have a Github account and don't want to associate the work you do in this course with said account, we recommend the following approach:
@@ -140,5 +137,4 @@ If you already have a Github account and don't want to associate the work you do
 2. Override your `user.name` and `user.email` on a per project basis (by omitting the `--global` flag)
 
 Please feel free to contact us if you have questions about this.
-
 :::

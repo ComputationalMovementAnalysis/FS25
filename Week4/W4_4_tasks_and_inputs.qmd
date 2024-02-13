@@ -51,8 +51,6 @@ testfun <- function(sometext) {
 testfun(sometext = "this function does slightly more, but still not much")
 ```
 
-
-
 :::{.callout-note collapse="true"}
 
 ```{r}
@@ -74,10 +72,8 @@ or even more compact:
 ```{r}
 testfun <- \(sometext) print(sometext)
 ```
-
 :::
-
-
+c
 Let's take a more practical example. Say we want a function that calculates our age if provided with the date of our birthday. We can use `Sys.time()` to provide today's date and `difftime()` to calculate the time difference between today and our birthday.
 
 ```{r}

@@ -20,8 +20,6 @@ To publish the html files to the `gh-pages` branch, run the following line:
 quarto publish --no-prompt gh-pages
 ```
 
-
-
 # Todos (FS23)
 
 - consider shifting the git stuff by a one week increment
