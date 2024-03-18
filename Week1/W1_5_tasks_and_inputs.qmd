@@ -12,18 +12,7 @@ Before starting with the task:
 2. In RStudio, open the RStudio Project you created for this week. You can see that you are in an RStudio Project if the project's name is visible next to the little RStudio logo in the top right corner of RStudio (otherwise it will read `Project: (None)`).
 3. Download the wildboar movement data here: [wildschwein_BE.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125)
 
-Once you have set everything up, commit your file to your git repo in the following manner:
 
-:::{#nte-committing .callout-note}
-## Committing files with git
-
-1. Save your (R/RMarkdown/Quarto) file
-2. Switch to the "Git"-Tab in the pane in the top right corner
-3. Click "commit" to open the "Commit Window"
-4. Click in the checkbox next to the file(s) you want to commit
-5. Add a commit message to explain what you are committing (e.g. "`initial commit`")
-6. Click on "commit" to commit your changes
-:::
 
 ### Task 1: Import data
 
@@ -40,7 +29,7 @@ Note: We recommend using the `readr` package to import data (see @sec-readr). Th
 
 ```
 
-Commit your changes as described in @nte-committing. Write a meaningful commit message (e.g. "`completed task 1`").
+
 
 ### Task 2: Explore Data
 
@@ -49,7 +38,6 @@ We will use a range of different visualization tools (i.e. R-packages) in this c
 Get an overview of your data by creating a first "map-like" plot of your data producing a simple scatter plot with `ggplot2`. 
 Setting up a `ggplot` with our data is done using the command `ggplot(wildschwein_BE, aes(Long, Lat, colour = TierID))`. Creating a map is done via the basic scatter plot command `geom_point()`. 
 
-Commit your changes as described in @nte-committing. Have a look at your commit history by clicking on "History" in the "Git"-Pane.
 
 ```{r}
 #| file: "solutions/week1/task_2.R"
@@ -144,7 +132,6 @@ Here's the resulting `sf` object from the operation:
 wildschwein_BE
 ```
 
-Commit your changes as described in @nte-committing.
 
 ### Input: Calculate Convex Hull
 
@@ -200,7 +187,6 @@ Note: `ggplot` refuses to use our specified CRS, so we need to force this by spe
 
 ```
 
-Commit your changes as described in @nte-committing. Have a look at your commit history by clicking on "History" in the "Git"-Pane.
 
 ### Input: Importing raster data {#w1-importing-raster}
 
@@ -246,7 +232,6 @@ tm_shape(pk100_BE) +
 
 As you can see, plotting layers in `tmap` is combined with the `+` sign, just as in `ggplot2`. In `tmap` however, each layer consists of two objects: a `tm_shape()` in which the data is called, and a `tm_*` object in which we define how the data is visualized (`tm_rgb()` states that it is plotted as an RGB Raster Layer). Add the object `mcp` to the plot in this manner. Read [the vignette](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html) if you are having trouble.
 
-Commit your changes as described in @nte-committing. Remember to add a meaningful commit message (e.g. `completed task 5`).
 
 ```{r}
 #| file: "solutions/week1/task_5.R"
@@ -258,7 +243,6 @@ Commit your changes as described in @nte-committing. Remember to add a meaningfu
 
 Rerun the `tmap()...` command from the previous task, but switch the plotting mode to "view"" (`tmap_mode("view")`) beforehand. Omit the raster layer (`pk100_BE`), you won't be needing it.
 
-Commit your changes as described in @nte-committing. Have a look at your commit history by clicking on "History" in the "Git"-Pane.
 
 ```{r}
 #| file: "solutions/week1/task_6.R"

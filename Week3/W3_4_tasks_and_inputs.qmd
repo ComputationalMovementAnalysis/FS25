@@ -273,6 +273,3 @@ Commit your changes with a meaningful commit message. Now push all your changes 
 
 ```
 
-### Submission
-
-To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#create-github-repo-2).

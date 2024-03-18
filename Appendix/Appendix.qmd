@@ -10,3 +10,19 @@ Our reasons for preferring `readr` over base-R import functions:
 4. `data.frames` created by `readr` are prettier when printed to the console and contain more information using less characters
 
 **HOWEVER**: Using external libraries (such as `readr`) creates additional dependencies which has it's own downsides (which is one of the reasons we don't do `library("tidyverse")`). 
+
+
+
+## Comitting files with git
+
+
+:::{#nte-committing .callout-note}
+## Committing files with git
+
+1. Save your (R/RMarkdown/Quarto) file
+2. Switch to the "Git"-Tab in the pane in the top right corner
+3. Click "commit" to open the "Commit Window"
+4. Click in the checkbox next to the file(s) you want to commit
+5. Add a commit message to explain what you are committing (e.g. "`initial commit`")
+6. Click on "commit" to commit your changes
+:::

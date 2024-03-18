@@ -95,3 +95,8 @@ Semantically annotate your wildboar locations with the vegetation index (similar
 ```
 
 You can now explore the spatiotemporal patterns of this new data.
+
+
+### Submission
+
+To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#create-github-repo-2).
