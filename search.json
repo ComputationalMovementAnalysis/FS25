@@ -104,17 +104,17 @@
     "href": "Intro/W0_2_preparations_project.html",
     "title": "Preparation Project",
     "section": "",
-    "text": "Option 1: Tracking App Posmo\nYou use the tracking app Posmo, and as a side effect become part of an experiment we currently conduct in one of our research projects.\nThe Posmo app will continuously track your daily movements and will automatically determine your kind of transportation. You will then filter for the relevant cycling data. Find more information on how the app works in their FAQ.\nIn order to join our research project just follow the instructions on the following flyer.\nIf you have any issues during installation or you are not able to track yourself after the installtion please get in contact with Nils or Dominic.\nIf, however, for privacy reasons, you prefer not to contribute to our study, we can hand out a GPS tracker to you.",
+    "text": "Option 1: Tracking App\nBy using a tracking app, your phone will collect your movement data automatically. There are different types of tracking apps, from tracking specific activities to passivly tracking 24 hours. Here is a not conclusive list of tracking tools you could use. But fill free to use your own tracking tool if you already using one:\nPlease check after a view days if the tracking is working properly. If you have any issues during installation or you are not able to track yourself after the installtion please get in contact with Nils or Dominic.\nIf, however, for privacy reasons, you dont want to use a Tracking App we can hand out a GPS tracker to you.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preparation Project</span>"
     ]
   },
   {
-    "objectID": "Intro/W0_2_preparations_project.html#option-1-tracking-app-posmo",
-    "href": "Intro/W0_2_preparations_project.html#option-1-tracking-app-posmo",
+    "objectID": "Intro/W0_2_preparations_project.html#option-1-tracking-app",
+    "href": "Intro/W0_2_preparations_project.html#option-1-tracking-app",
     "title": "Preparation Project",
     "section": "",
-    "text": "Figure 2.1: Flyer Project Bikeability",
+    "text": "Name\nTracking Type\nInformation\nCollect data\nExport data\n\n\n\n\nStrava\nper Activity\nLink\nLink\nLink\n\n\nPosmo\n24h Tracking\nLink\nLink\nLink\n\n\nKomoot\nper Activity\nLink\nLink\nLink\n\n\nGarmin + Watch\nper Activity\nLink\nLink\nLink\n\n\nGoogle Timeline\n24h Tracking\nLink\nLink\nLink",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preparation Project</span>"
     ]
@@ -124,7 +124,7 @@
     "href": "Intro/W0_2_preparations_project.html#option-2-gps-tracker",
     "title": "Preparation Project",
     "section": "Option 2: GPS Tracker",
-    "text": "Option 2: GPS Tracker\nYou can use a GPS tracker, provided by our research group. By using a GPS tracker all your data will stay with you locally.\nYou can get the tracker in our office GC 134 at the Campus Grüental, Wädenswil.\nPlease send us a quick E-Mail so we can arrange the handover of the GPS tracker.",
+    "text": "Option 2: GPS Tracker\nYou can use a GPS tracker, provided by our research group. By using a GPS tracker all your data will stay with you locally.\nThe drawback off this option is, that in order to retreave the data, you need to bring the tracker to us. Also more manual preprocessing is necessary when preparing your data for the project.\nIf you choose this option please send us a quick E-Mail so we can arrange the handover of the GPS tracker. You can get the tracker in our office GC 134 at the Campus Grüental, Wädenswil.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preparation Project</span>"
     ]
