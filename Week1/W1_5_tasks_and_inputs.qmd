@@ -10,7 +10,7 @@ Before starting with the task:
 
 1. Make sure you have read and followed the instructions in section [Preparation](#w0-preparation)
 2. In RStudio, open the RStudio Project you created for this week. You can see that you are in an RStudio Project if the project's name is visible next to the little RStudio logo in the top right corner of RStudio (otherwise it will read `Project: (None)`).
-3. Download the wildboar movement data here: [wildschwein_BE.csv](https://moodle.zhaw.ch/pluginfile.php/1168373/mod_folder/content/0/wildschwein_BE.csv?forcedownload=1)
+3. Download the wildboar movement data here: [wildschwein_BE.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125)
 
 ###### Once you have set everything up, commit your file to your git repo in the following manner: {#sec-commit}
 
@@ -204,7 +204,7 @@ Commit your changes as described in @nte-committing. Have a look at your commit 
 
 ### Input: Importing raster data {#w1-importing-raster}
 
-In the next task, we would like to add a background map to our `mcp` object. Download the file here: [pk100_BE.tif](https://moodle.zhaw.ch/pluginfile.php/1168373/mod_folder/content/0/pk100_BE.tif?forcedownload=1)
+In the next task, we would like to add a background map to our `mcp` object. Download the file here: [pk100_BE.tif](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125)
 To import the file into `R`, we use the package `terra` with the function `rast`.
 
 ```{r}

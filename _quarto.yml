@@ -43,26 +43,26 @@ book:
       #- Week1/W1_3_Slides.qmd
       - Week1/W1_4_preparation.qmd
       - Week1/W1_5_tasks_and_inputs.qmd
-      - Week1/W1_6_solutions.qmd
+      #- Week1/W1_6_solutions.qmd
     - part: Exercise 2 # Week2/W2_1_exercise.qmd <- delete this file?
       chapters:
       - Week2/W2_3_preparation.qmd
       - Week2/W2_4_demo_tidyverse.qmd
       - Week2/W2_5_tasks_and_inputs.qmd
-      - Week2/W2_6_solutions.qmd
+      #- Week2/W2_6_solutions.qmd
     - part: Exercise 3 # Week3/W3_1_exercise.qmd <- delete this file?
       chapters:
       #- Week3/W3_2_Slides.qmd
       - Week3/W3_3_preparation.qmd
       - Week3/W3_4_tasks_and_inputs.qmd
       #- Week3/W3_5_peer_feedback.qmd
-      - Week3/W3_5_solutions.qmd
+      #- Week3/W3_5_solutions.qmd
     - part: Exercise 4 # Week4/W4_1_exercise.qmd <- delete this file?
       chapters:
       #- Week4/W4_2_Slides.qmd
       - Week4/W4_3_preparation.qmd
       - Week4/W4_4_tasks_and_inputs.qmd
-      - Week4/W4_6_solutions.qmd
+      #- Week4/W4_6_solutions.qmd
     - part: Exercise 5 # Week5/W5_1_exercise.qmd <- delete this file?
       chapters:
       - Week5/W5_2_preparation.qmd

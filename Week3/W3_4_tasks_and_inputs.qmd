@@ -17,7 +17,7 @@ You've read @laube2011 about segmenting trajectories. In the paper, the authors 
 
 We will **demonstrate** implementing this method on the wild boar "Sabi", restricting ourselves to a couple of tracking days. Your task will be to understand this implementation and apply it to your own movement data. 
 
-Open the RStudio Project [you have prepared](#w3-preparation) for this week. Next, copy the wildboar data you downloaded last week (wildschwein_BE_2056.csv) to your project folder. If you cannot find this dataset on your computer, you can re-download it [here](https://moodle.zhaw.ch/pluginfile.php/1168373/mod_folder/content/0/wildschwein_BE_2056.csv?forcedownload=1)
+Open the RStudio Project [you have prepared](#w3-preparation) for this week. Next, copy the wildboar data you downloaded last week (wildschwein_BE_2056.csv) to your project folder. If you cannot find this dataset on your computer, you can re-download it [here](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125)
 
 ```{r}
 #| echo: true
@@ -242,7 +242,7 @@ p1 / p2 + patchwork::plot_annotation(title = "Moving segments coloured by segmen
 
 ### Task 5: Similarity measures 
 
-We will now calculate similarties between trajectories using a new dataset [pedestrian.csv](https://moodle.zhaw.ch/pluginfile.php/1168373/mod_folder/content/0/pedestrian.csv?forcedownload=1). Download an import this dataset as a `data.frame` or `tibble`. It it a set of six different but similar trajectories from pedestrians walking on a path. 
+We will now calculate similarties between trajectories using a new dataset [pedestrian.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125). Download an import this dataset as a `data.frame` or `tibble`. It it a set of six different but similar trajectories from pedestrians walking on a path. 
 
 For this task, explore the trajectories first and get an idea on how the pedestrians moved. 
 
