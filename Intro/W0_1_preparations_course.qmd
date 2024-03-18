@@ -68,6 +68,9 @@ p_install("tidyr", force = FALSE)
 p_install("sf", force = FALSE)
 p_install("terra", force = FALSE)
 p_install("tmap", force = FALSE)
+p_install("zoo", force = FALSE)
+p_install("plotly", force = FALSE)
+p_install("patchwork", force = FALSE)
 ```
 
 ## Install Git{#install-git}
@@ -136,7 +139,7 @@ Replace the name and email with your credentials. **Use the email address that y
 :::{.callout-note}
 ## Users who already have a Github account
 
-If you already have a Github account (e.g. for work) and don't want your GitHub activities from our course associated with your existing account, we recommend you create *a new Github account with your student mail address* (`username@students.zhaw.ch`/`username@uzh.ch`). If you know that the laptop you are currently using is only for student work, you can set your `user.email` to your student mailadress. However, if you expect to work with both GitHub accounts with your current laptop, you have to set `user.email` on a *per project* basis (by omitting the `--global` flag).
+If you already have a Github account (e.g. for work) and don't mind using this account for the tasks in this course, you are free to use this existing account. However, if you don't want to mix these activities, we recommend you create *a new Github account with your student mail address* (`username@students.zhaw.ch`/`username@uzh.ch`). If you know that the laptop you are currently using is only for student work, you can set your `user.email` to your student mailadress. However, if you expect to work with both GitHub accounts with your current laptop, you have to set `user.email` on a *per project* basis (by omitting the `--global` flag).
 
 **Please feel free to contact us if you have questions about this.**
 

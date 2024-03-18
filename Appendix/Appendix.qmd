@@ -1,0 +1,12 @@
+
+
+## base-R import fuctions vs `readr`{#sec-readr}
+
+Our reasons for preferring `readr` over base-R import functions:
+
+1. ~~base `R` imports strings as factors by default~~ (since R 4.0.0, this is not the case anymore)
+2. `readr` is generally faster (which only matters if you have a large dataset)
+3. `readr` makes safer assumptions about your data (e.g. the default timezone for datetime columns is UTC)
+4. `data.frames` created by `readr` are prettier when printed to the console and contain more information using less characters
+
+**HOWEVER**: Using external libraries (such as `readr`) creates additional dependencies which has it's own downsides (which is one of the reasons we don't do `library("tidyverse")`). 

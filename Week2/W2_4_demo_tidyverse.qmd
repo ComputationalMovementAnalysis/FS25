@@ -5,7 +5,7 @@ format:
       source: true
 ---
 
-## Toolskit Demo
+## Toolkit Demo
 
 Download this Demoscript via "\</\>Code" (top right)
 
