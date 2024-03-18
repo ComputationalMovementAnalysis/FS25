@@ -69,4 +69,7 @@ book:
       - Week5/W5_3_tasks_and_inputs.qmd
       #- Week5/W5_4_solutions.qmd
     - 90_references.qmd
+    - part: Appendix
+      chapters: 
+        - Appendix/Appendix.qmd
 
