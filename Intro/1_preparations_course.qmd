@@ -69,6 +69,7 @@ p_install("sf", force = FALSE)
 p_install("terra", force = FALSE)
 p_install("tmap", force = FALSE)
 p_install("zoo", force = FALSE)
+p_install("units", force = FALSE)
 p_install("plotly", force = FALSE)
 p_install("patchwork", force = FALSE)
 ```
