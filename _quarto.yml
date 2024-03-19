@@ -38,37 +38,38 @@ book:
     - index.qmd
     - Intro/1_preparations_course.qmd
     - Intro/2_preparations_project.qmd
-    - part: Exercise 1 # Week1/1_exercise.qmd <- delete this file?
+    - part: Exercise 1
       chapters:
       - Week1/4_preparation.qmd
       - Week1/5_tasks_and_inputs.qmd
       #- Week1/6_solutions.qmd
-    - part: Exercise 2 # Week2/1_exercise.qmd <- delete this file?
+    - part: Exercise 2 
       chapters:
-      - Week2/3_preparation.qmd
+      # - Week2/3_preparation.qmd
       - Week2/4_demo_tidyverse.qmd
       - Week2/5_tasks_and_inputs.qmd
       #- Week2/6_solutions.qmd
-    - part: Exercise 3 # Week3/1_exercise.qmd <- delete this file?
+    - part: Exercise 3 
       chapters:
       - Week3/3_preparation.qmd
       - Week3/4_tasks_and_inputs.qmd
       #- Week3/5_peer_feedback.qmd
       #- Week3/5_solutions.qmd
-    - part: Exercise 4 (new)
+    - part: Exercise 4 (WIP ⚠️)
       chapters: 
-        - Week4_new/1_preperation.qmd
-        - Week4_new/2_exercise_A.qmd
-        - Week4_new/3_exercise_B.qmd
-    - part: Exercise 5 # Week4/1_exercise.qmd <- delete this file?
+        - Week4/1_preperation.qmd
+        - Week4/2_exercise_A.qmd
+        - Week4/3_exercise_B.qmd
+        - Week4/4_exercise_C.qmd
+    - part: Exercise 5 
       chapters:
-      - Week4/3_preparation.qmd
-      - Week4/4_tasks_and_inputs.qmd
+      - Week5/3_preparation.qmd
+      - Week5/4_tasks_and_inputs.qmd
       #- Week4/6_solutions.qmd
-    - part: Exercise 6 # Week5/1_exercise.qmd <- delete this file?
+    - part: Exercise 6 
       chapters:
-      - Week5/2_preparation.qmd
-      - Week5/3_tasks_and_inputs.qmd
+      - Week6/2_preparation.qmd
+      - Week6/3_tasks_and_inputs.qmd
       #- Week5/4_solutions.qmd
     - 90_references.qmd
     - part: Appendix
