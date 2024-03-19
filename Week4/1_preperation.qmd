@@ -4,6 +4,14 @@ This week, we are going to leverage Git by connecting it to an online repository
 
 ### Install Git{#install-git}
 
+
+:::{.callout-note}
+
+Much of this chapter was taken from @bryan2021. If you want to dive deeper into using Git, we highly recommend this book. For an *even* deeper dive into Git, read @chacon2014. Both books are available free and open source on [happygitwithr.com](https://happygitwithr.com/) and [git-scm.com/book](https://git-scm.com/book/), respectively.
+
+:::
+
+
 Git is a software dedicated to tracking changes in text files (e.g. R scripts). It's heavily used in the software industry as well as in the field of data science. In this course, we will teach use the basic functionalities of Git and combine it with the online portal Github.
 
 Therefore, the next step is to install Git. There are different Git installers to choose from, we recommend the following:
@@ -15,7 +23,7 @@ Therefore, the next step is to install Git. There are different Git installers t
 
   - We recommend installing [Git for Windows](https://gitforwindows.org/), also known as `msysgit` or “Git Bash". 
   - When asked about “Adjusting your PATH environment”, select “Git from the command line and also from 3rd-party software”
-  - RStudio prefers Git to be installed in `C:/Program Files/Git`, we recommend following this convention
+  - RStudio prefers Git to be installed in `C:\Program Files\Git`, we recommend following this convention
   - Otherwise, we believe it is good to accept the defaults
 
 ## macOS
@@ -33,20 +41,33 @@ Therefore, the next step is to install Git. There are different Git installers t
 :::
 
 
+## Change RStudio Settings
 
-Much of this chapter was taken from @bryan2021. If you want to dive deeper into using Git, we highly recommend this book. For an *even* deeper dive into Git, read @chacon2014. Both books are available free and open source on [happygitwithr.com](https://happygitwithr.com/) and [git-scm.com/book](https://git-scm.com/book/), respectively.
+Now, **restart RStudio**. Then, go to *Tools → Global options → Git / SVN*.
+
+- Activate the option "*Enable version control interface for RStudio projects*"
+- If the Field "*Git executable*:" shows `(Not Found)`, browse to your git installation from the [previous step](install-git).
+- This path should look something like this:
+  - Windows: `C:\Program Files\Git\bin\git.exe` (**not** `C:\Program Files\Git\cmd\git.exe` or `some-path\git-bash.exe`)
+  - Linux / macOS: `/usr/bin/git`
 
 
-### Create a Github account
 
-**Typically, you do this once (in a lifetime)**
+### Create a Github account{#sec-create-github}
 
-Last week, you worked with git on your local machine, with no way of synchronising your changes with a cloud server. This week you will use Github to sync your changes. To do this, create a Github account on [github.com](https://github.com/) (it's free of course). Use the email address that you [configured in git last week](#introduce-yourself-git). If you are not sure which mail you used, type `git config user.email` in the shell terminal. 
-
-You don't have to use the same username on Github and in Git. When choosing a username on Github, consider the following advice: 
+Create a Github account on [github.com](https://github.com/) (it's free of course). We recommend you use your students email address. When choosing a username on Github, consider the following advice: 
 
 - incorporating your actual name is nice, people like to know who they are dealing with
 - choose a name that you are comfortable revealing it to a future boss
 - shorter is better than longer
 - make it timeless (e.g. don't incorporate your university's name)
 
+
+
+:::{#nte-github1 .callout-note}
+## Users who already have a Github account
+
+If you already have a Github account (e.g. for work) and don't mind using this account for the tasks in this course, you are free to use this existing account. However, if you don't want to mix these activities, we recommend you *create a new Github account with your student mail address*. 
+
+
+:::

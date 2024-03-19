@@ -55,7 +55,7 @@ In the course, we will be needing several packages. Save time during the course 
 install.packages("pacman")
 ```
 
-However, the function `install.packages` does not check whether you already have the package installed. If you only want to install missing packages, you can use the function `p_install` from the package `pacman`.
+However, the function `install.packages` does not check whether you already have the package installed. If you only want to install missing packages, you can use the function `p_install` with the option `force = FALSE` (from the package `pacman`).
 
 ```{r}
 
@@ -76,50 +76,20 @@ p_install("patchwork", force = FALSE)
 
 ## Configure RStudio{#configure-rstudio}
 
-Now we will set some RStudio Global options. But first, **close all instances of RStudio and restart it (!!!)**. Then go to Tools > Global options. 
+Now we will set some RStudio Global options. Go to *Tools → Global options*. 
 
 - **R General**
-  - Deactivate the option "Restore .RData into workspace at startup"[^restore]
-  - Set "Save workspace to .RData on exit " to "Never"[^saveworkspace]
+  - Deactivate the option "*Restore .RData into workspace at startup*"[^restore]
+  - Set "*Save workspace to .RData on exit*" to "*Never*"[^saveworkspace]
 - **Code**
-  - Activate the option "Use native pipe operator, |> (requires R 4.1+)"
+  - Activate the option "*Use native pipe operator, |> (requires R 4.1+)*"[^pipe]
 - **R Markdown**
-  - Deactivate the option "Show output inline for all R Markdown documents"
-<!-- - **Git / SVN**
-  - Activate the option "Enable version control interface for RStudio projects"
-  - If the Field "Git executable:" shows `(Not Found)`, browse to your git installation (previous step). This path should look something like this:
-    - Windows: `C:/Program Files/Git/bin/git.exe` (**not** `C:/Program Files/Git/cmd/git.exe` or `some-path/git-bash.exe`)
-    - Linux / macOS: `/usr/bin/git` -->
-- **Terminal**
-  - Set option "New terminals open with" to "Git Bash" 
+  - Deactivate the option "*Show output inline for all R Markdown documents*"
+
+
   
 Click on "Ok" to apply the change and close the options menu.
 
 [^restore]: We recommend that you start each RStudio session with a blank slate, as recommended by @wickham2017 see [here](https://r4ds.had.co.nz/workflow-projects.html)
 [^saveworkspace]: If we don't restore the workspace at startup, there is no need to save it on exit.
-
-## Introduce yourself to Git{#introduce-yourself-git}
-
-Now it is time to introduce yourself to git. For this, we need to use the shell terminal, which is why we are going to spend a few word on the shell first. 
-
-The shell is a program on your computer whose job is to run other programs. It looks very much like the `R`-console (in the bottom left of RStudio) that you are already know: You have a place to input text which is transferred to (and interpreted by) the computer when you press "enter". RStudio has a shell terminal right next to the `R`-console (tab `Terminal`).
-
-Every Windows comes with two different shell installations: "Command prompt" and "PowerShell". After installing Git we now have a third option, "Git Bash". The shell terminal in RStudio uses "Command prompt" per default, in [the last step](#configure-rstudio) we just switched the shell to "Git Bash".
-
-Now use the terminal in RStudio to introduce yourself:
-
-```{#lst-git-settings .bash lst-cap="Setting your git user.name and user.email"}
-git config --global user.name "Maria Nusslinger"   # proper name or a pseudonym
-git config --global user.email "nussmar@email.com" # your student mailadress 
-```
-
-Replace the name and email with your credentials. **Use the email address that you will use to create your Git*Hub* account** (which we will do later in the course). We propose using your student mail address, you can always change this later. The `user.email` settings is
-
-:::{.callout-note}
-## Users who already have a Github account
-
-If you already have a Github account (e.g. for work) and don't mind using this account for the tasks in this course, you are free to use this existing account. However, if you don't want to mix these activities, we recommend you create *a new Github account with your student mail address* (`username@students.zhaw.ch`/`username@uzh.ch`). If you know that the laptop you are currently using is only for student work, you can set your `user.email` to your student mailadress. However, if you expect to work with both GitHub accounts with your current laptop, you have to set `user.email` on a *per project* basis (by omitting the `--global` flag).
-
-**Please feel free to contact us if you have questions about this.**
-
-:::
+[^pipe]: Our group has adapted the native pipe operator `|>` to reduce package dependencies. If you use the `magrittr` pipe `%>%` and would like to stick to it, feel free. 

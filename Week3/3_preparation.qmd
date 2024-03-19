@@ -35,7 +35,7 @@ To see the "Git" Pane in RStudio, reload RStudio either by restarting it or clic
 
 Now create a Github Repository following the instructions from [last week](#create-github-repo). This time however, don't check `Add a README file`.
 
-Copy the https URL to your Github repo, which should look something like this: `https://github.com/YOUR-GITHUB-USERNAME/cma-week3.git`
+Copy the https URL to your Github repo, which should look something like this: `https://github.com/GITHUB-USERNAME/cma-week3.git`
 
 :::{.callout-important}
 Report the URL of your new repo back to us via Moodle!
@@ -46,7 +46,7 @@ Report the URL of your new repo back to us via Moodle!
 To connect your (local) RStudio Project to Github, we have to set up our Github repo to be our so called "*remote*" repository. We could have multiple *remotes*, which is why we need to name it, and the convention is to call it `origin`. To create a *remote* named `origin`, type the following command in your shell terminal:
 
 ```
-git remote add origin https://github.com/YOUR-GITHUB-USERNAME/cma-week3.git
+git remote add origin https://github.com/GITHUB-USERNAME/cma-week3.git
 ```
 
 
