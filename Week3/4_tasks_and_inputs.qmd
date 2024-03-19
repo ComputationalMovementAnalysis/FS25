@@ -116,11 +116,12 @@ sabi_filter |>
 
 ### Preperation
 
-With the skills from the input above you can now implement the segmentation algorithm described in @laube2011 to your own movement data. Grab your data from last week (or get the most current data from your posmo interface or tracker device) and import it as `data.frame`. Add this data to the .gitignore file to prevent it from being uploaded to GitHub.
+With the skills from the input above you can now implement the segmentation algorithm described in @laube2011 to your own movement data. Export your data from your provider and import is as a `data.frame` in R. 
 
 ```{r}
 #| echo: true
 #| message: false
+#| eval: false
 
 library("readr")
 library("sf")
@@ -136,6 +137,7 @@ As before, we will calculate the euclidean distance "by hand". This means we nee
 
 ```{r}
 #| echo: true
+#| eval: false
 
 posmo <- st_as_sf(posmo, coords = c("lon_x","lat_y"), crs = 4326) |>
   st_transform(2056)
@@ -147,6 +149,7 @@ To be able to compute euclidean distances by hand, we need the coordinates store
 
 ```{r}
 #| echo: true
+#| eval: false
 
 posmo_coordinates <- st_coordinates(posmo)
 
@@ -157,6 +160,7 @@ posmo <- cbind(posmo, posmo_coordinates)
 Explore your data and choose a single day for the next steps.
 
 ```{r}
+#| eval: false
 
 posmo_filter <- posmo |>
     filter(as.Date(datetime) == "2023-03-23")
@@ -173,6 +177,7 @@ Now, you can implement steps a) b) and c), which you had used with sabi, on on y
 #| file: "solutions/week3/task_1.R"
 #| echo: false
 #| include: false
+#| eval: false
 
 ```
 
@@ -188,6 +193,7 @@ Commit your changes with a meaningful commit message.
 #| file: "solutions/week3/task_2.R"
 #| echo: false
 #| include: false
+#| eval: false
 
 ```
 
@@ -200,6 +206,7 @@ Commit your changes with a meaningful commit message.
 ```{r}
 #| file: "solutions/week3/task_3.R"
 #| echo: false
+#| eval: false
 
 ```
 
@@ -230,11 +237,13 @@ head(posmo_filter)
 #| file: "solutions/week3/task_4.R"
 #| echo: false
 #| include: false
+#| eval: false
 
 ```
 
 ```{r}
 #| echo: false
+#| eval: false
 
 library("patchwork")
 p1 / p2 + patchwork::plot_annotation(title = "Moving segments coloured by segment ID")
@@ -251,6 +260,7 @@ Commit your changes with a meaningful commit message.
 ```{r}
 #| file: "solutions/week3/task_5.R"
 #| echo: false
+#| eval: false
 
 ```
 
@@ -270,9 +280,7 @@ Commit your changes with a meaningful commit message. Now push all your changes 
 ```{r}
 #| file: "solutions/week3/task_6.R"
 #| echo: false
+#| eval: false
 
 ```
 
-### Submission
-
-To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#create-github-repo-2).

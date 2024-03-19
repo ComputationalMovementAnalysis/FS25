@@ -1,0 +1,95 @@
+# Preparation Course {#w0-preparation}
+
+In this course we will be using R, RStudio and Git. We ask you to install and/or update these programs *before* the start of the course, so that we do not loose time once the course starts. In this chapter, we cover the course requirements and some tips on how you should change your RStudio settings. 
+
+```{r}
+#| echo: false
+#| include: false
+
+library("rversions")
+library("lubridate")
+
+rv <- rversions::r_release()
+rv
+
+rve <- strsplit(as.character(base::getRversion()), "\\.")[[1]]
+
+rversion_minimal <- function(version_string){
+  version_int <- as.integer(strsplit(version_string, "\\.")[[1]])
+  paste(version_int[1], ifelse(version_int[2] == 0, version_int[2], version_int[2]-1), 0,sep = ".")
+}
+
+heute <- paste(month(Sys.Date(), TRUE, FALSE, "C"), year(Sys.Date()), sep = ", ")
+```
+
+## Install or update R (not RStudio)
+
+If you haven't installed R yet, do so now by getting the newest version from [CRAN](https://cran.r-project.org/). If you do have R installed, check your Version of `R` by opening RStudio and typing the following command into the console. 
+
+```{r}
+R.version.string
+```
+
+This returns the version number of your R installation, whereas the first digit (``r rve[1]``) indicates the number of the *major release*, the second digit  (``r rve[2]``) indicates the *minor release* and the last digit (``r rve[3]``) refers to the *patch release*. As a general rule of thumb, you will want to update R if you
+
+- don't have the current *major* version or
+- are lagging two (or more) versions behind the current *minor release*
+
+In the time of writing (`r heute`), the current `R` Version is `r rv$version` (released on `r strftime(rv$date, "%d.%m.%Y")`, see [cran.r-project.org](https://cran.r-project.org/)). Your installation should therefore not be older than `r rversion_minimal(rv$version)`.
+
+If your current installation is older, make sure that you have updated R before the course. Check [these instructions on how to update R](https://www.linkedin.com/pulse/3-methods-update-r-rstudio-windows-mac-woratana-ngarmtrakulchol/)
+
+## Install or update RStudio
+
+RStudio is the IDE (integrated development environment) we use in our course to interact with R. There are good alternatives you can use, RStudio simply seems to be [the most popular choice](https://twitter.com/mdancho84/status/1502237075550392323). If you want to use your own IDE, please feel free to do so. However, we don't recommend this if you are a beginner.
+
+We recommend updating RStudio to the newest version before the course: check if this is the case by clicking on *help > check for updates*. 
+
+## Install the necessary packages
+
+In the course, we will be needing several packages. Save time during the course by installing these upfront! The classical way to install a package (e.g. `pacman`) is as follows:
+
+```{r}
+#| eval: false 
+
+install.packages("pacman")
+```
+
+However, the function `install.packages` does not check whether you already have the package installed. If you only want to install missing packages, you can use the function `p_install` with the option `force = FALSE` (from the package `pacman`).
+
+```{r}
+
+library("pacman")
+
+p_install("dplyr", force = FALSE)
+p_install("ggplot2", force = FALSE)
+p_install("readr", force = FALSE)
+p_install("tidyr", force = FALSE)
+p_install("sf", force = FALSE)
+p_install("terra", force = FALSE)
+p_install("tmap", force = FALSE)
+p_install("zoo", force = FALSE)
+p_install("plotly", force = FALSE)
+p_install("patchwork", force = FALSE)
+```
+
+
+## Configure RStudio{#configure-rstudio}
+
+Now we will set some RStudio Global options. Go to *Tools → Global options*. 
+
+- **R General**
+  - Deactivate the option "*Restore .RData into workspace at startup*"[^restore]
+  - Set "*Save workspace to .RData on exit*" to "*Never*"[^saveworkspace]
+- **Code**
+  - Activate the option "*Use native pipe operator, |> (requires R 4.1+)*"[^pipe]
+- **R Markdown**
+  - Deactivate the option "*Show output inline for all R Markdown documents*"
+
+
+  
+Click on "Ok" to apply the change and close the options menu.
+
+[^restore]: We recommend that you start each RStudio session with a blank slate, as recommended by @wickham2017 see [here](https://r4ds.had.co.nz/workflow-projects.html)
+[^saveworkspace]: If we don't restore the workspace at startup, there is no need to save it on exit.
+[^pipe]: Our group has adapted the native pipe operator `|>` to reduce package dependencies. If you use the `magrittr` pipe `%>%` and would like to stick to it, feel free. 

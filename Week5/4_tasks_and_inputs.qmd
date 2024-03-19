@@ -131,17 +131,7 @@ Note: if you treat your input variables as vectors, they will work in `dplyr`s `
 
 In the next tasks we will look for "meet" patterns in our wildboar data. To simplify this, we will only use a subset of our wildboar data: The individuals *Rosa* and *Sabi* for the timespan *01.04.2015 - 15.04.2015*. You can download the dataset here [wildschwein_BE_2056.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125) and filter it with the aforementioned criteria. 
 
-Remember to load the necessary libraries first! We propose the following:
 
-```{r}
-#| echo: true
-#| results: "hide"
-
-library("readr")
-library("dplyr")
-library("ggplot2")
-library("lubridate")
-```
 
 ```{r}
 #| file: "solutions/week4/task_2.R"
@@ -210,3 +200,15 @@ Finally, you can nicely visualize the meeting patterns and trajectories in a Spa
 #| include: false
 
 ```
+
+
+### Submission
+
+To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#create-github-repo).
+
+You can give other GitHub users write access to your repository throught the repository settings. You will be needing this for your semester project. To practice this, add Dominik ([\@DLND8](https://github.com/DLND8/)) and Nils ([\@ratnanil](https://github.com/ratnanil/)) to your GitHub repo: 
+
+1. Go to your GitHub repository on GitHub.com
+2. Go to the repository settings by clicking on the *Settings* tab
+3. In the left panel, click on *Collaborators and teams* and then *Add people*
+4. Add the mentioned Persons via their GitHub Usernames, give them *Write* privilages. 

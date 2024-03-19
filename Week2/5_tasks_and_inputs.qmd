@@ -1,26 +1,10 @@
 ## Tasks and Inputs
 
-```{r}
-#| include: false
-
-# source("01_R_Files/helperfunctions.R")
-```
 
 - Open the RStudio Project you created [in preparation](#w2-preparation) to this exercise
 - Download the new wildboar movement data, and save it to your new project's directory [wildschwein_BE_2056.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125)
 
-###### Once you have set everything up, commit your file to your git repo in the following manner: {#sec-commit2}
 
-:::{.callout-note}
-## Committing files with git
-
-1. Save your (R/RMarkdown/Quarto) file
-2. Switch to the "Git"-Tab in the pane in the top right corner
-3. Click "commit" to open the "Commit Window"
-4. Click in the checkbox next to the file(s) you want to commit
-5. Add a commit message to explain what you are committing (e.g. "`initial commit`")
-6. Click on "commit" to commit your changes
-:::
 
 To push your changes from our local repo on your computer to the remote repo on Github, simply click the green button "Push" in the Git tab in RStudio. Now take a look at your repository on github.com. Do you see the new files there? Contact us if this does not work.
 
@@ -28,7 +12,7 @@ To push your changes from our local repo on your computer to the remote repo on 
 
 ### Task 1: Import your data {#sec-w2-task1}
 
-Create a new R- (or RMarkdown/Quarto-) file and begin with the following lines of code (adjust the path to your csv file accordingly).
+Create a new R-file and import the wildboar data.
 
 ```{r}
 #| file: "solutions/week2/task_1.R"
@@ -58,7 +42,6 @@ Now inspect your data in more detail. Try to answer the following questions:
 - Were all individuals tracked concurrently or sequentially? 
 - What is the temporal sampling interval between the locations?
 
-After completing the task, commit your changes to git using a good commit message (e.g. `completed task 1`).
 
 <!-- Here are some exemplary visualisation you could produce to answer these questions. Can you now answer the above questions? -->
 
@@ -88,7 +71,6 @@ You can calculate the Euclidean distance with the following formula: $$\text{dis
 
 Now calculate the animals' speed between consecutive locations based on `steplength` and the `timelag` (from the last task). What speed unit do you get?
 
-After completing the task, commit your changes to git using a good commit message.
 
 ```{r}
 #| file: "solutions/week2/task_3.R"
@@ -130,7 +112,6 @@ nrow(caro_9)
 
 Now calculate `timelag`, `steplength` and `speed` for these data sets, just as you did in the [last task](#sec-w2-task3). To finish the task, compare the speeds visually in a line plot and also visualize the trajectories in a map (see examples below). Interpret the line plot, what do the different lines for the different temporal granularities tell you?
 
-After completing the task, commit your changes to git using a good commit message.
 
 ```{r}
 #| file: "solutions/week2/task_4.R"
@@ -153,7 +134,6 @@ rollmean(example, k = 4, fill = NA, align = "left")
 ```
 
 Now run `rollmean`on the `speed` variable of the subset (`caro`). Visualize the output from your moving windows and compare different window sizes (`k = `).
-After completing the task, commit your changes to git using a good commit message. **Additionally**, push all your commits to your remote repository on Github by clicking the green upwards pointing arrow in the Git pane in RStudio.
 
 ```{r}
 #| file: "solutions/week2/task_5.R"
@@ -192,13 +172,4 @@ Now, import your data in the same way you imported the the wild boar data in [ta
 - Convert your data to `CH1903+ LV95`
 - Make a map of your data using `ggplot2` or `tmap`.
 
-### Submission
 
-To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#create-github-repo).
-
-You can give other GitHub users write access to your repository throught the repository settings. You will be needing this for your semester project. To practice this, add Dominik ([\@DLND8](https://github.com/DLND8/)) and Nils ([\@ratnanil](https://github.com/ratnanil/)) to your GitHub repo: 
-
-1. Go to your GitHub repository on GitHub.com
-2. Go to the repository settings by clicking on the *Settings* tab
-3. In the left panel, click on *Collaborators and teams* and then *Add people*
-4. Add the mentioned Persons via their GitHub Usernames, give them *Write* privilages. 

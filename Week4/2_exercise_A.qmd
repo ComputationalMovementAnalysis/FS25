@@ -1,0 +1,54 @@
+# Git 
+
+## Working in the shell / terminal
+
+
+To use git, we will have to use the shell, which is why we are going to spend a few word on the shell first. 
+
+The shell is a program on your computer whose job is to run other programs. It looks very much like the `R`-console (in the bottom left of RStudio) that you are already know: You have a place to input text which is transferred to (and interpreted by) the computer when you press "enter". RStudio has a shell terminal right next to the `R`-console (tab `Terminal`).
+
+Every Windows comes with two different shell installations: "Command prompt" and "PowerShell". After installing Git we now have a third option, "Git Bash". Let's configure RStudio to use "Git Bash" as the default shell. Go to *Tools → Global options → Terminal* and set option "*New terminals open with*" to "*Git Bash*".
+
+
+## Introduce yourself to Git{#introduce-yourself-git}
+
+*Typically, you do this once (per computer)*
+
+Use the terminal in RStudio to introduce yourself:
+
+```{#lst-git-settings .bash lst-cap="Setting your git user.name and user.email"}
+git config --global user.name "Maria Nusslinger"   # proper name or a pseudonym
+git config --global user.email "nussmar@email.com" # your student mailadress 
+```
+
+Replace the name and email with your credentials. **Use the email address that you used to create your Git*Hub* account** (see @sec-create-github) . We propose using your student mail address, you can always change this later. 
+
+:::{#nte-github2 .callout-note}
+## Users who already have a Github account
+
+If you have multiple GitHub accounts (see @nte-github1) and you know that the laptop you are currently using is only for student work, you can set your `user.email` to your student mailadress. However, if you expect to work with both GitHub accounts with your current laptop, you have to set `user.email` on a *per project* basis (by omitting the `--global` flag).
+
+**Please feel free to contact us if you have questions about this.**
+
+:::
+
+
+## Initialize Git Version Control 
+
+Open the project from last week. Initialize Git Version control on this project by opening the terminal and typing the following:
+
+```bash
+git init
+```
+
+Now restart RStudio
+
+
+## Tracking changes with Git
+
+
+:::{.callout-important}
+
+## WIP ⚠️
+
+:::

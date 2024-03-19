@@ -36,37 +36,43 @@ book:
   repo-actions: [edit]
   chapters:
     - index.qmd
-    - Intro/W0_1_preparations_course.qmd
-    - Intro/W0_2_preparations_project.qmd
-    - part: Exercise 1 # Week1/W1_1_exercise.qmd <- delete this file?
+    - Intro/1_preparations_course.qmd
+    - Intro/2_preparations_project.qmd
+    - part: Exercise 1
       chapters:
-      #- Week1/W1_3_Slides.qmd
-      - Week1/W1_4_preparation.qmd
-      - Week1/W1_5_tasks_and_inputs.qmd
-      #- Week1/W1_6_solutions.qmd
-    - part: Exercise 2 # Week2/W2_1_exercise.qmd <- delete this file?
+      - Week1/4_preparation.qmd
+      - Week1/5_tasks_and_inputs.qmd
+      #- Week1/6_solutions.qmd
+    - part: Exercise 2 
       chapters:
-      - Week2/W2_3_preparation.qmd
-      - Week2/W2_4_demo_tidyverse.qmd
-      - Week2/W2_5_tasks_and_inputs.qmd
-      #- Week2/W2_6_solutions.qmd
-    - part: Exercise 3 # Week3/W3_1_exercise.qmd <- delete this file?
+      # - Week2/3_preparation.qmd
+      - Week2/4_demo_tidyverse.qmd
+      - Week2/5_tasks_and_inputs.qmd
+      #- Week2/6_solutions.qmd
+    - part: Exercise 3 
       chapters:
-      #- Week3/W3_2_Slides.qmd
-      - Week3/W3_3_preparation.qmd
-      - Week3/W3_4_tasks_and_inputs.qmd
-      #- Week3/W3_5_peer_feedback.qmd
-      #- Week3/W3_5_solutions.qmd
-    - part: Exercise 4 # Week4/W4_1_exercise.qmd <- delete this file?
+      - Week3/3_preparation.qmd
+      - Week3/4_tasks_and_inputs.qmd
+      #- Week3/5_peer_feedback.qmd
+      #- Week3/5_solutions.qmd
+    - part: Exercise 4 (WIP ⚠️)
+      chapters: 
+        - Week4/1_preperation.qmd
+        - Week4/2_exercise_A.qmd
+        - Week4/3_exercise_B.qmd
+        - Week4/4_exercise_C.qmd
+    - part: Exercise 5 
       chapters:
-      #- Week4/W4_2_Slides.qmd
-      - Week4/W4_3_preparation.qmd
-      - Week4/W4_4_tasks_and_inputs.qmd
-      #- Week4/W4_6_solutions.qmd
-    - part: Exercise 5 # Week5/W5_1_exercise.qmd <- delete this file?
+      - Week5/3_preparation.qmd
+      - Week5/4_tasks_and_inputs.qmd
+      #- Week4/6_solutions.qmd
+    - part: Exercise 6 
       chapters:
-      - Week5/W5_2_preparation.qmd
-      - Week5/W5_3_tasks_and_inputs.qmd
-      #- Week5/W5_4_solutions.qmd
+      - Week6/2_preparation.qmd
+      - Week6/3_tasks_and_inputs.qmd
+      #- Week5/4_solutions.qmd
     - 90_references.qmd
+    - part: Appendix
+      chapters: 
+        - Appendix/Appendix.qmd
 
