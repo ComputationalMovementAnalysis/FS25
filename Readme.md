@@ -22,14 +22,6 @@ quarto publish --no-prompt gh-pages
 
 # Todos (FS23)
 
-- consider shifting the git stuff by a one week increment
-  - do the first week without git
-  - Install git before week 2
-  - do the input on "why git" in week 2
-  - work with a local git repo in week 2
-  - submit the solution to week 2 without github
-  - get a github account before week 3
-  - work with github in week 3
 - consider moving `sf` and `terra` into later weeks...
 - if we use utterances, everyone needs to subscribe to the repo
 - In Week 2
