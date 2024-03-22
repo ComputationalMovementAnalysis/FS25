@@ -144,6 +144,8 @@ First: add a grouping variable to the `sf` object. Note the new grouping variabl
 ```{r}
 #| echo: true
 
+library("dplyr")
+
 wildschwein_BE_grouped <- group_by(wildschwein_BE, TierID)
 
 wildschwein_BE_grouped
