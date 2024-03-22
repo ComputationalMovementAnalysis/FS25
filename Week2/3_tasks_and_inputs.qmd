@@ -47,10 +47,9 @@ Now inspect your data in more detail. Try to answer the following questions:
 
 ```
 
-### Task 3: Deriving *Speed* {#sec-w2-task3}
+### Task 3: Deriving distance & speed {#sec-w2-task3}
 
-In this task we will derive some additional movement parameters from our trajectories. So far our trajectories only consist of a list of time-stamped spatial locations. So let's calculate the animal's steplength based on the Euclidean distance between subsequent locations. You can calculate the distance between two points using the function `st_distance()` with the option `by_element = TRUE`.
-
+In this task we will derive some additional movement parameters from our trajectories. So far our trajectories only consist of a list of time-stamped spatial locations. First let's calculate the Euclidean distance between subsequent locations using the function `st_distance()` with the option `by_element = TRUE`. Store these values in a new column with the name `steplength`.
 Next, you can calculate the animals' speed based on `steplength` and the `timelag` (from the last task).
 
 
@@ -73,7 +72,7 @@ Luckily, we are working with cartesian coordinates and so can create our own dis
 
 ### Task 4: *Speed* at different scales {#sec-w2-task4}
 
-In preperation, you've read the paper by @laube2011. In this paper, they analyse speed (and other movement patterns) at different scales and compare these. Let's reproduce what was done in the paper with cows to data of a moving wildboar named *Caro*. Download this dataset here: [caro60.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125). This dataset includes 200 locations of a single wild boar with a constant sampling interval of 60 seconds. Import it just like you imported the other wild boar data and save it to a new variable named `caro` (note that the locations are stored in EPSG 2056).
+In preperation, you've read the paper by @laube2011. In this paper, they analyse speed at different scales and compare these. Let's reproduce what was done in the paper with cows to data of a moving wildboar named *Caro*. Download this dataset here: [caro60.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125). This dataset includes 200 locations of a single wild boar with a constant sampling interval of 60 seconds. Import it just like you imported the other wild boar data and save it to a new variable named `caro` (note that the locations are stored in EPSG 2056).
 
 
 
@@ -84,7 +83,34 @@ In preperation, you've read the paper by @laube2011. In this paper, they analyse
 Black points are used in calculation of movement parameters (e.g. speed) at a given termporal scale (from @laube2011)
 :::
 
-@fig-laube2011 shows how speed was calulated at three different scales. Let's look at scale 1 first, where every location is included. For our data, this would mean a sampling window $w$ of 120 seconds. The speed for a given sample (i.e. location) $t$ is the time difference between...
+@fig-laube2011 shows how speed was calulated at three different scales. Let's look at scale 1 first, where every location is included. For our data, this would mean a sampling window $w$ of 120 seconds. The speed for a given sample (i.e. location) $t_{x}$ is the time difference between $t_{x-1}$ and $t_{x+1}$ divided by the distance  $t_{x-1}$ to  $t_{x+1}$ via  $t_{x}$.
+
+```{r}
+#| echo: false
+#| out-width: 50%
+#| fig-align: center
+#| output: false
+library(dplyr)
+library(ggplot2)
+tribble(
+  ~time, ~x, ~y,
+  "tx-1", 0, 0,
+  "tx", .3, .2,
+  "tx+1", 1, 0
+) |>
+ggplot(aes(x,y)) +
+geom_point() +
+geom_path() +
+geom_text(aes(label = time), nudge_x = .08, nudge_y = .00, size = 6) +
+coord_fixed(xlim = c(-.2,1.2), ylim = c(-.1, .4)) +
+
+theme_void()
+
+
+```
+
+
+Try to implement this in `R`
 
 :::{.callout-important}
 
@@ -93,9 +119,8 @@ Black points are used in calculation of movement parameters (e.g. speed) at a gi
 Make this exercise match @laube2011 better. The next two instructions are not correct
 
 
-Now manually reduce the granularity of our sampling interval by selecting every 3^rd^, 6^th^ and 9^th^ position and save the output to `caro_3`, `caro_6`,`caro_9` accordingly.
-
-Tip: There are many ways to go about this, we recommend using `seq()` where `from = 1`, `to = ` the length of the dataset and `by = n` (i.e. `3`, `6` or `9`). This creates an integer vector that can either used in `dplyr::slice()` or in row subsetting (type `?slice()` or `?"[.data.frame"` to get help on either of these methods). 
+> Now manually reduce the granularity of our sampling interval by selecting every 3^rd^, 6^th^ and 9^th^ position and save the output to `caro_3`, `caro_6`,`caro_9` accordingly.
+> Tip: There are many ways to go about this, we recommend using `seq()` where `from = 1`, `to = ` the length of the dataset and `by = n` (i.e. `3`, `6` or `9`). This creates an integer vector that can either used in `dplyr::slice()` or in row subsetting (type `?slice()` or `?"[.data.frame"` to get help on either of these methods). 
 :::
 
 

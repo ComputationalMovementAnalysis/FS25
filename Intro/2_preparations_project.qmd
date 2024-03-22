@@ -12,13 +12,24 @@ Please let us know which option you choose by filling out the following [survey]
 
 By using a tracking app, your phone will collect your movement data automatically. There are different types of tracking apps, from tracking specific activities to passivly tracking 24 hours. Here is a not conclusive list of tracking tools you could use. But fill free to use your own tracking tool if you already using one:
 
-| Name             | Tracking Type | Information | Collect data | Export data |
-|------------------|---------------|-------------|--------------|-------------|
-| Strava           | per Activity  | [Link](https://www.strava.com/about) | [Link](https://support.strava.com/hc/en-us/articles/216917397-Recording-an-Activity) | [Link](https://support.strava.com/hc/en-us/articles/216918437-Exporting-your-Data-and-Bulk-Export) |
-| Posmo            | 24h Tracking  | [Link](https://posmo.coop/products/tracking) | [Link](https://posmo.coop/produkte/faq) | [Link](https://posmo.datamap.io) |
-| Komoot           | per Activity  | [Link](https://www.komoot.com/) | [Link]() | [Link](https://support.komoot.com/hc/de/articles/360022834132-GPS-Dateien-exportieren-und-importieren) |
-| Garmin + Watch   | per Activity  | [Link](https://www.garmin.com/) | [Link](https://support.garmin.com/de-CH/?faq=W1TvTPW8JZ6LfJSfK512Q8) | [Link](https://support.garmin.com/de-CH/?faq=W1TvTPW8JZ6LfJSfK512Q8) |
-| Google Timeline  | 24h Tracking  | [Link](https://support.google.com/maps/answer/6258979) | [Link](https://www.businessinsider.com/guides/tech/google-maps-timeline) | [Link](https://support.google.com/maps/answer/6258979) |
+```{r}
+#| echo: false
+library("readr")
+library("kableExtra")
+library("dplyr")
+
+data_collection <- read_csv("./data-collection.csv")
+
+data_collection |>
+    mutate(
+        across(-c(Name, `Tracking Type`), \(x) cell_spec("Link","html",link = x))
+    ) |>
+    kable(format = "html", escape = FALSE) |>
+    kable_styling(full_width = TRUE) |>
+    column_spec(1, width_min = "10em")
+
+
+```
 
 Please check after a view days if the tracking is working properly. If you have any issues during installation or you are not able to track yourself after the installtion please get in contact with [Nils](mailto:rata@zhaw.ch) or [Dominic](mailto:luoe@zhaw.ch).
 

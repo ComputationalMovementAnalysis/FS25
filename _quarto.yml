@@ -38,12 +38,12 @@ book:
     - index.qmd
     - Intro/1_preparations_course.qmd
     - Intro/2_preparations_project.qmd
-    - part: Exercise 1
+    - part: Exercise 1 (WIP ⚠️)
       chapters:
       - Week1/1_preparation.qmd
       - Week1/2_tasks_and_inputs.qmd
       #- Week1/3_solutions.qmd
-    - part: Exercise 2 
+    - part: Exercise 2 (WIP ⚠️)
       chapters:
       - Week2/2_demo_tidyverse.qmd
       - Week2/3_tasks_and_inputs.qmd
@@ -54,18 +54,18 @@ book:
         - Week3/2_exercise_A.qmd
         - Week3/3_exercise_B.qmd
         - Week3/4_exercise_C.qmd
-    - part: Exercise 4 
+    - part: Exercise 4 (WIP ⚠️)
       chapters:
       - Week4/1_preparation.qmd
       - Week4/2_tasks_and_inputs.qmd
       #- Week4/3_solutions.qmd
       #- Week4/4_peer_feedback.qmd
-    - part: Exercise 5 
+    - part: Exercise 5 (WIP ⚠️)
       chapters:
       - Week5/1_preparation.qmd
       - Week5/2_tasks_and_inputs.qmd
       #- Week4/3_solutions.qmd
-    - part: Exercise 6 
+    - part: Exercise 6 (WIP ⚠️)
       chapters:
       - Week6/1_preparation.qmd
       - Week6/2_tasks_and_inputs.qmd

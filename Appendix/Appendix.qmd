@@ -1,6 +1,7 @@
 # Appendix
 
-## base-R import fuctions vs `readr`{#sec-readr}
+## Data-import: base-r vs `readr` {#sec-readr}
+
 
 Our reasons for preferring `readr` over base-R import functions:
 
