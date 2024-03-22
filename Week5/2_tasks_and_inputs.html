@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Movement Analysis: Patterns and Trends in Environmental Data - References</title>
+<title>Computational Movement Analysis: Patterns and Trends in Environmental Data - Tasks and inputs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,10 +20,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -42,26 +77,26 @@ div.csl-indent {
 }</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./Appendix/Appendix.html" rel="next">
-<link href="./Week6/2_tasks_and_inputs.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../Week6/1_preparation.html" rel="next">
+<link href="../Week5/1_preparation.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,10 +124,18 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../site_libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
-<link rel="stylesheet" href="custom.css">
-<link rel="stylesheet" href="theme-custom.scss">
+<link rel="stylesheet" href="../custom.css">
+<link rel="stylesheet" href="../theme-custom.scss">
 </head>
 
 <body class="nav-sidebar floating">
@@ -104,7 +147,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./90_references.html"><span class="chapter-title">References</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week5/1_preparation.html">Exercise 5 (WIP ⚠️)</a></li><li class="breadcrumb-item"><a href="../Week5/2_tasks_and_inputs.html"><span class="chapter-title">Tasks and inputs</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -118,11 +161,11 @@ div.csl-indent {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./02_Images/zhaw_sw_neg.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../02_Images/zhaw_sw_neg.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Computational Movement Analysis: Patterns and Trends in Environmental Data</a> 
+      <a href="../">Computational Movement Analysis: Patterns and Trends in Environmental Data</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/ComputationalMovementAnalysis/FS24/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -143,18 +186,18 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome to the course!</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Intro/1_preparations_course.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation Course</span></a>
+  <a href="../Intro/1_preparations_course.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation Course</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Intro/2_preparations_project.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation Project</span></a>
+  <a href="../Intro/2_preparations_project.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation Project</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -168,12 +211,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week1/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
+  <a href="../Week1/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week1/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
+  <a href="../Week1/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
   </div>
 </li>
       </ul>
@@ -189,12 +232,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week2/2_demo_tidyverse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demo</span></a>
+  <a href="../Week2/2_demo_tidyverse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week2/3_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
+  <a href="../Week2/3_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
   </div>
 </li>
       </ul>
@@ -210,22 +253,22 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week3/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
+  <a href="../Week3/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week3/2_exercise_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Git</span></a>
+  <a href="../Week3/2_exercise_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Git</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week3/3_exercise_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">GitHub</span></a>
+  <a href="../Week3/3_exercise_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">GitHub</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week3/4_exercise_C.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quarto</span></a>
+  <a href="../Week3/4_exercise_C.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quarto</span></a>
   </div>
 </li>
       </ul>
@@ -241,33 +284,33 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week4/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
+  <a href="../Week4/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week4/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
+  <a href="../Week4/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
  <span class="menu-text">Exercise 5 (WIP ⚠️)</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week5/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
+  <a href="../Week5/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week5/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
+  <a href="../Week5/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Tasks and inputs</span></a>
   </div>
 </li>
       </ul>
@@ -283,24 +326,24 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week6/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
+  <a href="../Week6/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week6/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
+  <a href="../Week6/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./90_references.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">References</span></a>
+  <a href="../90_references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix/Appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendix</span></a>
+  <a href="../Appendix/Appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendix</span></a>
   </div>
 </li>
     </ul>
@@ -309,14 +352,26 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#task-1-write-your-own-functions" id="toc-task-1-write-your-own-functions" class="nav-link active" data-scroll-target="#task-1-write-your-own-functions">Task 1: Write your own functions</a></li>
+  <li><a href="#task-2-prepare-analysis" id="toc-task-2-prepare-analysis" class="nav-link" data-scroll-target="#task-2-prepare-analysis">Task 2: Prepare Analysis</a></li>
+  <li><a href="#task-3-create-join-key" id="toc-task-3-create-join-key" class="nav-link" data-scroll-target="#task-3-create-join-key">Task 3: Create Join Key</a></li>
+  <li><a href="#task-4-measuring-distance-at-concurrent-locations" id="toc-task-4-measuring-distance-at-concurrent-locations" class="nav-link" data-scroll-target="#task-4-measuring-distance-at-concurrent-locations">Task 4: Measuring distance at concurrent locations</a></li>
+  <li><a href="#task-5-visualize-data" id="toc-task-5-visualize-data" class="nav-link" data-scroll-target="#task-5-visualize-data">Task 5: Visualize data</a></li>
+  <li><a href="#task-6-optional-visualize-data-as-timecube-with-plotly" id="toc-task-6-optional-visualize-data-as-timecube-with-plotly" class="nav-link" data-scroll-target="#task-6-optional-visualize-data-as-timecube-with-plotly">Task 6 (optional): Visualize data as timecube with <code>plotly</code></a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week5/2_tasks_and_inputs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week5/1_preparation.html">Exercise 5 (WIP ⚠️)</a></li><li class="breadcrumb-item"><a href="../Week5/2_tasks_and_inputs.html"><span class="chapter-title">Tasks and inputs</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">References</span></h1>
+<h1 class="title"><span class="chapter-title">Tasks and inputs</span></h1>
 </div>
 
 
@@ -333,43 +388,218 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-bryan2021" class="csl-entry" role="listitem">
-Bryan, Jenny, and Jim Heister. 2021. <em>Happy Git and GitHub for the
-useR</em>. <a href="https://happygitwithr.com/">https://happygitwithr.com/</a>.
+<p>Up to now, we have used a variety of different functions designed by other developers. Sometimes we need to execute an operation multiple times, and most often it is reasonable to write a function to do so. Whenever you have copied and pasted a block of code more than twice, you should consider writing a function <span class="citation" data-cites="wickham2017">(<a href="../90_references.html#ref-wickham2017" role="doc-biblioref">Wickham and Grolemund 2017</a>)</span>.</p>
+<p>We have violated this rule multiple times when calculating the Euclidean distances between points. Writing and rewriting the code <code>sqrt((x-lead(x,1))^2+(y-lead(y,1))^2)</code> over and over again is not only cumbersome, it is also error prone. We can easily wrap this operation into a function. This input on writing functions should bring you up to speed to do this in your first task.</p>
+<p>The first step in writing a function, is picking a name and assigning <code>&lt;- function(){}</code> to it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ref-chacon2014" class="csl-entry" role="listitem">
-Chacon, Scott, and Ben Straub. 2014. <em>Pro Git</em>. 2nd Edition.
-Apress. <a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>.
+<p>To run the function, we have to call the assigned name with the brackets. This function gives no output, which is why we get <code>NULL</code> back.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">testfun</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(testfun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "function"</code></pre>
+</div>
+</div>
+<p>To make the function actually <em>do</em> something, we need to specify <em>what</em> should be done within the curly brackets <code>{}</code>. The following function always prints the same statement and accepts no input values:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"this function does nothing"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">testfun</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "this function does nothing"</code></pre>
+</div>
+</div>
+<p>If we want the function to accept some input values, we have to define them within the round brackets. For example, I specify a variable named <code>sometext</code> and can call this variable within the execution.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> <span class="cf">function</span>(sometext) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(sometext)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">testfun</span>(<span class="at">sometext =</span> <span class="st">"this function does slightly more, but still not much"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "this function does slightly more, but still not much"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> <span class="cf">function</span>(sometext) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(sometext)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that since R Version 4.1, the above syntax can also be written as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> \(sometext){</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(sometext)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>or even more compact:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> \(sometext) <span class="fu">print</span>(sometext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>c Let’s take a more practical example. Say we want a function that calculates our age if provided with the date of our birthday. We can use <code>Sys.time()</code> to provide today’s date and <code>difftime()</code> to calculate the time difference between today and our birthday.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>my_age <span class="ot">&lt;-</span> <span class="cf">function</span>(birthday, units) {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">difftime</span>(<span class="fu">Sys.time</span>(), birthday, <span class="at">units =</span> units)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="at">birthday =</span> <span class="st">"1997-04-23"</span>, <span class="at">units =</span> <span class="st">"days"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 9827.496 days</code></pre>
+</div>
+</div>
+<p>As we already know from using other functions, if we declare our variables in the order that we initially listed them, we do not need to specify the parameters (no need of <code>birthday =</code> and <code>units =</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="st">"1997-04-23"</span>, <span class="st">"days"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 9827.496 days</code></pre>
+</div>
+</div>
+<p>If we want any of our parameters to have default value, we can assign an initial value to the parameter when declaring the variables within the round brackets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>my_age <span class="ot">&lt;-</span> <span class="cf">function</span>(birthday, <span class="at">units =</span> <span class="st">"days"</span>) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">difftime</span>(<span class="fu">Sys.time</span>(), birthday, <span class="at">units =</span> units)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># if not stated otherwise, our function uses the unit "days"</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="st">"1997-04-23"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 9827.496 days</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can still overwrite units</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="st">"1997-04-23"</span>, <span class="st">"hours"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 235859.9 hours</code></pre>
+</div>
+</div>
+<p>All you need to do now is run execute the function deceleration (<code>myage &lt;- function...</code> etc.) at the beginning of your script, and you can use the function for your entire R session.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Always try to make your function self sufficient: Only use objects within your function that are either passed as function arguments or created within the funtion. See more on this topic <a href="https://raps-with-r.dev/fprog.html#referentially-transparent-and-pure-functions">here</a>, in the online version of the book by <span class="citation" data-cites="rodrigues2023">Rodrigues (<a href="../90_references.html#ref-rodrigues2023" role="doc-biblioref">2023</a>)</span>.</p>
+</div>
+</div>
+<section id="task-1-write-your-own-functions" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-write-your-own-functions">Task 1: Write your own functions</h3>
+<p>Create a function for our Euclidean distance calculation.</p>
+<p>Note: if you treat your input variables as vectors, they will work in <code>dplyr</code>s <code>mutate()</code> and <code>summarise()</code> operations.</p>
+</section>
+<section id="task-2-prepare-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-prepare-analysis">Task 2: Prepare Analysis</h3>
+<p>In the next tasks we will look for “meet” patterns in our wildboar data. To simplify this, we will only use a subset of our wildboar data: The individuals <em>Rosa</em> and <em>Sabi</em> for the timespan <em>01.04.2015 - 15.04.2015</em>. You can download the dataset here <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">wildschwein_BE_2056.csv</a> and filter it with the aforementioned criteria.</p>
+</section>
+<section id="task-3-create-join-key" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-create-join-key">Task 3: Create Join Key</h3>
+<p>Have a look at your dataset. You will notice that samples are taken at every full hour, quarter past, half past and quarter to. The sampling time is usually off by a couple of seconds.</p>
+<p>To compare Rosa and Sabi’s locations, we first need to match the two animals <em>temporally</em>. For that we can use a <code>join</code>, but need <em>identical</em> time stamps to serve as a join key. We therefore need to slightly adjust our time stamps to a common, concurrent interval.</p>
+<p>The task is therfore to round the minutes of <code>DatetimeUTC</code> to a multiple of 15 (00, 15, 30,45) and store the values in a new column<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. You can use the <code>lubridate</code> function <code>round_date()</code> for this. See the examples <a href="https://lubridate.tidyverse.org/reference/round_date.html">here</a> to see how this goes.</p>
+<p>Your new dataset should look something like this (note the additional column):</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+# Groups:   TierID [1]
+  TierID TierName CollarID DatetimeUTC              E      N DatetimeRound      
+  &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt; &lt;dttm&gt;               &lt;dbl&gt;  &lt;dbl&gt; &lt;dttm&gt;             
+1 002A   Sabi        12275 2015-04-01 00:00:11 2.57e6 1.21e6 2015-04-01 00:00:00
+2 002A   Sabi        12275 2015-04-01 00:15:22 2.57e6 1.21e6 2015-04-01 00:15:00
+3 002A   Sabi        12275 2015-04-01 00:30:11 2.57e6 1.21e6 2015-04-01 00:30:00
+4 002A   Sabi        12275 2015-04-01 00:45:16 2.57e6 1.21e6 2015-04-01 00:45:00
+5 002A   Sabi        12275 2015-04-01 01:00:44 2.57e6 1.21e6 2015-04-01 01:00:00
+6 002A   Sabi        12275 2015-04-01 01:15:17 2.57e6 1.21e6 2015-04-01 01:15:00</code></pre>
+</div>
+</div>
+</section>
+<section id="task-4-measuring-distance-at-concurrent-locations" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-measuring-distance-at-concurrent-locations">Task 4: Measuring distance at concurrent locations</h3>
+<p>To measure the distance between concurrent locations, we need to follow the following steps.</p>
+<ol type="1">
+<li>Split the <code>wildschwein_filter</code> object into one <code>data.frame</code> per animal</li>
+<li>Join* these datasets by the new <code>Datetime</code> column created in the last task. The joined observations are <em>temporally close</em>.</li>
+<li>In the joined dataset, calculate Euclidean distances between concurrent observations and store the values in a new column</li>
+<li>Use a reasonable threshold on <code>distance</code> to determine if the animals are also <em>spatially close</em> enough to constitute a <em>meet</em> (we use 100 meters). Store this Boolean information (<code>TRUE</code>/<code>FALSE</code>) in a new column</li>
+</ol>
+<p>* We recommend using one <code>dplyr</code>s join methods (<code>inner_join()</code>, <code>left_join()</code>, <code>right_join()</code> or <code>full_join()</code>), which one is appropriate? Tip: specify <code>suffix</code> to prevent column names ending in <code>.x</code> or <code>.y</code>.</p>
+</section>
+<section id="task-5-visualize-data" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-visualize-data">Task 5: Visualize data</h3>
+<p>Now, visualize the <em>meets</em> spatially in a way that you think reasonable. For example in the plot as shows below. To produce this plot we:</p>
+<ul>
+<li>Used the individual dataframes from <code>rosa</code> and <code>sabi</code> (from the previous task)</li>
+<li>Used the joined dataset (also from the previous task), filtered to only the meets</li>
+<li>Manually changed the x and y axis limits</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2_tasks_and_inputs_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="task-6-optional-visualize-data-as-timecube-with-plotly" class="level3">
+<h3 class="anchored" data-anchor-id="task-6-optional-visualize-data-as-timecube-with-plotly">Task 6 (optional): Visualize data as timecube with <code>plotly</code></h3>
+<p>Finally, you can nicely visualize the meeting patterns and trajectories in a Space-Time-Cube <span class="citation" data-cites="hagerstraand1970">(<a href="../90_references.html#ref-hagerstraand1970" role="doc-biblioref">Hägerstraand 1970</a>)</span> with the package <code>plotly</code>. There are some <a href="https://plot.ly/r/3d-line-plots/">nice ressources</a> available online.</p>
+<p><img src="../02_Images/space_time_cube.jpg" class="img-fluid"></p>
+</section>
+<section id="submission" class="level3">
+<h3 class="anchored" data-anchor-id="submission">Submission</h3>
+<p>To submit your exercise, provide us with the URL of your Github repo as described <a href="../Week3/3_exercise_B.html#create-github-repo">in the preperation</a>.</p>
+<p>You can give other GitHub users write access to your repository throught the repository settings. You will be needing this for your semester project. To practice this, add Dominik (<a href="https://github.com/DLND8/">@DLND8</a>) and Nils (<a href="https://github.com/ratnanil/">@ratnanil</a>) to your GitHub repo:</p>
+<ol type="1">
+<li>Go to your GitHub repository on GitHub.com</li>
+<li>Go to the repository settings by clicking on the <em>Settings</em> tab</li>
+<li>In the left panel, click on <em>Collaborators and teams</em> and then <em>Add people</em></li>
+<li>Add the mentioned Persons via their GitHub Usernames, give them <em>Write</em> privilages.</li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-hagerstraand1970" class="csl-entry" role="listitem">
-Hägerstraand, Torsten. 1970. <span>“What about People in Regional
-Science?”</span> <em>Papers in Regional Science</em> 24 (1): 7–24.
-</div>
-<div id="ref-laube2011" class="csl-entry" role="listitem">
-Laube, Patrick, and Ross S. Purves. 2011. <span>“How Fast Is a Cow?
-Cross - Scale Analysis of Movement Data.”</span> <em>Transactions in
-GIS</em> 15 (3): 401–18. <a href="https://doi.org/10.1111/j.1467-9671.2011.01256.x">https://doi.org/10.1111/j.1467-9671.2011.01256.x</a>.
+Hägerstraand, Torsten. 1970. <span>“What about People in Regional Science?”</span> <em>Papers in Regional Science</em> 24 (1): 7–24.
 </div>
 <div id="ref-rodrigues2023" class="csl-entry" role="listitem">
-Rodrigues, Bruno. 2023. <em>Building Reproducible Analytical Pipelines
-with r</em>. leanpub.
-</div>
-<div id="ref-vlachos2002" class="csl-entry" role="listitem">
-Vlachos, Michail, Dimitrios Gunopoulos, and George Kollios. 2002.
-<span>“Discovering Similar Multidimensional Trajectories.”</span> In
-<em>Proceedings of the 18th International Conference on Data
-Engineering</em>, 673–73. ICDE ’02. Washington, DC, USA: IEEE Computer
-Society. <a href="http://dl.acm.org/citation.cfm?id=876875.878994">http://dl.acm.org/citation.cfm?id=876875.878994</a>.
+Rodrigues, Bruno. 2023. <em>Building Reproducible Analytical Pipelines with r</em>. leanpub.
 </div>
 <div id="ref-wickham2017" class="csl-entry" role="listitem">
-Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science:
-Import, Tidy, Transform, Visualize, and Model Data</em>. 1st ed.
-O’Reilly Media, Inc.
+Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 1st ed. O’Reilly Media, Inc.
 </div>
 </div>
-
-
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><em>Please note:</em> We are manipulating our time stamps without adjusting the x,y-coordinates. This is fine for our simple example, but we would advice against this in a more serious research endeavour, e.g.&nbsp;in your semester projects. One simple approach would be to linearly interpolate the positions to the new timestamps. If you choose Option A the wild boar projects as your semester projects, you should aim for a linear interpolation. Get in touch if you need help with this.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -978,13 +1208,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Week6/2_tasks_and_inputs.html" class="pagination-link" aria-label="Tasks and Inputs">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Tasks and Inputs</span></span>
+      <a href="../Week5/1_preparation.html" class="pagination-link" aria-label="Preparation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Preparation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Appendix/Appendix.html" class="pagination-link" aria-label="Appendix">
-        <span class="nav-page-text"><span class="chapter-title">Appendix</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Week6/1_preparation.html" class="pagination-link" aria-label="Preparation">
+        <span class="nav-page-text"><span class="chapter-title">Preparation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -993,4 +1223,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/90_references.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week5/2_tasks_and_inputs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

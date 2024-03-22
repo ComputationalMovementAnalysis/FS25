@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Movement Analysis: Patterns and Trends in Environmental Data - References</title>
+<title>Computational Movement Analysis: Patterns and Trends in Environmental Data - Tasks and Inputs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,10 +20,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -42,26 +77,26 @@ div.csl-indent {
 }</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./Appendix/Appendix.html" rel="next">
-<link href="./Week6/2_tasks_and_inputs.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../Week3/1_preparation.html" rel="next">
+<link href="../Week2/2_demo_tidyverse.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -90,9 +125,38 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="custom.css">
-<link rel="stylesheet" href="theme-custom.scss">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../custom.css">
+<link rel="stylesheet" href="../theme-custom.scss">
 </head>
 
 <body class="nav-sidebar floating">
@@ -104,7 +168,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./90_references.html"><span class="chapter-title">References</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week2/2_demo_tidyverse.html">Exercise 2 (WIP ⚠️)</a></li><li class="breadcrumb-item"><a href="../Week2/3_tasks_and_inputs.html"><span class="chapter-title">Tasks and Inputs</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -118,11 +182,11 @@ div.csl-indent {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./02_Images/zhaw_sw_neg.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../02_Images/zhaw_sw_neg.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Computational Movement Analysis: Patterns and Trends in Environmental Data</a> 
+      <a href="../">Computational Movement Analysis: Patterns and Trends in Environmental Data</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/ComputationalMovementAnalysis/FS24/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -143,18 +207,18 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome to the course!</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Intro/1_preparations_course.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation Course</span></a>
+  <a href="../Intro/1_preparations_course.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation Course</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Intro/2_preparations_project.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation Project</span></a>
+  <a href="../Intro/2_preparations_project.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation Project</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -168,33 +232,33 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week1/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
+  <a href="../Week1/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week1/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
+  <a href="../Week1/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Exercise 2 (WIP ⚠️)</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week2/2_demo_tidyverse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demo</span></a>
+  <a href="../Week2/2_demo_tidyverse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week2/3_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
+  <a href="../Week2/3_tasks_and_inputs.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Tasks and Inputs</span></a>
   </div>
 </li>
       </ul>
@@ -210,22 +274,22 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week3/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
+  <a href="../Week3/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week3/2_exercise_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Git</span></a>
+  <a href="../Week3/2_exercise_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Git</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week3/3_exercise_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">GitHub</span></a>
+  <a href="../Week3/3_exercise_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">GitHub</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week3/4_exercise_C.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quarto</span></a>
+  <a href="../Week3/4_exercise_C.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quarto</span></a>
   </div>
 </li>
       </ul>
@@ -241,12 +305,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week4/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
+  <a href="../Week4/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week4/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
+  <a href="../Week4/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
   </div>
 </li>
       </ul>
@@ -262,12 +326,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week5/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
+  <a href="../Week5/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week5/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
+  <a href="../Week5/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
   </div>
 </li>
       </ul>
@@ -283,24 +347,24 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week6/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
+  <a href="../Week6/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Week6/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
+  <a href="../Week6/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./90_references.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">References</span></a>
+  <a href="../90_references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix/Appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendix</span></a>
+  <a href="../Appendix/Appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendix</span></a>
   </div>
 </li>
     </ul>
@@ -309,14 +373,25 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-w2-task1" id="toc-sec-w2-task1" class="nav-link active" data-scroll-target="#sec-w2-task1">Task 1: Import your data</a></li>
+  <li><a href="#sec-w2-task2" id="toc-sec-w2-task2" class="nav-link" data-scroll-target="#sec-w2-task2">Task 2: Getting an overview</a></li>
+  <li><a href="#sec-w2-task3" id="toc-sec-w2-task3" class="nav-link" data-scroll-target="#sec-w2-task3">Task 3: Deriving distance &amp; speed</a></li>
+  <li><a href="#sec-w2-task4" id="toc-sec-w2-task4" class="nav-link" data-scroll-target="#sec-w2-task4">Task 4: <em>Speed</em> at different scales</a></li>
+  <li><a href="#sec-w2-task6" id="toc-sec-w2-task6" class="nav-link" data-scroll-target="#sec-w2-task6">Task 6: Add your movement data to your repository</a></li>
+  <li><a href="#sec-w2-task7" id="toc-sec-w2-task7" class="nav-link" data-scroll-target="#sec-w2-task7">Task 7: Explore your movement data</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week2/3_tasks_and_inputs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week2/2_demo_tidyverse.html">Exercise 2 (WIP ⚠️)</a></li><li class="breadcrumb-item"><a href="../Week2/3_tasks_and_inputs.html"><span class="chapter-title">Tasks and Inputs</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">References</span></h1>
+<h1 class="title"><span class="chapter-title">Tasks and Inputs</span></h1>
 </div>
 
 
@@ -333,43 +408,199 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-bryan2021" class="csl-entry" role="listitem">
-Bryan, Jenny, and Jim Heister. 2021. <em>Happy Git and GitHub for the
-useR</em>. <a href="https://happygitwithr.com/">https://happygitwithr.com/</a>.
+<ul>
+<li>Create a new RStudio Project for this exercise (see <a href="../Week1/1_preparation.html#sec-create-rstudio-project" class="quarto-xref"><span>Create an RStudio project</span></a>)</li>
+<li>Download the new wildboar movement data, and save it to your new project’s directory <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">wildschwein_BE_2056.csv</a></li>
+</ul>
+<section id="sec-w2-task1" class="level3">
+<h3 class="anchored" data-anchor-id="sec-w2-task1">Task 1: Import your data</h3>
+<p>Create a new R-file and import the wildboar data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readr"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"sf"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>wildschwein_BE <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/wildschwein_BE_2056.csv"</span>, <span class="st">","</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>wildschwein_BE <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(wildschwein_BE, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"E"</span>, <span class="st">"N"</span>), <span class="at">crs =</span> <span class="dv">2056</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ref-chacon2014" class="csl-entry" role="listitem">
-Chacon, Scott, and Ben Straub. 2014. <em>Pro Git</em>. 2nd Edition.
-Apress. <a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>.
+<p>Note:</p>
+<ul>
+<li>that this dataset is already converted to EPSG 2056</li>
+<li>the coordinates are stored in the columns (<code>E</code>/<code>N</code>)</li>
+<li>setting <code>remove = FALSE</code> preserves the original (<code>E</code>/<code>N</code>) columns, which come in handy later on</li>
+</ul>
+</section>
+<section id="sec-w2-task2" class="level3">
+<h3 class="anchored" data-anchor-id="sec-w2-task2">Task 2: Getting an overview</h3>
+<p>Calculate the time difference between subsequent rows as described in the demo. You can calculate the time difference using the function <code>difftime()</code> in combination with <code>lead()</code>.</p>
+<ul>
+<li>the function <code>difftime()</code> has an option <code>units</code>. Set this to <code>secs</code> to get the time difference in seconds</li>
+<li>store the output in a new column (e.g.&nbsp;<code>timelag</code>)</li>
+</ul>
+<p>Now inspect your data in more detail. Try to answer the following questions:</p>
+<ul>
+<li>How many individuals were tracked?</li>
+<li>For how long were the individual tracked? Are there gaps?</li>
+<li>Were all individuals tracked concurrently or sequentially?</li>
+<li>What is the temporal sampling interval between the locations?</li>
+</ul>
+<!-- Here are some exemplary visualisation you could produce to answer these questions. Can you now answer the above questions? -->
+</section>
+<section id="sec-w2-task3" class="level3">
+<h3 class="anchored" data-anchor-id="sec-w2-task3">Task 3: Deriving distance &amp; speed</h3>
+<p>In this task we will derive some additional movement parameters from our trajectories. So far our trajectories only consist of a list of time-stamped spatial locations. First let’s calculate the Euclidean distance between subsequent locations using the function <code>st_distance()</code> with the option <code>by_element = TRUE</code>. Store these values in a new column with the name <code>steplength</code>. Next, you can calculate the animals’ speed based on <code>steplength</code> and the <code>timelag</code> (from the last task).</p>
+<!-- :::{.callout-note}
+Since our wildboar data is an `sf` object, we *could* use the function `st_distance` to calulate the distance between locations. However, `st_distance` is not designed for movement data, and using it with our split-apply-combine paradigm turns out to be a bit complicated (checkout the answers to [my Stackoverflow question](https://stackoverflow.com/q/49853696/4139249) posted in 2018).
+
+Luckily, we are working with cartesian coordinates and so can create our own distance function more suited to our use case. If one day you work with geodetic coordinates and need to do something similar, please use one of the solutions provided in the linked stackoverflow questions instead!
+::: -->
+</section>
+<section id="sec-w2-task4" class="level3">
+<h3 class="anchored" data-anchor-id="sec-w2-task4">Task 4: <em>Speed</em> at different scales</h3>
+<p>In preperation, you’ve read the paper by <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>. In this paper, they analyse speed at different scales and compare these. Let’s reproduce what was done in the paper with cows to data of a moving wildboar named <em>Caro</em>. Download this dataset here: <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">caro60.csv</a>. This dataset includes 200 locations of a single wild boar with a constant sampling interval of 60 seconds. Import it just like you imported the other wild boar data and save it to a new variable named <code>caro</code> (note that the locations are stored in EPSG 2056).</p>
+<div id="fig-laube2011" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-laube2011-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../02_Images/laube_2011_2.jpg" class="img-fluid figure-img">
 </div>
-<div id="ref-hagerstraand1970" class="csl-entry" role="listitem">
-Hägerstraand, Torsten. 1970. <span>“What about People in Regional
-Science?”</span> <em>Papers in Regional Science</em> 24 (1): 7–24.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-laube2011-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.1: Black points are used in calculation of movement parameters (e.g.&nbsp;speed) at a given termporal scale (from <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>)
+</figcaption>
+</figure>
 </div>
+<p><a href="#fig-laube2011" class="quarto-xref">Figure&nbsp;<span>6.1</span></a> shows how speed was calulated at three different scales. Let’s look at scale 1 first, where every location is included. For our data, this would mean a sampling window <span class="math inline">\(w\)</span> of 120 seconds. The speed for a given sample (i.e.&nbsp;location) <span class="math inline">\(t_{x}\)</span> is the time difference between <span class="math inline">\(t_{x-1}\)</span> and <span class="math inline">\(t_{x+1}\)</span> divided by the distance <span class="math inline">\(t_{x-1}\)</span> to <span class="math inline">\(t_{x+1}\)</span> via <span class="math inline">\(t_{x}\)</span>.</p>
+<p>Try to implement this in <code>R</code></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+TODO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make this exercise match <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> better. The next two instructions are not correct</p>
+<blockquote class="blockquote">
+<p>Now manually reduce the granularity of our sampling interval by selecting every 3<sup>rd</sup>, 6<sup>th</sup> and 9<sup>th</sup> position and save the output to <code>caro_3</code>, <code>caro_6</code>,<code>caro_9</code> accordingly. Tip: There are many ways to go about this, we recommend using <code>seq()</code> where <code>from = 1</code>, <code>to =</code> the length of the dataset and <code>by = n</code> (i.e.&nbsp;<code>3</code>, <code>6</code> or <code>9</code>). This creates an integer vector that can either used in <code>dplyr::slice()</code> or in row subsetting (type <code>?slice()</code> or <code>?"[.data.frame"</code> to get help on either of these methods).</p>
+</blockquote>
+</div>
+</div>
+<p>You should now have 4 datasets with different number of rows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(caro)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 200</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(caro_3)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 67</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(caro_6)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 34</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(caro_9)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 23</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now calculate <code>timelag</code>, <code>steplength</code> and <code>speed</code> for these data sets, just as you did in the <a href="#sec-w2-task3">last task</a>. To finish the task, compare the speeds visually in a line plot and also visualize the trajectories in a map (see examples below). Interpret the line plot, what do the different lines for the different temporal granularities tell you?</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 67 × 6
+   TierID TierName CollarID DatetimeUTC                E        N
+   &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;    &lt;dbl&gt;
+ 1 010C   Caro        13973 2015-09-15 08:07:00 2570589. 1205095.
+ 2 010C   Caro        13973 2015-09-15 08:10:00 2570518. 1205115.
+ 3 010C   Caro        13973 2015-09-15 08:13:00 2570482. 1205124.
+ 4 010C   Caro        13973 2015-09-15 08:16:00 2570490. 1205100.
+ 5 010C   Caro        13973 2015-09-15 08:19:00 2570497. 1205092.
+ 6 010C   Caro        13973 2015-09-15 08:22:00 2570499. 1205091.
+ 7 010C   Caro        13973 2015-09-15 08:25:00 2570500. 1205087.
+ 8 010C   Caro        13973 2015-09-15 08:28:00 2570496. 1205094.
+ 9 010C   Caro        13973 2015-09-15 08:31:00 2570497. 1205091.
+10 010C   Caro        13973 2015-09-15 08:34:00 2570499. 1205091.
+# ℹ 57 more rows</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_tasks_and_inputs_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_tasks_and_inputs_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_tasks_and_inputs_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_tasks_and_inputs_files/figure-html/unnamed-chunk-7-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-w2-task6" class="level3">
+<h3 class="anchored" data-anchor-id="sec-w2-task6">Task 6: Add your movement data to your repository</h3>
+<p>In the semester project, you will analyse your own movement data, either collected with the Posmo App or with the GPS Tracker (see <a href="../Intro/2_preparations_project.html" class="quarto-xref"><span>Preparation Project</span></a>). Acquire this data and save it to a subfolder of your current R Project named <code>data</code>. To acquire it, proceed as follows:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+TODO ⚠️
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Change the instructions to match FS24</p>
+</div>
+</div>
+<ul>
+<li>Posmo App Users
+<ol type="1">
+<li>Go to <a href="https://posmo.datamap.io">posmo.datamap.io</a> and choose “Posmo Project”</li>
+<li>Click on the download button in the top right corner</li>
+<li>Choose an appropriate start and end date for which you want to download the data. Since you want all the data, you can choose 1. January until today</li>
+<li>Click on download</li>
+<li>Move the file from your downloads folder to the subfolder <code>data</code> in your current RStudio Project</li>
+</ol></li>
+<li>GPS Logger Users: Bring us your logger, we will extract your data and send it to you.</li>
+</ul>
+<!-- :::{.callout-important}
+
+TODO: Move this to an appropriate location
+
+**DO NOT COMMIT ANYTHING YET**. Since your movement data is sensitive, personal information, we do not recommend pushing it to a public GitHub repo. 
+
+First, check if Git recognized your added file by having a look at the Git Pane in RStudio. Do you see your file there? If you do, good. If you don't, get in touch with us.
+
+Now, to prevent Git from publishing your data to GitHub, create a new text file in RStudio (click on File → New File → Text File). In this file, add the name of your data-folder (e.g. `data/`), then save the file with the name `.gitignore` in your project folder. Git will ignore all files and folders listed in this file.
+
+To make sure it worked, check the Git Pane of Rstudio. Do you see your movement data listed here? If not, it worked! If you still see it there, get in touch wih us. 
+::: -->
+</section>
+<section id="sec-w2-task7" class="level3">
+<h3 class="anchored" data-anchor-id="sec-w2-task7">Task 7: Explore your movement data</h3>
+<p>Now, import your data in the same way you imported the the wild boar data in <a href="#sec-w2-task1">task 1</a>. Next, start exploring your data, similarly as you did in <a href="#sec-w2-task2">task 2</a>. At a minimum:</p>
+<ul>
+<li>Import your data as a data frame and convert it to an <code>sf</code> object, using the correct CRS information</li>
+<li>Convert your data to <code>CH1903+ LV95</code></li>
+<li>Make a map of your data using <code>ggplot2</code> or <code>tmap</code>.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-laube2011" class="csl-entry" role="listitem">
-Laube, Patrick, and Ross S. Purves. 2011. <span>“How Fast Is a Cow?
-Cross - Scale Analysis of Movement Data.”</span> <em>Transactions in
-GIS</em> 15 (3): 401–18. <a href="https://doi.org/10.1111/j.1467-9671.2011.01256.x">https://doi.org/10.1111/j.1467-9671.2011.01256.x</a>.
-</div>
-<div id="ref-rodrigues2023" class="csl-entry" role="listitem">
-Rodrigues, Bruno. 2023. <em>Building Reproducible Analytical Pipelines
-with r</em>. leanpub.
-</div>
-<div id="ref-vlachos2002" class="csl-entry" role="listitem">
-Vlachos, Michail, Dimitrios Gunopoulos, and George Kollios. 2002.
-<span>“Discovering Similar Multidimensional Trajectories.”</span> In
-<em>Proceedings of the 18th International Conference on Data
-Engineering</em>, 673–73. ICDE ’02. Washington, DC, USA: IEEE Computer
-Society. <a href="http://dl.acm.org/citation.cfm?id=876875.878994">http://dl.acm.org/citation.cfm?id=876875.878994</a>.
-</div>
-<div id="ref-wickham2017" class="csl-entry" role="listitem">
-Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science:
-Import, Tidy, Transform, Visualize, and Model Data</em>. 1st ed.
-O’Reilly Media, Inc.
+Laube, Patrick, and Ross S. Purves. 2011. <span>“How Fast Is a Cow? Cross - Scale Analysis of Movement Data.”</span> <em>Transactions in GIS</em> 15 (3): 401–18. <a href="https://doi.org/10.1111/j.1467-9671.2011.01256.x">https://doi.org/10.1111/j.1467-9671.2011.01256.x</a>.
 </div>
 </div>
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -978,13 +1209,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Week6/2_tasks_and_inputs.html" class="pagination-link" aria-label="Tasks and Inputs">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Tasks and Inputs</span></span>
+      <a href="../Week2/2_demo_tidyverse.html" class="pagination-link" aria-label="Demo">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Demo</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Appendix/Appendix.html" class="pagination-link" aria-label="Appendix">
-        <span class="nav-page-text"><span class="chapter-title">Appendix</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Week3/1_preparation.html" class="pagination-link" aria-label="Preparation">
+        <span class="nav-page-text"><span class="chapter-title">Preparation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -993,4 +1224,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/90_references.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week2/3_tasks_and_inputs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
