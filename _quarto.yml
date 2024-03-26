@@ -21,7 +21,7 @@ format:
 
 execute:
   freeze: true
-  error: true
+  error: false
   message: false
   warning: false
 
