@@ -517,41 +517,69 @@ Projected CRS: CH1903+ / LV95
 <p>By default <code>st_convex_hull()</code> calculates the convex hull <em>per feature</em>, i.e.&nbsp;<em>per point</em> in our dataset. This of course makes little sense. In order to calculate the convex hull per animal, we need to convert our point- to multipoint-features where each feature contains all positions of one animal. This is achieved in two steps:</p>
 <p>First: add a grouping variable to the <code>sf</code> object. Note the new grouping variable in the metadata of the <code>sf</code> object. Other than that, <code>group_by</code> has no effect on our <code>sf</code> object.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>wildschwein_BE_grouped <span class="ot">&lt;-</span> <span class="fu">group_by</span>(wildschwein_BE, TierID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in group_by(wildschwein_BE, TierID): could not find function "group_by"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>wildschwein_BE_grouped</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'wildschwein_BE_grouped' not found</code></pre>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>wildschwein_BE_grouped <span class="ot">&lt;-</span> <span class="fu">group_by</span>(wildschwein_BE, TierID)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>wildschwein_BE_grouped</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 51246 features and 4 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: 2568153 ymin: 1202306 xmax: 2575154 ymax: 1207609
+Projected CRS: CH1903+ / LV95
+# A tibble: 51,246 × 5
+# Groups:   TierID [3]
+   TierID TierName CollarID DatetimeUTC                  geometry
+   &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt; &lt;dttm&gt;                    &lt;POINT [m]&gt;
+ 1 002A   Sabi        12275 2014-08-22 21:00:12 (2570409 1204752)
+ 2 002A   Sabi        12275 2014-08-22 21:15:16 (2570402 1204863)
+ 3 002A   Sabi        12275 2014-08-22 21:30:43 (2570394 1204826)
+ 4 002A   Sabi        12275 2014-08-22 21:46:07 (2570379 1204817)
+ 5 002A   Sabi        12275 2014-08-22 22:00:22 (2570390 1204818)
+ 6 002A   Sabi        12275 2014-08-22 22:15:10 (2570390 1204825)
+ 7 002A   Sabi        12275 2014-08-22 22:30:13 (2570387 1204831)
+ 8 002A   Sabi        12275 2014-08-22 22:45:11 (2570381 1204840)
+ 9 002A   Sabi        12275 2014-08-22 23:00:27 (2570316 1204935)
+10 002A   Sabi        12275 2014-08-22 23:15:41 (2570393 1204815)
+# ℹ 51,236 more rows</code></pre>
 </div>
 </div>
 <p>Second: use <code>summarise()</code> to “dissolve” all points into a mulipoint object.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>wildschwein_BE_smry <span class="ot">&lt;-</span> <span class="fu">summarise</span>(wildschwein_BE_grouped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in summarise(wildschwein_BE_grouped): could not find function "summarise"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>wildschwein_BE_smry</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'wildschwein_BE_smry' not found</code></pre>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>wildschwein_BE_smry <span class="ot">&lt;-</span> <span class="fu">summarise</span>(wildschwein_BE_grouped)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>wildschwein_BE_smry</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 3 features and 1 field
+Geometry type: MULTIPOINT
+Dimension:     XY
+Bounding box:  xmin: 2568153 ymin: 1202306 xmax: 2575154 ymax: 1207609
+Projected CRS: CH1903+ / LV95
+# A tibble: 3 × 2
+  TierID                                                                geometry
+  &lt;chr&gt;                                                         &lt;MULTIPOINT [m]&gt;
+1 002A   ((2568903 1206200), (2568925 1206207), (2568980 1206197), (2569024 120…
+2 016A   ((2569231 1205823), (2569245 1205925), (2569247 1206027), (2569251 120…
+3 018A   ((2568153 1205611), (2568155 1205613), (2568161 1205624), (2568162 120…</code></pre>
 </div>
 </div>
 <p>Now we can run <code>st_convex_hull</code> on the new <code>sf</code> object.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>mcp <span class="ot">&lt;-</span> <span class="fu">st_convex_hull</span>(wildschwein_BE_smry)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'wildschwein_BE_smry' not found</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mcp <span class="ot">&lt;-</span> <span class="fu">st_convex_hull</span>(wildschwein_BE_smry)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="task-4-ploting-spatial-objects" class="level3">
 <h3 class="anchored" data-anchor-id="task-4-ploting-spatial-objects">Task 4: Ploting spatial objects</h3>
 <p>Using base plot to visualize <code>sf</code> objects is easy enough, just try the following code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mcp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'mcp' not found</code></pre>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mcp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2_tasks_and_inputs_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>But since we use <code>ggplot</code> extensively, try and plot the object <code>mcp</code> with <code>ggplot</code>. Hint: Use the layer <code>geom_sf()</code> to add an <code>sf</code> object. Note: <code>ggplot</code> refuses to use our specified CRS, so we need to force this by specifying <code>datum =</code> in <code>coord_sf()</code>. Try it out.</p>
@@ -560,11 +588,11 @@ Projected CRS: CH1903+ / LV95
 <h3 class="anchored" data-anchor-id="w1-importing-raster">Input: Importing raster data</h3>
 <p>In the next task, we would like to add a background map to our <code>mcp</code> object. Download the file here: <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">pk100_BE.tif</a> To import the file into <code>R</code>, we use the package <code>terra</code> with the function <code>rast</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"terra"</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>pk100_BE <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>(<span class="st">"datasets/pk100_BE.tif"</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>pk100_BE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"terra"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>pk100_BE <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>(<span class="st">"datasets/pk100_BE.tif"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>pk100_BE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>class       : SpatRaster 
 dimensions  : 1821, 2321, 3  (nrow, ncol, nlyr)
@@ -579,7 +607,7 @@ max values  :   255,   255,   255 </code></pre>
 </div>
 <p><code>pk100_BE_2056.tif</code> is a three layered geotiff File. The above console output shows some metadata including the resolution, extent and the names of our layers (<code>pk1_1</code>, <code>pk1_2</code>etc). With the default <code>plot</code> method, each layer is displayed individually:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pk100_BE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pk100_BE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -590,7 +618,7 @@ max values  :   255,   255,   255 </code></pre>
 </div>
 <p>With <code>plotRGB</code> all three layers are combined into a single image:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRGB</span>(pk100_BE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRGB</span>(pk100_BE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -604,10 +632,10 @@ max values  :   255,   255,   255 </code></pre>
 <h3 class="anchored" data-anchor-id="task-5-adding-a-background-map">Task 5: Adding a background map</h3>
 <p>There are multiple ways to add a background map in <code>ggplot</code>, many require additional packages. This is a good opportunity to get to know a completely different package for creating maps: <code>tmap</code> (“thematic map”). This package was developed with a syntax very similar to <code>ggplot2</code>, which makes it easy to learn.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tmap"</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(pk100_BE) <span class="sc">+</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tm_rgb</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tmap"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(pk100_BE) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tm_rgb</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
