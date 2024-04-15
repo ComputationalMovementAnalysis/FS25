@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -224,7 +224,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
- <span class="menu-text">Exercise 1 (WIP ⚠️)</span></a>
+ <span class="menu-text">Exercise 1</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -240,12 +240,17 @@ window.Quarto = {
   <a href="../Week1/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Week1/3_solutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Solutions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
- <span class="menu-text">Exercise 2 (WIP ⚠️)</span></a>
+ <span class="menu-text">Exercise 2</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -258,7 +263,17 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Week2/3_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
+  <a href="../Week2/3_exercise_a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercise A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Week2/3_exercise_b.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercise B</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Week2/3_exercise_c.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercise C</span></a>
   </div>
 </li>
       </ul>
@@ -416,7 +431,7 @@ window.Quarto = {
 <img src="../02_Images/laube_2011.jpg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-laubeimg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.1: The figure from <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> visualizes steps a) zu d), which will be explained below
+Figure&nbsp;15.1: The figure from <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> visualizes steps a) zu d), which will be explained below
 </figcaption>
 </figure>
 </div>
@@ -427,7 +442,7 @@ Figure&nbsp;12.1: The figure from <span class="citation" data-cites="laube2011">
 <li>Now remove short subtrajectories: These are trajectories with a short duration (whereas “short” is tbd)</li>
 </ol>
 <p>We will <strong>demonstrate</strong> implementing this method on the wild boar “Sabi”, restricting ourselves to a couple of tracking days. Your task will be to understand this implementation and apply it to your own movement data.</p>
-<p>Open the RStudio Project <a href="1_preparation.html">you have prepared</a> for this week. Next, copy the wildboar data you downloaded last week (wildschwein_BE_2056.csv) to your project folder. If you cannot find this dataset on your computer, you can re-download it <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">here</a></p>
+<p>Open the RStudio Project <a href="1_preparation.html">you have prepared</a> for this week. Next, copy the wild boar data you downloaded last week (wildschwein_BE_2056.csv) to your project folder. If you cannot find this dataset on your computer, you can re-download it <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">here</a></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -446,7 +461,7 @@ Figure&nbsp;12.1: The figure from <span class="citation" data-cites="laube2011">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="2_tasks_and_inputs_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Movement of the wildboar ‘Sabi’ in the timespan 01 - 02.07.2015. The circle highlingts possible ‘static points’</figcaption>
+<figcaption>Movement of the wild boar ‘Sabi’ in the timespan 01 - 02.07.2015. The circle highlingts possible ‘static points’</figcaption>
 </figure>
 </div>
 </div>
@@ -579,7 +594,7 @@ Figure&nbsp;12.1: The figure from <span class="citation" data-cites="laube2011">
 </section>
 <section id="task-4-segment-based-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="task-4-segment-based-analysis">Task 4: Segment-based analysis</h3>
-<p>In applying <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>, we’ve come as far as step b) in <a href="#fig-laubeimg" class="quarto-xref">Figure&nbsp;<span>12.1</span></a>. In order to complete the last steps (c and d), we need a <em>unique</em> ID for each segment that we can use as a grouping variable. The following function does just that (it assigns unique IDs based on the column <code>static</code> which you created in Task 2). You will learn about functions next week. For now, just copy the following code chunk into your script and run it.</p>
+<p>In applying <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>, we’ve come as far as step b) in <a href="#fig-laubeimg" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>. In order to complete the last steps (c and d), we need a <em>unique</em> ID for each segment that we can use as a grouping variable. The following function does just that (it assigns unique IDs based on the column <code>static</code> which you created in Task 2). You will learn about functions next week. For now, just copy the following code chunk into your script and run it.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>rle_id <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rle</span>(vec)<span class="sc">$</span>lengths</span>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
- <span class="menu-text">Exercise 1 (WIP ⚠️)</span></a>
+ <span class="menu-text">Exercise 1</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -191,12 +191,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="../Week1/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Week1/3_solutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Solutions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
- <span class="menu-text">Exercise 2 (WIP ⚠️)</span></a>
+ <span class="menu-text">Exercise 2</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -209,7 +214,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Week2/3_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
+  <a href="../Week2/3_exercise_a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercise A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Week2/3_exercise_b.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercise B</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Week2/3_exercise_c.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercise C</span></a>
   </div>
 </li>
       </ul>
@@ -359,7 +374,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Open your RStudio Project <a href="1_preparation.html">which you prepared</a> from this week. Create a new RScript and import the libraries we need for this week. Import your wildboar dataset <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">wildschwein_BE_2056.csv</a> as an <code>sf</code> object</p>
+<p>Open your RStudio Project <a href="1_preparation.html">which you prepared</a> from this week. Create a new RScript and import the libraries we need for this week. Import your wild boar dataset <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">wildschwein_BE_2056.csv</a> as an <code>sf</code> object</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readr"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"sf"</span>)</span>
@@ -386,8 +401,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="w5-annotate-vector" class="level3">
 <h3 class="anchored" data-anchor-id="w5-annotate-vector">Task 2: Annotate Trajectories from vector data</h3>
-<p>We would like to know what crop was visited by which wild boar, and at what time. Since the crop data is most relevant in summer, filter your wildboar data to the months <strong>may to june</strong> first and save the output to a new variable. Overlay the filtered dataset with your <code>fanel</code> data to verify the spatial overlap.</p>
-<p>To sematically annotate each wildboar location with crop information, you can use a <em>spatial join</em> with the function <code>st_join()</code>. Do this and explore your annotated dataset.</p>
+<p>We would like to know what crop was visited by which wild boar, and at what time. Since the crop data is most relevant in summer, filter your wild boar data to the months <strong>may to june</strong> first and save the output to a new variable. Overlay the filtered dataset with your <code>fanel</code> data to verify the spatial overlap.</p>
+<p>To sematically annotate each wild boar location with crop information, you can use a <em>spatial join</em> with the function <code>st_join()</code>. Do this and explore your annotated dataset.</p>
 </section>
 <section id="task-3-explore-annotated-trajectories" class="level3">
 <h3 class="anchored" data-anchor-id="task-3-explore-annotated-trajectories">Task 3: Explore annotated trajectories</h3>
@@ -417,7 +432,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="task-5-annotate-trajectories-from-raster-data" class="level3">
 <h3 class="anchored" data-anchor-id="task-5-annotate-trajectories-from-raster-data">Task 5: Annotate Trajectories from raster data</h3>
-<p>Semantically annotate your wildboar locations with the vegetation index (similar as you did with the crop data in <a href="#w5-annotate-vector">Task 2</a>). Since you are annotating a vector dataset with information from a raster dataset, you cannot use <code>st_join</code> but need the function <code>extract</code> from the <code>terra</code> package. Read the help on the <code>extract</code> function to see what the function expects. The output should look something like this:</p>
+<p>Semantically annotate your wild boar locations with the vegetation index (similar as you did with the crop data in <a href="#w5-annotate-vector">Task 2</a>). Since you are annotating a vector dataset with information from a raster dataset, you cannot use <code>st_join</code> but need the function <code>extract</code> from the <code>terra</code> package. Read the help on the <code>extract</code> function to see what the function expects. The output should look something like this:</p>
 <p>You can now explore the spatiotemporal patterns of this new data.</p>
 </section>
 <section id="submission" class="level3">

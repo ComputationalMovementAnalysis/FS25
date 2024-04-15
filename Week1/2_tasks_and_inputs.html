@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Week2/2_demo_tidyverse.html" rel="next">
+<link href="../Week1/3_solutions.html" rel="next">
 <link href="../Week1/1_preparation.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -130,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week1/1_preparation.html">Exercise 1 (WIP ⚠️)</a></li><li class="breadcrumb-item"><a href="../Week1/2_tasks_and_inputs.html"><span class="chapter-title">Tasks and inputs</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week1/1_preparation.html">Exercise 1</a></li><li class="breadcrumb-item"><a href="../Week1/2_tasks_and_inputs.html"><span class="chapter-title">Tasks and inputs</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -186,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Exercise 1 (WIP ⚠️)</span></a>
+ <span class="menu-text">Exercise 1</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -202,12 +202,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="../Week1/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Tasks and inputs</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Week1/3_solutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Solutions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
- <span class="menu-text">Exercise 2 (WIP ⚠️)</span></a>
+ <span class="menu-text">Exercise 2</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -220,7 +225,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Week2/3_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
+  <a href="../Week2/3_exercise_a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercise A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Week2/3_exercise_b.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercise B</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Week2/3_exercise_c.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercise C</span></a>
   </div>
 </li>
       </ul>
@@ -343,7 +358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#task-2-explore-data" id="toc-task-2-explore-data" class="nav-link" data-scroll-target="#task-2-explore-data">Task 2: Explore Data</a></li>
   <li><a href="#input-handling-spatial-data" id="toc-input-handling-spatial-data" class="nav-link" data-scroll-target="#input-handling-spatial-data">Input: Handling spatial data</a></li>
   <li><a href="#sec-week1-task3-reproject" id="toc-sec-week1-task3-reproject" class="nav-link" data-scroll-target="#sec-week1-task3-reproject">Task 3: Project data from WGS84</a></li>
-  <li><a href="#input-calculate-convex-hull" id="toc-input-calculate-convex-hull" class="nav-link" data-scroll-target="#input-calculate-convex-hull">Input: Calculate Convex Hull</a></li>
+  <li><a href="#sec-convex-hull" id="toc-sec-convex-hull" class="nav-link" data-scroll-target="#sec-convex-hull">Input: Calculate Convex Hull</a></li>
   <li><a href="#task-4-ploting-spatial-objects" id="toc-task-4-ploting-spatial-objects" class="nav-link" data-scroll-target="#task-4-ploting-spatial-objects">Task 4: Ploting spatial objects</a></li>
   <li><a href="#w1-importing-raster" id="toc-w1-importing-raster" class="nav-link" data-scroll-target="#w1-importing-raster">Input: Importing raster data</a></li>
   <li><a href="#task-5-adding-a-background-map" id="toc-task-5-adding-a-background-map" class="nav-link" data-scroll-target="#task-5-adding-a-background-map">Task 5: Adding a background map</a></li>
@@ -354,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week1/1_preparation.html">Exercise 1 (WIP ⚠️)</a></li><li class="breadcrumb-item"><a href="../Week1/2_tasks_and_inputs.html"><span class="chapter-title">Tasks and inputs</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week1/1_preparation.html">Exercise 1</a></li><li class="breadcrumb-item"><a href="../Week1/2_tasks_and_inputs.html"><span class="chapter-title">Tasks and inputs</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="w1-tasks-and-inputs" class="quarto-section-identifier"><span class="chapter-title">Tasks and inputs</span></span></h1>
 </div>
@@ -377,7 +392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Make sure you have read and followed the instructions in section <a href="../Intro/1_preparations_course.html">Preparation</a></li>
 <li>In RStudio, open the RStudio Project you created for this week. You can see that you are in an RStudio Project if the project’s name is visible next to the little RStudio logo in the top right corner of RStudio (otherwise it will read <code>Project: (None)</code>).</li>
-<li>Download the wildboar movement data here: <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">wildschwein_BE.csv</a></li>
+<li>Download the wild boar movement data here: <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">wildschwein_BE.csv</a></li>
 </ol>
 <section id="task-1-import-data" class="level3">
 <h3 class="anchored" data-anchor-id="task-1-import-data">Task 1: Import data</h3>
@@ -478,7 +493,7 @@ Geodetic CRS:  WGS 84
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">crs =</span> <span class="dv">4326</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(wildschwein_BE_sf)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">remove</span>(wildschwein_BE_sf)</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># we can remove this sf object, since it just eats up our memory</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -511,8 +526,8 @@ Projected CRS: CH1903+ / LV95
 </div>
 </div>
 </section>
-<section id="input-calculate-convex-hull" class="level3">
-<h3 class="anchored" data-anchor-id="input-calculate-convex-hull">Input: Calculate Convex Hull</h3>
+<section id="sec-convex-hull" class="level3">
+<h3 class="anchored" data-anchor-id="sec-convex-hull">Input: Calculate Convex Hull</h3>
 <p>Transforming from one Coordinate Reference System to another was one operation where we needed an object with a spatial nature. In this way, we were able to use an off-the-shelf function to project the coordinates from one CRS to another. In our next example, we again rely on a spatial function: We want to calculate a <a href="https://en.wikipedia.org/wiki/Convex_hull">convex hull</a> per Wild boar. And guess what the function for calculating a convex hull is called in <code>sf</code>? If you guessed <code>st_convex_hull()</code>, you were right!</p>
 <p>By default <code>st_convex_hull()</code> calculates the convex hull <em>per feature</em>, i.e.&nbsp;<em>per point</em> in our dataset. This of course makes little sense. In order to calculate the convex hull per animal, we need to convert our point- to multipoint-features where each feature contains all positions of one animal. This is achieved in two steps:</p>
 <p>First: add a grouping variable to the <code>sf</code> object. Note the new grouping variable in the metadata of the <code>sf</code> object. Other than that, <code>group_by</code> has no effect on our <code>sf</code> object.</p>
@@ -545,7 +560,7 @@ Projected CRS: CH1903+ / LV95
 # ℹ 51,236 more rows</code></pre>
 </div>
 </div>
-<p>Second: use <code>summarise()</code> to “dissolve” all points into a mulipoint object.</p>
+<p>Second: use <code>summarise()</code> to “dissolve” all points into a multipoint object.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>wildschwein_BE_smry <span class="ot">&lt;-</span> <span class="fu">summarise</span>(wildschwein_BE_grouped)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1280,8 +1295,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Week2/2_demo_tidyverse.html" class="pagination-link" aria-label="Demo">
-        <span class="nav-page-text"><span class="chapter-title">Demo</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Week1/3_solutions.html" class="pagination-link" aria-label="Solutions">
+        <span class="nav-page-text"><span class="chapter-title">Solutions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
