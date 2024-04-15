@@ -17,7 +17,7 @@ You've read @laube2011 about segmenting trajectories. In the paper, the authors 
 
 We will **demonstrate** implementing this method on the wild boar "Sabi", restricting ourselves to a couple of tracking days. Your task will be to understand this implementation and apply it to your own movement data. 
 
-Open the RStudio Project [you have prepared](#w3-preparation) for this week. Next, copy the wildboar data you downloaded last week (wildschwein_BE_2056.csv) to your project folder. If you cannot find this dataset on your computer, you can re-download it [here](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125)
+Open the RStudio Project [you have prepared](#w3-preparation) for this week. Next, copy the wild boar data you downloaded last week (wildschwein_BE_2056.csv) to your project folder. If you cannot find this dataset on your computer, you can re-download it [here](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125)
 
 ```{r}
 #| echo: true
@@ -35,7 +35,7 @@ sabi <- wildschwein |>
 
 ```{r}
 #| echo: false
-#| fig.cap: "Movement of the wildboar 'Sabi' in the timespan 01 - 02.07.2015. The circle highlingts possible 'static points'"
+#| fig.cap: "Movement of the wild boar 'Sabi' in the timespan 01 - 02.07.2015. The circle highlingts possible 'static points'"
 
 library("ggplot2")
 
