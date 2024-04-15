@@ -56,8 +56,6 @@ get_github <- function(type, quarto_yaml = "_quarto.yml") {
   str_remove(stringr::str_replace(github_edit, "/edit/", paste0("/", type, "/")), "%s")
 }
 
-# Some additional stuff added so the whole workflow complies with the K-M approach
-week_folders <- paste0("Week", 1:7)
 
 
 paste_solutions <- function(solution_files){
