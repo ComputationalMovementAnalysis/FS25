@@ -1,0 +1,226 @@
+## Exercise B
+
+In preparation, you've read the paper by @laube2011. In this paper, the authors analyse speed at different scales and compare these different values. Let's conceptually reconstruct one of the experiments the authors conducted. 
+
+@fig-laube2011a shows how speed was calculated in the first of three scales. Do you notice how their method differs to how we calculated speed? We calculation the speed for a specific sample to be the distance travelled to the next sample devided by the according time difference. @laube2011 use the distance travelled from the *previous* sample to the *next* sample (and the according time difference).
+
+To reproduce this experiment, we will use a new wild boar dataset with following characteristics:
+
+- Small number of samples (200 locations)
+- Only one individual (caro) 
+- A constant sampling interval (60s)
+
+This last aspect is important, since we would otherwise have to deal with varying sampling intervals, which would greatly complicate things. 
+Download this dataset here: [caro60.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125). Import it just like you imported the other wild boar data and save it to a new variable named `caro` (note that the locations are stored in EPSG 2056).
+
+
+::: {#fig-laube2011a}
+
+![](../02_Images/laube_2011_2a.jpg)
+
+Black points are used in calculation of speed, from @laube2011
+:::
+
+We will need the following to functions from @sec-week2-ex-a:
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-fold: false
+
+library("readr")
+library("sf")
+library("dplyr")
+
+difftime_secs <- function(x, y){
+  as.numeric(difftime(x, y, units = "secs"))
+}
+
+distance_by_element <- function(later, now){
+  as.numeric(
+    st_distance(later, now, by_element = TRUE)
+  )
+}
+```
+
+
+We can then import the data. We can discard all columns with the exception of `DatetimeUTC`.
+
+```{r}
+caro <- read_delim("datasets/caro60.csv", ",") |>
+  st_as_sf(coords = c("E","N"), crs = 2056) |> 
+  select(DatetimeUTC)
+```
+
+### Task 1: Calculate speed at scale 1 {#sec-w2-task4}
+
+In our first scale, we will assume a sampling window $w$ of 120 seconds. This conveniently means that for every location, you can use the previous and next location to calculate speed. Try to implement this in R.
+
+
+
+```{r}
+#| file: "solutions/week2/exercise_b/task_1.R"
+#| echo: false
+#| include: false
+#| eval: true
+
+```
+
+
+After completing the task, your dataset should look like this:
+
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-fold: false
+head(caro)
+```
+
+
+### Task 2: Calculate speed at scale 2 {#sec-w2b-task2}
+
+To compare the effect of different sampling intervals, @laube2011 calculated speed at different scales (i.e. different sampling windows $w$). 
+
+In the previous task, we assumed a $w = 120s$. In this task, try to implement $w = 240s$ (see @fig-laube2011b). 
+
+- Tip: Use the `n = ` parameter in `lead`/`lag` to increase the offset.
+- Store values *timelag*, *steplength* and *speed* in the columns `timelag2`, `steplength2` and `speed2` to distinguish them from the values from scale 1
+
+
+::: {#fig-laube2011b}
+
+![](../02_Images/laube_2011_2b.jpg)
+
+Calculate speed at *scale 2* with a sampling window $w_2$ [from @laube2011]
+:::
+
+
+
+
+```{r}
+#| file: "solutions/week2/exercise_b/task_2.R"
+#| echo: false
+#| eval: true
+
+```
+
+
+After completing the task, your dataset should look like this:
+
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-fold: false
+caro |> 
+  # drop geometry and select only specific columns
+  # to display relevant data only
+  st_drop_geometry() |> 
+  select(timelag2, steplength2, speed2) |> 
+  head()
+```
+
+
+### Task 3: Calculate speed at scale 3 {#sec-w2b-task3}
+
+
+Redo the previous task with $w = 480s$
+
+::: {#fig-laube2011c}
+
+![](../02_Images/laube_2011_2c.jpg)
+
+Calculate speed at *scale 3* with a sampling window $w_3$ [from @laube2011]
+:::
+
+
+```{r}
+#| file: "solutions/week2/exercise_b/task_3.R"
+#| echo: false
+#| eval: true
+
+```
+
+
+
+After completing the task, your dataset should look like this:
+
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-fold: false
+caro |> 
+  st_drop_geometry() |> 
+  select(timelag3, steplength3, speed3) |> 
+  head()
+```
+
+
+
+### Task 4: Compare speed across scales
+
+We now have a dataframe with three different speed values per sample, corresponding to the different scales / sampling windows ($w_1 = 120s$, $w_2 = 240s$ and $w_3=480s$). It would now be interesting to compare these measurements and see our results correspond to those of @laube2011. In their experiments, the authors observe:
+
+> - A steady decrease in median speed as the temporal analysis scale increases;
+> - A decrease in the overall variance in speed as the temporal scale increases;
+> - Lower minimum values at the shortest temporal scales;
+
+
+The authors visualize these observations using box plots. To to the same, we need to process our data slightly. Currently, our data looks like this:
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-fold: false
+caro |> 
+  st_drop_geometry() |> 
+  select(DatetimeUTC, speed, speed2, speed3)
+```
+
+
+We can make a box plot of a single column using ggplot2:
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-fold: false
+library(ggplot2)
+
+ggplot(caro, aes(y = speed)) + 
+    # we remove outliers to increase legibility, analogue
+  # Laube and Purves (2011)
+  geom_boxplot(outliers = FALSE)
+```
+
+However, if we want to compare `speed` with `speed2` and `speed3`, we need need a *long* table rather than *wide* one (which is what we currently have). To make our table *long*, we can use the function `pivot_longer` from `tidyr`:
+
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-fold: false
+library(tidyr)
+
+# before pivoting, let's simplify our data.frame
+caro2 <- caro |> 
+  st_drop_geometry() |> 
+  select(DatetimeUTC, speed, speed2, speed3)
+
+caro_long <- caro2 |> 
+  pivot_longer(c(speed, speed2, speed3))
+  
+head(caro_long)
+```
+
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-fold: false
+ggplot(caro_long, aes(name, value)) +
+  # we remove outliers to increase legibility, analogue
+  # Laube and Purves (2011)
+  geom_boxplot(outliers = FALSE)
+```

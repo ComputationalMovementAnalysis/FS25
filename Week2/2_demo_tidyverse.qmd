@@ -13,7 +13,7 @@ Depending on your knowledge of `R`, getting an overview of the data we imported 
 
 Assume we want to calculate the timelag between subsequent positions. To achieve this we can use the function `difftime()` combined with `lead()` from `dplyr`. Let's look at these functions one by one.
 
-### `difftime`
+### `difftime` {#sec-difftime}
 
 `difftime` takes two `POSIXct` values.
 
@@ -32,29 +32,39 @@ time_difference
 You can also specify the unit of the output.
 
 ```{r}
-time_difference <- difftime(later, now, units = "mins")
+time_difference <- difftime(later, now, units = "secs")
 
 time_difference
 ```
 
-<!-- 
-`difftime` returns an object of the Class `difftime`. However in our case, numeric values would be more handy than the Class `difftime`. So we'll wrap the command in `as.numeric()`:
+`difftime` returns an object of the Class `difftime`. 
 ```{r}
+#| collapse: true
 class(time_difference)
 
 str(time_difference)
 ```
 
+However in our case, numeric values would be more handy than the Class `difftime`. So we'll wrap the command in `as.numeric()`:
+
 ```{r}
-time_difference <- as.numeric(difftime(later, now, units = "mins"))
+#| collapse: true
+
+time_difference <- as.numeric(difftime(later, now, units = "secs"))
 
 str(time_difference)
 class(time_difference)
 ``` 
--->
 
+In fact, we will use this exact operation multiple times, so let's create a function for this:
 
-### `lead()` / `lag()`
+```{r}
+difftime_secs <- function(later, now){
+    as.numeric(difftime(later, now, units = "secs"))
+}
+```
+
+### `lead()` / `lag()` {#sec-lead-lag}
 
 `lead()` and `lag()` return a vector of the same length as the input, just offset by a specific number of values (default is 1). Consider the following sequence:
 
@@ -82,7 +92,7 @@ lag(numbers, n = 5, default = 0)
 
 ### `mutate()`
 
-Using the above functions (`difftime()` and `lead()`), we can calculate the time lag, that is, the time difference between consecutive positions. We will try this on a dummy version of our wildboar dataset.
+Using the above functions (`difftime()` and `lead()`), we can calculate the time lag, that is, the time difference between consecutive positions. We will try this on a dummy version of our wild boar dataset.
 
 ```{r}
 wildschwein <- tibble(
