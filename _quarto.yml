@@ -3,6 +3,7 @@ project:
   preview: 
       port: 5678
   execute-dir: project
+  # pre-render: "01_R_Files/helperfunctions.R"
 
 lang: en
 
@@ -38,15 +39,17 @@ book:
     - index.qmd
     - Intro/1_preparations_course.qmd
     - Intro/2_preparations_project.qmd
-    - part: Exercise 1 (WIP ⚠️)
+    - part: Exercise 1
       chapters:
       - Week1/1_preparation.qmd
       - Week1/2_tasks_and_inputs.qmd
-      #- Week1/3_solutions.qmd
-    - part: Exercise 2 (WIP ⚠️)
+      - Week1/3_solutions.qmd
+    - part: Exercise 2 
       chapters:
       - Week2/2_demo_tidyverse.qmd
-      - Week2/3_tasks_and_inputs.qmd
+      - Week2/3_exercise_a.qmd
+      - Week2/3_exercise_b.qmd
+      - Week2/3_exercise_c.qmd
       #- Week2/4_solutions.qmd
     - part: Exercise 3 (WIP ⚠️)
       chapters: 
