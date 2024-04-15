@@ -10,7 +10,7 @@ Before starting with the task:
 
 1. Make sure you have read and followed the instructions in section [Preparation](#w0-preparation)
 2. In RStudio, open the RStudio Project you created for this week. You can see that you are in an RStudio Project if the project's name is visible next to the little RStudio logo in the top right corner of RStudio (otherwise it will read `Project: (None)`).
-3. Download the wildboar movement data here: [wildschwein_BE.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125)
+3. Download the wild boar movement data here: [wildschwein_BE.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125)
 
 
 
@@ -108,7 +108,7 @@ wildschwein_BE <- st_as_sf(wildschwein_BE,
     crs = 4326
 )
 
-rm(wildschwein_BE_sf)
+remove(wildschwein_BE_sf)
 # we can remove this sf object, since it just eats up our memory
 ```
 
@@ -133,7 +133,7 @@ wildschwein_BE
 ```
 
 
-### Input: Calculate Convex Hull
+### Input: Calculate Convex Hull {#sec-convex-hull}
 
 Transforming from one Coordinate Reference System to another was one operation where we needed an object with a spatial nature. In this way, we were able to use an off-the-shelf function to project the coordinates from one CRS to another. In our next example, we again rely on a spatial function: We want to calculate a [convex hull](https://en.wikipedia.org/wiki/Convex_hull) per Wild boar. And guess what the function for calculating a convex hull is called in `sf`? If you guessed `st_convex_hull()`, you were right! 
 
@@ -144,12 +144,14 @@ First: add a grouping variable to the `sf` object. Note the new grouping variabl
 ```{r}
 #| echo: true
 
+library("dplyr")
+
 wildschwein_BE_grouped <- group_by(wildschwein_BE, TierID)
 
 wildschwein_BE_grouped
 ```
 
-Second: use `summarise()` to "dissolve" all points into a mulipoint object. 
+Second: use `summarise()` to "dissolve" all points into a multipoint object. 
 
 ```{r}
 #| echo: true

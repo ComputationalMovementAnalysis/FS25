@@ -4,7 +4,7 @@
 
 By this point, you probably have created a folder for this course somewhere on your computer. In our example, we assume this folder is located here: `C:/Users/yourname/semester2/Modul_CMA` (mentally replace this with your actual path). Before we dive into the exercises, take a minute to think about how you are going to structure your files in this folder. This course will take place over 6 weeks, and in each week you will receive or produce various files. We recommend creating a separate folder for each week, and one folder for the semester project, like so:
 
-```
+```{.abc}
 Course Folder (C:\Users\yourname\semester2\Modul_CMA)
  ¦--week_1                                                
  ¦--week_2                                                
@@ -15,9 +15,9 @@ Course Folder (C:\Users\yourname\semester2\Modul_CMA)
  °--semester_project 
 ```
 
-For the R-exercises that take place in weeks 1 to 5, we recommend that you create a new RStudio Project each week in subdirectory of the appropriate week. For example, this week your folder structure could look like this: 
+For the R-exercises that take place in weeks 1 to 6, we recommend that you create a new RStudio Project each week in subdirectory of the appropriate week. For example, this week your folder structure could look like this: 
 
-```
+```{.abc}
 Folder Week 1 (C:\Users\yourname\semester2\Modul_CMA\week_1)
  ¦--slides.pdf                                                  
  ¦--my_notes.docx                                               
