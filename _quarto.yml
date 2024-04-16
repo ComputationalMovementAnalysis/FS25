@@ -43,7 +43,7 @@ book:
       chapters:
       - Week1/1_preparation.qmd
       - Week1/2_tasks_and_inputs.qmd
-      - Week1/3_solutions.qmd
+      # - Week1/3_solutions.qmd
     - part: Exercise 2 
       chapters:
       - Week2/2_demo_tidyverse.qmd

@@ -1,43 +1,9 @@
 ## Exercise C
 
 
-### Task 6: Add your movement data to your repository {#sec-w2-task6}
+In the semester project, you will analyse your own movement data, collected with an app of your choice or the GPS tracker (see @sec-preperation-project). Acquire this data and save it to a subfolder of your current R Project named `data`. Follow the instructions provided in the column *Collect data* in @tbl-data-collection. If you use a GPS logger, bring us your logger, we will extract your data and send it to you.
 
-In the semester project, you will analyse your own movement data, either collected with the Posmo App or with the GPS Tracker (see @sec-preperation-project). Acquire this data and save it to a subfolder of your current R Project named `data`. To acquire it, proceed as follows:
-  
-  
-  :::{.callout-important}
-
-## TODO ⚠️
-
-Change the instructions to match FS24
-
-:::
-  
-  - Posmo App Users
-1. Go to [posmo.datamap.io](https://posmo.datamap.io) and choose "Posmo Project"
-2. Click on the download button in the top right corner
-3. Choose an appropriate start and end date for which you want to download the data. Since you want all the data, you can choose 1. January until today
-4. Click on download
-5. Move the file from your downloads folder to the subfolder `data` in your current RStudio Project
-- GPS Logger Users: Bring us your logger, we will extract your data and send it to you.
-
-<!-- :::{.callout-important}
-
-TODO: Move this to an appropriate location
-
-**DO NOT COMMIT ANYTHING YET**. Since your movement data is sensitive, personal information, we do not recommend pushing it to a public GitHub repo. 
-
-First, check if Git recognized your added file by having a look at the Git Pane in RStudio. Do you see your file there? If you do, good. If you don't, get in touch with us.
-
-Now, to prevent Git from publishing your data to GitHub, create a new text file in RStudio (click on File → New File → Text File). In this file, add the name of your data-folder (e.g. `data/`), then save the file with the name `.gitignore` in your project folder. Git will ignore all files and folders listed in this file.
-
-To make sure it worked, check the Git Pane of Rstudio. Do you see your movement data listed here? If not, it worked! If you still see it there, get in touch wih us. 
-::: -->
-
-### Task 7: Explore your movement data {#sec-w2-task7}
-
-Now, import your data in the same way you imported the the wild boar data in [task 1](#sec-w2-task1). Next, start exploring your data, similarly as you did in [task 2](#sec-w2-task2). At a minimum:
+Now, import your data in the same way you imported the the wild boar data in [task 1](#sec-w2a-task1). Next, start exploring your data, similarly as you did in [task 2](sec-w2a-task2). At a minimum:
 
 - Import your data as a data frame and convert it to an `sf` object, using the correct CRS information
 - Convert your data to `CH1903+ LV95`
