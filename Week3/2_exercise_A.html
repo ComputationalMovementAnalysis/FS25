@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.5.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Movement Analysis: Patterns and Trends in Environmental Data - Git</title>
+<title>Computational Movement Analysis: Patterns and Trends in Environmental Data – Git</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -189,11 +189,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Week1/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Week1/3_solutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Solutions</span></a>
   </div>
 </li>
       </ul>
@@ -385,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="lst-git-settings" class="bash listing quarto-float">
 <figure class="quarto-float quarto-float-lst figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-git-settings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Listing&nbsp;11.1: Setting your git user.name and user.email
+Listing&nbsp;10.1: Setting your git user.name and user.email
 </figcaption>
 <div aria-describedby="lst-git-settings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="sourceCode" id="lst-git-settings"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="lst-git-settings-1"><a href="#lst-git-settings-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Maria Nusslinger"</span>   <span class="co"># proper name or a pseudonym</span></span>
@@ -400,11 +395,11 @@ Listing&nbsp;11.1: Setting your git user.name and user.email
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;11.1: Users who already have a Github account
+Note&nbsp;10.1: Users who already have a Github account
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you have multiple GitHub accounts (see <a href="1_preparation.html#nte-github1" class="quarto-xref">Note&nbsp;<span>10.1</span></a>) and you know that the laptop you are currently using is only for student work, you can set your <code>user.email</code> to your student mailadress. However, if you expect to work with both GitHub accounts with your current laptop, you have to set <code>user.email</code> on a <em>per project</em> basis (by omitting the <code>--global</code> flag).</p>
+<p>If you have multiple GitHub accounts (see <a href="1_preparation.html#nte-github1" class="quarto-xref">Note&nbsp;<span>9.1</span></a>) and you know that the laptop you are currently using is only for student work, you can set your <code>user.email</code> to your student mailadress. However, if you expect to work with both GitHub accounts with your current laptop, you have to set <code>user.email</code> on a <em>per project</em> basis (by omitting the <code>--global</code> flag).</p>
 <p><strong>Please feel free to contact us if you have questions about this.</strong></p>
 </div>
 </div>
@@ -709,24 +704,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -761,11 +738,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

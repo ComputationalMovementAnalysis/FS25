@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.5.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Movement Analysis: Patterns and Trends in Environmental Data - Exercise C</title>
+<title>Computational Movement Analysis: Patterns and Trends in Environmental Data – Exercise C</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -157,11 +157,6 @@ ul.task-list li input[type="checkbox"] {
   <a href="../Week1/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Week1/3_solutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Solutions</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -304,18 +299,8 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#sec-w2-task6" id="toc-sec-w2-task6" class="nav-link active" data-scroll-target="#sec-w2-task6">Task 6: Add your movement data to your repository</a></li>
-  <li><a href="#todo" id="toc-todo" class="nav-link" data-scroll-target="#todo">TODO ⚠️</a>
-  <ul class="collapse">
-  <li><a href="#sec-w2-task7" id="toc-sec-w2-task7" class="nav-link" data-scroll-target="#sec-w2-task7">Task 7: Explore your movement data</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week2/3_exercise_c.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -339,43 +324,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="sec-w2-task6" class="level3">
-<h3 class="anchored" data-anchor-id="sec-w2-task6">Task 6: Add your movement data to your repository</h3>
-<p>In the semester project, you will analyse your own movement data, either collected with the Posmo App or with the GPS Tracker (see <a href="../Intro/2_preparations_project.html" class="quarto-xref"><span>Preparation Project</span></a>). Acquire this data and save it to a subfolder of your current R Project named <code>data</code>. To acquire it, proceed as follows:</p>
-<p>:::{.callout-important}</p>
-</section>
-<section id="todo" class="level2">
-<h2 class="anchored" data-anchor-id="todo">TODO ⚠️</h2>
-<p>Change the instructions to match FS24</p>
-<p>:::</p>
-<ul>
-<li>Posmo App Users</li>
-</ul>
-<ol type="1">
-<li>Go to <a href="https://posmo.datamap.io">posmo.datamap.io</a> and choose “Posmo Project”</li>
-<li>Click on the download button in the top right corner</li>
-<li>Choose an appropriate start and end date for which you want to download the data. Since you want all the data, you can choose 1. January until today</li>
-<li>Click on download</li>
-<li>Move the file from your downloads folder to the subfolder <code>data</code> in your current RStudio Project</li>
-</ol>
-<ul>
-<li>GPS Logger Users: Bring us your logger, we will extract your data and send it to you.</li>
-</ul>
-<!-- :::{.callout-important}
-
-TODO: Move this to an appropriate location
-
-**DO NOT COMMIT ANYTHING YET**. Since your movement data is sensitive, personal information, we do not recommend pushing it to a public GitHub repo. 
-
-First, check if Git recognized your added file by having a look at the Git Pane in RStudio. Do you see your file there? If you do, good. If you don't, get in touch with us.
-
-Now, to prevent Git from publishing your data to GitHub, create a new text file in RStudio (click on File → New File → Text File). In this file, add the name of your data-folder (e.g. `data/`), then save the file with the name `.gitignore` in your project folder. Git will ignore all files and folders listed in this file.
-
-To make sure it worked, check the Git Pane of Rstudio. Do you see your movement data listed here? If not, it worked! If you still see it there, get in touch wih us. 
-::: -->
-<section id="sec-w2-task7" class="level3">
-<h3 class="anchored" data-anchor-id="sec-w2-task7">Task 7: Explore your movement data</h3>
-<p>Now, import your data in the same way you imported the the wild boar data in <a href="3_exercise_a.html#sec-w2-task1">task 1</a>. Next, start exploring your data, similarly as you did in <a href="3_exercise_a.html#sec-w2-task2">task 2</a>. At a minimum:</p>
+<p>In the semester project, you will analyse your own movement data, collected with an app of your choice or the GPS tracker (see <a href="../Intro/2_preparations_project.html" class="quarto-xref"><span>Preparation Project</span></a>). Acquire this data and save it to a subfolder of your current R Project named <code>data</code>. Follow the instructions provided in the column <em>Collect data</em> in <span class="quarto-unresolved-ref">?tbl-data-collection</span>. If you use a GPS logger, bring us your logger, we will extract your data and send it to you.</p>
+<p>Now, import your data in the same way you imported the the wild boar data in <a href="3_exercise_a.html#sec-w2a-task1">task 1</a>. Next, start exploring your data, similarly as you did in <a href="sec-w2a-task2">task 2</a>. At a minimum:</p>
 <ul>
 <li>Import your data as a data frame and convert it to an <code>sf</code> object, using the correct CRS information</li>
 <li>Convert your data to <code>CH1903+ LV95</code></li>
@@ -383,8 +333,6 @@ To make sure it worked, check the Git Pane of Rstudio. Do you see your movement 
 </ul>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -661,24 +609,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -713,11 +643,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1008,4 +934,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week2/3_exercise_c.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week2/3_exercise_c.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
