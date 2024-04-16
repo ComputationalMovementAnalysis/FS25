@@ -12,6 +12,8 @@ Please let us know which option you choose by filling out the following [survey]
 
 By using a tracking app, your phone will collect your movement data automatically. There are different types of tracking apps, from tracking specific activities to passivly tracking 24 hours. Here is a not conclusive list of tracking tools you could use. But fill free to use your own tracking tool if you are already using one:
 
+::: {#tbl-data-collection}
+
 ```{r}
 #| echo: false
 library("readr")
@@ -28,6 +30,10 @@ data_collection |>
     kable_styling(full_width = TRUE) |>
     column_spec(1, width_min = "10em")
 ```
+
+Tracking Methods
+
+:::
 
 Please check after a view days if the tracking is working properly. If you have any issues during installation or you are not able to track yourself after the installtion please get in contact with [Nils](mailto:rata@zhaw.ch) or [Dominic](mailto:luoe@zhaw.ch).
 
