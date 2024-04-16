@@ -19,6 +19,8 @@ format:
     number-sections: false
     code-tools:
       source: false
+    include-in-header:
+      - script.html
 
 execute:
   freeze: true
