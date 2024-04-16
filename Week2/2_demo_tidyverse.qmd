@@ -37,7 +37,7 @@ time_difference <- difftime(later, now, units = "secs")
 time_difference
 ```
 
-`difftime` returns an object of the Class `difftime`. 
+`difftime` returns an object of the class `difftime`. 
 ```{r}
 #| collapse: true
 class(time_difference)
@@ -45,7 +45,7 @@ class(time_difference)
 str(time_difference)
 ```
 
-However in our case, numeric values would be more handy than the Class `difftime`. So we'll wrap the command in `as.numeric()`:
+However in our case, numeric values would be more handy than the class `difftime`. So we'll wrap the command in `as.numeric()`:
 
 ```{r}
 #| collapse: true
