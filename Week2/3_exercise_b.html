@@ -274,6 +274,11 @@ window.Quarto = {
   <a href="../Week1/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Week1/3_solutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Solutions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -451,7 +456,7 @@ window.Quarto = {
 
 
 <p>In preparation, you’ve read the paper by <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>. In this paper, the authors analyse speed at different scales and compare these different values. Let’s conceptually reconstruct one of the experiments the authors conducted.</p>
-<p><a href="#fig-laube2011a" class="quarto-xref">Figure&nbsp;<span>7.1</span></a> shows how speed was calculated in the first of three scales. Do you notice how their method differs to how we calculated speed? We calculation the speed for a specific sample to be the distance travelled to the next sample devided by the according time difference. <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> use the distance travelled from the <em>previous</em> sample to the <em>next</em> sample (and the according time difference).</p>
+<p><a href="#fig-laube2011a" class="quarto-xref">Figure&nbsp;<span>8.1</span></a> shows how speed was calculated in the first of three scales. Do you notice how their method differs to how we calculated speed? We calculation the speed for a specific sample to be the distance travelled to the next sample devided by the according time difference. <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> use the distance travelled from the <em>previous</em> sample to the <em>next</em> sample (and the according time difference).</p>
 <p>To reproduce this experiment, we will use a new wild boar dataset with following characteristics:</p>
 <ul>
 <li>Small number of samples (200 locations)</li>
@@ -465,7 +470,7 @@ window.Quarto = {
 <img src="../02_Images/laube_2011_2a.jpg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-laube2011a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.1: Black points are used in calculation of speed, from <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>
+Figure&nbsp;8.1: Black points are used in calculation of speed, from <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>
 </figcaption>
 </figure>
 </div>
@@ -518,7 +523,7 @@ Projected CRS: CH1903+ / LV95
 <section id="sec-w2b-task2" class="level3">
 <h3 class="anchored" data-anchor-id="sec-w2b-task2">Task 2: Calculate speed at scale 2</h3>
 <p>To compare the effect of different sampling intervals, <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> calculated speed at different scales (i.e.&nbsp;different sampling windows <span class="math inline">\(w\)</span>).</p>
-<p>In the previous task, we assumed a <span class="math inline">\(w = 120s\)</span>. In this task, try to implement <span class="math inline">\(w = 240s\)</span> (see <a href="#fig-laube2011b" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>).</p>
+<p>In the previous task, we assumed a <span class="math inline">\(w = 120s\)</span>. In this task, try to implement <span class="math inline">\(w = 240s\)</span> (see <a href="#fig-laube2011b" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>).</p>
 <ul>
 <li>Tip: Use the <code>n =</code> parameter in <code>lead</code>/<code>lag</code> to increase the offset.</li>
 <li>Store values <em>timelag</em>, <em>steplength</em> and <em>speed</em> in the columns <code>timelag2</code>, <code>steplength2</code> and <code>speed2</code> to distinguish them from the values from scale 1</li>
@@ -529,7 +534,7 @@ Projected CRS: CH1903+ / LV95
 <img src="../02_Images/laube_2011_2b.jpg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-laube2011b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.2: Calculate speed at <em>scale 2</em> with a sampling window <span class="math inline">\(w_2\)</span> <span class="citation" data-cites="laube2011">(from <a href="../90_references.html#ref-laube2011" role="doc-biblioref">Laube and Purves 2011</a>)</span>
+Figure&nbsp;8.2: Calculate speed at <em>scale 2</em> with a sampling window <span class="math inline">\(w_2\)</span> <span class="citation" data-cites="laube2011">(from <a href="../90_references.html#ref-laube2011" role="doc-biblioref">Laube and Purves 2011</a>)</span>
 </figcaption>
 </figure>
 </div>
@@ -563,7 +568,7 @@ Figure&nbsp;7.2: Calculate speed at <em>scale 2</em> with a sampling window <spa
 <img src="../02_Images/laube_2011_2c.jpg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-laube2011c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.3: Calculate speed at <em>scale 3</em> with a sampling window <span class="math inline">\(w_3\)</span> <span class="citation" data-cites="laube2011">(from <a href="../90_references.html#ref-laube2011" role="doc-biblioref">Laube and Purves 2011</a>)</span>
+Figure&nbsp;8.3: Calculate speed at <em>scale 3</em> with a sampling window <span class="math inline">\(w_3\)</span> <span class="citation" data-cites="laube2011">(from <a href="../90_references.html#ref-laube2011" role="doc-biblioref">Laube and Purves 2011</a>)</span>
 </figcaption>
 </figure>
 </div>
