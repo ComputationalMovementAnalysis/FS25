@@ -23,7 +23,7 @@ Note:
 - that this dataset is already converted to EPSG 2056
 - the coordinates are stored in the columns (`E`/`N`)
 
-### Task 2: Getting an overview {sec-w2a-task2}
+### Task 2: Getting an overview {#sec-w2a-task2}
 
 Calculate the time difference between subsequent rows as described in the demo. You can calculate the time difference using the function `difftime_secs()` (see below) in combination with `lead()` (see @sec-lead-lag). Store the time difference in a new column (e.g. `timelag`). 
 
