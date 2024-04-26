@@ -490,7 +490,7 @@ Figure&nbsp;8.1: Black points are used in calculation of speed, from <span class
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can then import the data. We can discard all columns with the exception of <code>DatetimeUTC</code>.</p>
+<p>We can then import the data. We can discard all columns with the exception of <code>DatetimeUTC</code> with <code>select</code> (see below).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>caro <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/caro60.csv"</span>, <span class="st">","</span>) <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"E"</span>,<span class="st">"N"</span>), <span class="at">crs =</span> <span class="dv">2056</span>) <span class="sc">|&gt;</span> </span>
@@ -523,7 +523,7 @@ Projected CRS: CH1903+ / LV95
 <section id="sec-w2b-task2" class="level3">
 <h3 class="anchored" data-anchor-id="sec-w2b-task2">Task 2: Calculate speed at scale 2</h3>
 <p>To compare the effect of different sampling intervals, <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> calculated speed at different scales (i.e.&nbsp;different sampling windows <span class="math inline">\(w\)</span>).</p>
-<p>In the previous task, we assumed a <span class="math inline">\(w = 120s\)</span>. In this task, try to implement <span class="math inline">\(w = 240s\)</span> (see <a href="#fig-laube2011b" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>).</p>
+<p>In the previous task, we assumed a <span class="math inline">\(w = 120s\)</span>. In this task, try to implement <span class="math inline">\(w = 240s\)</span> (see <a href="#fig-laube2011b" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>), which means using an offset of <em>2</em>.</p>
 <ul>
 <li>Tip: Use the <code>n =</code> parameter in <code>lead</code>/<code>lag</code> to increase the offset.</li>
 <li>Store values <em>timelag</em>, <em>steplength</em> and <em>speed</em> in the columns <code>timelag2</code>, <code>steplength2</code> and <code>speed2</code> to distinguish them from the values from scale 1</li>
@@ -561,7 +561,7 @@ Figure&nbsp;8.2: Calculate speed at <em>scale 2</em> with a sampling window <spa
 </section>
 <section id="sec-w2b-task3" class="level3">
 <h3 class="anchored" data-anchor-id="sec-w2b-task3">Task 3: Calculate speed at scale 3</h3>
-<p>Redo the previous task with <span class="math inline">\(w = 480s\)</span></p>
+<p>Redo the previous task with <span class="math inline">\(w = 480s\)</span> (offset of <em>4</em>)</p>
 <div id="fig-laube2011c" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-laube2011c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
