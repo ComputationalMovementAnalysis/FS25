@@ -421,7 +421,7 @@ window.onload = function() {
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>later</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-04-26 11:25:13 CEST"</code></pre>
+<pre><code>[1] "2024-04-26 11:45:31 CEST"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>time_difference <span class="ot">&lt;-</span> <span class="fu">difftime</span>(later, now)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -529,26 +529,26 @@ window.onload = function() {
 </div>
 <p>To calculate the <code>timelag</code> with base-R, we need to mention <code>wildschwein</code> three times</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>wildschwein<span class="sc">$</span>timelag <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(<span class="fu">lead</span>(wildschwein<span class="sc">$</span>DatetimeUTC), wildschwein<span class="sc">$</span>DatetimeUTC))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>wildschwein<span class="sc">$</span>timelag <span class="ot">&lt;-</span> <span class="fu">difftime_secs</span>(<span class="fu">lead</span>(wildschwein<span class="sc">$</span>DatetimeUTC), wildschwein<span class="sc">$</span>DatetimeUTC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Using <code>mutate()</code> we can simplify this operation slightly:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC)))</span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">difftime_secs</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC))</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>wildschwein</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
    TierID DatetimeUTC         timelag
    &lt;chr&gt;  &lt;dttm&gt;                &lt;dbl&gt;
- 1 Hans   2015-01-01 00:00:00      15
- 2 Hans   2015-01-01 00:15:00      15
- 3 Hans   2015-01-01 00:30:00      15
- 4 Hans   2015-01-01 00:45:00      15
- 5 Hans   2015-01-01 01:00:00     -60
- 6 Klara  2015-01-01 00:00:00      15
- 7 Klara  2015-01-01 00:15:00      15
- 8 Klara  2015-01-01 00:30:00      15
- 9 Klara  2015-01-01 00:45:00      15
+ 1 Hans   2015-01-01 00:00:00     900
+ 2 Hans   2015-01-01 00:15:00     900
+ 3 Hans   2015-01-01 00:30:00     900
+ 4 Hans   2015-01-01 00:45:00     900
+ 5 Hans   2015-01-01 01:00:00   -3600
+ 6 Klara  2015-01-01 00:00:00     900
+ 7 Klara  2015-01-01 00:15:00     900
+ 8 Klara  2015-01-01 00:30:00     900
+ 9 Klara  2015-01-01 00:45:00     900
 10 Klara  2015-01-01 01:00:00      NA</code></pre>
 </div>
 </div>
@@ -561,24 +561,24 @@ window.onload = function() {
 </div>
 <p>After adding this grouping variable, calculating the <code>timelag</code> automatically accounts for the individual trajectories.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC)))</span>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">difftime</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC))</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>wildschwein</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
 # Groups:   TierID [2]
    TierID DatetimeUTC         timelag
-   &lt;chr&gt;  &lt;dttm&gt;                &lt;dbl&gt;
- 1 Hans   2015-01-01 00:00:00      15
- 2 Hans   2015-01-01 00:15:00      15
- 3 Hans   2015-01-01 00:30:00      15
- 4 Hans   2015-01-01 00:45:00      15
- 5 Hans   2015-01-01 01:00:00      NA
- 6 Klara  2015-01-01 00:00:00      15
- 7 Klara  2015-01-01 00:15:00      15
- 8 Klara  2015-01-01 00:30:00      15
- 9 Klara  2015-01-01 00:45:00      15
-10 Klara  2015-01-01 01:00:00      NA</code></pre>
+   &lt;chr&gt;  &lt;dttm&gt;              &lt;drtn&gt; 
+ 1 Hans   2015-01-01 00:00:00 15 mins
+ 2 Hans   2015-01-01 00:15:00 15 mins
+ 3 Hans   2015-01-01 00:30:00 15 mins
+ 4 Hans   2015-01-01 00:45:00 15 mins
+ 5 Hans   2015-01-01 01:00:00 NA mins
+ 6 Klara  2015-01-01 00:00:00 15 mins
+ 7 Klara  2015-01-01 00:15:00 15 mins
+ 8 Klara  2015-01-01 00:30:00 15 mins
+ 9 Klara  2015-01-01 00:45:00 15 mins
+10 Klara  2015-01-01 01:00:00 NA mins</code></pre>
 </div>
 </div>
 </section>
@@ -589,10 +589,10 @@ window.onload = function() {
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(wildschwein, <span class="at">mean =</span> <span class="fu">mean</span>(timelag, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
-  TierID  mean
-  &lt;chr&gt;  &lt;dbl&gt;
-1 Hans      15
-2 Klara     15</code></pre>
+  TierID mean   
+  &lt;chr&gt;  &lt;drtn&gt; 
+1 Hans   15 mins
+2 Klara  15 mins</code></pre>
 </div>
 </div>
 <p>Note: You can do <code>mutate()</code> and <code>summarise()</code> on <code>sf</code> objects as well. However, <code>summarise()</code> tries to coerce all geometries into one object, which can take along time. To avoid this, use <code>st_drop_geometry()</code> before using <code>summarise()</code>.</p>
@@ -609,14 +609,15 @@ window.onload = function() {
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   TierID mean_timelag
-  &lt;chr&gt;         &lt;dbl&gt;
-1 Hans             15
-2 Klara            15</code></pre>
+  &lt;chr&gt;  &lt;drtn&gt;      
+1 Hans   15 mins     
+2 Klara  15 mins     </code></pre>
 </div>
 </div>
 <!-- ### Bring it all together...
 
 Here is the same approach with a different dataset:
+
 
 
 
@@ -721,6 +722,7 @@ pigs |>
 
 :::
 :::
+
 
 
 
@@ -1469,13 +1471,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-123"><a href="#cb34-123" aria-hidden="true" tabindex="-1"></a>To calculate the <span class="in">`timelag`</span> with base-R, we need to mention <span class="in">`wildschwein`</span> three times </span>
 <span id="cb34-124"><a href="#cb34-124" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-127"><a href="#cb34-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-128"><a href="#cb34-128" aria-hidden="true" tabindex="-1"></a>wildschwein<span class="sc">$</span>timelag <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(<span class="fu">lead</span>(wildschwein<span class="sc">$</span>DatetimeUTC), wildschwein<span class="sc">$</span>DatetimeUTC))</span>
+<span id="cb34-128"><a href="#cb34-128" aria-hidden="true" tabindex="-1"></a>wildschwein<span class="sc">$</span>timelag <span class="ot">&lt;-</span> <span class="fu">difftime_secs</span>(<span class="fu">lead</span>(wildschwein<span class="sc">$</span>DatetimeUTC), wildschwein<span class="sc">$</span>DatetimeUTC)</span>
 <span id="cb34-129"><a href="#cb34-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb34-130"><a href="#cb34-130" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-131"><a href="#cb34-131" aria-hidden="true" tabindex="-1"></a>Using <span class="in">`mutate()`</span> we can simplify this operation slightly:</span>
 <span id="cb34-132"><a href="#cb34-132" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-135"><a href="#cb34-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-136"><a href="#cb34-136" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC)))</span>
+<span id="cb34-136"><a href="#cb34-136" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">difftime_secs</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC))</span>
 <span id="cb34-137"><a href="#cb34-137" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-138"><a href="#cb34-138" aria-hidden="true" tabindex="-1"></a>wildschwein</span>
 <span id="cb34-139"><a href="#cb34-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -1492,7 +1494,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-152"><a href="#cb34-152" aria-hidden="true" tabindex="-1"></a>After adding this grouping variable, calculating the <span class="in">`timelag`</span> automatically accounts for the individual trajectories.</span>
 <span id="cb34-153"><a href="#cb34-153" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-156"><a href="#cb34-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-157"><a href="#cb34-157" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC)))</span>
+<span id="cb34-157"><a href="#cb34-157" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">difftime</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC))</span>
 <span id="cb34-158"><a href="#cb34-158" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-159"><a href="#cb34-159" aria-hidden="true" tabindex="-1"></a>wildschwein</span>
 <span id="cb34-160"><a href="#cb34-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
