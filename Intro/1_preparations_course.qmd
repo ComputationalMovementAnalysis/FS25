@@ -39,7 +39,7 @@ In the time of writing (`r heute`), the current `R` Version is `r rv$version` (r
 
 If your current installation is older, make sure that you have updated R before the course. Check [these instructions on how to update R](https://www.linkedin.com/pulse/3-methods-update-r-rstudio-windows-mac-woratana-ngarmtrakulchol/)
 
-## Install or update RStudio
+## Install or update RStudio {#sec-update-rstudio}
 
 RStudio is the IDE (integrated development environment) we use in our course to interact with R. There are good alternatives you can use, RStudio simply seems to be [the most popular choice](https://twitter.com/mdancho84/status/1502237075550392323). If you want to use your own IDE, please feel free to do so. However, we don't recommend this if you are a beginner.
 

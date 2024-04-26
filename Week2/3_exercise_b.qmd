@@ -44,7 +44,7 @@ distance_by_element <- function(later, now){
 ```
 
 
-We can then import the data. We can discard all columns with the exception of `DatetimeUTC`.
+We can then import the data. We can discard all columns with the exception of `DatetimeUTC` with `select` (see below).
 
 ```{r}
 caro <- read_delim("datasets/caro60.csv", ",") |>
@@ -82,7 +82,7 @@ head(caro)
 
 To compare the effect of different sampling intervals, @laube2011 calculated speed at different scales (i.e. different sampling windows $w$). 
 
-In the previous task, we assumed a $w = 120s$. In this task, try to implement $w = 240s$ (see @fig-laube2011b). 
+In the previous task, we assumed a $w = 120s$. In this task, try to implement $w = 240s$ (see @fig-laube2011b), which means using an offset of *2*. 
 
 - Tip: Use the `n = ` parameter in `lead`/`lag` to increase the offset.
 - Store values *timelag*, *steplength* and *speed* in the columns `timelag2`, `steplength2` and `speed2` to distinguish them from the values from scale 1
@@ -125,7 +125,7 @@ caro |>
 ### Task 3: Calculate speed at scale 3 {#sec-w2b-task3}
 
 
-Redo the previous task with $w = 480s$
+Redo the previous task with $w = 480s$ (offset of *4*)
 
 ::: {#fig-laube2011c}
 

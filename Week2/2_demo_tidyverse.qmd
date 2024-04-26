@@ -18,7 +18,8 @@ Assume we want to calculate the timelag between subsequent positions. To achieve
 `difftime` takes two `POSIXct` values.
 
 ```{r}
-now <- Sys.time()
+now <- as.POSIXct("2024-04-26 10:20:00")
+later <- as.POSIXct("2024-04-26 11:35:00")
 
 later <- now + 10000
 
@@ -104,35 +105,60 @@ wildschwein
 ```
 
 
-To calculate the `timelag` with base-R, we need to mention `wildschwein` three times 
+If we are interested to calculate the speed travelled between subsequent locations, we need to calculate the elapsed time first. Since R does most operations in a vectorized manner, we can use `difftime_secs` on the entire column `DatetimeUTC` of our dataframe `wildschwein` and store the output in a new column. 
 
 ```{r}
-wildschwein$timelag <- as.numeric(difftime(lead(wildschwein$DatetimeUTC), wildschwein$DatetimeUTC))
+now <- wildschwein$DatetimeUTC
+later <- lead(now)
+
+wildschwein$timelag <- difftime_secs(later, now)
+
+wildschwein
+
 ```
 
-Using `mutate()` we can simplify this operation slightly:
+However, we have an issue at the transion between the two animals. We can overcome this issue using dplyr's `mutate` with `group_by`. **If we use `mutate`, we do not use the `$` notation!**
 
 ```{r}
-wildschwein <- mutate(wildschwein, timelag = as.numeric(difftime(lead(DatetimeUTC), DatetimeUTC)))
+# note the lack of "$"
+wildschwein <- mutate(wildschwein, timelag = difftime_secs(lead(DatetimeUTC), DatetimeUTC))
 
 wildschwein
 ```
 
+The output is equivalent, we need `group_by` as well.
+
 ### `group_by()`
 
-You might have noticed that `timelag` is calculated across different individuals (`Hans` and `Klara`), which does not make much sense. 
-To avoid this, we need to specify that `timelag` should just be calculated between consecutive rows *of the same individual*. We can implement this by using `group_by()`. 
+To distinguish groups in a dataframe, we need to specify these using `group_by()`. 
 
 ```{r}
+# again, note the lack of "$"
 wildschwein <- group_by(wildschwein, TierID)
 ```
 
 After adding this grouping variable, calculating the `timelag` automatically accounts for the individual trajectories.
 
 ```{r}
-wildschwein <- mutate(wildschwein, timelag = as.numeric(difftime(lead(DatetimeUTC), DatetimeUTC)))
+# again, note the lack of "$"
+wildschwein <- mutate(wildschwein, timelag = difftime(lead(DatetimeUTC), DatetimeUTC))
 
 wildschwein
+```
+
+
+### Piping 
+
+Piping can simplify the process and help us write our sequence of operations in a manner as we would explain them to another human being.
+
+In order to make code readable in a more human-friendly way, we can use the piping command (`|>` or `%>%`, it does not matter which).
+
+```{r}
+wildschwein |>                                            # Take wildschwein...
+    group_by(TierID) |>                                   # ...group it by TierID
+    mutate(
+        timelag = difftime(lead(DatetimeUTC), DatetimeUTC)# Caculate difftime
+        )
 ```
 
 ### `summarise()`
@@ -142,51 +168,3 @@ If we want to summarise our data and get metrics *per animal*, we can use the `d
 ```{r}
 summarise(wildschwein, mean = mean(timelag, na.rm = TRUE))
 ```
-
-Note: You can do `mutate()` and `summarise()` on `sf` objects as well. However, `summarise()` tries to coerce all geometries into one object, which can take along time. To avoid this, use `st_drop_geometry()` before using `summarise()`. 
-
-### Piping 
-
-The code above may be a bit hard to read, since it has so many nested functions which need to be read from the inside out. In order to make code readable in a more human-friendly way, we can use the piping command `|>` from `magrittr`, which is included in `dplyr` and the `tidyverse`. The above code then looks like this:
-
-```{r}
-wildschwein |>                                     # Take wildschwein...
-    group_by(TierID) |>                            # ...group it by TierID
-    summarise(                                     # Summarise the data...
-        mean_timelag = mean(timelag, na.rm = TRUE) # ...by calculating the mean timelag
-    )
-```
-
-<!-- ### Bring it all together...
-
-Here is the same approach with a different dataset:
-
-```{r}
-pigs <- tibble(
-    TierID = c(8001, 8003, 8004, 8005, 8800, 8820, 3000, 3001, 3002, 3003, 8330, 7222),
-    sex = c("M", "M", "M", "F", "M", "M", "F", "F", "M", "F", "M", "F"),
-    age = c("A", "A", "J", "A", "J", "J", "J", "A", "J", "J", "A", "A"),
-    weight = c(50.755, 43.409, 12.000, 16.787, 20.987, 25.765, 22.0122, 21.343, 12.532, 54.32, 11.027, 88.08)
-)
-
-pigs
-
-pigs |>
-    summarise(
-        mean_weight = mean(weight)
-    )
-
-pigs |>
-    group_by(sex) |>
-    summarise(
-        mean_weight = mean(weight)
-    )
-
-pigs |>
-    group_by(sex, age) |>
-    summarise(
-        mean_weight = mean(weight)
-    )
-```
-
--->

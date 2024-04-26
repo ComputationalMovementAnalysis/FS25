@@ -32,8 +32,8 @@ Calculate the time difference between subsequent rows as described in the demo. 
 #| echo: true
 #| eval: true
 #| code-fold: false
-difftime_secs <- function(x, y){
-  as.numeric(difftime(x, y, units = "secs"))
+difftime_secs <- function(later, now){
+    as.numeric(difftime(later, now, units = "secs"))
 }
 ```
 
@@ -44,6 +44,11 @@ Now inspect your data in more detail. Try to answer the following questions:
 - Were all individuals tracked concurrently or sequentially? 
 - What is the temporal sampling interval between the locations?
 
+
+
+::: {.callout-important}
+`summarise()` tries to coerce all (Point-) geometries into one object, which can take along time. To avoid this, use `st_drop_geometry()` before using `summarise()`. 
+:::
 
 ```{r}
 #| file: "solutions/week2/exercise_a/task_2.R"
@@ -62,8 +67,12 @@ Similar to how we calculated the `timelag` between subsequent locations, we can 
 
 ```{r}
 #| echo: true
-#| eval: false
+#| eval: true
+#| output: false
 #| code-fold: false
+
+later <- lag(wildschwein_BE$geometry)
+now <- wildschwein_BE$geometry
 
 st_distance(later, now, by_element = TRUE)  # by_element must be set to TRUE
 ```

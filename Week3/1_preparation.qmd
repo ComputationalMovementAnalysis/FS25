@@ -1,20 +1,40 @@
 ## Preparation {#w2-preparation}
 
-This week, we are going to leverage Git by connecting it to an online repository. Git on it's own can be useful, but to use all of the advantages its best to combine it with an hosted service like Github.
+### Quarto {#install-quarto}
 
-### Install Git{#install-git}
+Quarto is a document format similar to RMarkdown and Jupyter Notebooks. It's also the name of a standalone software which allows us to convert Quarto Documents to PDF or HTML. If you followed our instructions in @sec-update-rstudio, you should have Quarto installed on your computer. But please double-check this by running the following in your *terminal* (see @fig-terminal). 
+
+```{.bash}
+quarto --version
+```
+
+If the above command returns a version number (e.g. `1.5.30`) this means quarto is installed. If the command returns something like `command not found: quarto` we highly recommend you [Update Rstudio](#sec-update-rstudio). Alternatively, you can also just [download](https://quarto.org/docs/download/) and install the **Current Release** of quarto.
 
 
-:::{.callout-note}
 
-Much of this chapter was taken from @bryan2021. If you want to dive deeper into using Git, we highly recommend this book. For an *even* deeper dive into Git, read @chacon2014. Both books are available free and open source on [happygitwithr.com](https://happygitwithr.com/) and [git-scm.com/book](https://git-scm.com/book/), respectively.
+::: {#fig-terminal}
+
+![](../02_Images/terminal.png)
+
+The terminal should be located next to the R-Console. If you don't see it there, create a new terminal by clicking on *Tools* → *Terminal* → *New Terminal*.
+
+
+
+
 
 :::
+
+### Install Git {#install-git}
+
+
+
 
 
 Git is a software dedicated to tracking changes in text files (e.g. R scripts). It's heavily used in the software industry as well as in the field of data science. In this course, we will teach use the basic functionalities of Git and combine it with the online portal Github.
 
-Therefore, the next step is to install Git. There are different Git installers to choose from, we recommend the following:
+Therefore, the next step is to install Git. There are different Git installers to choose from, we recommend the following[^attribution]:
+
+[^attribution]: Much of this chapter was taken from @bryan2021. If you want to dive deeper into using Git, we highly recommend this book. For an *even* deeper dive into Git, read @chacon2014. Both books are available free and open source on [happygitwithr.com](https://happygitwithr.com/) and [git-scm.com/book](https://git-scm.com/book/), respectively.
 
 
 ::: {.panel-tabset}
@@ -48,12 +68,26 @@ Now, **restart RStudio**. Then, go to *Tools → Global options → Git / SVN*.
 - Activate the option "*Enable version control interface for RStudio projects*"
 - If the Field "*Git executable*:" shows `(Not Found)`, browse to your git installation from the [previous step](install-git).
 - This path should look something like this:
-  - Windows: `C:\Program Files\Git\bin\git.exe` (**not** `C:\Program Files\Git\cmd\git.exe` or `some-path\git-bash.exe`)
-  - Linux / macOS: `/usr/bin/git`
+
+
+::: {.panel-tabset}
+
+## Windows
+
+`C:\Program Files\Git\bin\git.exe` (**not** `C:\Program Files\Git\cmd\git.exe` or `some-path\git-bash.exe`)
+
+## Linux / macOS
+
+`/usr/bin/git`
+
+:::
 
 
 
-### Create a Github account{#sec-create-github}
+
+
+
+## Create a Github account{#sec-create-github}
 
 Create a Github account on [github.com](https://github.com/) (it's free of course). We recommend you use your students email address. When choosing a username on Github, consider the following advice: 
 
