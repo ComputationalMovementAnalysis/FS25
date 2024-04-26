@@ -169,7 +169,7 @@
     "href": "Week2/2_demo_tidyverse.html",
     "title": "Demo",
     "section": "",
-    "text": "Download this Demoscript via “&lt;/&gt;Code” (top right)\nDepending on your knowledge of R, getting an overview of the data we imported last week might have been quite a challenge. Surprisingly enough, importing, cleaning and exploring your data can be the most challenging, time consuming part of a project. RStudio and the tidyverse offer many helpful tools to make this part easier (and more fun). You have read chapters on dplyr and magrittr as a preparation for this exercise. Before we start with the exercise however, this demo illustrates a simple approach offered by tidyverse which is applicable to sf-objects.\nAssume we want to calculate the timelag between subsequent positions. To achieve this we can use the function difftime() combined with lead() from dplyr. Let’s look at these functions one by one.\n\ndifftime\ndifftime takes two POSIXct values.\n\nnow &lt;- Sys.time()\n\nlater &lt;- now + 10000\n\nlater\n\n[1] \"2024-04-25 19:07:52 CEST\"\n\ntime_difference &lt;- difftime(later, now)\n\ntime_difference\n\nTime difference of 2.777778 hours\n\n\nYou can also specify the unit of the output.\n\ntime_difference &lt;- difftime(later, now, units = \"secs\")\n\ntime_difference\n\nTime difference of 10000 secs\n\n\ndifftime returns an object of the class difftime.\n\nclass(time_difference)\n## [1] \"difftime\"\n\nstr(time_difference)\n##  'difftime' num 10000\n##  - attr(*, \"units\")= chr \"secs\"\n\nHowever in our case, numeric values would be more handy than the class difftime. So we’ll wrap the command in as.numeric():\n\ntime_difference &lt;- as.numeric(difftime(later, now, units = \"secs\"))\n\nstr(time_difference)\n##  num 10000\nclass(time_difference)\n## [1] \"numeric\"\n\nIn fact, we will use this exact operation multiple times, so let’s create a function for this:\n\ndifftime_secs &lt;- function(later, now){\n    as.numeric(difftime(later, now, units = \"secs\"))\n}\n\n\n\nlead() / lag()\nlead() and lag() return a vector of the same length as the input, just offset by a specific number of values (default is 1). Consider the following sequence:\n\nnumbers &lt;- 1:10\n\nnumbers\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\nWe can now run lead() and lag() on this sequence to illustrate the output. n = specifies the offset, default = specifies the default value used to “fill” the emerging “empty spaces” of the vector. This helps us performing operations on subsequent values in a vector (or rows in a table).\n\nlibrary(\"dplyr\")\n\nlead(numbers)\n\n [1]  2  3  4  5  6  7  8  9 10 NA\n\nlead(numbers, n = 2)\n\n [1]  3  4  5  6  7  8  9 10 NA NA\n\nlag(numbers)\n\n [1] NA  1  2  3  4  5  6  7  8  9\n\nlag(numbers, n = 5)\n\n [1] NA NA NA NA NA  1  2  3  4  5\n\nlag(numbers, n = 5, default = 0)\n\n [1] 0 0 0 0 0 1 2 3 4 5\n\n\n\n\nmutate()\nUsing the above functions (difftime() and lead()), we can calculate the time lag, that is, the time difference between consecutive positions. We will try this on a dummy version of our wild boar dataset.\n\nwildschwein &lt;- tibble(\n    TierID = c(rep(\"Hans\", 5), rep(\"Klara\", 5)),\n    DatetimeUTC = rep(as.POSIXct(\"2015-01-01 00:00:00\", tz = \"UTC\") + 0:4 * 15 * 60, 2)\n)\n\nwildschwein\n\n# A tibble: 10 × 2\n   TierID DatetimeUTC        \n   &lt;chr&gt;  &lt;dttm&gt;             \n 1 Hans   2015-01-01 00:00:00\n 2 Hans   2015-01-01 00:15:00\n 3 Hans   2015-01-01 00:30:00\n 4 Hans   2015-01-01 00:45:00\n 5 Hans   2015-01-01 01:00:00\n 6 Klara  2015-01-01 00:00:00\n 7 Klara  2015-01-01 00:15:00\n 8 Klara  2015-01-01 00:30:00\n 9 Klara  2015-01-01 00:45:00\n10 Klara  2015-01-01 01:00:00\n\n\nTo calculate the timelag with base-R, we need to mention wildschwein three times\n\nwildschwein$timelag &lt;- as.numeric(difftime(lead(wildschwein$DatetimeUTC), wildschwein$DatetimeUTC))\n\nUsing mutate() we can simplify this operation slightly:\n\nwildschwein &lt;- mutate(wildschwein, timelag = as.numeric(difftime(lead(DatetimeUTC), DatetimeUTC)))\n\nwildschwein\n\n# A tibble: 10 × 3\n   TierID DatetimeUTC         timelag\n   &lt;chr&gt;  &lt;dttm&gt;                &lt;dbl&gt;\n 1 Hans   2015-01-01 00:00:00      15\n 2 Hans   2015-01-01 00:15:00      15\n 3 Hans   2015-01-01 00:30:00      15\n 4 Hans   2015-01-01 00:45:00      15\n 5 Hans   2015-01-01 01:00:00     -60\n 6 Klara  2015-01-01 00:00:00      15\n 7 Klara  2015-01-01 00:15:00      15\n 8 Klara  2015-01-01 00:30:00      15\n 9 Klara  2015-01-01 00:45:00      15\n10 Klara  2015-01-01 01:00:00      NA\n\n\n\n\ngroup_by()\nYou might have noticed that timelag is calculated across different individuals (Hans and Klara), which does not make much sense. To avoid this, we need to specify that timelag should just be calculated between consecutive rows of the same individual. We can implement this by using group_by().\n\nwildschwein &lt;- group_by(wildschwein, TierID)\n\nAfter adding this grouping variable, calculating the timelag automatically accounts for the individual trajectories.\n\nwildschwein &lt;- mutate(wildschwein, timelag = as.numeric(difftime(lead(DatetimeUTC), DatetimeUTC)))\n\nwildschwein\n\n# A tibble: 10 × 3\n# Groups:   TierID [2]\n   TierID DatetimeUTC         timelag\n   &lt;chr&gt;  &lt;dttm&gt;                &lt;dbl&gt;\n 1 Hans   2015-01-01 00:00:00      15\n 2 Hans   2015-01-01 00:15:00      15\n 3 Hans   2015-01-01 00:30:00      15\n 4 Hans   2015-01-01 00:45:00      15\n 5 Hans   2015-01-01 01:00:00      NA\n 6 Klara  2015-01-01 00:00:00      15\n 7 Klara  2015-01-01 00:15:00      15\n 8 Klara  2015-01-01 00:30:00      15\n 9 Klara  2015-01-01 00:45:00      15\n10 Klara  2015-01-01 01:00:00      NA\n\n\n\n\nsummarise()\nIf we want to summarise our data and get metrics per animal, we can use the dplyr function summarise(). In contrast to mutate(), which just adds a new column to the dataset, summarise() “collapses” the data to one row per individual (specified by group_by).\n\nsummarise(wildschwein, mean = mean(timelag, na.rm = TRUE))\n\n# A tibble: 2 × 2\n  TierID  mean\n  &lt;chr&gt;  &lt;dbl&gt;\n1 Hans      15\n2 Klara     15\n\n\nNote: You can do mutate() and summarise() on sf objects as well. However, summarise() tries to coerce all geometries into one object, which can take along time. To avoid this, use st_drop_geometry() before using summarise().\n\n\nPiping\nThe code above may be a bit hard to read, since it has so many nested functions which need to be read from the inside out. In order to make code readable in a more human-friendly way, we can use the piping command |&gt; from magrittr, which is included in dplyr and the tidyverse. The above code then looks like this:\n\nwildschwein |&gt;                                     # Take wildschwein...\n    group_by(TierID) |&gt;                            # ...group it by TierID\n    summarise(                                     # Summarise the data...\n        mean_timelag = mean(timelag, na.rm = TRUE) # ...by calculating the mean timelag\n    )\n\n# A tibble: 2 × 2\n  TierID mean_timelag\n  &lt;chr&gt;         &lt;dbl&gt;\n1 Hans             15\n2 Klara            15",
+    "text": "Download this Demoscript via “&lt;/&gt;Code” (top right)\nDepending on your knowledge of R, getting an overview of the data we imported last week might have been quite a challenge. Surprisingly enough, importing, cleaning and exploring your data can be the most challenging, time consuming part of a project. RStudio and the tidyverse offer many helpful tools to make this part easier (and more fun). You have read chapters on dplyr and magrittr as a preparation for this exercise. Before we start with the exercise however, this demo illustrates a simple approach offered by tidyverse which is applicable to sf-objects.\nAssume we want to calculate the timelag between subsequent positions. To achieve this we can use the function difftime() combined with lead() from dplyr. Let’s look at these functions one by one.\n\ndifftime\ndifftime takes two POSIXct values.\n\nnow &lt;- Sys.time()\n\nlater &lt;- now + 10000\n\nlater\n\n[1] \"2024-04-26 11:25:13 CEST\"\n\ntime_difference &lt;- difftime(later, now)\n\ntime_difference\n\nTime difference of 2.777778 hours\n\n\nYou can also specify the unit of the output.\n\ntime_difference &lt;- difftime(later, now, units = \"secs\")\n\ntime_difference\n\nTime difference of 10000 secs\n\n\ndifftime returns an object of the class difftime.\n\nclass(time_difference)\n## [1] \"difftime\"\n\nstr(time_difference)\n##  'difftime' num 10000\n##  - attr(*, \"units\")= chr \"secs\"\n\nHowever in our case, numeric values would be more handy than the class difftime. So we’ll wrap the command in as.numeric():\n\ntime_difference &lt;- as.numeric(difftime(later, now, units = \"secs\"))\n\nstr(time_difference)\n##  num 10000\nclass(time_difference)\n## [1] \"numeric\"\n\nIn fact, we will use this exact operation multiple times, so let’s create a function for this:\n\ndifftime_secs &lt;- function(later, now){\n    as.numeric(difftime(later, now, units = \"secs\"))\n}\n\n\n\nlead() / lag()\nlead() and lag() return a vector of the same length as the input, just offset by a specific number of values (default is 1). Consider the following sequence:\n\nnumbers &lt;- 1:10\n\nnumbers\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\nWe can now run lead() and lag() on this sequence to illustrate the output. n = specifies the offset, default = specifies the default value used to “fill” the emerging “empty spaces” of the vector. This helps us performing operations on subsequent values in a vector (or rows in a table).\n\nlibrary(\"dplyr\")\n\nlead(numbers)\n\n [1]  2  3  4  5  6  7  8  9 10 NA\n\nlead(numbers, n = 2)\n\n [1]  3  4  5  6  7  8  9 10 NA NA\n\nlag(numbers)\n\n [1] NA  1  2  3  4  5  6  7  8  9\n\nlag(numbers, n = 5)\n\n [1] NA NA NA NA NA  1  2  3  4  5\n\nlag(numbers, n = 5, default = 0)\n\n [1] 0 0 0 0 0 1 2 3 4 5\n\n\n\n\nmutate()\nUsing the above functions (difftime() and lead()), we can calculate the time lag, that is, the time difference between consecutive positions. We will try this on a dummy version of our wild boar dataset.\n\nwildschwein &lt;- tibble(\n    TierID = c(rep(\"Hans\", 5), rep(\"Klara\", 5)),\n    DatetimeUTC = rep(as.POSIXct(\"2015-01-01 00:00:00\", tz = \"UTC\") + 0:4 * 15 * 60, 2)\n)\n\nwildschwein\n\n# A tibble: 10 × 2\n   TierID DatetimeUTC        \n   &lt;chr&gt;  &lt;dttm&gt;             \n 1 Hans   2015-01-01 00:00:00\n 2 Hans   2015-01-01 00:15:00\n 3 Hans   2015-01-01 00:30:00\n 4 Hans   2015-01-01 00:45:00\n 5 Hans   2015-01-01 01:00:00\n 6 Klara  2015-01-01 00:00:00\n 7 Klara  2015-01-01 00:15:00\n 8 Klara  2015-01-01 00:30:00\n 9 Klara  2015-01-01 00:45:00\n10 Klara  2015-01-01 01:00:00\n\n\nTo calculate the timelag with base-R, we need to mention wildschwein three times\n\nwildschwein$timelag &lt;- as.numeric(difftime(lead(wildschwein$DatetimeUTC), wildschwein$DatetimeUTC))\n\nUsing mutate() we can simplify this operation slightly:\n\nwildschwein &lt;- mutate(wildschwein, timelag = as.numeric(difftime(lead(DatetimeUTC), DatetimeUTC)))\n\nwildschwein\n\n# A tibble: 10 × 3\n   TierID DatetimeUTC         timelag\n   &lt;chr&gt;  &lt;dttm&gt;                &lt;dbl&gt;\n 1 Hans   2015-01-01 00:00:00      15\n 2 Hans   2015-01-01 00:15:00      15\n 3 Hans   2015-01-01 00:30:00      15\n 4 Hans   2015-01-01 00:45:00      15\n 5 Hans   2015-01-01 01:00:00     -60\n 6 Klara  2015-01-01 00:00:00      15\n 7 Klara  2015-01-01 00:15:00      15\n 8 Klara  2015-01-01 00:30:00      15\n 9 Klara  2015-01-01 00:45:00      15\n10 Klara  2015-01-01 01:00:00      NA\n\n\n\n\ngroup_by()\nYou might have noticed that timelag is calculated across different individuals (Hans and Klara), which does not make much sense. To avoid this, we need to specify that timelag should just be calculated between consecutive rows of the same individual. We can implement this by using group_by().\n\nwildschwein &lt;- group_by(wildschwein, TierID)\n\nAfter adding this grouping variable, calculating the timelag automatically accounts for the individual trajectories.\n\nwildschwein &lt;- mutate(wildschwein, timelag = as.numeric(difftime(lead(DatetimeUTC), DatetimeUTC)))\n\nwildschwein\n\n# A tibble: 10 × 3\n# Groups:   TierID [2]\n   TierID DatetimeUTC         timelag\n   &lt;chr&gt;  &lt;dttm&gt;                &lt;dbl&gt;\n 1 Hans   2015-01-01 00:00:00      15\n 2 Hans   2015-01-01 00:15:00      15\n 3 Hans   2015-01-01 00:30:00      15\n 4 Hans   2015-01-01 00:45:00      15\n 5 Hans   2015-01-01 01:00:00      NA\n 6 Klara  2015-01-01 00:00:00      15\n 7 Klara  2015-01-01 00:15:00      15\n 8 Klara  2015-01-01 00:30:00      15\n 9 Klara  2015-01-01 00:45:00      15\n10 Klara  2015-01-01 01:00:00      NA\n\n\n\n\nsummarise()\nIf we want to summarise our data and get metrics per animal, we can use the dplyr function summarise(). In contrast to mutate(), which just adds a new column to the dataset, summarise() “collapses” the data to one row per individual (specified by group_by).\n\nsummarise(wildschwein, mean = mean(timelag, na.rm = TRUE))\n\n# A tibble: 2 × 2\n  TierID  mean\n  &lt;chr&gt;  &lt;dbl&gt;\n1 Hans      15\n2 Klara     15\n\n\nNote: You can do mutate() and summarise() on sf objects as well. However, summarise() tries to coerce all geometries into one object, which can take along time. To avoid this, use st_drop_geometry() before using summarise().\n\n\nPiping\nThe code above may be a bit hard to read, since it has so many nested functions which need to be read from the inside out. In order to make code readable in a more human-friendly way, we can use the piping command |&gt; from magrittr, which is included in dplyr and the tidyverse. The above code then looks like this:\n\nwildschwein |&gt;                                     # Take wildschwein...\n    group_by(TierID) |&gt;                            # ...group it by TierID\n    summarise(                                     # Summarise the data...\n        mean_timelag = mean(timelag, na.rm = TRUE) # ...by calculating the mean timelag\n    )\n\n# A tibble: 2 × 2\n  TierID mean_timelag\n  &lt;chr&gt;         &lt;dbl&gt;\n1 Hans             15\n2 Klara            15",
     "crumbs": [
       "Exercise 2",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Demo</span>"
@@ -215,7 +215,7 @@
     "section": "",
     "text": "Install Git\nGit is a software dedicated to tracking changes in text files (e.g. R scripts). It’s heavily used in the software industry as well as in the field of data science. In this course, we will teach use the basic functionalities of Git and combine it with the online portal Github.\nTherefore, the next step is to install Git. There are different Git installers to choose from, we recommend the following:",
     "crumbs": [
-      "Exercise 3 (WIP ⚠️)",
+      "Exercise 3",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Preparation</span>"
     ]
   },
@@ -226,118 +226,118 @@
     "section": "Change RStudio Settings",
     "text": "Change RStudio Settings\nNow, restart RStudio. Then, go to Tools → Global options → Git / SVN.\n\nActivate the option “Enable version control interface for RStudio projects”\nIf the Field “Git executable:” shows (Not Found), browse to your git installation from the previous step.\nThis path should look something like this:\n\nWindows: C:\\Program Files\\Git\\bin\\git.exe (not C:\\Program Files\\Git\\cmd\\git.exe or some-path\\git-bash.exe)\nLinux / macOS: /usr/bin/git\n\n\n\nCreate a Github account\nCreate a Github account on github.com (it’s free of course). We recommend you use your students email address. When choosing a username on Github, consider the following advice:\n\nincorporating your actual name is nice, people like to know who they are dealing with\nchoose a name that you are comfortable revealing it to a future boss\nshorter is better than longer\nmake it timeless (e.g. don’t incorporate your university’s name)\n\n\n\n\n\n\n\nNote 10.1: Users who already have a Github account\n\n\n\nIf you already have a Github account (e.g. for work) and don’t mind using this account for the tasks in this course, you are free to use this existing account. However, if you don’t want to mix these activities, we recommend you create a new Github account with your student mail address.\n\n\n\n\n\n\nBryan, Jenny, and Jim Heister. 2021. Happy Git and GitHub for the useR. https://happygitwithr.com/.\n\n\nChacon, Scott, and Ben Straub. 2014. Pro Git. 2nd Edition. Apress. https://git-scm.com/book/en/v2.",
     "crumbs": [
-      "Exercise 3 (WIP ⚠️)",
+      "Exercise 3",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Preparation</span>"
     ]
   },
   {
     "objectID": "Week3/2_exercise_A.html",
     "href": "Week3/2_exercise_A.html",
-    "title": "Git",
+    "title": "Git (WIP ⚠️)",
     "section": "",
     "text": "Working in the shell / terminal\nTo use git, we will have to use the shell, which is why we are going to spend a few word on the shell first.\nThe shell is a program on your computer whose job is to run other programs. It looks very much like the R-console (in the bottom left of RStudio) that you are already know: You have a place to input text which is transferred to (and interpreted by) the computer when you press “enter”. RStudio has a shell terminal right next to the R-console (tab Terminal).\nEvery Windows comes with two different shell installations: “Command prompt” and “PowerShell”. After installing Git we now have a third option, “Git Bash”. Let’s configure RStudio to use “Git Bash” as the default shell. Go to Tools → Global options → Terminal and set option “New terminals open with” to “Git Bash”.",
     "crumbs": [
-      "Exercise 3 (WIP ⚠️)",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Git</span>"
+      "Exercise 3",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Git (WIP ⚠️)</span>"
     ]
   },
   {
     "objectID": "Week3/2_exercise_A.html#introduce-yourself-git",
     "href": "Week3/2_exercise_A.html#introduce-yourself-git",
-    "title": "Git",
+    "title": "Git (WIP ⚠️)",
     "section": "Introduce yourself to Git",
     "text": "Introduce yourself to Git\nTypically, you do this once (per computer)\nUse the terminal in RStudio to introduce yourself:\n\n\n\nListing 11.1: Setting your git user.name and user.email\n\n\ngit config --global user.name \"Maria Nusslinger\"   # proper name or a pseudonym\ngit config --global user.email \"nussmar@email.com\" # your student mailadress \n\n\n\nReplace the name and email with your credentials. Use the email address that you used to create your GitHub account (see Create a Github account) . We propose using your student mail address, you can always change this later.\n\n\n\n\n\n\nNote 11.1: Users who already have a Github account\n\n\n\nIf you have multiple GitHub accounts (see Note 10.1) and you know that the laptop you are currently using is only for student work, you can set your user.email to your student mailadress. However, if you expect to work with both GitHub accounts with your current laptop, you have to set user.email on a per project basis (by omitting the --global flag).\nPlease feel free to contact us if you have questions about this.",
     "crumbs": [
-      "Exercise 3 (WIP ⚠️)",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Git</span>"
+      "Exercise 3",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Git (WIP ⚠️)</span>"
     ]
   },
   {
     "objectID": "Week3/2_exercise_A.html#initialize-git-version-control",
     "href": "Week3/2_exercise_A.html#initialize-git-version-control",
-    "title": "Git",
+    "title": "Git (WIP ⚠️)",
     "section": "Initialize Git Version Control",
     "text": "Initialize Git Version Control\nOpen the project from last week. Initialize Git Version control on this project by opening the terminal and typing the following:\ngit init\nNow restart RStudio",
     "crumbs": [
-      "Exercise 3 (WIP ⚠️)",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Git</span>"
+      "Exercise 3",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Git (WIP ⚠️)</span>"
     ]
   },
   {
     "objectID": "Week3/2_exercise_A.html#tracking-changes-with-git",
     "href": "Week3/2_exercise_A.html#tracking-changes-with-git",
-    "title": "Git",
+    "title": "Git (WIP ⚠️)",
     "section": "Tracking changes with Git",
     "text": "Tracking changes with Git\n\n\n\n\n\n\nWIP ⚠️",
     "crumbs": [
-      "Exercise 3 (WIP ⚠️)",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Git</span>"
+      "Exercise 3",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Git (WIP ⚠️)</span>"
     ]
   },
   {
     "objectID": "Week3/3_exercise_B.html",
     "href": "Week3/3_exercise_B.html",
-    "title": "GitHub",
+    "title": "GitHub (WIP ⚠️)",
     "section": "",
     "text": "Authenticate Git to work with Github\nTypically, you do this once (per computer)\nIf we want to push changes from our local repository to your Github cloud repository, Github must verify your credentials. Other software might just ask for your username and password, it’s a little different with Git. Basically there are two ways to connect with your remote repo (ssh and https), we will use https in this course.\nFirst, create a personal access token (PAT) on Github\nThen, store your PAT in you local Git",
     "crumbs": [
-      "Exercise 3 (WIP ⚠️)",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>GitHub</span>"
+      "Exercise 3",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>GitHub (WIP ⚠️)</span>"
     ]
   },
   {
     "objectID": "Week3/3_exercise_B.html#authenticate-git-to-work-with-github",
     "href": "Week3/3_exercise_B.html#authenticate-git-to-work-with-github",
-    "title": "GitHub",
+    "title": "GitHub (WIP ⚠️)",
     "section": "",
     "text": "Login into github.com, click on your user profile (top right) and click on “Settings”\nChoose Developer settings &gt; Personal access tokens &gt; Generate new token\nAdd a descriptive note (e.g. https access from my personal laptop)\nSelect scope “repo”\nClick on “Generate token”\nCopy your new personal access token (in the green box)\n\nYou won’t be able to see this token again\nIf you loose it, you can simply create a new one\nIf you want to store it, you neeed to treat this Personal access tokens (PAT) like a password. Only store it in a secure place (like a password management app) and never publish this PAT publicly\n\n\n\n\nIn R, install the gitcreds package (install.packages(\"gitcreds\"))\nLoad this library (library(\"gitcreds\"))\nCall the function gitcreds_set()\nRespond to the prompt with your PAT from the last step\nCheck that you have stored a credential with gitcreds_get()",
     "crumbs": [
-      "Exercise 3 (WIP ⚠️)",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>GitHub</span>"
+      "Exercise 3",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>GitHub (WIP ⚠️)</span>"
     ]
   },
   {
     "objectID": "Week3/3_exercise_B.html#create-github-repo",
     "href": "Week3/3_exercise_B.html#create-github-repo",
-    "title": "GitHub",
+    "title": "GitHub (WIP ⚠️)",
     "section": "Create a Github repo",
     "text": "Create a Github repo\nTypically, you do this once per project\nNow you can create a repository on Github that you can afterwards connect to your RStudio project from this week (which you will create in the next step). To do this, go to github.com and click on the plus sign in the top right corner, then fill in the following information:\n\nRepository name: Give a meaningful name, e.g. cma-week3\nDescription: Give a meaningful description, e.g. Solving exercise 3 of the course \"Computational Movement Analysis\"\nMake the repo public, not private\nChoose Add a README file\n\nClick on Create repository, then on the green button “Code”. Select HTTPS (it might already be selected) and then copy the URL by clicking on the clipboard symbol. The URL should look something list this https://github.com/GITHUB-USERNAME/cma-week3.git.",
     "crumbs": [
-      "Exercise 3 (WIP ⚠️)",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>GitHub</span>"
+      "Exercise 3",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>GitHub (WIP ⚠️)</span>"
     ]
   },
   {
     "objectID": "Week3/3_exercise_B.html#connect-your-local-repo-with-the-remote-repository",
     "href": "Week3/3_exercise_B.html#connect-your-local-repo-with-the-remote-repository",
-    "title": "GitHub",
+    "title": "GitHub (WIP ⚠️)",
     "section": "Connect your local repo with the remote repository",
     "text": "Connect your local repo with the remote repository\nTypically, you do this once per project\nIn RStudio, open the RStudio project from week 3. Open the shell and follow the instructions described in …or push an existing repository from the command line in the website you were just forwarded to on Github (under https://github.com/GITHUB-USERNAME/cma-week3). These instructions should look something like this:\ngit remote add origin https://github.com/GITHUB-USERNAME/cma-week3.git\ngit push -u origin main\nType these commands line by line into your terminal. If you want to copy and paste the commands rather than type them: Note that ctrl + V for “pasting” won’t work via the keyboard shortcut, you will have to paste by right clicking into the terminal and choosing “paste”. Now refresh your repo on Github (https://github.com/GITHUB-USERNAME/cma-week3): You should now see the files from week 1 on GitHub. Didn’t work? Contact us!",
     "crumbs": [
-      "Exercise 3 (WIP ⚠️)",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>GitHub</span>"
+      "Exercise 3",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>GitHub (WIP ⚠️)</span>"
     ]
   },
   {
     "objectID": "Week3/3_exercise_B.html#synchronize-changes-with-github",
     "href": "Week3/3_exercise_B.html#synchronize-changes-with-github",
-    "title": "GitHub",
+    "title": "GitHub (WIP ⚠️)",
     "section": "Synchronize changes with GitHub",
     "text": "Synchronize changes with GitHub\n\n\n\n\n\n\nWIP ⚠️",
     "crumbs": [
-      "Exercise 3 (WIP ⚠️)",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>GitHub</span>"
+      "Exercise 3",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>GitHub (WIP ⚠️)</span>"
     ]
   },
   {
     "objectID": "Week3/4_exercise_C.html",
     "href": "Week3/4_exercise_C.html",
-    "title": "Quarto",
+    "title": "Quarto (WIP ⚠️)",
     "section": "",
     "text": "WIP ⚠️",
     "crumbs": [
-      "Exercise 3 (WIP ⚠️)",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Quarto</span>"
+      "Exercise 3",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Quarto (WIP ⚠️)</span>"
     ]
   },
   {
