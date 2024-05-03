@@ -1,4 +1,4 @@
-# Git (WIP ⚠️)
+# Git
 
 ## Working in the shell / terminal
 
@@ -18,7 +18,7 @@ Use the terminal in RStudio to introduce yourself:
 
 ```{#lst-git-settings .bash lst-cap="Setting your git user.name and user.email"}
 git config --global user.name "Maria Nusslinger"   # proper name or a pseudonym
-git config --global user.email "nussmar@email.com" # your student mailadress 
+git config --global user.email "nussmar@email.com" # your (student) mailadress 
 ```
 
 Replace the name and email with your credentials. **Use the email address that you used to create your Git*Hub* account** (see @sec-create-github) . We propose using your student mail address, you can always change this later. 
@@ -35,7 +35,7 @@ If you have multiple GitHub accounts (see @nte-github1) and you know that the la
 
 ## Initialize Git Version Control 
 
-Open the project from last week. Initialize Git Version control on this project by opening the terminal and typing the following:
+Open the RStudio-project from last week (@sec-week2-ex-a). Initialize Git Version control on this project by opening the terminal and typing the following:
 
 ```bash
 git init
@@ -44,11 +44,81 @@ git init
 Now restart RStudio
 
 
-## Tracking changes with Git
+## Tracking changes with *git* (via the GUI)
+
+In the *Git* panel of RStudio, you should now see all files of your project (see @fig-rstudio-1). In future, you will only see the files with changes. This panel is the built in interface to git for RStudio. It's not great, but ok to get us started.
 
 
-:::{.callout-important}
+1. Select your RScripts by checking the checkbox ☑ in the column *staged*, see @fig-rstudio-2. This is the equivalent of *adding* a file to your upcoming commit. 
+2. Click on the Button **☑ Commit**. This will open a popup where we are asked to add a commit message, see @fig-rstudio-3.
+3. Write your commit message, and click on commit again. This will show an obscure message, see @fig-rstudio-4, which we can close by clicking on the according button. Close the git popup as well. 
 
-## WIP ⚠️
+
+
+
+:::{#fig-rstudio-git layout-nrow=2}
+
+![The git panel shows changed files](../02_Images/rstudio-git.png){#fig-rstudio-1}
+
+![To commit files, select via the checkbox](../02_Images/rstudio-git-2.png){#fig-rstudio-2}
+
+![Enter a commit message in the popup](../02_Images/rstudio-git-3.png){#fig-rstudio-3}
+
+![Close the obscure message](../02_Images/rstudio-git-4.png){#fig-rstudio-4}
+
+
+Working with git from within RStudio's git Graphical User Interface (GUI)
 
 :::
+
+
+
+## Tracking changes with *git* (via the terminal)
+
+Git was originally designed to be used via the terminal. Rstudio's Graphical Interface to git just translates your clicks into terminal commands. Let's do the steps above in the shell.
+
+```{.bash}
+git status                                   # get an overview
+git add cma-2.Rproj                          # equivalent of clicking the checkbox
+```
+
+Now refresh your git panel. You should see that the file `cma-2.Rproj` is selected (☑). You can commit the file with a commit message using the following command. 
+
+```{.bash}
+git commit -m "committing the project file"  # committing with a message
+```
+
+Refresh your git panel again: `cma-2.Rproj` has now dissappeared from the list.
+
+
+
+## View your commit history
+
+You can view your commit history by clicking on the little ⏰-symbol in the git panel.
+
+<!-- is is really true that RStudio can display a commit if multiple files are involved?? -->
+
+## Ignoring files
+
+Some of the files in the repository are too large to be tracked via git. To make sure that git ignores these, we can add them to a textfile with the name *.gitignore*. You should already have such a file in your projects root folder. If this is not the case you can create one by clicking on *File* → *New File* → *Text File* and then saving this file in the root directory of your project with the name *.gitignore* (note the period!).
+
+Append the following line to your *.gitignore* File:
+
+```{.abc}
+*.tif
+```
+
+Now, all files with the extension *.tif* are ignored in your repo. You might also want to remove your personal movement data from being tracked with git (unless you don't mind your data being publicly visible). You have several possibilites for this.
+
+```{.abc}
+data/             # <1>
+garmin-export.csv # <2>
+```
+
+1. ignores all files within the folder "data"
+2. ignores the file "garmin-export"
+
+
+
+
+Now, let's connect our local repository to GitHub (@sec-github-connect). But before we can do this, we need to authenticate git to work with our GitHub account (@sec-github-auth) and then create a repo on GitHub (@sec-github-repo).

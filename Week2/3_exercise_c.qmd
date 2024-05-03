@@ -1,4 +1,4 @@
-## Exercise C
+## Exercise C {#sec-week2-ex-c}
 
 
 In the semester project, you will analyse your own movement data, collected with an app of your choice or the GPS tracker (see @sec-preperation-project). Acquire this data and save it to a subfolder of your current R Project named `data`. Follow the instructions provided in the column *Collect data* in @tbl-data-collection. If you use a GPS logger, bring us your logger, we will extract your data and send it to you.

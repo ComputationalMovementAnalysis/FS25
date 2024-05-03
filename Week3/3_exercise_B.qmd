@@ -1,7 +1,7 @@
 
-# GitHub (WIP ⚠️)
+# GitHub
 
-## Authenticate Git to work with Github
+## Authenticate Git to work with Github {#sec-github-auth}
 
 *Typically, you do this once (per computer)*
 
@@ -27,37 +27,39 @@ Then, store your PAT in you local Git
 4. Respond to the prompt with your PAT from the last step
 5. Check that you have stored a credential with `gitcreds_get()`
   
-## Create a Git**hub** repo {#create-github-repo}
+## Create a repo on GitHub repo {#sec-github-repo}
 
 *Typically, you do this once per project*
 
 Now you can create a repository on Github that you can afterwards connect to your RStudio project from this week (which you will create in the next step). To do this, go to [github.com](https://github.com) and click on the plus sign in the top right corner, then fill in the following information:
 
-- Repository name: Give a meaningful name, e.g.  `cma-week3`
+- Repository name: Give a meaningful name, e.g.  `cma-week2`
 - Description: Give a meaningful description, e.g. `Solving exercise 3 of the course "Computational Movement Analysis"`
 - Make the repo public, not private
 - Choose `Add a README file`
 
-Click on `Create repository`, then on the green button "Code". Select HTTPS (it might already be selected) and then copy the URL by clicking on the clipboard symbol. The URL should look something list this `https://github.com/GITHUB-USERNAME/cma-week3.git`. 
+Click on `Create repository`, then on the green button "Code". Select HTTPS (it might already be selected) and then copy the URL by clicking on the clipboard symbol. The URL should look something list this `https://github.com/GITHUB-USERNAME/cma-week2.git`. 
 
 
-## Connect your local repo with the remote repository
+## Connect your local repo with the remote repository{#sec-github-connect}
 
 *Typically, you do this once per project*
 
-In RStudio, open the RStudio project from week 3. Open the shell and follow the instructions described in *…or push an existing repository from the command line* in the website you were just forwarded to on Github (under https://github.com/GITHUB-USERNAME/cma-week3). These instructions should look something like this:
+In RStudio, open the RStudio project from week 3. Open the shell and follow the instructions described in *…or push an existing repository from the command line* in the website you were just forwarded to on Github (under https://github.com/GITHUB-USERNAME/cma-week2). These instructions should look something like this:
 
-```
-git remote add origin https://github.com/GITHUB-USERNAME/cma-week3.git
+```{.bash}
+git remote add origin https://github.com/GITHUB-USERNAME/cma-week2.git
 git push -u origin main
 ```
 
-Type these commands line by line into your terminal. If you want to copy and paste the commands rather than type them: Note that ctrl + V for "pasting" won't work via the keyboard shortcut, you will have to paste by right clicking into the terminal and choosing "paste". Now refresh your repo on Github (https://github.com/GITHUB-USERNAME/cma-week3): You should now see the files from week 1 on GitHub. Didn't work? Contact us!
+Type these commands line by line into your terminal. If you want to copy and paste the commands rather than type them: Note that ctrl + V for "pasting" won't work via the keyboard shortcut, you will have to paste by right clicking into the terminal and choosing "paste". Now refresh your repo on Github (https://github.com/GITHUB-USERNAME/cma-week2): You should now see the files from week 2 on GitHub. Didn't work? 👉 Contact us!
 
 ## Synchronize changes with GitHub
 
-:::{.callout-important}
+From now on, you should periodically synchronize your local changes with GitHub by pulling changes (from potential collegues) and pushing your own changes. You can do this via the git panel of the GUI (🠯 pull, 🠭 push), or via the git equivalent git commands:
 
-## WIP ⚠️
 
-:::
+```{.bash}
+git pull
+git push
+```

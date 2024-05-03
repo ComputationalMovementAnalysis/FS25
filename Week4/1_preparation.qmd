@@ -31,9 +31,11 @@ You should get a message, saying `Initialized empty Git repository in C:/path/to
 
 To see the "Git" Pane in RStudio, reload RStudio either by restarting it or clicking on the name of your RStudio project in the top right corner of RStudio and selecting your project from the project list). 
 
-### Step 3: Create a Github Repository {#create-github-repo-2}
+### Step 3: Create a Github Repository {#sec-github-repo-2}
 
-Now create a Github Repository following the instructions from [last week](#create-github-repo). This time however, don't check `Add a README file`.
+Now create a Github Repository following the instructions from [last week](#sec-github-repo). This time however, don't check `Add a README file`.
+
+<!-- TODO: replace cma-week3 with cma-week2? -->
 
 Copy the https URL to your Github repo, which should look something like this: `https://github.com/GITHUB-USERNAME/cma-week3.git`
 

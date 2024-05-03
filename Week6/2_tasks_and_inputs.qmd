@@ -99,4 +99,4 @@ You can now explore the spatiotemporal patterns of this new data.
 
 ### Submission
 
-To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#create-github-repo-2).
+To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#sec-github-repo-2).

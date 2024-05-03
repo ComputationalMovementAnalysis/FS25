@@ -1,4 +1,4 @@
-## Exercise B
+## Exercise B {#sec-week2-ex-b}
 
 In preparation, you've read the paper by @laube2011. In this paper, the authors analyse speed at different scales and compare these different values. Let's conceptually reconstruct one of the experiments the authors conducted. 
 
