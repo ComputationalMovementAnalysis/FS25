@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.5.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Movement Analysis: Patterns and Trends in Environmental Data - Tasks and inputs</title>
+<title>Computational Movement Analysis: Patterns and Trends in Environmental Data – Tasks and inputs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -307,17 +307,12 @@ window.onload = function() {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Week3/2_exercise_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Git (WIP ⚠️)</span></a>
+  <a href="../Week3/2_exercise_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Git</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Week3/3_exercise_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">GitHub (WIP ⚠️)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Week3/4_exercise_C.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quarto (WIP ⚠️)</span></a>
+  <a href="../Week3/3_exercise_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">GitHub</span></a>
   </div>
 </li>
       </ul>
@@ -514,14 +509,14 @@ Note
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="at">birthday =</span> <span class="st">"1997-04-23"</span>, <span class="at">units =</span> <span class="st">"days"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 9854.377 days</code></pre>
+<pre><code>Time difference of 9872.28 days</code></pre>
 </div>
 </div>
 <p>As we already know from using other functions, if we declare our variables in the order that we initially listed them, we do not need to specify the parameters (no need of <code>birthday =</code> and <code>units =</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="st">"1997-04-23"</span>, <span class="st">"days"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 9854.377 days</code></pre>
+<pre><code>Time difference of 9872.28 days</code></pre>
 </div>
 </div>
 <p>If we want any of our parameters to have default value, we can assign an initial value to the parameter when declaring the variables within the round brackets.</p>
@@ -533,12 +528,12 @@ Note
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># if not stated otherwise, our function uses the unit "days"</span></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="st">"1997-04-23"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 9854.377 days</code></pre>
+<pre><code>Time difference of 9872.28 days</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can still overwrite units</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="st">"1997-04-23"</span>, <span class="st">"hours"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 236505 hours</code></pre>
+<pre><code>Time difference of 236934.7 hours</code></pre>
 </div>
 </div>
 <p>All you need to do now is run execute the function deceleration (<code>myage &lt;- function...</code> etc.) at the beginning of your script, and you can use the function for your entire R session.</p>
@@ -621,7 +616,7 @@ Important
 </section>
 <section id="submission" class="level3">
 <h3 class="anchored" data-anchor-id="submission">Submission</h3>
-<p>To submit your exercise, provide us with the URL of your Github repo as described <a href="../Week3/3_exercise_B.html#create-github-repo">in the preperation</a>.</p>
+<p>To submit your exercise, provide us with the URL of your Github repo as described <a href="#create-github-repo">in the preperation</a>.</p>
 <p>You can give other GitHub users write access to your repository throught the repository settings. You will be needing this for your semester project. To practice this, add Dominik (<a href="https://github.com/DLND8/">@DLND8</a>) and Nils (<a href="https://github.com/ratnanil/">@ratnanil</a>) to your GitHub repo:</p>
 <ol type="1">
 <li>Go to your GitHub repository on GitHub.com</li>
@@ -830,18 +825,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -873,7 +857,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -932,7 +938,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

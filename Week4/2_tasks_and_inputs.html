@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.5.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Movement Analysis: Patterns and Trends in Environmental Data - Tasks and Inputs</title>
+<title>Computational Movement Analysis: Patterns and Trends in Environmental Data – Tasks and Inputs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -159,7 +159,7 @@ window.onload = function() {
 
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -328,17 +328,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Week3/2_exercise_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Git (WIP ⚠️)</span></a>
+  <a href="../Week3/2_exercise_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Git</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Week3/3_exercise_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">GitHub (WIP ⚠️)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Week3/4_exercise_C.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quarto (WIP ⚠️)</span></a>
+  <a href="../Week3/3_exercise_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">GitHub</span></a>
   </div>
 </li>
       </ul>
@@ -465,7 +460,7 @@ window.Quarto = {
 <img src="../02_Images/laube_2011.jpg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-laubeimg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.1: The figure from <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> visualizes steps a) zu d), which will be explained below
+Figure&nbsp;14.1: The figure from <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> visualizes steps a) zu d), which will be explained below
 </figcaption>
 </figure>
 </div>
@@ -628,7 +623,7 @@ Figure&nbsp;15.1: The figure from <span class="citation" data-cites="laube2011">
 </section>
 <section id="task-4-segment-based-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="task-4-segment-based-analysis">Task 4: Segment-based analysis</h3>
-<p>In applying <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>, we’ve come as far as step b) in <a href="#fig-laubeimg" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>. In order to complete the last steps (c and d), we need a <em>unique</em> ID for each segment that we can use as a grouping variable. The following function does just that (it assigns unique IDs based on the column <code>static</code> which you created in Task 2). You will learn about functions next week. For now, just copy the following code chunk into your script and run it.</p>
+<p>In applying <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>, we’ve come as far as step b) in <a href="#fig-laubeimg" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>. In order to complete the last steps (c and d), we need a <em>unique</em> ID for each segment that we can use as a grouping variable. The following function does just that (it assigns unique IDs based on the column <code>static</code> which you created in Task 2). You will learn about functions next week. For now, just copy the following code chunk into your script and run it.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>rle_id <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rle</span>(vec)<span class="sc">$</span>lengths</span>
@@ -857,18 +852,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -900,7 +884,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -959,7 +965,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
