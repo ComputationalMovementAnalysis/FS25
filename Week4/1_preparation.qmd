@@ -12,15 +12,20 @@ This will create a RStudio Project *without* Git version control (and consequent
 
 ### Step 2: Activate Git Version Control
 
-Activating Git Version Control for your project is one line of code. In your shell terminal, type the following command (which is what RStudio effectively does automatically when you activate the *Create a git repository* option while creating your project):
+Activating Git Version Control for your project is one line of code. In your shell terminal, type the following command:
 
 ```sh
-git init
+# explicitly specify the branch name to be "main",
+# this leads to less confusion later on
+git init -b main
 ```
 
 You should get a message, saying `Initialized empty Git repository in C:/path/to/your/directory/.git/`. You will see this folder (named `.git`) in your project's root directory (check your "Files" pane ). If you don't see it there, click *Refresh file listing* (refresh symbol to the very right of the files pane). If you still don't see it, make hidden files visible (*Files pane > More > Show hidden files*)
 
 To see the "Git" Pane in RStudio, reload RStudio either by restarting it or clicking on the name of your RStudio project in the top right corner of RStudio and selecting your project from the project list). 
+
+
+
 
 ### Step 3: Create a Github Repository {#sec-github-repo-2}
 
