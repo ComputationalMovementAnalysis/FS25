@@ -379,8 +379,10 @@ window.onload = function() {
 </section>
 <section id="step-2-activate-git-version-control" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-activate-git-version-control">Step 2: Activate Git Version Control</h3>
-<p>Activating Git Version Control for your project is one line of code. In your shell terminal, type the following command (which is what RStudio effectively does automatically when you activate the <em>Create a git repository</em> option while creating your project):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Activating Git Version Control for your project is one line of code. In your shell terminal, type the following command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># explicitly specify the branch name to be "main",</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this leads to less confusion later on</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init <span class="at">-b</span> main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You should get a message, saying <code>Initialized empty Git repository in C:/path/to/your/directory/.git/</code>. You will see this folder (named <code>.git</code>) in your project’s root directory (check your “Files” pane ). If you don’t see it there, click <em>Refresh file listing</em> (refresh symbol to the very right of the files pane). If you still don’t see it, make hidden files visible (<em>Files pane &gt; More &gt; Show hidden files</em>)</p>
 <p>To see the “Git” Pane in RStudio, reload RStudio either by restarting it or clicking on the name of your RStudio project in the top right corner of RStudio and selecting your project from the project list).</p>
 </section>
