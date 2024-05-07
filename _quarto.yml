@@ -58,7 +58,6 @@ book:
         - Week3/1_preparation.qmd
         - Week3/2_exercise_A.qmd
         - Week3/3_exercise_B.qmd
-        # - Week3/4_exercise_C.qmd
     - part: Exercise 4 (WIP ⚠️)
       chapters:
       - Week4/1_preparation.qmd
@@ -66,14 +65,14 @@ book:
       #- Week4/3_solutions.qmd
       #- Week4/4_peer_feedback.qmd
     - part: Exercise 5 (WIP ⚠️)
-      chapters:
-      - Week5/1_preparation.qmd
-      - Week5/2_tasks_and_inputs.qmd
+      #chapters:
+      #- Week5/1_preparation.qmd
+      #- Week5/2_tasks_and_inputs.qmd
       #- Week4/3_solutions.qmd
     - part: Exercise 6 (WIP ⚠️)
-      chapters:
-      - Week6/1_preparation.qmd
-      - Week6/2_tasks_and_inputs.qmd
+      #chapters:
+      #- Week6/1_preparation.qmd
+      #- Week6/2_tasks_and_inputs.qmd
       #- Week5/3_solutions.qmd
     - 90_references.qmd
     - Appendix/Appendix.qmd

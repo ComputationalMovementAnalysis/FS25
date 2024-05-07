@@ -4,15 +4,13 @@
 Hover over the code and copy the content by clicking on the clipboard icon on the top right. You can now paste this into an R-Script.
 :::
 
+The code examples for task 1 - 4 was done using a posmo dataset. If you used another dataset (Strava, Google Timeline, etc.) your code can look a bit different.
+
 ```{r}
 #| echo: false
 #| warning: false
 #| class-output: "sourceCode r"
 
-cat(readLines("solutions/week3/task_1.R"), sep = "\n")
-cat(readLines("solutions/week3/task_2.R"), sep = "\n")
-cat(readLines("solutions/week3/task_3.R"), sep = "\n")
-cat(readLines("solutions/week3/task_4.R"), sep = "\n")
-cat(readLines("solutions/week3/task_5.R"), sep = "\n")
-cat(readLines("solutions/week3/task_6.R"), sep = "\n")
+source("01_R_Files/helperfunctions.R")
+paste_solutions(list.files("solutions/week4/", full.names = TRUE))
 ```

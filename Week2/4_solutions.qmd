@@ -4,12 +4,26 @@
 Hover over the code and copy the content by clicking on the clipboard icon on the top right. You can now paste this into an R-Script.
 :::
 
+### Exercise A
+
 ```{r}
 #| echo: false
 #| warning: false
 #| class-output: "sourceCode r"
 
 source("01_R_Files/helperfunctions.R")
-paste_solutions(list.files("solutions/week2/", full.names = TRUE))
+paste_solutions(list.files("solutions/week2/exercise_a/", full.names = TRUE))
+
+```
+
+### Exercise B
+
+```{r}
+#| echo: false
+#| warning: false
+#| class-output: "sourceCode r"
+
+source("01_R_Files/helperfunctions.R")
+paste_solutions(list.files("solutions/week2/exercise_b/", full.names = TRUE))
 
 ```

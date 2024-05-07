@@ -10,25 +10,13 @@ quarto --version
 
 If the above command returns a version number (e.g. `1.5.30`) this means quarto is installed. If the command returns something like `command not found: quarto` we highly recommend you [Update Rstudio](#sec-update-rstudio). Alternatively, you can also just [download](https://quarto.org/docs/download/) and install the **Current Release** of quarto.
 
-
-
 ::: {#fig-terminal}
-
 ![](../02_Images/terminal.png)
 
 The terminal should be located next to the R-Console. If you don't see it there, create a new terminal by clicking on *Tools* → *Terminal* → *New Terminal*.
-
-
-
-
-
 :::
 
 ### Install Git {#install-git}
-
-
-
-
 
 Git is a software dedicated to tracking changes in text files (e.g. R scripts). It's heavily used in the software industry as well as in the field of data science. In this course, we will teach use the basic functionalities of Git and combine it with the online portal Github.
 
@@ -36,9 +24,7 @@ Therefore, the next step is to install Git. There are different Git installers t
 
 [^attribution]: Much of this chapter was taken from @bryan2021. If you want to dive deeper into using Git, we highly recommend this book. For an *even* deeper dive into Git, read @chacon2014. Both books are available free and open source on [happygitwithr.com](https://happygitwithr.com/) and [git-scm.com/book](https://git-scm.com/book/), respectively.
 
-
 ::: {.panel-tabset}
-
 ## Windows
 
   - We recommend installing [Git for Windows](https://gitforwindows.org/), also known as `msysgit` or “Git Bash". 
@@ -56,10 +42,7 @@ Therefore, the next step is to install Git. There are different Git installers t
 
   - On Ubuntu or Debian Linux: `sudo apt-get install git`
   - On Fedora or RedHat Linux: `sudo yum install git`
-
-
 :::
-
 
 ## Change RStudio Settings
 
@@ -69,9 +52,7 @@ Now, **restart RStudio**. Then, go to *Tools → Global options → Git / SVN*.
 - If the Field "*Git executable*:" shows `(Not Found)`, browse to your git installation from the [previous step](install-git).
 - This path should look something like this:
 
-
 ::: {.panel-tabset}
-
 ## Windows
 
 `C:\Program Files\Git\bin\git.exe` (**not** `C:\Program Files\Git\cmd\git.exe` or `some-path\git-bash.exe`)
@@ -79,13 +60,7 @@ Now, **restart RStudio**. Then, go to *Tools → Global options → Git / SVN*.
 ## Linux / macOS
 
 `/usr/bin/git`
-
 :::
-
-
-
-
-
 
 ## Create a Github account{#sec-create-github}
 
@@ -96,12 +71,8 @@ Create a Github account on [github.com](https://github.com/) (it's free of cours
 - shorter is better than longer
 - make it timeless (e.g. don't incorporate your university's name)
 
-
-
 :::{#nte-github1 .callout-note}
 ## Users who already have a Github account
 
 If you already have a Github account (e.g. for work) and don't mind using this account for the tasks in this course, you are free to use this existing account. However, if you don't want to mix these activities, we recommend you *create a new Github account with your student mail address*. 
-
-
 :::

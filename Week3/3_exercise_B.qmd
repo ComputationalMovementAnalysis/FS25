@@ -1,4 +1,3 @@
-
 # GitHub
 
 ## Authenticate Git to work with Github {#sec-github-auth}
@@ -40,7 +39,6 @@ Now you can create a repository on Github that you can afterwards connect to you
 
 Click on `Create repository`, then on the green button "Code". Select HTTPS (it might already be selected) and then copy the URL by clicking on the clipboard symbol. The URL should look something list this `https://github.com/GITHUB-USERNAME/cma-week2.git`. 
 
-
 ## Connect your local repo with the remote repository{#sec-github-connect}
 
 *Typically, you do this once per project*
@@ -57,7 +55,6 @@ Type these commands line by line into your terminal. If you want to copy and pas
 ## Synchronize changes with GitHub
 
 From now on, you should periodically synchronize your local changes with GitHub by pulling changes (from potential collegues) and pushing your own changes. You can do this via the git panel of the GUI (🠯 pull, 🠭 push), or via the git equivalent git commands:
-
 
 ```{.bash}
 git pull

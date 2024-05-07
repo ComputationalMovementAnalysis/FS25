@@ -1,6 +1,5 @@
 ## Exercise C {#sec-week2-ex-c}
 
-
 In the semester project, you will analyse your own movement data, collected with an app of your choice or the GPS tracker (see @sec-preperation-project). Acquire this data and save it to a subfolder of your current R Project named `data`. Follow the instructions provided in the column *Collect data* in @tbl-data-collection. If you use a GPS logger, bring us your logger, we will extract your data and send it to you.
 
 Now, import your data in the same way you imported the the wild boar data in [task 1](#sec-w2a-task1). Next, start exploring your data, similarly as you did in [task 2](sec-w2a-task2). At a minimum:
@@ -8,5 +7,3 @@ Now, import your data in the same way you imported the the wild boar data in [ta
 - Import your data as a data frame and convert it to an `sf` object, using the correct CRS information
 - Convert your data to `CH1903+ LV95`
 - Make a map of your data using `ggplot2` or `tmap`.
-
-

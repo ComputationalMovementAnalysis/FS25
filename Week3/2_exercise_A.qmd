@@ -2,13 +2,11 @@
 
 ## Working in the shell / terminal
 
-
 To use git, we will have to use the shell, which is why we are going to spend a few word on the shell first. 
 
 The shell is a program on your computer whose job is to run other programs. It looks very much like the `R`-console (in the bottom left of RStudio) that you are already know: You have a place to input text which is transferred to (and interpreted by) the computer when you press "enter". RStudio has a shell terminal right next to the `R`-console (tab `Terminal`).
 
 Every Windows comes with two different shell installations: "Command prompt" and "PowerShell". After installing Git we now have a third option, "Git Bash". Let's configure RStudio to use "Git Bash" as the default shell. Go to *Tools → Global options → Terminal* and set option "*New terminals open with*" to "*Git Bash*".
-
 
 ## Introduce yourself to Git{#introduce-yourself-git}
 
@@ -29,9 +27,7 @@ Replace the name and email with your credentials. **Use the email address that y
 If you have multiple GitHub accounts (see @nte-github1) and you know that the laptop you are currently using is only for student work, you can set your `user.email` to your student mailadress. However, if you expect to work with both GitHub accounts with your current laptop, you have to set `user.email` on a *per project* basis (by omitting the `--global` flag).
 
 **Please feel free to contact us if you have questions about this.**
-
 :::
-
 
 ## Initialize Git Version Control 
 
@@ -41,23 +37,17 @@ Open the RStudio-project from last week (@sec-week2-ex-a). Initialize Git Versio
 git init
 ```
 
-Now restart RStudio
-
+Now restart RStudio.
 
 ## Tracking changes with *git* (via the GUI)
 
 In the *Git* panel of RStudio, you should now see all files of your project (see @fig-rstudio-1). In future, you will only see the files with changes. This panel is the built in interface to git for RStudio. It's not great, but ok to get us started.
 
-
 1. Select your RScripts by checking the checkbox ☑ in the column *staged*, see @fig-rstudio-2. This is the equivalent of *adding* a file to your upcoming commit. 
 2. Click on the Button **☑ Commit**. This will open a popup where we are asked to add a commit message, see @fig-rstudio-3.
 3. Write your commit message, and click on commit again. This will show an obscure message, see @fig-rstudio-4, which we can close by clicking on the according button. Close the git popup as well. 
 
-
-
-
 :::{#fig-rstudio-git layout-nrow=2}
-
 ![The git panel shows changed files](../02_Images/rstudio-git.png){#fig-rstudio-1}
 
 ![To commit files, select via the checkbox](../02_Images/rstudio-git-2.png){#fig-rstudio-2}
@@ -66,12 +56,8 @@ In the *Git* panel of RStudio, you should now see all files of your project (see
 
 ![Close the obscure message](../02_Images/rstudio-git-4.png){#fig-rstudio-4}
 
-
 Working with git from within RStudio's git Graphical User Interface (GUI)
-
 :::
-
-
 
 ## Tracking changes with *git* (via the terminal)
 
@@ -89,8 +75,6 @@ git commit -m "committing the project file"  # committing with a message
 ```
 
 Refresh your git panel again: `cma-2.Rproj` has now dissappeared from the list.
-
-
 
 ## View your commit history
 
@@ -117,8 +101,5 @@ garmin-export.csv # <2>
 
 1. ignores all files within the folder "data"
 2. ignores the file "garmin-export"
-
-
-
 
 Now, let's connect our local repository to GitHub (@sec-github-connect). But before we can do this, we need to authenticate git to work with our GitHub account (@sec-github-auth) and then create a repo on GitHub (@sec-github-repo).

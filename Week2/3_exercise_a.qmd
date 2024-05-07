@@ -1,10 +1,7 @@
 ## Exercise A {#sec-week2-ex-a}
 
-
 - Create a new RStudio Project for this exercise (see @sec-create-rstudio-project)
 - Download the new wild boar movement data, and save it to your new project's directory [wildschwein_BE_2056.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125)
-
-
 
 ### Task 1: Import your data {#sec-w2a-task1}
 
@@ -27,7 +24,6 @@ Note:
 
 Calculate the time difference between subsequent rows as described in the demo. You can calculate the time difference using the function `difftime_secs()` (see below) in combination with `lead()` (see @sec-lead-lag). Store the time difference in a new column (e.g. `timelag`). 
 
-
 ```{r}
 #| echo: true
 #| eval: true
@@ -44,8 +40,6 @@ Now inspect your data in more detail. Try to answer the following questions:
 - Were all individuals tracked concurrently or sequentially? 
 - What is the temporal sampling interval between the locations?
 
-
-
 ::: {.callout-important}
 `summarise()` tries to coerce all (Point-) geometries into one object, which can take along time. To avoid this, use `st_drop_geometry()` before using `summarise()`. 
 :::
@@ -58,10 +52,7 @@ Now inspect your data in more detail. Try to answer the following questions:
 
 ```
 
-
-
 ### Task 3: Distance between locations
-
 
 Similar to how we calculated the `timelag` between subsequent locations, we can calculate the distance like so:
 
@@ -76,7 +67,6 @@ now <- wildschwein_BE$geometry
 
 st_distance(later, now, by_element = TRUE)  # by_element must be set to TRUE
 ```
-
 
 However, similar to `difftime()`, the output has a unit which complicates things. Therefore, it's simpler to wrap the output in `as.numeric()`. Let's make a function for this process:
 
@@ -93,7 +83,6 @@ distance_by_element <- function(later, now){
 }
 ```
 
-
 Use this function to create a new column named `steplength` with the distance between locations.
 
 ```{r}
@@ -109,8 +98,6 @@ Use this function to create a new column named `steplength` with the distance be
 In this task we will derive some additional movement parameters from our trajectories. So far our trajectories only consist of a list of time-stamped spatial locations. First let's calculate the Euclidean distance between subsequent locations using the function `st_distance()` with the option `by_element = TRUE`. Store these values in a new column with the name `steplength`.
 Next, you can calculate the animals' speed based on `steplength` and the `timelag` (from the last task).
 
-
-
 ```{r}
 #| file: "solutions/week2/exercise_a/task_4.R"
 #| echo: false
@@ -118,7 +105,6 @@ Next, you can calculate the animals' speed based on `steplength` and the `timela
 #| eval: true
 
 ```
-
 
 ### Task 5: Plausibility Check 
 
@@ -128,6 +114,7 @@ It's important to repeatedly visualize our results, to make sure these are plaus
 #| echo: true
 #| eval: true
 #| code-fold: false
+
 wildschwein_sample <- wildschwein_BE |>
   filter(TierName == "Sabi") |> 
   head(100)
@@ -135,7 +122,6 @@ wildschwein_sample <- wildschwein_BE |>
 ```
 
 We can now visualise the sample using tmap with the *view" mode:
-
 
 :::{#fig-map-sample-1}
 
