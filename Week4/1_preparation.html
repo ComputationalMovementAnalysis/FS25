@@ -311,46 +311,12 @@ window.onload = function() {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
- <span class="menu-text">Exercise 5 (WIP ⚠️)</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Week5/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Week5/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and inputs</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Exercise 5 (WIP ⚠️)</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
- <span class="menu-text">Exercise 6 (WIP ⚠️)</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Week6/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Week6/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Exercise 6 (WIP ⚠️)</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -372,7 +338,7 @@ window.onload = function() {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#step-1-create-a-normal-rstudio-project" id="toc-step-1-create-a-normal-rstudio-project" class="nav-link active" data-scroll-target="#step-1-create-a-normal-rstudio-project">Step 1: Create a “normal” RStudio Project</a></li>
+  <li><a href="#step-1-create-a-rstudio-project" id="toc-step-1-create-a-rstudio-project" class="nav-link active" data-scroll-target="#step-1-create-a-rstudio-project">Step 1: Create a RStudio Project</a></li>
   <li><a href="#step-2-activate-git-version-control" id="toc-step-2-activate-git-version-control" class="nav-link" data-scroll-target="#step-2-activate-git-version-control">Step 2: Activate Git Version Control</a></li>
   <li><a href="#sec-github-repo-2" id="toc-sec-github-repo-2" class="nav-link" data-scroll-target="#sec-github-repo-2">Step 3: Create a Github Repository</a></li>
   <li><a href="#step-4-connect-to-github" id="toc-step-4-connect-to-github" class="nav-link" data-scroll-target="#step-4-connect-to-github">Step 4: Connect to Github</a></li>
@@ -401,16 +367,9 @@ window.onload = function() {
 </header>
 
 
-<p>We need to create a new RStudio Project with Git and Github this week. Last week you created an RStudio Project which was automatically connected to Github. You did this by <em>first</em> creating a Github Repo, and then initiating the RStudio Project via <em>File &gt; New Project &gt; Version Control &gt; Git</em> (adding the URL of your Github Repo). This is definitely the easiest way to set up a connection, but what if you have an existing project that you want to connect to Github?</p>
-<p>In this next section, we will go through setting up Git and Github without the use of RStudio. It will take slightly longer than the setup we used last week. Also, you will be confronted with some additional jargon.</p>
-<p>As additional ressources to learning Git, we highly recommend:</p>
-<ul>
-<li>The video tutorials <a href="https://www.youtube.com/playlist?list=PL-osiE80TeTuRUfjRe54Eea17-YfnOOAx">by Corey Schafer</a> or the very entertaining learning series <a href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV">Git and Github for Poets</a>.</li>
-<li><a href="https://happygitwithr.com/">Happy Git with Github for the useR</a> is an excellent, easy to read, openly available book, written specifically for students working with R and RStudio in data science and related fields</li>
-</ul>
-<section id="step-1-create-a-normal-rstudio-project" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-create-a-normal-rstudio-project">Step 1: Create a “normal” RStudio Project</h3>
-<p>Create a new RStudio Project <em>File &gt; New Project &gt; New Directory &gt; New Project</em>. This will create a “normal” RStudio Project <em>without</em> Git version control (and consequently without a Github connection). This is a typical situation for a project that you started without version control in mind. Choose the following settings:</p>
+<section id="step-1-create-a-rstudio-project" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-create-a-rstudio-project">Step 1: Create a RStudio Project</h3>
+<p>Create a new RStudio Project <em>File &gt; New Project &gt; New Directory &gt; New Project</em>. This will create a RStudio Project <em>without</em> Git version control (and consequently without a Github connection). This is a typical situation for a project that you started without version control in mind. Choose the following settings:</p>
 <ul>
 <li><strong>Directory name</strong>: Choose a directory name that suits your structure</li>
 <li><strong>Create project as a subdirectory of</strong>: Choose a parent directory that suits your folder structure</li>
@@ -421,14 +380,13 @@ window.onload = function() {
 <section id="step-2-activate-git-version-control" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-activate-git-version-control">Step 2: Activate Git Version Control</h3>
 <p>Activating Git Version Control for your project is one line of code. In your shell terminal, type the following command (which is what RStudio effectively does automatically when you activate the <em>Create a git repository</em> option while creating your project):</p>
-<pre><code>git init</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You should get a message, saying <code>Initialized empty Git repository in C:/path/to/your/directory/.git/</code>. You will see this folder (named <code>.git</code>) in your project’s root directory (check your “Files” pane ). If you don’t see it there, click <em>Refresh file listing</em> (refresh symbol to the very right of the files pane). If you still don’t see it, make hidden files visible (<em>Files pane &gt; More &gt; Show hidden files</em>)</p>
 <p>To see the “Git” Pane in RStudio, reload RStudio either by restarting it or clicking on the name of your RStudio project in the top right corner of RStudio and selecting your project from the project list).</p>
 </section>
 <section id="sec-github-repo-2" class="level3">
 <h3 class="anchored" data-anchor-id="sec-github-repo-2">Step 3: Create a Github Repository</h3>
 <p>Now create a Github Repository following the instructions from <a href="../Week3/3_exercise_B.html#sec-github-repo">last week</a>. This time however, don’t check <code>Add a README file</code>.</p>
-<!-- TODO: replace cma-week3 with cma-week2? -->
 <p>Copy the https URL to your Github repo, which should look something like this: <code>https://github.com/GITHUB-USERNAME/cma-week3.git</code></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -447,7 +405,7 @@ Important
 <section id="step-4-connect-to-github" class="level3">
 <h3 class="anchored" data-anchor-id="step-4-connect-to-github">Step 4: Connect to Github</h3>
 <p>To connect your (local) RStudio Project to Github, we have to set up our Github repo to be our so called “<em>remote</em>” repository. We could have multiple <em>remotes</em>, which is why we need to name it, and the convention is to call it <code>origin</code>. To create a <em>remote</em> named <code>origin</code>, type the following command in your shell terminal:</p>
-<pre><code>git remote add origin https://github.com/GITHUB-USERNAME/cma-week3.git</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/GITHUB-USERNAME/cma-week3.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now, before you can <em>push</em> anything to the remote repository, you need to commit something first. Last week, you used the Git Pane from RStudio to commit your files. Since we are already in the terminal, let’s use the terminal for this and in this way get to know git a little bit better.</p>
 <p>There is one little that we glanced over till now. Before committing a file, you <em>selected</em> them first. This process is called <em>adding to the staging area</em>. To add your <code>cma-week3.rproj</code> to your git repo, type the following command:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust the filename accordingly</span></span>
