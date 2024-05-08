@@ -58,7 +58,7 @@ book:
         - Week3/1_preparation.qmd
         - Week3/2_exercise_A.qmd
         - Week3/3_exercise_B.qmd
-    - part: Exercise 4 (WIP ⚠️)
+    - part: Exercise 4
       chapters:
       - Week4/1_preparation.qmd
       - Week4/2_tasks_and_inputs.qmd
