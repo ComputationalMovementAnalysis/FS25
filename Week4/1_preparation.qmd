@@ -42,16 +42,16 @@ Report the URL of your new repo back to us via Moodle!
 To connect your (local) RStudio Project to Github, we have to set up our Github repo to be our so called "*remote*" repository. We could have multiple *remotes*, which is why we need to name it, and the convention is to call it `origin`. To create a *remote* named `origin`, type the following command in your shell terminal:
 
 ```sh
-git remote add origin https://github.com/GITHUB-USERNAME/cma-week3.git
+git remote add origin https://github.com/GITHUB-USERNAME/cma-week4.git
 ```
 
 Now, before you can *push* anything to the remote repository, you need to commit something first. Last week, you used the Git Pane from RStudio to commit your files. Since we are already in the terminal, let's use the terminal for this and in this way get to know git a little bit better. 
 
-There is one little that we glanced over till now. Before committing a file, you *selected* them first. This process is called *adding to the staging area*. To add your `cma-week3.rproj` to your git repo, type the following command:
+There is one little that we glanced over till now. Before committing a file, you *selected* them first. This process is called *adding to the staging area*. To add your `cma-week4.Rproj` to your git repo, type the following command:
 
 ```sh
 # Adjust the filename accordingly
-git add cma-week3.rproj
+git add cma-week4.Rproj
 ```
 
 To commit this file, type the following command
