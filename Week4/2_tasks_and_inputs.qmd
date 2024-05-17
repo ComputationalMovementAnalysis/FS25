@@ -142,7 +142,7 @@ Once you have completed this prepartions, commit your changes with a meaningful 
 
 ### Task 1: Segmentation
 
-Now, you can implement steps a) b) and c), which you had used with sabi, on on your own movement data. Once you have completed the task, commit your changes with a meaningful commit message and test your connection to Github by pushing your changes to your remote repository.
+Now, you can implement steps a) and b), which you had used with sabi, on on your own movement data. Once you have completed the task, commit your changes with a meaningful commit message and test your connection to Github by pushing your changes to your remote repository.
 
 ### Task 2: Specify and apply threshold *d*
 
