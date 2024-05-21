@@ -108,7 +108,7 @@ Next, you can calculate the animals' speed based on `steplength` and the `timela
 
 ### Task 5: Plausibility Check 
 
-It's important to repeatedly visualize our results, to make sure these are plausible. This is much simpler if we just look at a small sample of our dataset. We can use `slice()` to extract just a couple of rows
+It's important to repeatedly visualize our results, to make sure these are plausible. This is much simpler if we just look at a small sample of our dataset. We can use `head(100)` to extract the first 100 rows.
 
 ```{r}
 #| echo: true
@@ -121,7 +121,7 @@ wildschwein_sample <- wildschwein_BE |>
 
 ```
 
-We can now visualise the sample using tmap with the *view" mode:
+We can now visualise the sample using tmap with the *view* mode:
 
 :::{#fig-map-sample-1}
 

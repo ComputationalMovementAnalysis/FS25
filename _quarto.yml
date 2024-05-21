@@ -65,10 +65,10 @@ book:
       #- Week4/3_solutions.qmd
       #- Week4/4_peer_feedback.qmd
     - part: Exercise 5 (WIP ⚠️)
-      #chapters:
-      #- Week5/1_preparation.qmd
-      #- Week5/2_tasks_and_inputs.qmd
-      #- Week4/3_solutions.qmd
+      chapters:
+      - Week5/1_preparation.qmd
+      - Week5/2_tasks_and_inputs.qmd
+      # - Week4/3_solutions.qmd
     - part: Exercise 6 (WIP ⚠️)
       #chapters:
       #- Week6/1_preparation.qmd

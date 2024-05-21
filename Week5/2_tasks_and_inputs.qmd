@@ -8,8 +8,6 @@
 
 Up to now, we have used a variety of different functions designed by other developers. Sometimes we need to execute an operation multiple times, and most often it is reasonable to write a function to do so. Whenever you have copied and pasted a block of code more than twice, you should consider writing a function [@wickham2017]. 
 
-We have violated this rule multiple times when calculating the Euclidean distances between points. Writing and rewriting the code `sqrt((x-lead(x,1))^2+(y-lead(y,1))^2)` over and over again is not only cumbersome, it is also error prone. We can easily wrap this operation into a function. This input on writing functions should bring you up to speed to do this in your first task.
-
 The first step in writing a function, is picking a name and assigning `<- function(){}` to it.
 
 ```{r}
@@ -18,7 +16,7 @@ The first step in writing a function, is picking a name and assigning `<- functi
 testfun <- function() {}
 ```
 
-To run the function, we have to call the assigned name with the brackets. This function gives no output, which is why we get `NULL` back. 
+To run the function, we have to call the assigned name with the brackets. The function `testfun` gives no output, which is why we get `NULL` back. 
 ```{r}
 #| echo: true
 
@@ -73,20 +71,20 @@ or even more compact:
 testfun <- \(sometext) print(sometext)
 ```
 :::
-c
+
 Let's take a more practical example. Say we want a function that calculates our age if provided with the date of our birthday. We can use `Sys.time()` to provide today's date and `difftime()` to calculate the time difference between today and our birthday.
 
 ```{r}
 #| echo: true
 
-my_age <- function(birthday, units) {
-    difftime(Sys.time(), birthday, units = units)
+my_age <- function(birthday, output_unit) {
+    difftime(Sys.time(), birthday, units = output_unit)
 }
 
-my_age(birthday = "1997-04-23", units = "days")
+my_age(birthday = "1997-04-23", output_unit = "days")
 ```
 
-As we already know from using other functions, if we declare our variables in the order that we initially listed them, we do not need to specify the parameters (no need of `birthday = ` and `units =`).
+As we already know from using other functions, if we declare our variables in the order that we initially listed them, we do not need to specify the parameters (no need of `birthday = ` and `output_unit =`).
 ```{r}
 #| echo: true
 
@@ -97,8 +95,8 @@ If we want any of our parameters to have default value, we can assign an initial
 ```{r}
 #| echo: true
 
-my_age <- function(birthday, units = "days") {
-    difftime(Sys.time(), birthday, units = units)
+my_age <- function(birthday, output_unit = "days") {
+    difftime(Sys.time(), birthday, units = output_unit)
 }
 
 # if not stated otherwise, our function uses the unit "days"
@@ -116,16 +114,10 @@ Always try to make your function self sufficient: Only use objects within your f
 
 ### Task 1: Write your own functions
 
-Create a function for our Euclidean distance calculation. 
+Create the following two functions:
 
-Note: if you treat your input variables as vectors, they will work in `dplyr`s `mutate()` and `summarise()` operations. 
-
-```{r}
-#| file: "solutions/week5/task_1.R"
-#| echo: false
-#| include: false
-
-```
+1. Calculate BMI based on a person's height and weight ($\text{BMI} = \frac{\text{Weight (kg)}}{\text{Height (m)}}$)
+2. Calculate Degrees Farenheight based on Degrees Celcius ($\text{Farenheight} = \text{Celcius} \times \frac{9}{5} + 32$)
 
 ### Task 2: Prepare Analysis
 
