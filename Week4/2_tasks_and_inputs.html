@@ -310,6 +310,11 @@ window.Quarto = {
   <a href="../Week2/3_exercise_c.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercise C</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Week2/4_solutions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Solutions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -422,14 +427,14 @@ window.Quarto = {
 
 <section id="input" class="level3">
 <h3 class="anchored" data-anchor-id="input">Input</h3>
-<p>You’ve read <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> about segmenting trajectories. In the paper, the authors define “<em>static</em>” fixes as “<em>those whose average Euclidean distance to other fixes inside a temporal window v is less than some threshold d</em>”, as illustrated in <a href="#fig-laubeimg" class="quarto-xref">Figure&nbsp;<span>14.1</span></a></p>
+<p>You’ve read <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> about segmenting trajectories. In the paper, the authors define “<em>static</em>” fixes as “<em>those whose average Euclidean distance to other fixes inside a temporal window v is less than some threshold d</em>”, as illustrated in <a href="#fig-laubeimg" class="quarto-xref">Figure&nbsp;<span>15.1</span></a></p>
 <div id="fig-laubeimg" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-laubeimg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../02_Images/laube_2011.jpg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-laubeimg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.1: The figure from <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> visualizes steps a) zu d), which will be explained below
+Figure&nbsp;15.1: The figure from <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> visualizes steps a) zu d), which will be explained below
 </figcaption>
 </figure>
 </div>
@@ -582,7 +587,7 @@ Projected CRS: CH1903+ / LV95
 </section>
 <section id="task-4-segment-based-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="task-4-segment-based-analysis">Task 4: Segment-based analysis</h3>
-<p>In applying <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>, we’ve come as far as step b) in <a href="#fig-laubeimg" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>. In order to complete the last steps (c and d), we need a <em>unique</em> ID for each segment that we can use as a grouping variable. The following function does just that (it assigns unique IDs based on the column <code>static</code> which you created in Task 2). You will learn about functions next week. For now, just copy the following code chunk into your script and run it.</p>
+<p>In applying <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>, we’ve come as far as step b) in <a href="#fig-laubeimg" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>. In order to complete the last steps (c and d), we need a <em>unique</em> ID for each segment that we can use as a grouping variable. The following function does just that (it assigns unique IDs based on the column <code>static</code> which you created in Task 2). You will learn about functions next week. For now, just copy the following code chunk into your script and run it.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rle_id <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rle</span>(vec)<span class="sc">$</span>lengths</span>
