@@ -52,7 +52,7 @@ book:
       - Week2/3_exercise_a.qmd
       - Week2/3_exercise_b.qmd
       - Week2/3_exercise_c.qmd
-      #- Week2/4_solutions.qmd
+      - Week2/4_solutions.qmd
     - part: Exercise 3
       chapters: 
         - Week3/1_preparation.qmd
