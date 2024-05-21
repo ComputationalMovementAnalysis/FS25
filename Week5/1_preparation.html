@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Movement Analysis: Patterns and Trends in Environmental Data – Tasks and Inputs</title>
+<title>Computational Movement Analysis: Patterns and Trends in Environmental Data – Preparation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,61 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -84,8 +30,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Week5/1_preparation.html" rel="next">
-<link href="../Week4/1_preparation.html" rel="prev">
+<link href="../Week5/2_tasks_and_inputs.html" rel="next">
+<link href="../Week4/2_tasks_and_inputs.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -159,35 +105,6 @@ window.onload = function() {
 
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../custom.css">
 <link rel="stylesheet" href="../theme-custom.scss">
@@ -202,7 +119,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week4/1_preparation.html">Exercise 4</a></li><li class="breadcrumb-item"><a href="../Week4/2_tasks_and_inputs.html"><span class="chapter-title">Tasks and Inputs</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week5/1_preparation.html">Exercise 5</a></li><li class="breadcrumb-item"><a href="../Week5/1_preparation.html"><span class="chapter-title">Preparation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -345,13 +262,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
  <span class="menu-text">Exercise 4</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Week4/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
@@ -359,23 +276,23 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Week4/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Tasks and Inputs</span></a>
+  <a href="../Week4/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tasks and Inputs</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
  <span class="menu-text">Exercise 5</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Week5/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
+  <a href="../Week5/1_preparation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,28 +321,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#input" id="toc-input" class="nav-link active" data-scroll-target="#input">Input</a></li>
-  <li><a href="#preperation" id="toc-preperation" class="nav-link" data-scroll-target="#preperation">Preperation</a></li>
-  <li><a href="#task-1-segmentation" id="toc-task-1-segmentation" class="nav-link" data-scroll-target="#task-1-segmentation">Task 1: Segmentation</a></li>
-  <li><a href="#task-2-specify-and-apply-threshold-d" id="toc-task-2-specify-and-apply-threshold-d" class="nav-link" data-scroll-target="#task-2-specify-and-apply-threshold-d">Task 2: Specify and apply threshold <em>d</em></a></li>
-  <li><a href="#task-3-visualize-segmented-trajectories" id="toc-task-3-visualize-segmented-trajectories" class="nav-link" data-scroll-target="#task-3-visualize-segmented-trajectories">Task 3: Visualize segmented trajectories</a></li>
-  <li><a href="#task-4-segment-based-analysis" id="toc-task-4-segment-based-analysis" class="nav-link" data-scroll-target="#task-4-segment-based-analysis">Task 4: Segment-based analysis</a></li>
-  <li><a href="#task-5-similarity-measures" id="toc-task-5-similarity-measures" class="nav-link" data-scroll-target="#task-5-similarity-measures">Task 5: Similarity measures</a></li>
-  <li><a href="#task-6-calculate-similarity" id="toc-task-6-calculate-similarity" class="nav-link" data-scroll-target="#task-6-calculate-similarity">Task 6: Calculate similarity</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week4/2_tasks_and_inputs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week4/1_preparation.html">Exercise 4</a></li><li class="breadcrumb-item"><a href="../Week4/2_tasks_and_inputs.html"><span class="chapter-title">Tasks and Inputs</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week5/1_preparation.html">Exercise 5</a></li><li class="breadcrumb-item"><a href="../Week5/1_preparation.html"><span class="chapter-title">Preparation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Tasks and Inputs</span></h1>
+<h1 class="title"><span class="chapter-title">Preparation</span></h1>
 </div>
 
 
@@ -442,227 +346,10 @@ window.Quarto = {
 </header>
 
 
-<section id="input" class="level3">
-<h3 class="anchored" data-anchor-id="input">Input</h3>
-<p>You’ve read <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> about segmenting trajectories. In the paper, the authors define “<em>static</em>” fixes as “<em>those whose average Euclidean distance to other fixes inside a temporal window v is less than some threshold d</em>”, as illustrated in <a href="#fig-laubeimg" class="quarto-xref">Figure&nbsp;<span>15.1</span></a></p>
-<div id="fig-laubeimg" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-laubeimg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../02_Images/laube_2011.jpg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-laubeimg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.1: The figure from <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> visualizes steps a) zu d), which will be explained below
-</figcaption>
-</figure>
-</div>
-<ol type="a">
-<li>Specify a temporal windows <span class="math inline">\(v\)</span> for in which to measure Euclidean distances.</li>
-<li>Measure the distance from every point to every other point within this temporal window <span class="math inline">\(v\)</span>.</li>
-<li>Remove “static points”: These are points where the average distance is less than a given threshold. This segments the trajectory into subtrajectories.</li>
-<li>Now remove short subtrajectories: These are trajectories with a short duration (whereas “short” is tbd).</li>
-</ol>
-<p>We will <strong>demonstrate</strong> implementing this method on the wild boar “Sabi”, restricting ourselves to a couple of tracking days. Your task will be to understand this implementation and apply it to your own movement data.</p>
-<p>Open the RStudio Project <a href="1_preparation.html">you have prepared</a> for this week. Next, copy the wild boar data you downloaded last week (<em>wildschwein_BE_2056.csv</em>) to your project folder. If you cannot find this dataset on your computer, you can re-download it <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">here</a>. Transform the data into an <code>sf</code> object, filter for the wildboar Sabi and a datetime between “2015-07-01” and “2015-07-03”.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readr"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"sf"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/wildschwein_BE_2056.csv"</span>, <span class="st">","</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Careful! What Timezone is assumed?</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>sabi <span class="ot">&lt;-</span> wildschwein <span class="sc">|&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"E"</span>, <span class="st">"N"</span>), <span class="at">crs =</span> <span class="dv">2056</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(TierName <span class="sc">==</span> <span class="st">"Sabi"</span>, DatetimeUTC <span class="sc">&gt;=</span> <span class="st">"2015-07-01"</span>, DatetimeUTC <span class="sc">&lt;</span> <span class="st">"2015-07-03"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="2_tasks_and_inputs_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Movement of the wild boar ‘Sabi’ in the timespan 01 - 02.07.2015. The circle highlights possible ‘static points’</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<section id="step-a-specify-a-temporal-window-v" class="level4">
-<h4 class="anchored" data-anchor-id="step-a-specify-a-temporal-window-v">Step a): Specify a temporal window <span class="math inline">\(v\)</span></h4>
-<p>In the above dataset, the sampling interval is 15 minutes. If we take a temporal window of 60 minutes, that would mean including 4 fixes. We need to calculate the following Euclidean distances (pos representing single location):</p>
-<ol type="1">
-<li><code>pos[n-2]</code> to <code>pos[n]</code></li>
-<li><code>pos[n-1]</code> to <code>pos[n]</code></li>
-<li><code>pos[n]</code> to <code>pos[n+1]</code></li>
-<li><code>pos[n]</code> to <code>pos[n+2]</code></li>
-</ol>
-</section>
-<section id="step-b-measure-the-distance-from-every-point-to-every-other-point-within-this-temporal-window-v" class="level4">
-<h4 class="anchored" data-anchor-id="step-b-measure-the-distance-from-every-point-to-every-other-point-within-this-temporal-window-v">Step b): Measure the distance from every point to every other point within this temporal window <span class="math inline">\(v\)</span></h4>
-<p>We can use the function distance_by_element from week 2 in combination with <code>lead()</code> and <code>lag()</code> to calculate the Euclidean distance. For example, to create the necessary offset of n-2, we use <code>lag(x, 2)</code>. For each offset, we create one individual column.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>distance_by_element <span class="ot">&lt;-</span> <span class="cf">function</span>(later, now) {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_distance</span>(later, now, <span class="at">by_element =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>sabi <span class="ot">&lt;-</span> sabi <span class="sc">|&gt;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">nMinus2 =</span> <span class="fu">distance_by_element</span>(<span class="fu">lag</span>(geometry, <span class="dv">2</span>), geometry),  <span class="co"># distance to pos -30 minutes</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">nMinus1 =</span> <span class="fu">distance_by_element</span>(<span class="fu">lag</span>(geometry, <span class="dv">1</span>), geometry),  <span class="co"># distance to pos -15 minutes</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">nPlus1  =</span> <span class="fu">distance_by_element</span>(geometry, <span class="fu">lead</span>(geometry, <span class="dv">1</span>)), <span class="co"># distance to pos +15 mintues</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">nPlus2  =</span> <span class="fu">distance_by_element</span>(geometry, <span class="fu">lead</span>(geometry, <span class="dv">2</span>))  <span class="co"># distance to pos +30 minutes</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now we want to calculate the mean distance of <code>nMinus2</code>, <code>nMinus1</code>, <code>nPlus1</code>, <code>nPlus2</code> for each row. Since we want the mean value <em>per Row</em>, we have to explicitly specify this before <code>mutate()</code> with the function <code>rowwise()</code>. To remove this rowwise-grouping, we end the operation with <code>ungroup()</code>.</p>
-<p>Note that for the first two positions, we cannot calculate a <code>stepMean</code> since there is no Position <code>n-2</code> for these positions. This is also true for the last to positions (lacking a position <code>n+2</code>).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sabi <span class="ot">&lt;-</span> sabi <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">stepMean =</span> <span class="fu">mean</span>(<span class="fu">c</span>(nMinus2, nMinus1, nPlus1, nPlus2))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>sabi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 192 features and 11 fields
-Geometry type: POINT
-Dimension:     XY
-Bounding box:  xmin: 2569724 ymin: 1204916 xmax: 2570927 ymax: 1205957
-Projected CRS: CH1903+ / LV95
-# A tibble: 192 × 12
-   TierID TierName CollarID DatetimeUTC                E        N
-   &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;    &lt;dbl&gt;
- 1 002A   Sabi        12275 2015-06-30 22:00:13 2569972. 1205366.
- 2 002A   Sabi        12275 2015-06-30 22:16:06 2569975. 1205637.
- 3 002A   Sabi        12275 2015-06-30 22:30:19 2570266. 1205857.
- 4 002A   Sabi        12275 2015-06-30 22:45:13 2570208. 1205913.
- 5 002A   Sabi        12275 2015-06-30 23:00:10 2570247. 1205731.
- 6 002A   Sabi        12275 2015-06-30 23:15:17 2570512. 1205279.
- 7 002A   Sabi        12275 2015-06-30 23:30:38 2570684. 1205103.
- 8 002A   Sabi        12275 2015-06-30 23:45:16 2570526. 1205051.
- 9 002A   Sabi        12275 2015-07-01 00:00:10 2570532. 1205044.
-10 002A   Sabi        12275 2015-07-01 00:15:14 2570530. 1205059.
-# ℹ 182 more rows
-# ℹ 6 more variables: geometry &lt;POINT [m]&gt;, nMinus2 &lt;dbl&gt;, nMinus1 &lt;dbl&gt;,
-#   nPlus1 &lt;dbl&gt;, nPlus2 &lt;dbl&gt;, stepMean &lt;dbl&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="step-c-remove-static-points" class="level4">
-<h4 class="anchored" data-anchor-id="step-c-remove-static-points">Step c): Remove “static points”</h4>
-<p>We can now determine if an animal is moving or not by specifying a threshold distance on <code>stepMean</code>. In our example, we use the mean value as a threshold: Positions with distances below this value are considered static.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sabi <span class="ot">&lt;-</span> sabi <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">static =</span> stepMean <span class="sc">&lt;</span> <span class="fu">mean</span>(stepMean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sabi_filter <span class="ot">&lt;-</span> sabi <span class="sc">|&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>static)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>sabi_filter <span class="sc">|&gt;</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(E, N)) <span class="sc">+</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_path</span>() <span class="sc">+</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="2_tasks_and_inputs_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>The trajectory of sabi, filtered to the positions where the animal was not static</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="preperation" class="level3">
-<h3 class="anchored" data-anchor-id="preperation">Preperation</h3>
-<p>With the skills from the input above you can now implement the segmentation algorithm described in <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> to your own movement data. Export your data from your provider and import is as a <code>data.frame</code> in R.</p>
-<p>As before, we will calculate the euclidean distance “by hand”. Complete the following preparations in order to start the calculations:</p>
-<ul>
-<li>We need the coordinates of our locations stored in a <strong>Projected CRS</strong>. Check in which coordinate reference system your data is stored and if necessairy transform it to EPSG 2056 with the function <code>st_transform</code>, as we explained in <a href="../Week1/2_tasks_and_inputs.html#sec-week1-task3-reproject">the first week</a>. You have already done this in <a href="../Week2/3_exercise_c.html">week 2</a>.</li>
-<li>To be able to compute Euclidean distances by hand, we need the coordinates stored in separate columns. The function <code>st_coordinates</code> extracts the coordinates from our <code>sf</code> object. We can bind these coordinates back to our <code>sf</code> object using <code>cbind</code>.</li>
-<li>Explore your data and choose a single day for the next steps.</li>
-</ul>
-<p>Once you have completed this prepartions, commit your changes with a meaningful commit message. <em>Before committing, make sure your location data is ignored!</em> Then, test your connection to Github by pushing your changes to your remote repository.</p>
-</section>
-<section id="task-1-segmentation" class="level3">
-<h3 class="anchored" data-anchor-id="task-1-segmentation">Task 1: Segmentation</h3>
-<p>Now, you can implement steps a) and b), which you had used with sabi, on on your own movement data. Once you have completed the task, commit your changes with a meaningful commit message and test your connection to Github by pushing your changes to your remote repository.</p>
-</section>
-<section id="task-2-specify-and-apply-threshold-d" class="level3">
-<h3 class="anchored" data-anchor-id="task-2-specify-and-apply-threshold-d">Task 2: Specify and apply threshold <em>d</em></h3>
-<p>After calculating the Euclidean distances to positions within the temporal window <em>v</em> in task 1, you can explore these values (we stored them in the column <code>stepMean</code>) using summary statistics (histograms, boxplot, <code>summary()</code>): This way we can define a reasonable threshold value to differentiate between <em>stops</em> and <em>moves</em>. There is no “correct” way of doing this, specifying a threshold always depends on data as well as the question that needs to be answered. In this exercise, use the mean of all <code>stepMean</code> values.</p>
-<p>Store the new information (boolean to differentiate between stops (<code>TRUE</code>) and moves (<code>FALSE</code>)) in a new column named <code>static</code>.</p>
-<p>Commit your changes with a meaningful commit message.</p>
-</section>
-<section id="task-3-visualize-segmented-trajectories" class="level3">
-<h3 class="anchored" data-anchor-id="task-3-visualize-segmented-trajectories">Task 3: Visualize segmented trajectories</h3>
-<p>Now visualize the segmented trajectory spatially. Just like last week, you can use ggplot with <code>geom_path()</code>, <code>geom_point()</code> and <code>coord_equal()</code>. Assign <code>colour = static</code> within <code>aes()</code> to distinguish between segments <em>with</em> “movement” and <em>without</em>.</p>
-<p>Commit your changes with a meaningful commit message.</p>
-</section>
-<section id="task-4-segment-based-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="task-4-segment-based-analysis">Task 4: Segment-based analysis</h3>
-<p>In applying <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>, we’ve come as far as step b) in <a href="#fig-laubeimg" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>. In order to complete the last steps (c and d), we need a <em>unique</em> ID for each segment that we can use as a grouping variable. The following function does just that (it assigns unique IDs based on the column <code>static</code> which you created in Task 2). You will learn about functions next week. For now, just copy the following code chunk into your script and run it.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rle_id <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rle</span>(vec)<span class="sc">$</span>lengths</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.factor</span>(<span class="fu">rep</span>(<span class="fu">seq_along</span>(x), <span class="at">times =</span> x))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You can use the newly created function <code>rle_id</code> to assign unique IDs to subtrajectories (as shown below). Visualize the <em>moving</em> segments by colourizing them by <code>segment_ID</code>. Then use <code>segment_ID</code> as a grouping variable to determine the segments duration and remove short segments (e.g.&nbsp;segments with a duration &lt; 5 Minutes)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>your_data_frame <span class="ot">&lt;-</span> your_data_frame <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">segment_id =</span> <span class="fu">rle_id</span>(static))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Commit your changes with a meaningful commit message.</p>
-</section>
-<section id="task-5-similarity-measures" class="level3">
-<h3 class="anchored" data-anchor-id="task-5-similarity-measures">Task 5: Similarity measures</h3>
-<p>We will now calculate similarties between trajectories using a new dataset <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">pedestrian.csv</a>. Download an import this dataset as a <code>data.frame</code> or <code>tibble</code>. It it a set of six different but similar trajectories from pedestrians walking on a path.</p>
-<p>For this task, explore the trajectories first and get an idea on how the pedestrians moved.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="2_tasks_and_inputs_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Commit your changes with a meaningful commit message.</p>
-</section>
-<section id="task-6-calculate-similarity" class="level3">
-<h3 class="anchored" data-anchor-id="task-6-calculate-similarity">Task 6: Calculate similarity</h3>
-<p>Install the package <code>SimilarityMeasures</code> (<code>install.packages("SimilarityMeasures")</code>). Familiarize yourself with this package by skimming through the function descriptions <code>help(package = "SimilarityMeasures")</code>. Now compare trajectory 1 to trajectories 2-6 using different similarity measures from the package. Your options are. <code>DTW</code>, <code>EditDist</code>, <code>Frechet</code> and <code>LCSS</code>.</p>
-<p>Before visualizing your results think about the following: Which two trajectories to you percieve to be most similar, which are most dissimilar? Now visualize the results from the computed similarity measures. Which measure reflects your own intuition the closest?</p>
-<p>Note:</p>
-<ul>
-<li><strong>All functions in the package need matrices as input, with one trajectory per matrix.</strong></li>
-<li><code>LCSS</code>takes very long to compute. The accuracy of the algorithm (<code>pointSpacing =</code> ,<code>pointDistance =</code> and <code>errorMarg =</code>) can be varied to provide faster calculations. Please see <span class="citation" data-cites="vlachos2002">Vlachos, Gunopoulos, and Kollios (<a href="../90_references.html#ref-vlachos2002" role="doc-biblioref">2002</a>)</span> for more information.</li>
-</ul>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="2_tasks_and_inputs_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Commit your changes with a meaningful commit message. Now push all your changes to Github.</p>
+<p>Create a new RStudio Project and a new Github Repo for this week’s exercises. Do this either the simple way we used in Exercise 2 (<a href="../Week3/3_exercise_B.html#sec-github-repo">Step 3</a> and then <a href="#w2-project">Step 4</a>) or the more sophisticated way we suggested in <a href="../Week4/1_preparation.html">Exercise 3</a>.</p>
+<p>If you want to publish your Report as a website (to share with others), activate Github Pages by going to your repo on Github, clicking on <em>Settings &gt; Pages</em>, and under <em>Source</em> switch from <em>None</em> to your Main branch. <strong>You can do this only after pushing your first commit</strong>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-laube2011" class="csl-entry" role="listitem">
-Laube, Patrick, and Ross S. Purves. 2011. <span>“How Fast Is a Cow? Cross - Scale Analysis of Movement Data.”</span> <em>Transactions in GIS</em> 15 (3): 401–18. <a href="https://doi.org/10.1111/j.1467-9671.2011.01256.x">https://doi.org/10.1111/j.1467-9671.2011.01256.x</a>.
-</div>
-<div id="ref-vlachos2002" class="csl-entry" role="listitem">
-Vlachos, Michail, Dimitrios Gunopoulos, and George Kollios. 2002. <span>“Discovering Similar Multidimensional Trajectories.”</span> In <em>Proceedings of the 18th International Conference on Data Engineering</em>, 673–73. ICDE ’02. Washington, DC, USA: IEEE Computer Society. <a href="http://dl.acm.org/citation.cfm?id=876875.878994">http://dl.acm.org/citation.cfm?id=876875.878994</a>.
-</div>
-</div>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1282,13 +969,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../Week4/1_preparation.html" class="pagination-link" aria-label="Preparation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Preparation</span></span>
+      <a href="../Week4/2_tasks_and_inputs.html" class="pagination-link" aria-label="Tasks and Inputs">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Tasks and Inputs</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Week5/1_preparation.html" class="pagination-link" aria-label="Preparation">
-        <span class="nav-page-text"><span class="chapter-title">Preparation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Week5/2_tasks_and_inputs.html" class="pagination-link" aria-label="Tasks and inputs">
+        <span class="nav-page-text"><span class="chapter-title">Tasks and inputs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1297,4 +984,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week4/2_tasks_and_inputs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week5/1_preparation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

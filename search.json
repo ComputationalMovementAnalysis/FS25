@@ -180,7 +180,7 @@
     "href": "Week2/3_exercise_a.html",
     "title": "Exercise A",
     "section": "",
-    "text": "Create a new RStudio Project for this exercise (see Create an RStudio project)\nDownload the new wild boar movement data, and save it to your new project’s directory wildschwein_BE_2056.csv\n\n\nTask 1: Import your data\nCreate a new R-file and import the wild boar data.\n\nlibrary(\"readr\")\nlibrary(\"sf\")\n\nwildschwein_BE &lt;- read_delim(\"datasets/wildschwein_BE_2056.csv\", \",\")\n\nwildschwein_BE &lt;- st_as_sf(wildschwein_BE, coords = c(\"E\", \"N\"), crs = 2056)\n\nNote:\n\nthat this dataset is already converted to EPSG 2056\nthe coordinates are stored in the columns (E/N)\n\n\n\nTask 2: Getting an overview\nCalculate the time difference between subsequent rows as described in the demo. You can calculate the time difference using the function difftime_secs() (see below) in combination with lead() (see lead() / lag()). Store the time difference in a new column (e.g. timelag).\n\ndifftime_secs &lt;- function(later, now){\n    as.numeric(difftime(later, now, units = \"secs\"))\n}\n\nNow inspect your data in more detail. Try to answer the following questions:\n\nHow many individuals were tracked?\nFor how long were the individual tracked? Are there gaps?\nWere all individuals tracked concurrently or sequentially?\nWhat is the temporal sampling interval between the locations?\n\n\n\n\n\n\n\nImportant\n\n\n\nsummarise() tries to coerce all (Point-) geometries into one object, which can take along time. To avoid this, use st_drop_geometry() before using summarise().\n\n\n\n\nTask 3: Distance between locations\nSimilar to how we calculated the timelag between subsequent locations, we can calculate the distance like so:\n\nlater &lt;- lag(wildschwein_BE$geometry)\nnow &lt;- wildschwein_BE$geometry\n\nst_distance(later, now, by_element = TRUE)  # by_element must be set to TRUE\n\nHowever, similar to difftime(), the output has a unit which complicates things. Therefore, it’s simpler to wrap the output in as.numeric(). Let’s make a function for this process:\n\ndistance_by_element &lt;- function(later, now){\n  as.numeric(\n    st_distance(later, now, by_element = TRUE)\n  )\n}\n\nUse this function to create a new column named steplength with the distance between locations.\n\n\nTask 4: Deriving distance & speed\nIn this task we will derive some additional movement parameters from our trajectories. So far our trajectories only consist of a list of time-stamped spatial locations. First let’s calculate the Euclidean distance between subsequent locations using the function st_distance() with the option by_element = TRUE. Store these values in a new column with the name steplength. Next, you can calculate the animals’ speed based on steplength and the timelag (from the last task).\n\n\nTask 5: Plausibility Check\nIt’s important to repeatedly visualize our results, to make sure these are plausible. This is much simpler if we just look at a small sample of our dataset. We can use slice() to extract just a couple of rows\n\nwildschwein_sample &lt;- wildschwein_BE |&gt;\n  filter(TierName == \"Sabi\") |&gt; \n  head(100)\n\nWe can now visualise the sample using tmap with the *view” mode:\n\n\n\n\nlibrary(tmap)\ntmap_mode(\"view\")\n\ntm_shape(wildschwein_sample) + \n  tm_dots()\n\n\n\n\n\n\n\nFigure 7.1: By clicking on the dots, we can see what parameters are associated with each sample.\n\n\n\nThe wild boar move continuously through space, but our samples are discrete points. It would be helpful to at least see the sequence of these samples. We can do this by casting our points to lines. However, we first need to dissolve our single points into a MULTIPOINT object, just like we had to do in the first week when we calculated the minimum convex polygon per animal (see Input: Calculate Convex Hull). The option do_union = FALSE is a confusing way to preserve the order of the points, see Nils’ question on GitHub.\nIn addition, we can set OpenStreetMap to be the default basemap, since it’s available at lower zoom levels.\n\n\n\n\nwildschwein_sample_line &lt;- wildschwein_sample |&gt; \n  # dissolve to a MULTIPOINT:\n  summarise(do_union = FALSE) |&gt; \n  st_cast(\"LINESTRING\")\n\ntmap_options(basemaps = \"OpenStreetMap\")\n\ntm_shape(wildschwein_sample_line) +\n  tm_lines() +\n  tm_shape(wildschwein_sample) + \n  tm_dots()\n\n\n\n\n\n\n\nFigure 7.2: The interconnecting lines help us understand the animal’s movement trajectory.",
+    "text": "Create a new RStudio Project for this exercise (see Create an RStudio project)\nDownload the new wild boar movement data, and save it to your new project’s directory wildschwein_BE_2056.csv\n\n\nTask 1: Import your data\nCreate a new R-file and import the wild boar data.\n\nlibrary(\"readr\")\nlibrary(\"sf\")\n\nwildschwein_BE &lt;- read_delim(\"datasets/wildschwein_BE_2056.csv\", \",\")\n\nwildschwein_BE &lt;- st_as_sf(wildschwein_BE, coords = c(\"E\", \"N\"), crs = 2056)\n\nNote:\n\nthat this dataset is already converted to EPSG 2056\nthe coordinates are stored in the columns (E/N)\n\n\n\nTask 2: Getting an overview\nCalculate the time difference between subsequent rows as described in the demo. You can calculate the time difference using the function difftime_secs() (see below) in combination with lead() (see lead() / lag()). Store the time difference in a new column (e.g. timelag).\n\ndifftime_secs &lt;- function(later, now){\n    as.numeric(difftime(later, now, units = \"secs\"))\n}\n\nNow inspect your data in more detail. Try to answer the following questions:\n\nHow many individuals were tracked?\nFor how long were the individual tracked? Are there gaps?\nWere all individuals tracked concurrently or sequentially?\nWhat is the temporal sampling interval between the locations?\n\n\n\n\n\n\n\nImportant\n\n\n\nsummarise() tries to coerce all (Point-) geometries into one object, which can take along time. To avoid this, use st_drop_geometry() before using summarise().\n\n\n\n\nTask 3: Distance between locations\nSimilar to how we calculated the timelag between subsequent locations, we can calculate the distance like so:\n\nlater &lt;- lag(wildschwein_BE$geometry)\nnow &lt;- wildschwein_BE$geometry\n\nst_distance(later, now, by_element = TRUE)  # by_element must be set to TRUE\n\nHowever, similar to difftime(), the output has a unit which complicates things. Therefore, it’s simpler to wrap the output in as.numeric(). Let’s make a function for this process:\n\ndistance_by_element &lt;- function(later, now){\n  as.numeric(\n    st_distance(later, now, by_element = TRUE)\n  )\n}\n\nUse this function to create a new column named steplength with the distance between locations.\n\n\nTask 4: Deriving distance & speed\nIn this task we will derive some additional movement parameters from our trajectories. So far our trajectories only consist of a list of time-stamped spatial locations. First let’s calculate the Euclidean distance between subsequent locations using the function st_distance() with the option by_element = TRUE. Store these values in a new column with the name steplength. Next, you can calculate the animals’ speed based on steplength and the timelag (from the last task).\n\n\nTask 5: Plausibility Check\nIt’s important to repeatedly visualize our results, to make sure these are plausible. This is much simpler if we just look at a small sample of our dataset. We can use head(100) to extract the first 100 rows.\n\nwildschwein_sample &lt;- wildschwein_BE |&gt;\n  filter(TierName == \"Sabi\") |&gt; \n  head(100)\n\nWe can now visualise the sample using tmap with the *view” mode:\n\n\n\n\nlibrary(tmap)\ntmap_mode(\"view\")\n\ntm_shape(wildschwein_sample) + \n  tm_dots()\n\n\n\n\n\n\n\nFigure 7.1: By clicking on the dots, we can see what parameters are associated with each sample.\n\n\n\nThe wild boar move continuously through space, but our samples are discrete points. It would be helpful to at least see the sequence of these samples. We can do this by casting our points to lines. However, we first need to dissolve our single points into a MULTIPOINT object, just like we had to do in the first week when we calculated the minimum convex polygon per animal (see Input: Calculate Convex Hull). The option do_union = FALSE is a confusing way to preserve the order of the points, see Nils’ question on GitHub.\nIn addition, we can set OpenStreetMap to be the default basemap, since it’s available at lower zoom levels.\n\n\n\n\nwildschwein_sample_line &lt;- wildschwein_sample |&gt; \n  # dissolve to a MULTIPOINT:\n  summarise(do_union = FALSE) |&gt; \n  st_cast(\"LINESTRING\")\n\ntmap_options(basemaps = \"OpenStreetMap\")\n\ntm_shape(wildschwein_sample_line) +\n  tm_lines() +\n  tm_shape(wildschwein_sample) + \n  tm_dots()\n\n\n\n\n\n\n\nFigure 7.2: The interconnecting lines help us understand the animal’s movement trajectory.",
     "crumbs": [
       "Exercise 2",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Exercise A</span>"
@@ -418,13 +418,46 @@
     ]
   },
   {
+    "objectID": "Week5/1_preparation.html",
+    "href": "Week5/1_preparation.html",
+    "title": "Preparation",
+    "section": "",
+    "text": "Create a new RStudio Project and a new Github Repo for this week’s exercises. Do this either the simple way we used in Exercise 2 (Step 3 and then Step 4) or the more sophisticated way we suggested in Exercise 3.\nIf you want to publish your Report as a website (to share with others), activate Github Pages by going to your repo on Github, clicking on Settings &gt; Pages, and under Source switch from None to your Main branch. You can do this only after pushing your first commit.",
+    "crumbs": [
+      "Exercise 5",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Preparation</span>"
+    ]
+  },
+  {
+    "objectID": "Week5/2_tasks_and_inputs.html",
+    "href": "Week5/2_tasks_and_inputs.html",
+    "title": "Tasks and inputs",
+    "section": "",
+    "text": "Task 1: Write your own functions\nCreate the following two functions:",
+    "crumbs": [
+      "Exercise 5",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Tasks and inputs</span>"
+    ]
+  },
+  {
+    "objectID": "Week5/2_tasks_and_inputs.html#footnotes",
+    "href": "Week5/2_tasks_and_inputs.html#footnotes",
+    "title": "Tasks and inputs",
+    "section": "",
+    "text": "Please note: We are manipulating our time stamps without adjusting the x,y-coordinates. This is fine for our simple example, but we would advice against this in a more serious research endeavour, e.g. in your semester projects. One simple approach would be to linearly interpolate the positions to the new timestamps. If you choose Option A the wild boar projects as your semester projects, you should aim for a linear interpolation. Get in touch if you need help with this.↩︎",
+    "crumbs": [
+      "Exercise 5",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Tasks and inputs</span>"
+    ]
+  },
+  {
     "objectID": "90_references.html",
     "href": "90_references.html",
     "title": "References",
     "section": "",
-    "text": "Bryan, Jenny, and Jim Heister. 2021. Happy Git and GitHub for the\nuseR. https://happygitwithr.com/.\n\n\nChacon, Scott, and Ben Straub. 2014. Pro Git. 2nd Edition.\nApress. https://git-scm.com/book/en/v2.\n\n\nLaube, Patrick, and Ross S. Purves. 2011. “How Fast Is a Cow?\nCross - Scale Analysis of Movement Data.” Transactions in\nGIS 15 (3): 401–18. https://doi.org/10.1111/j.1467-9671.2011.01256.x.\n\n\nVlachos, Michail, Dimitrios Gunopoulos, and George Kollios. 2002.\n“Discovering Similar Multidimensional Trajectories.” In\nProceedings of the 18th International Conference on Data\nEngineering, 673–73. ICDE ’02. Washington, DC, USA: IEEE Computer\nSociety. http://dl.acm.org/citation.cfm?id=876875.878994.\n\n\nWickham, Hadley, and Garrett Grolemund. 2017. R for Data Science:\nImport, Tidy, Transform, Visualize, and Model Data. 1st ed.\nO’Reilly Media, Inc.",
+    "text": "Bryan, Jenny, and Jim Heister. 2021. Happy Git and GitHub for the\nuseR. https://happygitwithr.com/.\n\n\nChacon, Scott, and Ben Straub. 2014. Pro Git. 2nd Edition.\nApress. https://git-scm.com/book/en/v2.\n\n\nHägerstraand, Torsten. 1970. “What about People in Regional\nScience?” Papers in Regional Science 24 (1): 7–24.\n\n\nLaube, Patrick, and Ross S. Purves. 2011. “How Fast Is a Cow?\nCross - Scale Analysis of Movement Data.” Transactions in\nGIS 15 (3): 401–18. https://doi.org/10.1111/j.1467-9671.2011.01256.x.\n\n\nRodrigues, Bruno. 2023. Building Reproducible Analytical Pipelines\nwith r. leanpub.\n\n\nVlachos, Michail, Dimitrios Gunopoulos, and George Kollios. 2002.\n“Discovering Similar Multidimensional Trajectories.” In\nProceedings of the 18th International Conference on Data\nEngineering, 673–73. ICDE ’02. Washington, DC, USA: IEEE Computer\nSociety. http://dl.acm.org/citation.cfm?id=876875.878994.\n\n\nWickham, Hadley, and Garrett Grolemund. 2017. R for Data Science:\nImport, Tidy, Transform, Visualize, and Model Data. 1st ed.\nO’Reilly Media, Inc.",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>References</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>References</span>"
     ]
   },
   {
@@ -434,7 +467,7 @@
     "section": "",
     "text": "Data-import: base-r vs readr\nOur reasons for preferring readr over base-R import functions:\nHOWEVER: Using external libraries (such as readr) creates additional dependencies which has it’s own downsides (which is one of the reasons we don’t do library(\"tidyverse\")).",
     "crumbs": [
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -444,7 +477,7 @@
     "section": "",
     "text": "base R imports strings as factors by default (since R 4.0.0, this is not the case anymore)\nreadr is generally faster (which only matters if you have a large dataset)\nreadr makes safer assumptions about your data (e.g. the default timezone for datetime columns is UTC)\ndata.frames created by readr are prettier when printed to the console and contain more information using less characters",
     "crumbs": [
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -452,9 +485,9 @@
     "href": "Appendix/Appendix.html#comitting-files-with-git",
     "title": "Appendix",
     "section": "Comitting files with git",
-    "text": "Comitting files with git\n\n\n\n\n\n\nNote 17.1: Committing files with git\n\n\n\n\nSave your (R/RMarkdown/Quarto) file\nSwitch to the “Git”-Tab in the pane in the top right corner\nClick “commit” to open the “Commit Window”\nClick in the checkbox next to the file(s) you want to commit\nAdd a commit message to explain what you are committing (e.g. “initial commit”)\nClick on “commit” to commit your changes",
+    "text": "Comitting files with git\n\n\n\n\n\n\nNote 19.1: Committing files with git\n\n\n\n\nSave your (R/RMarkdown/Quarto) file\nSwitch to the “Git”-Tab in the pane in the top right corner\nClick “commit” to open the “Commit Window”\nClick in the checkbox next to the file(s) you want to commit\nAdd a commit message to explain what you are committing (e.g. “initial commit”)\nClick on “commit” to commit your changes",
     "crumbs": [
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Appendix</span>"
     ]
   }
 ]
