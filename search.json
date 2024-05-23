@@ -422,7 +422,7 @@
     "href": "Week5/1_preparation.html",
     "title": "Preparation",
     "section": "",
-    "text": "Create a new RStudio Project and a new Github Repo for this week’s exercises. Do this either the simple way we used in Exercise 2 (Step 3 and then Step 4) or the more sophisticated way we suggested in Exercise 3.\nIf you want to publish your Report as a website (to share with others), activate Github Pages by going to your repo on Github, clicking on Settings &gt; Pages, and under Source switch from None to your Main branch. You can do this only after pushing your first commit.",
+    "text": "Create a new RStudio Project and a new Github Repo for this week’s exercises similar to last week’s Exercise 4.",
     "crumbs": [
       "Exercise 5",
       "<span class='chapter-number'>16</span>  <span class='chapter-title'>Preparation</span>"
