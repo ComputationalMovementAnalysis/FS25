@@ -198,7 +198,7 @@ Finally, you can nicely visualize the meeting patterns and trajectories in a Spa
 
 To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#sec-github-repo).
 
-You can give other GitHub users write access to your repository throught the repository settings. You will be needing this for your semester project. To practice this, add Dominik ([\@DLND8](https://github.com/DLND8/)) and Nils ([\@ratnanil](https://github.com/ratnanil/)) to your GitHub repo: 
+You can give other GitHub users write access to your repository throught the repository settings. You will be needing this for your semester project. To practice this, add Dominic ([\@DLND8](https://github.com/DLND8/)) and Nils ([\@ratnanil](https://github.com/ratnanil/)) to your GitHub repo: 
 
 1. Go to your GitHub repository on GitHub.com
 2. Go to the repository settings by clicking on the *Settings* tab
