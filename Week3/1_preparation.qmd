@@ -1,4 +1,4 @@
-## Preparation {#w2-preparation}
+## Preparation {#w3-preparation}
 
 ### Quarto {#install-quarto}
 

@@ -25,7 +25,7 @@ The figure from @laube2011 visualizes steps a) zu d), which will be explained be
 
 We will **demonstrate** implementing this method on the wild boar "Sabi", restricting ourselves to a couple of tracking days. Your task will be to understand this implementation and apply it to your own movement data. 
 
-Open the RStudio Project [you have prepared](#w3-preparation) for this week. Next, copy the wild boar data you downloaded last week (*wildschwein_BE_2056.csv*) to your project folder. If you cannot find this dataset on your computer, you can re-download it [here](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125). Transform the data into an `sf` object, filter for the wildboar Sabi and a datetime between "2015-07-01" and "2015-07-03".
+Open the RStudio Project [you have prepared](#w4-preparation) for this week. Next, copy the wild boar data you downloaded last week (*wildschwein_BE_2056.csv*) to your project folder. If you cannot find this dataset on your computer, you can re-download it [here](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125). Transform the data into an `sf` object, filter for the wildboar Sabi and a datetime between "2015-07-01" and "2015-07-03".
 
 ```{r}
 #| echo: true

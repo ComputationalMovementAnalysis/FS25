@@ -6,7 +6,7 @@
 # source("01_R_Files/helperfunctions.R")
 ```
 
-Open your RStudio Project [which you prepared](#w5-preperation) from this week. Create a new RScript and import the libraries we need for this week. Import your wild boar dataset [wildschwein_BE_2056.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125) as an `sf` object
+Open your RStudio Project [which you prepared](#w6-preperation) from this week. Create a new RScript and import the libraries we need for this week. Import your wild boar dataset [wildschwein_BE_2056.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125) as an `sf` object
 
 ```{r}
 #| echo: true
@@ -44,7 +44,7 @@ Since `Feldaufnahmen_Fanel.gpkg` is a vector dataset, you can import it using `r
 
 ```
 
-### Task 2: Annotate Trajectories from vector data {#w5-annotate-vector}
+### Task 2: Annotate Trajectories from vector data {#w6-annotate-vector}
 
 We would like to know what crop was visited by which wild boar, and at what time. Since the crop data is most relevant in summer, filter your wild boar data to the months **may to june** first and save the output to a new variable. Overlay the filtered dataset with your `fanel` data to verify the spatial overlap.
 
@@ -85,7 +85,7 @@ Import the dataset just like you imported the raster map in [week 1](#w1-importi
 
 ### Task 5: Annotate Trajectories from raster data
 
-Semantically annotate your wild boar locations with the vegetation index (similar as you did with the crop data in [Task 2](#w5-annotate-vector)). Since you are annotating a vector dataset with information from a raster dataset, you cannot use `st_join` but need the function `extract` from the `terra` package. Read the help on the `extract` function to see what the function expects. The output should look something like this:
+Semantically annotate your wild boar locations with the vegetation index (similar as you did with the crop data in [Task 2](#w6-annotate-vector)). Since you are annotating a vector dataset with information from a raster dataset, you cannot use `st_join` but need the function `extract` from the `terra` package. Read the help on the `extract` function to see what the function expects. The output should look something like this:
 
 ```{r}
 #| file: "solutions/week6/task_5.R"
