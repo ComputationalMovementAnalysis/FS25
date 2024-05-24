@@ -116,12 +116,15 @@ Always try to make your function self sufficient: Only use objects within your f
 
 Create the following two functions:
 
-1. Calculate BMI based on a person's height and weight ($\text{BMI} = \frac{\text{Weight (kg)}}{\text{Height (m)}}$)
-2. Calculate Degrees Farenheight based on Degrees Celcius ($\text{Farenheight} = \text{Celcius} \times \frac{9}{5} + 32$)
+1. A function which calculates a persons BMI based on their height and weight ($\text{BMI} = \frac{\text{Weight (kg)}}{\text{Height (m)}^2}$)
+2. A function which converts degrees Celcius to Farenheight ($\text{Farenheight} = \text{Celcius} \times \frac{9}{5} + 32$)
+3. A function which calculates the (Euclidean) distance between two sets of coordinates ($x_1$, $y_1$ and $x_2$, $y_2$) based on the formula below:
+
+$$\text{Euclidean distance} = \sqrt{(x_2 - x_1)^2+(y_2 - y_1)^2}$$
 
 ### Task 2: Prepare Analysis
 
-In the next tasks we will look for "meet" patterns in our wild boar data. To simplify this, we will only use a subset of our wild boar data: The individuals *Rosa* and *Sabi* for the timespan *01.04.2015 - 15.04.2015*. You can download the dataset here [wildschwein_BE_2056.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125) and filter it with the aforementioned criteria. 
+In the next tasks we will look for "meet" patterns in our wild boar data. To simplify this, we will only use a subset of our wild boar data: The individuals *Rosa* and *Sabi* for the timespan *01.04.2015 - 15.04.2015*. You can download the dataset here [wildschwein_BE_2056.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125). Import the csv as a data.frame and filter it with the aforementioned criteria. You do not need to convert the data.frame to an `sf` object. 
 
 
 
