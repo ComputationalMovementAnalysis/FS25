@@ -20,13 +20,11 @@ To publish the html files to the `gh-pages` branch, run the following line:
 quarto publish --no-prompt gh-pages
 ```
 
-# Todos (FS23)
 
-- consider moving `sf` and `terra` into later weeks...
-- if we use utterances, everyone needs to subscribe to the repo
-- In Week 2
-  - Task 4 is very repetitive and time consuming. Skip the calulation and visualisation of speed?
-  - Since we added tasks 6 and 7, I made Task 5 Optional. Remove altogether?
-- rather than using the euclidean distance function, we could use sf to calculate distances (this used to be complicated, but [is now simple](https://stackoverflow.com/questions/49853696/distances-of-points-between-rows-with-sf#comment134254584_49862289))
+
+
+# Todos in FS25
+
+In Ex. 5, when we try and find a meet pattern between rosa and sabi, the order of the exercises is aligned with how you would solve this task if you had foresight. It would be easyer to undestand the exercise, if we first split the animals into two df's, rosa and sabi. plot them. Did they meet? how do we find out? Try to join: cant. So need to create datetimeround... etc
 
 
