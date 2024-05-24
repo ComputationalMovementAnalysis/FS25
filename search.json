@@ -433,7 +433,7 @@
     "href": "Week5/2_tasks_and_inputs.html",
     "title": "Tasks and inputs",
     "section": "",
-    "text": "Task 1: Write your own functions\nCreate the following two functions:",
+    "text": "Task 1: Write your own functions\nCreate the following two functions:\n\\[\\text{Euclidean distance} = \\sqrt{(x_2 - x_1)^2+(y_2 - y_1)^2}\\]",
     "crumbs": [
       "Exercise 5",
       "<span class='chapter-number'>17</span>  <span class='chapter-title'>Tasks and inputs</span>"
