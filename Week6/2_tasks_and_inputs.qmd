@@ -14,11 +14,7 @@ Open your RStudio Project [which you prepared](#w6-preperation) from this week. 
 
 library("readr")
 library("sf")
-library("terra")
-library("dplyr")
-library("lubridate")
-library("ggplot2")
-library("tmap")
+
 
 wildschwein_BE <- read_delim("datasets/wildschwein_BE_2056.csv", ",") |>
     st_as_sf(coords = c("E", "N"), crs = 2056, remove = FALSE)
@@ -65,7 +61,6 @@ Think of ways you could visually explore the spatio-temporal patterns of wild bo
 ```{r}
 #| file: "solutions/week6/task_3.R"
 #| echo: false
-
 ```
 
 ### Task 4: Import and visualize vegetationindex (raster data)
@@ -97,6 +92,6 @@ Semantically annotate your wild boar locations with the vegetation index (simila
 You can now explore the spatiotemporal patterns of this new data.
 
 
-### Submission
+<!-- ### Submission
 
-To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#sec-github-repo-2).
+To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#sec-github-repo-2). -->
