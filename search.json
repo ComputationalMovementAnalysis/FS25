@@ -451,13 +451,35 @@
     ]
   },
   {
+    "objectID": "Week6/1_preparation.html",
+    "href": "Week6/1_preparation.html",
+    "title": "Preparation",
+    "section": "",
+    "text": "Create a new RStudio Project and a new Github Repo for this week’s exercises similar to Exercise 4.\nIf you want to publish your Report as a website (to share with others), activate Github Pages by going to your repo on Github, clicking on Settings &gt; Pages, and under Source switch from None to your Main branch. You can do this only after pushing your first commit.",
+    "crumbs": [
+      "Exercise 6",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Preparation</span>"
+    ]
+  },
+  {
+    "objectID": "Week6/2_tasks_and_inputs.html",
+    "href": "Week6/2_tasks_and_inputs.html",
+    "title": "Tasks and Inputs",
+    "section": "",
+    "text": "Open your RStudio Project which you prepared from this week. Create a new RScript and import the libraries we need for this week. Import your wild boar dataset wildschwein_BE_2056.csv as an sf object\n\nlibrary(\"readr\")\nlibrary(\"sf\")\nlibrary(\"terra\")\nlibrary(\"dplyr\")\nlibrary(\"lubridate\")\nlibrary(\"ggplot2\")\nlibrary(\"tmap\")\n\nwildschwein_BE &lt;- read_delim(\"datasets/wildschwein_BE_2056.csv\", \",\") |&gt;\n    st_as_sf(coords = c(\"E\", \"N\"), crs = 2056, remove = FALSE)\n\nDownload the dataset Feldaufnahmen_Fanel.gpkg and save it to your project folder. This is a vector dataset stored in the filetype Geopackage, which is similar to a Shapefile, with some advantages (see the website shapefile must die).\nAlso download the dataset vegetationshoehe_LFI.tif. This is a “raster” dataset stored in a Geotiff, similar to the map we imported in week 1. Also store this file in your project folder and commit these to your repo.\n\nTasks 1: Import and visualize spatial data\nSince Feldaufnahmen_Fanel.gpkg is a vector dataset, you can import it using read_sf(). Explore this dataset in R to answer the following questions:\n\nWhat information does the dataset contain?\nWhat is the geometry type of the dataset (possible types are: Point, Lines and Polygons)?\nWhat are the data types of the other columns?\nWhat is the coordinate system of the dataset?\n\n\n\nTask 2: Annotate Trajectories from vector data\nWe would like to know what crop was visited by which wild boar, and at what time. Since the crop data is most relevant in summer, filter your wild boar data to the months may to june first and save the output to a new variable. Overlay the filtered dataset with your fanel data to verify the spatial overlap.\nTo sematically annotate each wild boar location with crop information, you can use a spatial join with the function st_join(). Do this and explore your annotated dataset.\n\n\nTask 3: Explore annotated trajectories\nThink of ways you could visually explore the spatio-temporal patterns of wild boar in relation to the crops. In our example below we visualize the percentage of samples in a given crop per hour.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTask 4: Import and visualize vegetationindex (raster data)\nYou have already downloaded the dataset vegetationshoehe_LFI.tif. Import this dataset\nIn terms of raster data, we have prepared the Vegetation Height Model provided by the Swiss National Forest Inventory (NFI). This dataset contains high resolution information (1x1 Meter) on the vegetation height, which is determined from the difference between the digital surface models DSM and the digital terrain model by swisstopo (swissAlti3D). Buildings are eliminated using a combination of the ground areas of the swisstopo topographic landscape model (TLM) and spectral information from the stereo aerial photos.\nImport the dataset just like you imported the raster map in week 1 (using terra::rast()). Visualize the raster data using tmap (ggplot is very slow with raster data).\n\n\nTask 5: Annotate Trajectories from raster data\nSemantically annotate your wild boar locations with the vegetation index (similar as you did with the crop data in Task 2). Since you are annotating a vector dataset with information from a raster dataset, you cannot use st_join but need the function extract from the terra package. Read the help on the extract function to see what the function expects. The output should look something like this:\nYou can now explore the spatiotemporal patterns of this new data.\n\n\nSubmission\nTo submit your exercise, provide us with the URL of your Github repo as described in the preperation.",
+    "crumbs": [
+      "Exercise 6",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Tasks and Inputs</span>"
+    ]
+  },
+  {
     "objectID": "90_references.html",
     "href": "90_references.html",
     "title": "References",
     "section": "",
     "text": "Bryan, Jenny, and Jim Heister. 2021. Happy Git and GitHub for the\nuseR. https://happygitwithr.com/.\n\n\nChacon, Scott, and Ben Straub. 2014. Pro Git. 2nd Edition.\nApress. https://git-scm.com/book/en/v2.\n\n\nHägerstraand, Torsten. 1970. “What about People in Regional\nScience?” Papers in Regional Science 24 (1): 7–24.\n\n\nLaube, Patrick, and Ross S. Purves. 2011. “How Fast Is a Cow?\nCross - Scale Analysis of Movement Data.” Transactions in\nGIS 15 (3): 401–18. https://doi.org/10.1111/j.1467-9671.2011.01256.x.\n\n\nRodrigues, Bruno. 2023. Building Reproducible Analytical Pipelines\nwith r. leanpub.\n\n\nVlachos, Michail, Dimitrios Gunopoulos, and George Kollios. 2002.\n“Discovering Similar Multidimensional Trajectories.” In\nProceedings of the 18th International Conference on Data\nEngineering, 673–73. ICDE ’02. Washington, DC, USA: IEEE Computer\nSociety. http://dl.acm.org/citation.cfm?id=876875.878994.\n\n\nWickham, Hadley, and Garrett Grolemund. 2017. R for Data Science:\nImport, Tidy, Transform, Visualize, and Model Data. 1st ed.\nO’Reilly Media, Inc.",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>References</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>References</span>"
     ]
   },
   {
@@ -467,7 +489,7 @@
     "section": "",
     "text": "Data-import: base-r vs readr\nOur reasons for preferring readr over base-R import functions:\nHOWEVER: Using external libraries (such as readr) creates additional dependencies which has it’s own downsides (which is one of the reasons we don’t do library(\"tidyverse\")).",
     "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -477,7 +499,7 @@
     "section": "",
     "text": "base R imports strings as factors by default (since R 4.0.0, this is not the case anymore)\nreadr is generally faster (which only matters if you have a large dataset)\nreadr makes safer assumptions about your data (e.g. the default timezone for datetime columns is UTC)\ndata.frames created by readr are prettier when printed to the console and contain more information using less characters",
     "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -485,9 +507,9 @@
     "href": "Appendix/Appendix.html#comitting-files-with-git",
     "title": "Appendix",
     "section": "Comitting files with git",
-    "text": "Comitting files with git\n\n\n\n\n\n\nNote 19.1: Committing files with git\n\n\n\n\nSave your (R/RMarkdown/Quarto) file\nSwitch to the “Git”-Tab in the pane in the top right corner\nClick “commit” to open the “Commit Window”\nClick in the checkbox next to the file(s) you want to commit\nAdd a commit message to explain what you are committing (e.g. “initial commit”)\nClick on “commit” to commit your changes",
+    "text": "Comitting files with git\n\n\n\n\n\n\nNote 21.1: Committing files with git\n\n\n\n\nSave your (R/RMarkdown/Quarto) file\nSwitch to the “Git”-Tab in the pane in the top right corner\nClick “commit” to open the “Commit Window”\nClick in the checkbox next to the file(s) you want to commit\nAdd a commit message to explain what you are committing (e.g. “initial commit”)\nClick on “commit” to commit your changes",
     "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -497,7 +519,7 @@
     "section": "Mapmatching GPS points to the road network",
     "text": "Mapmatching GPS points to the road network\n\nlibrary(sf)\nlibrary(tmap)\n\n# Get a sample road dataset\nHighWays &lt;- read_sf(system.file(\"sqlite/test3.sqlite\",package=\"sf\"), \"HighWays\")[6, ] \n\n# since we want to find the closest location on the road over ALL roads\n# we need to create a union of the roads first.\nHighWays &lt;- st_union(HighWays)\n\n# Let's simulate 1000 GPS locations within 3km of the highway\ngps_locations &lt;- HighWays |&gt; st_buffer(3000) |&gt; st_sample(100)\n\n# Now we can get the nearset point for each GPS location\nnearest &lt;- st_nearest_points(gps_locations, HighWays)\n\n# The output is a line for each point (see plot below)\n# Now we need convert the output from LINE to POINT. \n# This doubles the number of features\nnear_p &lt;- st_cast(nearest, \"POINT\")\n\n# now we subset the points. Uneven numbers are the original\n# points, even numbers are the new, mapmatched points.\nnear_from &lt;- near_p[c(TRUE, FALSE)]\nnear_to &lt;- near_p[c(FALSE,TRUE)]\n\n\ntm_shape(HighWays) + tm_lines() +\n  tm_shape(nearest) + tm_lines(lty = 3) +\n  tm_shape(near_from) + tm_dots() +\n  tm_shape(near_to) + tm_dots(col = \"red\")\n\n\n\n\nOriginal Points (black) are matched to the closest point on the road (red)",
     "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Appendix</span>"
     ]
   }
 ]
