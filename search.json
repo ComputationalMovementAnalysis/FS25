@@ -489,5 +489,15 @@
     "crumbs": [
       "<span class='chapter-number'>19</span>  <span class='chapter-title'>Appendix</span>"
     ]
+  },
+  {
+    "objectID": "Appendix/Appendix.html#mapmatching-gps-points-to-the-road-network",
+    "href": "Appendix/Appendix.html#mapmatching-gps-points-to-the-road-network",
+    "title": "Appendix",
+    "section": "Mapmatching GPS points to the road network",
+    "text": "Mapmatching GPS points to the road network\n\nlibrary(sf)\nlibrary(tmap)\n\n# Get a sample road dataset\nHighWays &lt;- read_sf(system.file(\"sqlite/test3.sqlite\",package=\"sf\"), \"HighWays\")[6, ] \n\n# since we want to find the closest location on the road over ALL roads\n# we need to create a union of the roads first.\nHighWays &lt;- st_union(HighWays)\n\n# Let's simulate 1000 GPS locations within 3km of the highway\ngps_locations &lt;- HighWays |&gt; st_buffer(3000) |&gt; st_sample(100)\n\n# Now we can get the nearset point for each GPS location\nnearest &lt;- st_nearest_points(gps_locations, HighWays)\n\n# The output is a line for each point (see plot below)\n# Now we need convert the output from LINE to POINT. \n# This doubles the number of features\nnear_p &lt;- st_cast(nearest, \"POINT\")\n\n# now we subset the points. Uneven numbers are the original\n# points, even numbers are the new, mapmatched points.\nnear_from &lt;- near_p[c(TRUE, FALSE)]\nnear_to &lt;- near_p[c(FALSE,TRUE)]\n\n\ntm_shape(HighWays) + tm_lines() +\n  tm_shape(nearest) + tm_lines(lty = 3) +\n  tm_shape(near_from) + tm_dots() +\n  tm_shape(near_to) + tm_dots(col = \"red\")\n\n\n\n\nOriginal Points (black) are matched to the closest point on the road (red)",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Appendix</span>"
+    ]
   }
 ]
