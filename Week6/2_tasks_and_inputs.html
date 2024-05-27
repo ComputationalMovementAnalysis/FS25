@@ -378,11 +378,10 @@ window.onload = function() {
    
   <ul>
   <li><a href="#tasks-1-import-and-visualize-spatial-data" id="toc-tasks-1-import-and-visualize-spatial-data" class="nav-link active" data-scroll-target="#tasks-1-import-and-visualize-spatial-data">Tasks 1: Import and visualize spatial data</a></li>
-  <li><a href="#w5-annotate-vector" id="toc-w5-annotate-vector" class="nav-link" data-scroll-target="#w5-annotate-vector">Task 2: Annotate Trajectories from vector data</a></li>
+  <li><a href="#w6-annotate-vector" id="toc-w6-annotate-vector" class="nav-link" data-scroll-target="#w6-annotate-vector">Task 2: Annotate Trajectories from vector data</a></li>
   <li><a href="#task-3-explore-annotated-trajectories" id="toc-task-3-explore-annotated-trajectories" class="nav-link" data-scroll-target="#task-3-explore-annotated-trajectories">Task 3: Explore annotated trajectories</a></li>
   <li><a href="#task-4-import-and-visualize-vegetationindex-raster-data" id="toc-task-4-import-and-visualize-vegetationindex-raster-data" class="nav-link" data-scroll-target="#task-4-import-and-visualize-vegetationindex-raster-data">Task 4: Import and visualize vegetationindex (raster data)</a></li>
   <li><a href="#task-5-annotate-trajectories-from-raster-data" id="toc-task-5-annotate-trajectories-from-raster-data" class="nav-link" data-scroll-target="#task-5-annotate-trajectories-from-raster-data">Task 5: Annotate Trajectories from raster data</a></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week6/2_tasks_and_inputs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -408,18 +407,14 @@ window.onload = function() {
 </header>
 
 
-<p>Open your RStudio Project <a href="#w5-preperation">which you prepared</a> from this week. Create a new RScript and import the libraries we need for this week. Import your wild boar dataset <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">wildschwein_BE_2056.csv</a> as an <code>sf</code> object</p>
+<p>Open your RStudio Project <a href="1_preparation.html">which you prepared</a> from this week. Create a new RScript and import the libraries we need for this week. Import your wild boar dataset <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">wildschwein_BE_2056.csv</a> as an <code>sf</code> object</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readr"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"sf"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"terra"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tmap"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>wildschwein_BE <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/wildschwein_BE_2056.csv"</span>, <span class="st">","</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"E"</span>, <span class="st">"N"</span>), <span class="at">crs =</span> <span class="dv">2056</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>wildschwein_BE <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/wildschwein_BE_2056.csv"</span>, <span class="st">","</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"E"</span>, <span class="st">"N"</span>), <span class="at">crs =</span> <span class="dv">2056</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Download the dataset <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">Feldaufnahmen_Fanel.gpkg</a> and save it to your project folder. This is a vector dataset stored in the filetype <em>Geopackage</em>, which is similar to a <em>Shapefile</em>, with some advantages (see the website <a href="http://switchfromshapefile.org/">shapefile must die</a>).</p>
 <p>Also download the dataset <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">vegetationshoehe_LFI.tif</a>. This is a “raster” dataset stored in a Geotiff, similar to the map we imported in <a href="../Week1/2_tasks_and_inputs.html#w1-importing-raster">week 1</a>. Also store this file in your project folder and commit these to your repo.</p>
@@ -433,8 +428,8 @@ window.onload = function() {
 <li>What is the coordinate system of the dataset?</li>
 </ul>
 </section>
-<section id="w5-annotate-vector" class="level3">
-<h3 class="anchored" data-anchor-id="w5-annotate-vector">Task 2: Annotate Trajectories from vector data</h3>
+<section id="w6-annotate-vector" class="level3">
+<h3 class="anchored" data-anchor-id="w6-annotate-vector">Task 2: Annotate Trajectories from vector data</h3>
 <p>We would like to know what crop was visited by which wild boar, and at what time. Since the crop data is most relevant in summer, filter your wild boar data to the months <strong>may to june</strong> first and save the output to a new variable. Overlay the filtered dataset with your <code>fanel</code> data to verify the spatial overlap.</p>
 <p>To sematically annotate each wild boar location with crop information, you can use a <em>spatial join</em> with the function <code>st_join()</code>. Do this and explore your annotated dataset.</p>
 </section>
@@ -466,12 +461,11 @@ window.onload = function() {
 </section>
 <section id="task-5-annotate-trajectories-from-raster-data" class="level3">
 <h3 class="anchored" data-anchor-id="task-5-annotate-trajectories-from-raster-data">Task 5: Annotate Trajectories from raster data</h3>
-<p>Semantically annotate your wild boar locations with the vegetation index (similar as you did with the crop data in <a href="#w5-annotate-vector">Task 2</a>). Since you are annotating a vector dataset with information from a raster dataset, you cannot use <code>st_join</code> but need the function <code>extract</code> from the <code>terra</code> package. Read the help on the <code>extract</code> function to see what the function expects. The output should look something like this:</p>
+<p>Semantically annotate your wild boar locations with the vegetation index (similar as you did with the crop data in <a href="#w6-annotate-vector">Task 2</a>). Since you are annotating a vector dataset with information from a raster dataset, you cannot use <code>st_join</code> but need the function <code>extract</code> from the <code>terra</code> package. Read the help on the <code>extract</code> function to see what the function expects. The output should look something like this:</p>
 <p>You can now explore the spatiotemporal patterns of this new data.</p>
-</section>
-<section id="submission" class="level3">
-<h3 class="anchored" data-anchor-id="submission">Submission</h3>
-<p>To submit your exercise, provide us with the URL of your Github repo as described <a href="../Week4/1_preparation.html#sec-github-repo-2">in the preperation</a>.</p>
+<!-- ### Submission
+
+To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#sec-github-repo-2). -->
 
 
 </section>
