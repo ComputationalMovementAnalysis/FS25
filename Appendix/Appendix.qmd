@@ -27,3 +27,50 @@ Our reasons for preferring `readr` over base-R import functions:
 5. Add a commit message to explain what you are committing (e.g. "`initial commit`")
 6. Click on "commit" to commit your changes
 :::
+
+
+## Mapmatching GPS points to the road network
+
+
+
+```{r}
+#| message: false
+
+
+
+
+library(sf)
+library(tmap)
+
+# Get a sample road dataset
+HighWays <- read_sf(system.file("sqlite/test3.sqlite",package="sf"), "HighWays")[6, ] 
+
+# since we want to find the closest location on the road over ALL roads
+# we need to create a union of the roads first.
+HighWays <- st_union(HighWays)
+
+# Let's simulate 1000 GPS locations within 3km of the highway
+gps_locations <- HighWays |> st_buffer(3000) |> st_sample(100)
+
+# Now we can get the nearset point for each GPS location
+nearest <- st_nearest_points(gps_locations, HighWays)
+
+# The output is a line for each point (see plot below)
+# Now we need convert the output from LINE to POINT. 
+# This doubles the number of features
+near_p <- st_cast(nearest, "POINT")
+
+# now we subset the points. Uneven numbers are the original
+# points, even numbers are the new, mapmatched points.
+near_from <- near_p[c(TRUE, FALSE)]
+near_to <- near_p[c(FALSE,TRUE)]
+```
+
+
+```{r}
+#| fig-cap: Original Points (black) are matched to the closest point on the road (red)
+tm_shape(HighWays) + tm_lines() +
+  tm_shape(nearest) + tm_lines(lty = 3) +
+  tm_shape(near_from) + tm_dots() +
+  tm_shape(near_to) + tm_dots(col = "red")
+```
