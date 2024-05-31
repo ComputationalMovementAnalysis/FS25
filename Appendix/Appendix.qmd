@@ -74,3 +74,38 @@ tm_shape(HighWays) + tm_lines() +
   tm_shape(near_from) + tm_dots() +
   tm_shape(near_to) + tm_dots(col = "red")
 ```
+
+
+
+## Exporting location data from Google
+
+A simple way to download your location data from Google is described in the following steps:
+
+1. Go to [takeout.google.com](https://takeout.google.com/)
+2. Deselect all "Products" and select only the following product: *Location History (Timeline)*
+4. Click *Next* and *Create Export* to get an Export of your data (see @fig-google-takeout)
+5. Download and extract the data in your R-Project folder
+6. Follow the script below (adjust the path!)
+
+
+```{.r}
+library(sf)
+library(jsonlite)
+library(dplyr)
+records_json <- jsonlite::read_json("takeout-20240501T094208Z-001/Takeout/Location History (Timeline)/Records.json",simplifyVector = TRUE)
+
+records <- records_json[[1]]
+
+# inspired by the following SO-answer
+# https://gis.stackexchange.com/a/319067/40929
+records_sf <- records |> 
+  mutate(
+    lat = latitudeE7/1e7,
+    lon = longitudeE7/1e7
+  ) |> 
+  st_as_sf(coords = c("lon", "lat"), crs = 4326)
+```
+
+
+
+![](../02_Images/google-takeout.png){#fig-google-takeout}

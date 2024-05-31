@@ -6,7 +6,7 @@
 # source("01_R_Files/helperfunctions.R")
 ```
 
-Open your RStudio Project [which you prepared](#w6-preperation) from this week. Create a new RScript and import the libraries we need for this week. Import your wild boar dataset [wildschwein_BE_2056.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125) as an `sf` object
+Open your RStudio Project [which you prepared](#w6-preperation) for this week. Create a new RScript and import the libraries we need for this week. Import your wild boar dataset [wildschwein_BE_2056.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125) as an `sf` object
 
 ```{r}
 #| echo: true
@@ -85,7 +85,6 @@ Semantically annotate your wild boar locations with the vegetation index (simila
 ```{r}
 #| file: "solutions/week6/task_5.R"
 #| echo: false
-#| include: false
 
 ```
 
