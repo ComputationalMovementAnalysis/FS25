@@ -407,7 +407,7 @@ window.onload = function() {
 </header>
 
 
-<p>Open your RStudio Project <a href="1_preparation.html">which you prepared</a> from this week. Create a new RScript and import the libraries we need for this week. Import your wild boar dataset <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">wildschwein_BE_2056.csv</a> as an <code>sf</code> object</p>
+<p>Open your RStudio Project <a href="1_preparation.html">which you prepared</a> for this week. Create a new RScript and import the libraries we need for this week. Import your wild boar dataset <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">wildschwein_BE_2056.csv</a> as an <code>sf</code> object</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readr"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"sf"</span>)</span>
@@ -462,6 +462,38 @@ window.onload = function() {
 <section id="task-5-annotate-trajectories-from-raster-data" class="level3">
 <h3 class="anchored" data-anchor-id="task-5-annotate-trajectories-from-raster-data">Task 5: Annotate Trajectories from raster data</h3>
 <p>Semantically annotate your wild boar locations with the vegetation index (similar as you did with the crop data in <a href="#w6-annotate-vector">Task 2</a>). Since you are annotating a vector dataset with information from a raster dataset, you cannot use <code>st_join</code> but need the function <code>extract</code> from the <code>terra</code> package. Read the help on the <code>extract</code> function to see what the function expects. The output should look something like this:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 51246 features and 7 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: 2568153 ymin: 1202306 xmax: 2575154 ymax: 1207609
+Projected CRS: CH1903+ / LV95
+First 10 features:
+   TierID TierName CollarID         DatetimeUTC       E       N
+1    002A     Sabi    12275 2014-08-22 21:00:12 2570409 1204752
+2    002A     Sabi    12275 2014-08-22 21:15:16 2570402 1204863
+3    002A     Sabi    12275 2014-08-22 21:30:43 2570394 1204826
+4    002A     Sabi    12275 2014-08-22 21:46:07 2570379 1204817
+5    002A     Sabi    12275 2014-08-22 22:00:22 2570390 1204818
+6    002A     Sabi    12275 2014-08-22 22:15:10 2570390 1204825
+7    002A     Sabi    12275 2014-08-22 22:30:13 2570387 1204831
+8    002A     Sabi    12275 2014-08-22 22:45:11 2570381 1204840
+9    002A     Sabi    12275 2014-08-22 23:00:27 2570316 1204935
+10   002A     Sabi    12275 2014-08-22 23:15:41 2570393 1204815
+   vegetationshoehe_LFI                geometry
+1                 20.09 POINT (2570409 1204752)
+2                 23.85 POINT (2570402 1204863)
+3                 24.96 POINT (2570394 1204826)
+4                 21.59 POINT (2570379 1204817)
+5                 15.68 POINT (2570390 1204818)
+6                 23.77 POINT (2570390 1204825)
+7                 25.09 POINT (2570387 1204831)
+8                 24.88 POINT (2570381 1204840)
+9                 29.91 POINT (2570316 1204935)
+10                21.52 POINT (2570393 1204815)</code></pre>
+</div>
+</div>
 <p>You can now explore the spatiotemporal patterns of this new data.</p>
 <!-- ### Submission
 
