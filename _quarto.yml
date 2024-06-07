@@ -62,7 +62,7 @@ book:
       chapters:
       - Week4/1_preparation.qmd
       - Week4/2_tasks_and_inputs.qmd
-      - Week4/3_solutions.qmd
+      # - Week4/3_solutions.qmd
       #- Week4/4_peer_feedback.qmd
     - part: Exercise 5
       chapters:
