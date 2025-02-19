@@ -378,7 +378,7 @@ Geodetic CRS:  WGS 84
 <div class="br">
 
 </div>
-<p>As you can see, <code>st_as_sf()</code> has added some metadata to our dataframe (<code>Geometry type</code>, <code>Dimension</code>, <code>Bounding box</code>, <code>Geodetic CRS</code>) and replaced the columns <code>Lat</code> and <code>Long</code> with a column named <code>geometry</code>. Other than that, the new <code>sf</code> object is very similar to our original dataframe. In fact, <code>sf</code> objects <em>are</em> essentially <code>dataframes</code>, as you can verify with the function <code>is.data.frame()</code>:</p>
+<p>As you can see, <code>st_as_sf()</code> has added some metadata to our dataframe (<code>Geometry type</code>, <code>Dimension</code>, <code>Bounding box</code>, <code>Geodetic CRS</code>) and replaced the columns <code>Lat</code> and <code>Long</code> with a column named <code>geometry</code>. Other than that, the new <code>sf</code> object is very similar to our original dataframe. In fact, <code>sf</code> objects <em>are</em> essentially dataframes, as you can verify with the function <code>is.data.frame()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.data.frame</span>(wildschwein_BE_sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -410,8 +410,9 @@ Geodetic CRS:  WGS 84
 </section>
 <section id="sec-week1-task3-reproject" class="level3">
 <h3 class="anchored" data-anchor-id="sec-week1-task3-reproject">Task 3: Project data from WGS84</h3>
-<p>So what can we do with our new <code>sf</code> object that we couldn’t before? One example is projecting the WGS84 (<code>Lat</code>/<code>Long</code>) coordinates into the new Swiss CRS <code>CH1903+ LV95</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Do this by using the function <code>st_transform</code>. By the way, do you notice a pattern here? The package <code>sf</code> names most functions for spatial operations with the prefix <code>st_*</code>, just as in PostGIS.</p>
-<p>Here’s the resulting <code>sf</code> object from the operation:</p>
+<p>So what can we do with our new <code>sf</code> object that we couldn’t before? One example is projecting the WGS84 (<code>Lat</code>/<code>Long</code>) coordinates into the new Swiss CRS <code>CH1903+ LV95</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Do this by using the function <code>st_transform</code>.</p>
+<p>By the way, do you notice a pattern here? The package <code>sf</code> names most functions for spatial operations with the prefix <code>st_*</code>, just as in PostGIS.</p>
+<p>Here’s the resulting <code>sf</code> object from the operation. Note how the numeric values in the <code>geometry</code> column have changed.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>wildschwein_BE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -477,7 +478,7 @@ Projected CRS: CH1903+ / LV95
 <div class="br">
 
 </div>
-<p>Second: use <code>summarise()</code> to “dissolve” all points into a multipoint object.</p>
+<p>Second: use <code>summarise()</code> to “union” all points into a multipoint object.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>wildschwein_BE_smry <span class="ot">&lt;-</span> <span class="fu">summarise</span>(wildschwein_BE_grouped)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -514,7 +515,7 @@ Projected CRS: CH1903+ / LV95
 </div>
 </div>
 </div>
-<p>One wildboar is seems to be hidden by one of the others. Try and plot the object <code>mcp</code> with <code>ggplot</code>, setting the layer’s <code>alpha</code> Note: <code>ggplot</code> refuses to use our specified CRS, so we need to force this by specifying <code>datum =</code> in <code>coord_sf()</code>. Try it out.</p>
+<p>One wild boar is seems to be hidden by one of the others. Try and plot the object <code>mcp</code> with <code>ggplot</code>, setting the layer’s <code>alpha</code> Note: <code>ggplot</code> refuses to use our specified CRS, so we need to force this by specifying <code>datum =</code> in <code>coord_sf()</code>. Try it out.</p>
 </section>
 <section id="task-5-making-maps-with-tmap" class="level3">
 <h3 class="anchored" data-anchor-id="task-5-making-maps-with-tmap">Task 5: Making maps with <code>tmap</code></h3>
