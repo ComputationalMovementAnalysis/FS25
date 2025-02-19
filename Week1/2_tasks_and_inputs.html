@@ -73,11 +73,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-66ab7fd5e73b7f0a764e0d49b3e29ab1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-7a0e04ec82617701cd34937292aa414e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-66ab7fd5e73b7f0a764e0d49b3e29ab1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-a1bacad83237f0cccc39127c932b004f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-5e13df80674fc734266713d7ddcaf0f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dark-da487177a582bbb5e21119c4f48dc411.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -153,8 +153,8 @@ window.onload = function() {
 <script src="../site_libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
 
 
-<link rel="stylesheet" href="../custom.css">
-<link rel="stylesheet" href="../theme-custom.scss">
+<link rel="stylesheet" href="../aux/custom.css">
+<link rel="stylesheet" href="../aux/theme-custom.scss">
 </head>
 
 <body class="nav-sidebar floating">
@@ -186,6 +186,7 @@ window.onload = function() {
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Computational Movement Analysis: Patterns and Trends in Environmental Data</a> 
         <div class="sidebar-tools-main tools-wide">
+    <a href="../" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-easel"></i></a>
     <a href="https://github.com/ComputationalMovementAnalysis/FS24/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -317,12 +318,24 @@ window.onload = function() {
 <ol type="1">
 <li>Make sure you have read and followed the instructions in section <a href="../Intro/1_preparations_course.html">Preparation</a></li>
 <li>In RStudio, open the RStudio Project you created for this week. You can see that you are in an RStudio Project if the project’s name is visible next to the little RStudio logo in the top right corner of RStudio (otherwise it will read <code>Project: (None)</code>).</li>
-<li>Download the wild boar movement data here: <a href="https://moodle.zhaw.ch/mod/folder/view.php?id=1192125">wildschwein_BE.csv</a></li>
+<li>Download the wild boar movement data from <a href="https://moodle.zhaw.ch/">moodle</a> (<em>RStuff</em> → <em>Datasets</em>)</li>
 </ol>
 <section id="task-1-import-data" class="level3">
 <h3 class="anchored" data-anchor-id="task-1-import-data">Task 1: Import data</h3>
 <p>Move the file <code>wildschwein_BE.csv</code> into your project directory and import it into <code>r</code> as a <code>data.frame</code>. Assign correct column types as necessary and make sure the time zone is set correctly for the date/time column.</p>
-<p>Note: We recommend using the <code>readr</code> package to import data (see <a href="../Appendix/Appendix.html#sec-readr" class="quarto-xref"><span>Data-import: base-r vs readr</span></a>). These functions have an underscore in their name, e.g.&nbsp;<code>read_delim</code> in oppose to the base <code>R</code> functions, which have a period (e.g.&nbsp;<code>read.delim</code>). Specifically for the wild boar data, we recommend <code>read_delim()</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<code>read.delim</code> vs.&nbsp;<code>read_delim</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We recommend using the <code>readr</code> package to import data (see <a href="../Appendix/Appendix.html#sec-readr" class="quarto-xref"><span>Data-import: base-r vs readr</span></a>). These functions have an underscore in their name, e.g.&nbsp;<code>read_delim</code> in oppose to the base <code>R</code> functions, which have a period (e.g.&nbsp;<code>read.delim</code>).</p>
+</div>
+</div>
 </section>
 <section id="task-2-explore-data" class="level3">
 <h3 class="anchored" data-anchor-id="task-2-explore-data">Task 2: Explore Data</h3>
@@ -352,6 +365,7 @@ window.onload = function() {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">crs =</span> <span class="dv">4326</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br class="br"></p>
 <p>Notice how <code>st_as_sf</code> takes the EPSG code for the <code>crs =</code> argument. You can find a lot of useful information on Coordinate Reference Systems (including EPSG Codes, etc.) under <a href="http://epsg.io">epsg.io</a>.<br>
 Let’s compare our original <code>data.frame</code> with this new <code>sf</code> object:</p>
 <div class="cell">
@@ -395,6 +409,9 @@ Geodetic CRS:  WGS 84
 # ℹ 51,236 more rows</code></pre>
 </div>
 </div>
+<div class="br">
+
+</div>
 <p>As you can see, <code>st_as_sf()</code> has added some metadata to our dataframe (<code>Geometry type</code>, <code>Dimension</code>, <code>Bounding box</code>, <code>Geodetic CRS</code>) and replaced the columns <code>Lat</code> and <code>Long</code> with a column named <code>geometry</code>. Other than that, the new <code>sf</code> object is very similar to our original dataframe. In fact, <code>sf</code> objects <em>are</em> essentially <code>dataframes</code>, as you can verify with the function <code>is.data.frame()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.data.frame</span>(wildschwein_BE_sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -410,6 +427,9 @@ Geodetic CRS:  WGS 84
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># subset colums</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>wildschwein_BE_sf[, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="br">
+
 </div>
 <p>Instead of keeping the same data twice (once as a <code>data.frame</code>, and once as an <code>sf</code> object), we will overwrite the <code>data.frame</code> and continue working with the <code>sf</code> object from now on. This saves some memory space in <code>R</code> and avoids confusion.</p>
 <div class="cell">
@@ -454,6 +474,9 @@ Projected CRS: CH1903+ / LV95
 <section id="sec-convex-hull" class="level3">
 <h3 class="anchored" data-anchor-id="sec-convex-hull">Input: Calculate Convex Hull</h3>
 <p>Transforming from one Coordinate Reference System to another was one operation where we needed an object with a spatial nature. In this way, we were able to use an off-the-shelf function to project the coordinates from one CRS to another. In our next example, we again rely on a spatial function: We want to calculate a <a href="https://en.wikipedia.org/wiki/Convex_hull">convex hull</a> per Wild boar. And guess what the function for calculating a convex hull is called in <code>sf</code>? If you guessed <code>st_convex_hull()</code>, you were right!</p>
+<div class="br">
+
+</div>
 <p>By default <code>st_convex_hull()</code> calculates the convex hull <em>per feature</em>, i.e.&nbsp;<em>per point</em> in our dataset. This of course makes little sense. In order to calculate the convex hull per animal, we need to convert our point- to multipoint-features where each feature contains all positions of one animal. This is achieved in two steps:</p>
 <p>First: add a grouping variable to the <code>sf</code> object. Note the new grouping variable in the metadata of the <code>sf</code> object. Other than that, <code>group_by</code> has no effect on our <code>sf</code> object.</p>
 <div class="cell">
@@ -484,6 +507,9 @@ Projected CRS: CH1903+ / LV95
 10 002A   Sabi        12275 2014-08-22 23:15:41 (2570393 1204815)
 # ℹ 51,236 more rows</code></pre>
 </div>
+</div>
+<div class="br">
+
 </div>
 <p>Second: use <code>summarise()</code> to “dissolve” all points into a multipoint object.</p>
 <div class="cell">
@@ -522,140 +548,7 @@ Projected CRS: CH1903+ / LV95
 </div>
 </div>
 </div>
-<p>But since we use <code>ggplot</code> extensively, try and plot the object <code>mcp</code> with <code>ggplot</code>. Hint: Use the layer <code>geom_sf()</code> to add an <code>sf</code> object. Note: <code>ggplot</code> refuses to use our specified CRS, so we need to force this by specifying <code>datum =</code> in <code>coord_sf()</code>. Try it out.</p>
-<!-- 
-
-
-### Input: Importing raster data {#w1-importing-raster}
-
-In the next task, we would like to add a background map to our `mcp` object. Download the file here: [pk100_BE.tif](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125)
-To import the file into `R`, we use the package `terra` with the function `rast`.
-
-
-
-
-
-::: {.cell}
-
-```{.r .cell-code}
-library("terra")
-
-pk100_BE <- terra::rast("datasets/pk100_BE.tif")
-
-pk100_BE
-```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-class       : SpatRaster 
-dimensions  : 1821, 2321, 3  (nrow, ncol, nlyr)
-resolution  : 5, 5  (x, y)
-extent      : 2567000, 2578605, 1199996, 1209101  (xmin, xmax, ymin, ymax)
-coord. ref. : CH1903+ / LV95 (EPSG:2056) 
-source      : pk100_BE.tif 
-names       : pk1_1, pk1_2, pk1_3 
-min values  :     0,     0,     0 
-max values  :   255,   255,   255 
-```
-
-
-:::
-:::
-
-
-
-
-
-`pk100_BE_2056.tif` is a three layered geotiff File. The above console output shows some metadata including the resolution, extent and the names of our layers (`pk1_1`, `pk1_2`etc). With the default `plot` method, each layer is displayed individually:
-
-
-
-
-
-::: {.cell}
-
-```{.r .cell-code}
-plot(pk100_BE)
-```
-
-::: {.cell-output-display}
-![](2_tasks_and_inputs_files/figure-html/unnamed-chunk-17-1.png){width=672}
-:::
-:::
-
-
-
-
-
-With `plotRGB` all three layers are combined into a single image:
-
-
-
-
-
-::: {.cell}
-
-```{.r .cell-code}
-plotRGB(pk100_BE)
-```
-
-::: {.cell-output-display}
-![](2_tasks_and_inputs_files/figure-html/unnamed-chunk-18-1.png){width=672}
-:::
-:::
-
-
-
-
-
-
-
-
-### Task 5: Adding a background map
-
-There are multiple ways to add a background map in `ggplot`, many require additional packages. This is a good opportunity to get to know a completely different package for creating maps: `tmap` ("thematic map"). This package was developed with a syntax very similar to `ggplot2`, which makes it easy to learn.
-
-
-
-
-
-::: {.cell}
-
-```{.r .cell-code}
-library("tmap")
-
-tm_shape(pk100_BE) +
-    tm_rgb()
-```
-
-::: {.cell-output-display}
-![](2_tasks_and_inputs_files/figure-html/unnamed-chunk-19-1.png){width=672}
-:::
-:::
-
-
-
-
-
-As you can see, plotting layers in `tmap` is combined with the `+` sign, just as in `ggplot2`. In `tmap` however, each layer consists of two objects: a `tm_shape()` in which the data is called, and a `tm_*` object in which we define how the data is visualized (`tm_rgb()` states that it is plotted as an RGB Raster Layer). Add the object `mcp` to the plot in this manner. Read [the vignette](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html) if you are having trouble.
-
-
-
-
-
-
-::: {.cell}
-::: {.cell-output-display}
-![](2_tasks_and_inputs_files/figure-html/unnamed-chunk-20-1.png){width=672}
-:::
-:::
-
-
-
-
-
--->
+<p>One wildboar is seems to be hidden by one of the others. Try and plot the object <code>mcp</code> with <code>ggplot</code>, setting the layer’s <code>alpha</code> Note: <code>ggplot</code> refuses to use our specified CRS, so we need to force this by specifying <code>datum =</code> in <code>coord_sf()</code>. Try it out.</p>
 </section>
 <section id="task-5-making-maps-with-tmap" class="level3">
 <h3 class="anchored" data-anchor-id="task-5-making-maps-with-tmap">Task 5: Making maps with <code>tmap</code></h3>
@@ -668,7 +561,7 @@ As you can see, plotting layers in `tmap` is combined with the `+` sign, just as
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="2_tasks_and_inputs_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="2_tasks_and_inputs_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -678,7 +571,7 @@ As you can see, plotting layers in `tmap` is combined with the `+` sign, just as
 </section>
 <section id="task-6-create-an-interactive-map" class="level3">
 <h3 class="anchored" data-anchor-id="task-6-create-an-interactive-map">Task 6: Create an interactive map</h3>
-<p>Rerun the <code>tmap()...</code> command from the previous task, but switch the plotting mode to “view”” (<code>tmap_mode("view")</code>) beforehand. Omit the raster layer (<code>pk100_BE</code>), you won’t be needing it.</p>
+<p>Rerun the <code>tmap()...</code> command from the previous task, but switch the plotting mode to “view”” (<code>tmap_mode("view")</code>) beforehand.</p>
 
 
 </section>
@@ -826,7 +719,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = true;
+  const darkModeDefault = false;
   let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {

@@ -136,7 +136,7 @@
     "href": "Week1/2_tasks_and_inputs.html",
     "title": "Tasks and inputs",
     "section": "",
-    "text": "Task 1: Import data\nBefore starting with the task:\nMove the file wildschwein_BE.csv into your project directory and import it into r as a data.frame. Assign correct column types as necessary and make sure the time zone is set correctly for the date/time column.\nNote: We recommend using the readr package to import data (see Data-import: base-r vs readr). These functions have an underscore in their name, e.g. read_delim in oppose to the base R functions, which have a period (e.g. read.delim). Specifically for the wild boar data, we recommend read_delim().",
+    "text": "Task 1: Import data\nBefore starting with the task:\nMove the file wildschwein_BE.csv into your project directory and import it into r as a data.frame. Assign correct column types as necessary and make sure the time zone is set correctly for the date/time column.",
     "crumbs": [
       "Exercise 1",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tasks and inputs</span>"
