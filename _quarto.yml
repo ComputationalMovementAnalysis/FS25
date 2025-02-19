@@ -10,12 +10,15 @@ lang: en
 format: 
   html:
     theme:
-      dark: [darkly, custom-dark.scss]
-      light: [flatly, custom-light.scss]
+      light: [flatly]
+      dark: [flatly, aux/presenter.scss]
+    highlight-style:
+      light: aux/arrow-light.theme
+      dark: aux/arrow-light.theme
     css: 
-      - custom.css
-      - theme-custom.scss
-    bibliography: 00_Admin/bibliography.bib
+      - aux/custom.css
+      - aux/theme-custom.scss
+    bibliography: aux/bibliography.bib
     number-sections: false
     code-tools:
       source: false
@@ -31,9 +34,12 @@ execute:
 book:
   title: "Computational Movement Analysis: Patterns and Trends in Environmental Data"
   sidebar: 
-    logo: 02_Images/zhaw_sw_neg.png
+    logo: 02_Images/zhaw_sw_pos.png
     collapse-level: 1
     style: floating
+    tools: 
+      - icon: easel
+        href: /
   reader-mode: true
   repo-url: https://github.com/ComputationalMovementAnalysis/FS24/
   repo-actions: [edit]
@@ -45,34 +51,33 @@ book:
       chapters:
       - Week1/1_preparation.qmd
       - Week1/2_tasks_and_inputs.qmd
-      - Week1/3_solutions.qmd
+      # - Week1/3_solutions.qmd
     - part: Exercise 2 
-      chapters:
-      - Week2/2_demo_tidyverse.qmd
-      - Week2/3_exercise_a.qmd
-      - Week2/3_exercise_b.qmd
-      - Week2/3_exercise_c.qmd
-      - Week2/4_solutions.qmd
+      # chapters:
+      # - Week2/2_demo_tidyverse.qmd
+      # - Week2/3_exercise_a.qmd
+      # - Week2/3_exercise_b.qmd
+      # - Week2/3_exercise_c.qmd
+      # - Week2/4_solutions.qmd
     - part: Exercise 3
-      chapters: 
-        - Week3/1_preparation.qmd
-        - Week3/2_exercise_A.qmd
-        - Week3/3_exercise_B.qmd
+    #   chapters: 
+        # - Week3/1_preparation.qmd
+        # - Week3/2_exercise_A.qmd
+        # - Week3/3_exercise_B.qmd
     - part: Exercise 4
-      chapters:
-      - Week4/1_preparation.qmd
-      - Week4/2_tasks_and_inputs.qmd
+      # chapters:
+      # - Week4/1_preparation.qmd
+      # - Week4/2_tasks_and_inputs.qmd
       # - Week4/3_solutions.qmd
-      #- Week4/4_peer_feedback.qmd
     - part: Exercise 5
-      chapters:
-      - Week5/1_preparation.qmd
-      - Week5/2_tasks_and_inputs.qmd
+      # chapters:
+      # - Week5/1_preparation.qmd
+      # - Week5/2_tasks_and_inputs.qmd
       # - Week4/3_solutions.qmd
     - part: Exercise 6
-      chapters:
-      - Week6/1_preparation.qmd
-      - Week6/2_tasks_and_inputs.qmd
+      # chapters:
+      # - Week6/1_preparation.qmd
+      # - Week6/2_tasks_and_inputs.qmd
       # - Week5/3_solutions.qmd
     - 90_references.qmd
     - Appendix/Appendix.qmd

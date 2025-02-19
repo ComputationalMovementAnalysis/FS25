@@ -91,6 +91,6 @@ Now we will set some RStudio Global options. Go to *Tools → Global options*.
   
 Click on "Ok" to apply the change and close the options menu.
 
-[^restore]: We recommend that you start each RStudio session with a blank slate, as recommended by @wickham2017 see [here](https://r4ds.had.co.nz/workflow-projects.html)
+[^restore]: We recommend that you start each RStudio session with a blank slate, as recommended by @wickham2023 see [here](https://r4ds.hadley.nz/workflow-scripts#projects)
 [^saveworkspace]: If we don't restore the workspace at startup, there is no need to save it on exit.
 [^pipe]: Our group has adapted the native pipe operator `|>` to reduce package dependencies. If you use the `magrittr` pipe `%>%` and would like to stick to it, feel free. 

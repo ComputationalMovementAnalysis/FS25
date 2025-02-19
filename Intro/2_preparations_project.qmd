@@ -4,9 +4,7 @@ As your course assignment (Leistungsnachweis) you will develop a semester projec
 
 In fact, we give you the opportunity to track your own movement behavior, generating trajectory data you will subsequently analyze yourself. There are two ways for you to generate your own trajectory data. 
 
-<!-- During the course, we will give you the opportunity to share your data with the other students in the course, so that the shared data pool for all can grow. -->
-
-Please let us know which option you choose by filling out the following [survey](https://moodle.zhaw.ch/mod/choice/view.php?id=1192128) on Moodle.
+Please let us know which option you choose by filling out the following [survey](https://moodle.zhaw.ch/mod/choice/view.php?id=1539895) on Moodle.
 
 ## Option 1: Tracking App
 
@@ -35,7 +33,7 @@ Tracking Methods
 
 :::
 
-Please check after a view days if the tracking is working properly. If you have any issues during installation or you are not able to track yourself after the installtion please get in contact with [Nils](mailto:rata@zhaw.ch) or [Dominic](mailto:luoe@zhaw.ch).
+Please check after a view days if the tracking is working properly. If you have any issues during installation or you are not able to track yourself after the installtion [please get in contact with us](mailto:terz@zhaw.ch).
 
 ***If, however, for privacy reasons, you dont want to use a Tracking App we can hand out a GPS tracker to you.***
 
@@ -45,4 +43,4 @@ You can use a GPS tracker, provided by our research group. By using a GPS tracke
 
 The drawback off this option is, that in order to retreave the data, you need to bring the tracker to us. Also more manual preprocessing is necessary when preparing your data for the project.
 
-If you choose this option please send us a quick [E-Mail](mailto:luoe@zhaw.ch) so we can arrange the handover of the GPS tracker. You can get the tracker in our office GC 134 at the [Campus Grüental, Wädenswil](https://goo.gl/maps/xDvGFMBEvwBMdWiz7).
+If you choose this option please send us a quick [E-Mail](mailto:terz@zhaw.ch) so we can arrange the handover of the GPS tracker. You can get the tracker in our office GC 134 at the [Campus Grüental, Wädenswil](https://goo.gl/maps/xDvGFMBEvwBMdWiz7).
