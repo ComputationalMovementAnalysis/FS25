@@ -154,13 +154,24 @@
     ]
   },
   {
+    "objectID": "Week1/3_solutions.html",
+    "href": "Week1/3_solutions.html",
+    "title": "Solutions",
+    "section": "",
+    "text": "Tip\n\n\n\nHover over the code and copy the content by clicking on the clipboard icon on the top right. You can now paste this into an R-Script.\n\n\n\n\n# task_1.R\n################################################################################\n\n\n\nlibrary(\"readr\") # move this to the top of your script\n\n# Data import ####\nwildschwein_BE &lt;- read_delim(\"datasets/wildschwein_BE.csv\", \",\")\n\n# Check Timezone\nattr(wildschwein_BE$DatetimeUTC, \"tzone\") # or\nwildschwein_BE$DatetimeUTC[1]\n\n\n\n\n# task_2.R\n################################################################################\n\n\nlibrary(\"ggplot2\") # move this to the top of your script\n\nggplot(wildschwein_BE, aes(Long, Lat, colour = TierID)) +\n  geom_point() +\n  theme(legend.position = \"none\")\n\n\n\n\n# task_3.R\n################################################################################\n\n\n\nlibrary(\"sf\") # move this to the top of your script\n\n# Input: Handling spatial data\nwildschwein_BE &lt;- st_as_sf(wildschwein_BE,\n    coords = c(\"Long\", \"Lat\"),\n    crs = 4326\n)\n\nwildschwein_BE &lt;- st_transform(wildschwein_BE, 2056)\n\n\n\n\n# task_4.R\n################################################################################\n\n\n\nlibrary(\"dplyr\") # move this to the top of your script\n\nwildschwein_BE_grouped &lt;- group_by(wildschwein_BE, TierID)\n\nwildschwein_BE_smry &lt;- summarise(wildschwein_BE_grouped)\n\nmcp &lt;- st_convex_hull(wildschwein_BE_smry)\n\nggplot(mcp, aes(fill = TierID)) +\n  geom_sf(alpha = 0.4)\n\nggplot(mcp, aes(fill = TierID)) +\n  geom_sf(alpha = 0.4) +\n  coord_sf(datum = 2056)\n\n\n\n\n# task_5.R\n################################################################################\n\n\n\nlibrary(\"tmap\") # move this to the top of your script\n\n# Input: Importing raster data\nlibrary(\"terra\") # move this to the top of your script\n\npk100_BE &lt;- terra::rast(\"datasets/pk100_BE.tif\")\n\nmcp &lt;- st_convex_hull(wildschwein_BE_smry)\n\ntm_shape(pk100_BE) +\n  tm_rgb() +\n  tm_shape(mcp) +\n  tm_polygons(col = \"TierID\", alpha = 0.4, border.col = \"red\") +\n  tm_legend(bg.color = \"white\")\n\n\n\n\n# task_6.R\n################################################################################\n\n\ntmap_mode(\"view\")\n\ntm_shape(mcp) +\n  tm_polygons(col = \"TierID\", alpha = 0.4, border.col = \"red\") +\n  tm_legend(bg.color = \"white\")",
+    "crumbs": [
+      "Exercise 1",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Solutions</span>"
+    ]
+  },
+  {
     "objectID": "90_references.html",
     "href": "90_references.html",
     "title": "References",
     "section": "",
     "text": "Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023.\nR for Data Science. \" O’Reilly Media, Inc.\".",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>References</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>References</span>"
     ]
   },
   {
@@ -170,7 +181,7 @@
     "section": "",
     "text": "Data-import: base-r vs readr\nOur reasons for preferring readr over base-R import functions:\nHOWEVER: Using external libraries (such as readr) creates additional dependencies which has it’s own downsides (which is one of the reasons we don’t do library(\"tidyverse\")).",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -180,7 +191,7 @@
     "section": "",
     "text": "base R imports strings as factors by default (since R 4.0.0, this is not the case anymore)\nreadr is generally faster (which only matters if you have a large dataset)\nreadr makes safer assumptions about your data (e.g. the default timezone for datetime columns is UTC)\ndata.frames created by readr are prettier when printed to the console and contain more information using less characters",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -188,9 +199,9 @@
     "href": "Appendix/Appendix.html#comitting-files-with-git",
     "title": "Appendix",
     "section": "Comitting files with git",
-    "text": "Comitting files with git\n\n\n\n\n\n\nNote 6.1: Committing files with git\n\n\n\n\nSave your (R/RMarkdown/Quarto) file\nSwitch to the “Git”-Tab in the pane in the top right corner\nClick “commit” to open the “Commit Window”\nClick in the checkbox next to the file(s) you want to commit\nAdd a commit message to explain what you are committing (e.g. “initial commit”)\nClick on “commit” to commit your changes",
+    "text": "Comitting files with git\n\n\n\n\n\n\nNote 7.1: Committing files with git\n\n\n\n\nSave your (R/RMarkdown/Quarto) file\nSwitch to the “Git”-Tab in the pane in the top right corner\nClick “commit” to open the “Commit Window”\nClick in the checkbox next to the file(s) you want to commit\nAdd a commit message to explain what you are committing (e.g. “initial commit”)\nClick on “commit” to commit your changes",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -200,7 +211,7 @@
     "section": "Mapmatching GPS points to the road network",
     "text": "Mapmatching GPS points to the road network\n\nlibrary(sf)\nlibrary(tmap)\n\n# Get a sample road dataset\nHighWays &lt;- read_sf(system.file(\"sqlite/test3.sqlite\",package=\"sf\"), \"HighWays\")[6, ] \n\n# since we want to find the closest location on the road over ALL roads\n# we need to create a union of the roads first.\nHighWays &lt;- st_union(HighWays)\n\n# Let's simulate 1000 GPS locations within 3km of the highway\ngps_locations &lt;- HighWays |&gt; st_buffer(3000) |&gt; st_sample(100)\n\n# Now we can get the nearset point for each GPS location\nnearest &lt;- st_nearest_points(gps_locations, HighWays)\n\n# The output is a line for each point (see plot below)\n# Now we need convert the output from LINE to POINT. \n# This doubles the number of features\nnear_p &lt;- st_cast(nearest, \"POINT\")\n\n# now we subset the points. Uneven numbers are the original\n# points, even numbers are the new, mapmatched points.\nnear_from &lt;- near_p[c(TRUE, FALSE)]\nnear_to &lt;- near_p[c(FALSE,TRUE)]\n\n\ntm_shape(HighWays) + tm_lines() +\n  tm_shape(nearest) + tm_lines(lty = 3) +\n  tm_shape(near_from) + tm_dots() +\n  tm_shape(near_to) + tm_dots(col = \"red\")\n\n\n\n\nOriginal Points (black) are matched to the closest point on the road (red)",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -208,9 +219,9 @@
     "href": "Appendix/Appendix.html#exporting-location-data-from-google",
     "title": "Appendix",
     "section": "Exporting location data from Google",
-    "text": "Exporting location data from Google\nA simple way to download your location data from Google is described in the following steps:\n\nGo to takeout.google.com\nDeselect all “Products” and select only the following product: Location History (Timeline)\nClick Next and Create Export to get an Export of your data (see Figure 6.1)\nDownload and extract the data in your R-Project folder\nFollow the script below (adjust the path!)\n\nlibrary(sf)\nlibrary(jsonlite)\nlibrary(dplyr)\nrecords_json &lt;- jsonlite::read_json(\"takeout-20240501T094208Z-001/Takeout/Location History (Timeline)/Records.json\",simplifyVector = TRUE)\n\nrecords &lt;- records_json[[1]]\n\n# inspired by the following SO-answer\n# https://gis.stackexchange.com/a/319067/40929\nrecords_sf &lt;- records |&gt; \n  mutate(\n    lat = latitudeE7/1e7,\n    lon = longitudeE7/1e7\n  ) |&gt; \n  st_as_sf(coords = c(\"lon\", \"lat\"), crs = 4326)\n\n\n\n\n\n\nFigure 6.1",
+    "text": "Exporting location data from Google\nA simple way to download your location data from Google is described in the following steps:\n\nGo to takeout.google.com\nDeselect all “Products” and select only the following product: Location History (Timeline)\nClick Next and Create Export to get an Export of your data (see Figure 7.1)\nDownload and extract the data in your R-Project folder\nFollow the script below (adjust the path!)\n\nlibrary(sf)\nlibrary(jsonlite)\nlibrary(dplyr)\nrecords_json &lt;- jsonlite::read_json(\"takeout-20240501T094208Z-001/Takeout/Location History (Timeline)/Records.json\",simplifyVector = TRUE)\n\nrecords &lt;- records_json[[1]]\n\n# inspired by the following SO-answer\n# https://gis.stackexchange.com/a/319067/40929\nrecords_sf &lt;- records |&gt; \n  mutate(\n    lat = latitudeE7/1e7,\n    lon = longitudeE7/1e7\n  ) |&gt; \n  st_as_sf(coords = c(\"lon\", \"lat\"), crs = 4326)\n\n\n\n\n\n\nFigure 7.1",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Appendix</span>"
     ]
   }
 ]
