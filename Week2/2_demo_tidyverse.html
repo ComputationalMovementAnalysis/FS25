@@ -308,17 +308,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>now <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2024-04-26 10:20:00"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>later <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2024-04-26 11:35:00"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>later <span class="ot">&lt;-</span> now <span class="sc">+</span> <span class="dv">10000</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>later</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>later</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-04-26 13:06:40 CEST"</code></pre>
+<pre><code>[1] "2024-04-26 11:35:00 CEST"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>time_difference <span class="ot">&lt;-</span> <span class="fu">difftime</span>(later, now)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>time_difference</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 2.777778 hours</code></pre>
+<pre><code>Time difference of 1.25 hours</code></pre>
 </div>
 </div>
 <p>You can also specify the unit of the output.</p>
@@ -327,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>time_difference</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 10000 secs</code></pre>
+<pre><code>Time difference of 4500 secs</code></pre>
 </div>
 </div>
 <p><code>difftime</code> returns an object of the class <code>difftime</code>.</p>
@@ -336,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "difftime"</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(time_difference)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  'difftime' num 10000</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  'difftime' num 4500</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  - attr(*, "units")= chr "secs"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>However in our case, numeric values would be more handy than the class <code>difftime</code>. So we’ll wrap the command in <code>as.numeric()</code>:</p>
@@ -344,7 +342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>time_difference <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(later, now, <span class="at">units =</span> <span class="st">"secs"</span>))</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(time_difference)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  num 10000</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  num 4500</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(time_difference)</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "numeric"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -396,8 +394,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="mutate"><code>mutate()</code></h3>
 <p>Using the above functions (<code>difftime()</code> and <code>lead()</code>), we can calculate the time lag, that is, the time difference between consecutive positions. We will try this on a dummy version of our wild boar dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">TierID =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Hans"</span>, <span class="dv">5</span>), <span class="fu">rep</span>(<span class="st">"Klara"</span>, <span class="dv">5</span>)),</span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">tibble</span>(       <span class="co"># aka data.frame</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">TierID =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Hans"</span>, <span class="st">"Klara"</span>), <span class="at">each =</span> <span class="dv">5</span>),</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">DatetimeUTC =</span> <span class="fu">rep</span>(<span class="fu">as.POSIXct</span>(<span class="st">"2015-01-01 00:00:00"</span>, <span class="at">tz =</span> <span class="st">"UTC"</span>) <span class="sc">+</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span> <span class="sc">*</span> <span class="dv">15</span> <span class="sc">*</span> <span class="dv">60</span>, <span class="dv">2</span>)</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
@@ -423,9 +421,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>now <span class="ot">&lt;-</span> wildschwein<span class="sc">$</span>DatetimeUTC</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>later <span class="ot">&lt;-</span> <span class="fu">lead</span>(now)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>wildschwein<span class="sc">$</span>timelag <span class="ot">&lt;-</span> <span class="fu">difftime_secs</span>(later, now)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View(wildschwein)</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>wildschwein</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>wildschwein<span class="sc">$</span>timelag <span class="ot">&lt;-</span> <span class="fu">difftime_secs</span>(later, now)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>wildschwein</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
    TierID DatetimeUTC         timelag
@@ -442,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 10 Klara  2015-01-01 01:00:00      NA</code></pre>
 </div>
 </div>
-<p>However, we have an issue at the transion between the two animals. We can overcome this issue using dplyr’s <code>mutate</code> with <code>group_by</code>. <strong>If we use <code>mutate</code>, we do not use the <code>$</code> notation!</strong></p>
+<p>However, we have an issue at the transition between the two animals. We can overcome this issue using dplyr’s <code>mutate</code> with <code>group_by</code>. <strong>If we use <code>mutate</code>, we do not use the <code>$</code> notation!</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note the lack of "$"</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">difftime_secs</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC))</span>
@@ -476,24 +476,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>After adding this grouping variable, calculating the <code>timelag</code> automatically accounts for the individual trajectories.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># again, note the lack of "$"</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">difftime</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC))</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">difftime_secs</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC))</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>wildschwein</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
 # Groups:   TierID [2]
    TierID DatetimeUTC         timelag
-   &lt;chr&gt;  &lt;dttm&gt;              &lt;drtn&gt; 
- 1 Hans   2015-01-01 00:00:00 15 mins
- 2 Hans   2015-01-01 00:15:00 15 mins
- 3 Hans   2015-01-01 00:30:00 15 mins
- 4 Hans   2015-01-01 00:45:00 15 mins
- 5 Hans   2015-01-01 01:00:00 NA mins
- 6 Klara  2015-01-01 00:00:00 15 mins
- 7 Klara  2015-01-01 00:15:00 15 mins
- 8 Klara  2015-01-01 00:30:00 15 mins
- 9 Klara  2015-01-01 00:45:00 15 mins
-10 Klara  2015-01-01 01:00:00 NA mins</code></pre>
+   &lt;chr&gt;  &lt;dttm&gt;                &lt;dbl&gt;
+ 1 Hans   2015-01-01 00:00:00     900
+ 2 Hans   2015-01-01 00:15:00     900
+ 3 Hans   2015-01-01 00:30:00     900
+ 4 Hans   2015-01-01 00:45:00     900
+ 5 Hans   2015-01-01 01:00:00      NA
+ 6 Klara  2015-01-01 00:00:00     900
+ 7 Klara  2015-01-01 00:15:00     900
+ 8 Klara  2015-01-01 00:30:00     900
+ 9 Klara  2015-01-01 00:45:00     900
+10 Klara  2015-01-01 01:00:00      NA</code></pre>
 </div>
 </div>
 </section>
@@ -505,23 +505,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="sc">|&gt;</span>                                            <span class="co"># Take wildschwein...</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(TierID) <span class="sc">|&gt;</span>                                   <span class="co"># ...group it by TierID</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">timelag =</span> <span class="fu">difftime</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC)<span class="co"># Caculate difftime</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">timelag =</span> <span class="fu">difftime_secs</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC)<span class="co"># Caculate difftime</span></span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
 # Groups:   TierID [2]
    TierID DatetimeUTC         timelag
-   &lt;chr&gt;  &lt;dttm&gt;              &lt;drtn&gt; 
- 1 Hans   2015-01-01 00:00:00 15 mins
- 2 Hans   2015-01-01 00:15:00 15 mins
- 3 Hans   2015-01-01 00:30:00 15 mins
- 4 Hans   2015-01-01 00:45:00 15 mins
- 5 Hans   2015-01-01 01:00:00 NA mins
- 6 Klara  2015-01-01 00:00:00 15 mins
- 7 Klara  2015-01-01 00:15:00 15 mins
- 8 Klara  2015-01-01 00:30:00 15 mins
- 9 Klara  2015-01-01 00:45:00 15 mins
-10 Klara  2015-01-01 01:00:00 NA mins</code></pre>
+   &lt;chr&gt;  &lt;dttm&gt;                &lt;dbl&gt;
+ 1 Hans   2015-01-01 00:00:00     900
+ 2 Hans   2015-01-01 00:15:00     900
+ 3 Hans   2015-01-01 00:30:00     900
+ 4 Hans   2015-01-01 00:45:00     900
+ 5 Hans   2015-01-01 01:00:00      NA
+ 6 Klara  2015-01-01 00:00:00     900
+ 7 Klara  2015-01-01 00:15:00     900
+ 8 Klara  2015-01-01 00:30:00     900
+ 9 Klara  2015-01-01 00:45:00     900
+10 Klara  2015-01-01 01:00:00      NA</code></pre>
 </div>
 </div>
 </section>
@@ -532,10 +532,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(wildschwein, <span class="at">mean =</span> <span class="fu">mean</span>(timelag, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
-  TierID mean   
-  &lt;chr&gt;  &lt;drtn&gt; 
-1 Hans   15 mins
-2 Klara  15 mins</code></pre>
+  TierID  mean
+  &lt;chr&gt;  &lt;dbl&gt;
+1 Hans     900
+2 Klara    900</code></pre>
 </div>
 </div>
 
@@ -1192,96 +1192,96 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>now <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2024-04-26 10:20:00"</span>)</span>
 <span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>later <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2024-04-26 11:35:00"</span>)</span>
 <span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>later <span class="ot">&lt;-</span> now <span class="sc">+</span> <span class="dv">10000</span></span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>later</span>
 <span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>later</span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>time_difference <span class="ot">&lt;-</span> <span class="fu">difftime</span>(later, now)</span>
 <span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>time_difference <span class="ot">&lt;-</span> <span class="fu">difftime</span>(later, now)</span>
-<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a>time_difference</span>
-<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>time_difference</span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a>You can also specify the unit of the output.</span>
 <span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a>You can also specify the unit of the output.</span>
-<span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a>time_difference <span class="ot">&lt;-</span> <span class="fu">difftime</span>(later, now, <span class="at">units =</span> <span class="st">"secs"</span>)</span>
-<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-42"><a href="#cb35-42" aria-hidden="true" tabindex="-1"></a>time_difference</span>
-<span id="cb35-43"><a href="#cb35-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a>time_difference <span class="ot">&lt;-</span> <span class="fu">difftime</span>(later, now, <span class="at">units =</span> <span class="st">"secs"</span>)</span>
+<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a>time_difference</span>
+<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-42"><a href="#cb35-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-43"><a href="#cb35-43" aria-hidden="true" tabindex="-1"></a><span class="in">`difftime`</span> returns an object of the class <span class="in">`difftime`</span>. </span>
 <span id="cb35-44"><a href="#cb35-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-45"><a href="#cb35-45" aria-hidden="true" tabindex="-1"></a><span class="in">`difftime`</span> returns an object of the class <span class="in">`difftime`</span>. </span>
-<span id="cb35-46"><a href="#cb35-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-49"><a href="#cb35-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb35-50"><a href="#cb35-50" aria-hidden="true" tabindex="-1"></a><span class="co">#| collapse: true</span></span>
-<span id="cb35-51"><a href="#cb35-51" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(time_difference)</span>
-<span id="cb35-52"><a href="#cb35-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-53"><a href="#cb35-53" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(time_difference)</span>
-<span id="cb35-54"><a href="#cb35-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-47"><a href="#cb35-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-48"><a href="#cb35-48" aria-hidden="true" tabindex="-1"></a><span class="co">#| collapse: true</span></span>
+<span id="cb35-49"><a href="#cb35-49" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(time_difference)</span>
+<span id="cb35-50"><a href="#cb35-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-51"><a href="#cb35-51" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(time_difference)</span>
+<span id="cb35-52"><a href="#cb35-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-53"><a href="#cb35-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-54"><a href="#cb35-54" aria-hidden="true" tabindex="-1"></a>However in our case, numeric values would be more handy than the class <span class="in">`difftime`</span>. So we'll wrap the command in <span class="in">`as.numeric()`</span>:</span>
 <span id="cb35-55"><a href="#cb35-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-56"><a href="#cb35-56" aria-hidden="true" tabindex="-1"></a>However in our case, numeric values would be more handy than the class <span class="in">`difftime`</span>. So we'll wrap the command in <span class="in">`as.numeric()`</span>:</span>
-<span id="cb35-57"><a href="#cb35-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-60"><a href="#cb35-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb35-61"><a href="#cb35-61" aria-hidden="true" tabindex="-1"></a><span class="co">#| collapse: true</span></span>
+<span id="cb35-58"><a href="#cb35-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-59"><a href="#cb35-59" aria-hidden="true" tabindex="-1"></a><span class="co">#| collapse: true</span></span>
+<span id="cb35-60"><a href="#cb35-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-61"><a href="#cb35-61" aria-hidden="true" tabindex="-1"></a>time_difference <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(later, now, <span class="at">units =</span> <span class="st">"secs"</span>))</span>
 <span id="cb35-62"><a href="#cb35-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-63"><a href="#cb35-63" aria-hidden="true" tabindex="-1"></a>time_difference <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(later, now, <span class="at">units =</span> <span class="st">"secs"</span>))</span>
-<span id="cb35-64"><a href="#cb35-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-65"><a href="#cb35-65" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(time_difference)</span>
-<span id="cb35-66"><a href="#cb35-66" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(time_difference)</span>
-<span id="cb35-67"><a href="#cb35-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb35-63"><a href="#cb35-63" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(time_difference)</span>
+<span id="cb35-64"><a href="#cb35-64" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(time_difference)</span>
+<span id="cb35-65"><a href="#cb35-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb35-66"><a href="#cb35-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-67"><a href="#cb35-67" aria-hidden="true" tabindex="-1"></a>In fact, we will use this exact operation multiple times, so let's create a function for this:</span>
 <span id="cb35-68"><a href="#cb35-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-69"><a href="#cb35-69" aria-hidden="true" tabindex="-1"></a>In fact, we will use this exact operation multiple times, so let's create a function for this:</span>
-<span id="cb35-70"><a href="#cb35-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-73"><a href="#cb35-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb35-74"><a href="#cb35-74" aria-hidden="true" tabindex="-1"></a>difftime_secs <span class="ot">&lt;-</span> <span class="cf">function</span>(later, now){</span>
-<span id="cb35-75"><a href="#cb35-75" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(later, now, <span class="at">units =</span> <span class="st">"secs"</span>))</span>
-<span id="cb35-76"><a href="#cb35-76" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb35-77"><a href="#cb35-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-71"><a href="#cb35-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-72"><a href="#cb35-72" aria-hidden="true" tabindex="-1"></a>difftime_secs <span class="ot">&lt;-</span> <span class="cf">function</span>(later, now){</span>
+<span id="cb35-73"><a href="#cb35-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(later, now, <span class="at">units =</span> <span class="st">"secs"</span>))</span>
+<span id="cb35-74"><a href="#cb35-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-75"><a href="#cb35-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-76"><a href="#cb35-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-77"><a href="#cb35-77" aria-hidden="true" tabindex="-1"></a><span class="fu">### `lead()` / `lag()` {#sec-lead-lag}</span></span>
 <span id="cb35-78"><a href="#cb35-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-79"><a href="#cb35-79" aria-hidden="true" tabindex="-1"></a><span class="fu">### `lead()` / `lag()` {#sec-lead-lag}</span></span>
+<span id="cb35-79"><a href="#cb35-79" aria-hidden="true" tabindex="-1"></a><span class="in">`lead()`</span> and <span class="in">`lag()`</span> return a vector of the same length as the input, just offset by a specific number of values (default is 1). Consider the following sequence:</span>
 <span id="cb35-80"><a href="#cb35-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-81"><a href="#cb35-81" aria-hidden="true" tabindex="-1"></a><span class="in">`lead()`</span> and <span class="in">`lag()`</span> return a vector of the same length as the input, just offset by a specific number of values (default is 1). Consider the following sequence:</span>
-<span id="cb35-82"><a href="#cb35-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-85"><a href="#cb35-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb35-86"><a href="#cb35-86" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb35-87"><a href="#cb35-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-88"><a href="#cb35-88" aria-hidden="true" tabindex="-1"></a>numbers</span>
-<span id="cb35-89"><a href="#cb35-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-83"><a href="#cb35-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-84"><a href="#cb35-84" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb35-85"><a href="#cb35-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-86"><a href="#cb35-86" aria-hidden="true" tabindex="-1"></a>numbers</span>
+<span id="cb35-87"><a href="#cb35-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-88"><a href="#cb35-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-89"><a href="#cb35-89" aria-hidden="true" tabindex="-1"></a>We can now run <span class="in">`lead()`</span> and <span class="in">`lag()`</span> on this sequence to illustrate the output. <span class="in">`n =`</span> specifies the offset, <span class="in">`default =`</span> specifies the default value used to "fill" the emerging "empty spaces" of the vector. This helps us performing operations on subsequent values in a vector (or rows in a table).</span>
 <span id="cb35-90"><a href="#cb35-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-91"><a href="#cb35-91" aria-hidden="true" tabindex="-1"></a>We can now run <span class="in">`lead()`</span> and <span class="in">`lag()`</span> on this sequence to illustrate the output. <span class="in">`n =`</span> specifies the offset, <span class="in">`default =`</span> specifies the default value used to "fill" the emerging "empty spaces" of the vector. This helps us performing operations on subsequent values in a vector (or rows in a table).</span>
-<span id="cb35-92"><a href="#cb35-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-95"><a href="#cb35-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb35-96"><a href="#cb35-96" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb35-93"><a href="#cb35-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-94"><a href="#cb35-94" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb35-95"><a href="#cb35-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-96"><a href="#cb35-96" aria-hidden="true" tabindex="-1"></a><span class="fu">lead</span>(numbers)</span>
 <span id="cb35-97"><a href="#cb35-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-98"><a href="#cb35-98" aria-hidden="true" tabindex="-1"></a><span class="fu">lead</span>(numbers)</span>
+<span id="cb35-98"><a href="#cb35-98" aria-hidden="true" tabindex="-1"></a><span class="fu">lead</span>(numbers, <span class="at">n =</span> <span class="dv">2</span>)</span>
 <span id="cb35-99"><a href="#cb35-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-100"><a href="#cb35-100" aria-hidden="true" tabindex="-1"></a><span class="fu">lead</span>(numbers, <span class="at">n =</span> <span class="dv">2</span>)</span>
+<span id="cb35-100"><a href="#cb35-100" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(numbers)</span>
 <span id="cb35-101"><a href="#cb35-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-102"><a href="#cb35-102" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(numbers)</span>
+<span id="cb35-102"><a href="#cb35-102" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(numbers, <span class="at">n =</span> <span class="dv">5</span>)</span>
 <span id="cb35-103"><a href="#cb35-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-104"><a href="#cb35-104" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(numbers, <span class="at">n =</span> <span class="dv">5</span>)</span>
-<span id="cb35-105"><a href="#cb35-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-106"><a href="#cb35-106" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(numbers, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">default =</span> <span class="dv">0</span>)</span>
-<span id="cb35-107"><a href="#cb35-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-104"><a href="#cb35-104" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(numbers, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">default =</span> <span class="dv">0</span>)</span>
+<span id="cb35-105"><a href="#cb35-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-106"><a href="#cb35-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-107"><a href="#cb35-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### `mutate()`</span></span>
 <span id="cb35-108"><a href="#cb35-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-109"><a href="#cb35-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### `mutate()`</span></span>
+<span id="cb35-109"><a href="#cb35-109" aria-hidden="true" tabindex="-1"></a>Using the above functions (<span class="in">`difftime()`</span> and <span class="in">`lead()`</span>), we can calculate the time lag, that is, the time difference between consecutive positions. We will try this on a dummy version of our wild boar dataset.</span>
 <span id="cb35-110"><a href="#cb35-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-111"><a href="#cb35-111" aria-hidden="true" tabindex="-1"></a>Using the above functions (<span class="in">`difftime()`</span> and <span class="in">`lead()`</span>), we can calculate the time lag, that is, the time difference between consecutive positions. We will try this on a dummy version of our wild boar dataset.</span>
-<span id="cb35-112"><a href="#cb35-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-115"><a href="#cb35-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb35-116"><a href="#cb35-116" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb35-117"><a href="#cb35-117" aria-hidden="true" tabindex="-1"></a>    <span class="at">TierID =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Hans"</span>, <span class="dv">5</span>), <span class="fu">rep</span>(<span class="st">"Klara"</span>, <span class="dv">5</span>)),</span>
-<span id="cb35-118"><a href="#cb35-118" aria-hidden="true" tabindex="-1"></a>    <span class="at">DatetimeUTC =</span> <span class="fu">rep</span>(<span class="fu">as.POSIXct</span>(<span class="st">"2015-01-01 00:00:00"</span>, <span class="at">tz =</span> <span class="st">"UTC"</span>) <span class="sc">+</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span> <span class="sc">*</span> <span class="dv">15</span> <span class="sc">*</span> <span class="dv">60</span>, <span class="dv">2</span>)</span>
-<span id="cb35-119"><a href="#cb35-119" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb35-120"><a href="#cb35-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-121"><a href="#cb35-121" aria-hidden="true" tabindex="-1"></a>wildschwein</span>
-<span id="cb35-122"><a href="#cb35-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb35-123"><a href="#cb35-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-113"><a href="#cb35-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-114"><a href="#cb35-114" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">tibble</span>(       <span class="co"># aka data.frame</span></span>
+<span id="cb35-115"><a href="#cb35-115" aria-hidden="true" tabindex="-1"></a>    <span class="at">TierID =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Hans"</span>, <span class="st">"Klara"</span>), <span class="at">each =</span> <span class="dv">5</span>),</span>
+<span id="cb35-116"><a href="#cb35-116" aria-hidden="true" tabindex="-1"></a>    <span class="at">DatetimeUTC =</span> <span class="fu">rep</span>(<span class="fu">as.POSIXct</span>(<span class="st">"2015-01-01 00:00:00"</span>, <span class="at">tz =</span> <span class="st">"UTC"</span>) <span class="sc">+</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span> <span class="sc">*</span> <span class="dv">15</span> <span class="sc">*</span> <span class="dv">60</span>, <span class="dv">2</span>)</span>
+<span id="cb35-117"><a href="#cb35-117" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb35-118"><a href="#cb35-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-119"><a href="#cb35-119" aria-hidden="true" tabindex="-1"></a>wildschwein</span>
+<span id="cb35-120"><a href="#cb35-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-121"><a href="#cb35-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-122"><a href="#cb35-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-123"><a href="#cb35-123" aria-hidden="true" tabindex="-1"></a>If we are interested to calculate the speed travelled between subsequent locations, we need to calculate the elapsed time first. Since R does most operations in a vectorized manner, we can use <span class="in">`difftime_secs`</span> on the entire column <span class="in">`DatetimeUTC`</span> of our dataframe <span class="in">`wildschwein`</span> and store the output in a new column. </span>
 <span id="cb35-124"><a href="#cb35-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-125"><a href="#cb35-125" aria-hidden="true" tabindex="-1"></a>If we are interested to calculate the speed travelled between subsequent locations, we need to calculate the elapsed time first. Since R does most operations in a vectorized manner, we can use <span class="in">`difftime_secs`</span> on the entire column <span class="in">`DatetimeUTC`</span> of our dataframe <span class="in">`wildschwein`</span> and store the output in a new column. </span>
-<span id="cb35-126"><a href="#cb35-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-129"><a href="#cb35-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb35-130"><a href="#cb35-130" aria-hidden="true" tabindex="-1"></a>now <span class="ot">&lt;-</span> wildschwein<span class="sc">$</span>DatetimeUTC</span>
-<span id="cb35-131"><a href="#cb35-131" aria-hidden="true" tabindex="-1"></a>later <span class="ot">&lt;-</span> <span class="fu">lead</span>(now)</span>
+<span id="cb35-127"><a href="#cb35-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-128"><a href="#cb35-128" aria-hidden="true" tabindex="-1"></a>now <span class="ot">&lt;-</span> wildschwein<span class="sc">$</span>DatetimeUTC</span>
+<span id="cb35-129"><a href="#cb35-129" aria-hidden="true" tabindex="-1"></a>later <span class="ot">&lt;-</span> <span class="fu">lead</span>(now)</span>
+<span id="cb35-130"><a href="#cb35-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-131"><a href="#cb35-131" aria-hidden="true" tabindex="-1"></a><span class="co"># View(wildschwein)</span></span>
 <span id="cb35-132"><a href="#cb35-132" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-133"><a href="#cb35-133" aria-hidden="true" tabindex="-1"></a>wildschwein<span class="sc">$</span>timelag <span class="ot">&lt;-</span> <span class="fu">difftime_secs</span>(later, now)</span>
 <span id="cb35-134"><a href="#cb35-134" aria-hidden="true" tabindex="-1"></a></span>
@@ -1289,7 +1289,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb35-136"><a href="#cb35-136" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-137"><a href="#cb35-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb35-138"><a href="#cb35-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-139"><a href="#cb35-139" aria-hidden="true" tabindex="-1"></a>However, we have an issue at the transion between the two animals. We can overcome this issue using dplyr's <span class="in">`mutate`</span> with <span class="in">`group_by`</span>. **If we use `mutate`, we do not use the `$` notation!**</span>
+<span id="cb35-139"><a href="#cb35-139" aria-hidden="true" tabindex="-1"></a>However, we have an issue at the transition between the two animals. We can overcome this issue using dplyr's <span class="in">`mutate`</span> with <span class="in">`group_by`</span>. **If we use `mutate`, we do not use the `$` notation!**</span>
 <span id="cb35-140"><a href="#cb35-140" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-143"><a href="#cb35-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb35-144"><a href="#cb35-144" aria-hidden="true" tabindex="-1"></a><span class="co"># note the lack of "$"</span></span>
@@ -1313,7 +1313,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb35-164"><a href="#cb35-164" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-167"><a href="#cb35-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb35-168"><a href="#cb35-168" aria-hidden="true" tabindex="-1"></a><span class="co"># again, note the lack of "$"</span></span>
-<span id="cb35-169"><a href="#cb35-169" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">difftime</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC))</span>
+<span id="cb35-169"><a href="#cb35-169" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="ot">&lt;-</span> <span class="fu">mutate</span>(wildschwein, <span class="at">timelag =</span> <span class="fu">difftime_secs</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC))</span>
 <span id="cb35-170"><a href="#cb35-170" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-171"><a href="#cb35-171" aria-hidden="true" tabindex="-1"></a>wildschwein</span>
 <span id="cb35-172"><a href="#cb35-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -1329,7 +1329,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb35-184"><a href="#cb35-184" aria-hidden="true" tabindex="-1"></a>wildschwein <span class="sc">|&gt;</span>                                            <span class="co"># Take wildschwein...</span></span>
 <span id="cb35-185"><a href="#cb35-185" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(TierID) <span class="sc">|&gt;</span>                                   <span class="co"># ...group it by TierID</span></span>
 <span id="cb35-186"><a href="#cb35-186" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb35-187"><a href="#cb35-187" aria-hidden="true" tabindex="-1"></a>        <span class="at">timelag =</span> <span class="fu">difftime</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC)<span class="co"># Caculate difftime</span></span>
+<span id="cb35-187"><a href="#cb35-187" aria-hidden="true" tabindex="-1"></a>        <span class="at">timelag =</span> <span class="fu">difftime_secs</span>(<span class="fu">lead</span>(DatetimeUTC), DatetimeUTC)<span class="co"># Caculate difftime</span></span>
 <span id="cb35-188"><a href="#cb35-188" aria-hidden="true" tabindex="-1"></a>        )</span>
 <span id="cb35-189"><a href="#cb35-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb35-190"><a href="#cb35-190" aria-hidden="true" tabindex="-1"></a></span>
