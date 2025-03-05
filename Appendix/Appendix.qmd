@@ -14,7 +14,7 @@ Our reasons for preferring `readr` over base-R import functions:
 
 
 
-## Comitting files with git
+## Committing files with git
 
 
 :::{#nte-committing .callout-note}
@@ -77,14 +77,14 @@ tm_shape(HighWays) + tm_lines() +
 
 
 
-## Exporting location data from Google
+## Exporting location data from Google via Takeout
 
-A simple way to download your location data from Google is described in the following steps:
+If you only recently enabled the Google timeline, follow the instructions further down below for downloading data from your mobile device. Otherwise, a simple way to download your location data from Google is described in the following steps:
 
 1. Go to [takeout.google.com](https://takeout.google.com/)
 2. Deselect all "Products" and select only the following product: *Location History (Timeline)*
 4. Click *Next* and *Create Export* to get an Export of your data (see @fig-google-takeout)
-5. Download and extract the data in your R-Project folder
+5. Download and extract the data in your R-Project folder. If you do not see a file "Records.json" in the list, this approach to exporting data won't work, because your data is stored locally on the device. You need to get it from there. Follow the explanations below (download from mobile device).
 6. Follow the script below (adjust the path!)
 
 
@@ -109,3 +109,7 @@ records_sf <- records |>
 
 
 ![](../02_Images/google-takeout.png){#fig-google-takeout}
+
+## Exporting location data from Google via download from your mobile device
+
+Follow these [instructions](https://support.google.com/maps/thread/264641290/export-full-location-timeline-data-in-json-or-similar-format-in-the-new-version-of-timeline?hl=en).
