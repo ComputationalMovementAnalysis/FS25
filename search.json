@@ -116,7 +116,7 @@
     "section": "",
     "text": "Folder structure for this course\nBy this point, you probably have created a folder for this course somewhere on your computer. In our example, we assume this folder is located here: C:/Users/yourname/semester2/Modul_CMA (mentally replace this with your actual path). Before we dive into the exercises, take a minute to think about how you are going to structure your files in this folder. This course will take place over 6 weeks, and in each week you will receive or produce various files. We recommend creating a separate folder for each week, and one folder for the semester project, like so:\nFor the R-exercises that take place in weeks 1 to 6, we recommend that you create a new RStudio Project each week in subdirectory of the appropriate week. For example, this week your folder structure could look like this:\nNote:",
     "crumbs": [
-      "Exercise 1",
+      "Week 1",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preparation</span>"
     ]
   },
@@ -127,7 +127,7 @@
     "section": "",
     "text": "You will see the project names of all your RStudio Projects listed in RStudio. Having the week number in the project name keeps you from getting confused on which project you are working on.↩︎",
     "crumbs": [
-      "Exercise 1",
+      "Week 1",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preparation</span>"
     ]
   },
@@ -138,7 +138,7 @@
     "section": "",
     "text": "Task 1: Import data\nBefore starting with the task:\nMove the file wildschwein_BE.csv into your project directory and import it into r as a data.frame. Assign correct column types as necessary and make sure the time zone is set correctly for the date/time column.",
     "crumbs": [
-      "Exercise 1",
+      "Week 1",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tasks and inputs</span>"
     ]
   },
@@ -149,7 +149,7 @@
     "section": "",
     "text": "As we’ve mentioned in the first Input, you can look up the EPSG codes under epsg.io. For information specific to Switzerland, check the swisstopo website↩︎",
     "crumbs": [
-      "Exercise 1",
+      "Week 1",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tasks and inputs</span>"
     ]
   },
@@ -160,7 +160,7 @@
     "section": "",
     "text": "Tip\n\n\n\nHover over the code and copy the content by clicking on the clipboard icon on the top right. You can now paste this into an R-Script.\n\n\n\n\n# task_1.R\n################################################################################\n\n\n\nlibrary(\"readr\") # move this to the top of your script\n\n# Data import ####\nwildschwein_BE &lt;- read_delim(\"datasets/wildschwein_BE.csv\", \",\")\n\n# Check Timezone\nattr(wildschwein_BE$DatetimeUTC, \"tzone\") # or\nwildschwein_BE$DatetimeUTC[1]\n\n\n\n\n# task_2.R\n################################################################################\n\n\nlibrary(\"ggplot2\") # move this to the top of your script\n\nggplot(wildschwein_BE, aes(Long, Lat, colour = TierID)) +\n  geom_point() +\n  theme(legend.position = \"none\")\n\n\n\n\n# task_3.R\n################################################################################\n\n\n\nlibrary(\"sf\") # move this to the top of your script\n\n# Input: Handling spatial data\nwildschwein_BE &lt;- st_as_sf(wildschwein_BE,\n    coords = c(\"Long\", \"Lat\"),\n    crs = 4326\n)\n\nwildschwein_BE &lt;- st_transform(wildschwein_BE, 2056)\n\n\n\n\n# task_4.R\n################################################################################\n\n\n\nlibrary(\"dplyr\") # move this to the top of your script\n\nwildschwein_BE_grouped &lt;- group_by(wildschwein_BE, TierID)\n\nwildschwein_BE_smry &lt;- summarise(wildschwein_BE_grouped)\n\nmcp &lt;- st_convex_hull(wildschwein_BE_smry)\n\nggplot(mcp, aes(fill = TierID)) +\n  geom_sf(alpha = 0.4)\n\nggplot(mcp, aes(fill = TierID)) +\n  geom_sf(alpha = 0.4) +\n  coord_sf(datum = 2056)\n\n\n\n\n# task_5.R\n################################################################################\n\n\n\nlibrary(\"tmap\") # move this to the top of your script\n\n# Input: Importing raster data\nlibrary(\"terra\") # move this to the top of your script\n\npk100_BE &lt;- terra::rast(\"datasets/pk100_BE.tif\")\n\nmcp &lt;- st_convex_hull(wildschwein_BE_smry)\n\ntm_shape(pk100_BE) +\n  tm_rgb() +\n  tm_shape(mcp) +\n  tm_polygons(col = \"TierID\", alpha = 0.4, border.col = \"red\") +\n  tm_legend(bg.color = \"white\")\n\n\n\n\n# task_6.R\n################################################################################\n\n\ntmap_mode(\"view\")\n\ntm_shape(mcp) +\n  tm_polygons(col = \"TierID\", alpha = 0.4, border.col = \"red\") +\n  tm_legend(bg.color = \"white\")",
     "crumbs": [
-      "Exercise 1",
+      "Week 1",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Solutions</span>"
     ]
   },
@@ -171,7 +171,7 @@
     "section": "",
     "text": "Download this Demoscript via “&lt;/&gt;Code” (top right)\nDepending on your knowledge of R, getting an overview of the data we imported last week might have been quite a challenge. Surprisingly enough, importing, cleaning and exploring your data can be the most challenging, time consuming part of a project. RStudio and the tidyverse offer many helpful tools to make this part easier (and more fun). You have read chapters on dplyr and magrittr as a preparation for this exercise. Before we start with the exercise however, this demo illustrates a simple approach offered by tidyverse which is applicable to sf-objects.\nAssume we want to calculate the timelag between subsequent positions. To achieve this we can use the function difftime() combined with lead() from dplyr. Let’s look at these functions one by one.\n\ndifftime\ndifftime takes two POSIXct values.\n\nnow &lt;- as.POSIXct(\"2024-04-26 10:20:00\")\nlater &lt;- as.POSIXct(\"2024-04-26 11:35:00\")\n\nlater\n\n[1] \"2024-04-26 11:35:00 CEST\"\n\ntime_difference &lt;- difftime(later, now)\n\ntime_difference\n\nTime difference of 1.25 hours\n\n\nYou can also specify the unit of the output.\n\ntime_difference &lt;- difftime(later, now, units = \"secs\")\n\ntime_difference\n\nTime difference of 4500 secs\n\n\ndifftime returns an object of the class difftime.\n\nclass(time_difference)\n## [1] \"difftime\"\n\nstr(time_difference)\n##  'difftime' num 4500\n##  - attr(*, \"units\")= chr \"secs\"\n\nHowever in our case, numeric values would be more handy than the class difftime. So we’ll wrap the command in as.numeric():\n\ntime_difference &lt;- as.numeric(difftime(later, now, units = \"secs\"))\n\nstr(time_difference)\n##  num 4500\nclass(time_difference)\n## [1] \"numeric\"\n\nIn fact, we will use this exact operation multiple times, so let’s create a function for this:\n\ndifftime_secs &lt;- function(later, now){\n    as.numeric(difftime(later, now, units = \"secs\"))\n}\n\n\n\nlead() / lag()\nlead() and lag() return a vector of the same length as the input, just offset by a specific number of values (default is 1). Consider the following sequence:\n\nnumbers &lt;- 1:10\n\nnumbers\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\nWe can now run lead() and lag() on this sequence to illustrate the output. n = specifies the offset, default = specifies the default value used to “fill” the emerging “empty spaces” of the vector. This helps us performing operations on subsequent values in a vector (or rows in a table).\n\nlibrary(\"dplyr\")\n\nlead(numbers)\n\n [1]  2  3  4  5  6  7  8  9 10 NA\n\nlead(numbers, n = 2)\n\n [1]  3  4  5  6  7  8  9 10 NA NA\n\nlag(numbers)\n\n [1] NA  1  2  3  4  5  6  7  8  9\n\nlag(numbers, n = 5)\n\n [1] NA NA NA NA NA  1  2  3  4  5\n\nlag(numbers, n = 5, default = 0)\n\n [1] 0 0 0 0 0 1 2 3 4 5\n\n\n\n\nmutate()\nUsing the above functions (difftime() and lead()), we can calculate the time lag, that is, the time difference between consecutive positions. We will try this on a dummy version of our wild boar dataset.\n\nwildschwein &lt;- tibble(       # aka data.frame\n    TierID = rep(c(\"Hans\", \"Klara\"), each = 5),\n    DatetimeUTC = rep(as.POSIXct(\"2015-01-01 00:00:00\", tz = \"UTC\") + 0:4 * 15 * 60, 2)\n)\n\nwildschwein\n\n# A tibble: 10 × 2\n   TierID DatetimeUTC        \n   &lt;chr&gt;  &lt;dttm&gt;             \n 1 Hans   2015-01-01 00:00:00\n 2 Hans   2015-01-01 00:15:00\n 3 Hans   2015-01-01 00:30:00\n 4 Hans   2015-01-01 00:45:00\n 5 Hans   2015-01-01 01:00:00\n 6 Klara  2015-01-01 00:00:00\n 7 Klara  2015-01-01 00:15:00\n 8 Klara  2015-01-01 00:30:00\n 9 Klara  2015-01-01 00:45:00\n10 Klara  2015-01-01 01:00:00\n\n\nIf we are interested to calculate the speed travelled between subsequent locations, we need to calculate the elapsed time first. Since R does most operations in a vectorized manner, we can use difftime_secs on the entire column DatetimeUTC of our dataframe wildschwein and store the output in a new column.\n\nnow &lt;- wildschwein$DatetimeUTC\nlater &lt;- lead(now)\n\n# View(wildschwein)\n\nwildschwein$timelag &lt;- difftime_secs(later, now)\n\nwildschwein\n\n# A tibble: 10 × 3\n   TierID DatetimeUTC         timelag\n   &lt;chr&gt;  &lt;dttm&gt;                &lt;dbl&gt;\n 1 Hans   2015-01-01 00:00:00     900\n 2 Hans   2015-01-01 00:15:00     900\n 3 Hans   2015-01-01 00:30:00     900\n 4 Hans   2015-01-01 00:45:00     900\n 5 Hans   2015-01-01 01:00:00   -3600\n 6 Klara  2015-01-01 00:00:00     900\n 7 Klara  2015-01-01 00:15:00     900\n 8 Klara  2015-01-01 00:30:00     900\n 9 Klara  2015-01-01 00:45:00     900\n10 Klara  2015-01-01 01:00:00      NA\n\n\nHowever, we have an issue at the transition between the two animals. We can overcome this issue using dplyr’s mutate with group_by. If we use mutate, we do not use the $ notation!\n\n# note the lack of \"$\"\nwildschwein &lt;- mutate(wildschwein, timelag = difftime_secs(lead(DatetimeUTC), DatetimeUTC))\n\nwildschwein\n\n# A tibble: 10 × 3\n   TierID DatetimeUTC         timelag\n   &lt;chr&gt;  &lt;dttm&gt;                &lt;dbl&gt;\n 1 Hans   2015-01-01 00:00:00     900\n 2 Hans   2015-01-01 00:15:00     900\n 3 Hans   2015-01-01 00:30:00     900\n 4 Hans   2015-01-01 00:45:00     900\n 5 Hans   2015-01-01 01:00:00   -3600\n 6 Klara  2015-01-01 00:00:00     900\n 7 Klara  2015-01-01 00:15:00     900\n 8 Klara  2015-01-01 00:30:00     900\n 9 Klara  2015-01-01 00:45:00     900\n10 Klara  2015-01-01 01:00:00      NA\n\n\nThe output is equivalent, we need group_by as well.\n\n\ngroup_by()\nTo distinguish groups in a dataframe, we need to specify these using group_by().\n\n# again, note the lack of \"$\"\nwildschwein &lt;- group_by(wildschwein, TierID)\n\nAfter adding this grouping variable, calculating the timelag automatically accounts for the individual trajectories.\n\n# again, note the lack of \"$\"\nwildschwein &lt;- mutate(wildschwein, timelag = difftime_secs(lead(DatetimeUTC), DatetimeUTC))\n\nwildschwein\n\n# A tibble: 10 × 3\n# Groups:   TierID [2]\n   TierID DatetimeUTC         timelag\n   &lt;chr&gt;  &lt;dttm&gt;                &lt;dbl&gt;\n 1 Hans   2015-01-01 00:00:00     900\n 2 Hans   2015-01-01 00:15:00     900\n 3 Hans   2015-01-01 00:30:00     900\n 4 Hans   2015-01-01 00:45:00     900\n 5 Hans   2015-01-01 01:00:00      NA\n 6 Klara  2015-01-01 00:00:00     900\n 7 Klara  2015-01-01 00:15:00     900\n 8 Klara  2015-01-01 00:30:00     900\n 9 Klara  2015-01-01 00:45:00     900\n10 Klara  2015-01-01 01:00:00      NA\n\n\n\n\nPiping\nPiping can simplify the process and help us write our sequence of operations in a manner as we would explain them to another human being.\nIn order to make code readable in a more human-friendly way, we can use the piping command (|&gt; or %&gt;%, it does not matter which).\n\nwildschwein |&gt;                                            # Take wildschwein...\n    group_by(TierID) |&gt;                                   # ...group it by TierID\n    mutate(\n        timelag = difftime_secs(lead(DatetimeUTC), DatetimeUTC)# Caculate difftime\n        )\n\n# A tibble: 10 × 3\n# Groups:   TierID [2]\n   TierID DatetimeUTC         timelag\n   &lt;chr&gt;  &lt;dttm&gt;                &lt;dbl&gt;\n 1 Hans   2015-01-01 00:00:00     900\n 2 Hans   2015-01-01 00:15:00     900\n 3 Hans   2015-01-01 00:30:00     900\n 4 Hans   2015-01-01 00:45:00     900\n 5 Hans   2015-01-01 01:00:00      NA\n 6 Klara  2015-01-01 00:00:00     900\n 7 Klara  2015-01-01 00:15:00     900\n 8 Klara  2015-01-01 00:30:00     900\n 9 Klara  2015-01-01 00:45:00     900\n10 Klara  2015-01-01 01:00:00      NA\n\n\n\n\nsummarise()\nIf we want to summarise our data and get metrics per animal, we can use the dplyr function summarise(). In contrast to mutate(), which just adds a new column to the dataset, summarise() “collapses” the data to one row per individual (specified by group_by).\n\nsummarise(wildschwein, mean = mean(timelag, na.rm = TRUE))\n\n# A tibble: 2 × 2\n  TierID  mean\n  &lt;chr&gt;  &lt;dbl&gt;\n1 Hans     900\n2 Klara    900",
     "crumbs": [
-      "Exercise 2",
+      "Week 2",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Demo</span>"
     ]
   },
@@ -182,7 +182,7 @@
     "section": "",
     "text": "Create a new RStudio Project for this exercise (see Create an RStudio project)\nDownload the new wild boar movement data, and save it to your new project’s directory wildschwein_BE_2056.csv\n\n\nTask 1: Import your data\nCreate a new R-file and import the wild boar data.\n\nlibrary(\"readr\")\nlibrary(\"sf\")\n\nwildschwein_BE &lt;- read_delim(\"datasets/wildschwein_BE_2056.csv\", \",\")\n\nwildschwein_BE &lt;- st_as_sf(wildschwein_BE, coords = c(\"E\", \"N\"), crs = 2056)\n\nNote:\n\nthat this dataset is already converted to EPSG 2056\nthe coordinates are stored in the columns (E/N)\n\n\n\nTask 2: Getting an overview\nCalculate the time difference between subsequent rows as described in the demo. You can calculate the time difference using the function difftime_secs() (see below) in combination with lead() (see lead() / lag()). Store the time difference in a new column (e.g. timelag).\n\ndifftime_secs &lt;- function(later, now){\n    as.numeric(difftime(later, now, units = \"secs\"))\n}\n\nNow inspect your data in more detail. Try to answer the following questions:\n\nHow many individuals were tracked?\nFor how long were the individual tracked? Are there gaps?\nWere all individuals tracked concurrently or sequentially?\nWhat is the temporal sampling interval between the locations?\n\n\n\n\n\n\n\nImportant\n\n\n\nsummarise() tries to coerce all (Point-) geometries into one object, which can take along time. To avoid this, use st_drop_geometry() before using summarise().\n\n\n\n\nTask 3: Distance between locations\nSimilar to how we calculated the timelag between subsequent locations, we can calculate the distance like so:\n\nlater &lt;- lag(wildschwein_BE$geometry)\nnow &lt;- wildschwein_BE$geometry\n\nst_distance(later, now, by_element = TRUE)  # by_element must be set to TRUE\n\nHowever, similar to difftime(), the output has a unit which complicates things. Therefore, it’s simpler to wrap the output in as.numeric(). Let’s make a function for this process:\n\ndistance_by_element &lt;- function(later, now){\n  as.numeric(\n    st_distance(later, now, by_element = TRUE)\n  )\n}\n\nUse this function to create a new column named steplength with the distance between locations.\n\n\nTask 4: Deriving distance & speed\nIn this task we will derive some additional movement parameters from our trajectories. So far our trajectories only consist of a list of time-stamped spatial locations. First let’s calculate the Euclidean distance between subsequent locations using the function st_distance() with the option by_element = TRUE. Store these values in a new column with the name steplength. Next, you can calculate the animals’ speed based on steplength and the timelag (from the last task).\n\n\nTask 5: Plausibility Check\nIt’s important to repeatedly visualize our results, to make sure these are plausible. This is much simpler if we just look at a small sample of our dataset. We can use head(100) to extract the first 100 rows.\n\nwildschwein_sample &lt;- wildschwein_BE |&gt;\n  filter(TierName == \"Sabi\") |&gt; \n  head(100)\n\nWe can now visualise the sample using tmap with the view mode:\n\n\n\n\nlibrary(tmap)\ntmap_mode(\"view\")\n\ntm_shape(wildschwein_sample) + \n  tm_dots()\n\n\n\n\n\n\n\nFigure 7.1: By clicking on the dots, we can see what parameters are associated with each sample.\n\n\n\nThe wild boar move continuously through space, but our samples are discrete points. It would be helpful to at least see the sequence of these samples. We can do this by casting our points to lines. However, we first need to dissolve our single points into a MULTIPOINT object, just like we had to do in the first week when we calculated the minimum convex polygon per animal (see Input: Calculate Convex Hull). The option do_union = FALSE is a confusing way to preserve the order of the points, see Nils’ question on GitHub.\nIn addition, we can set OpenStreetMap to be the default basemap, since it’s available at lower zoom levels.\n\n\n\n\nwildschwein_sample_line &lt;- wildschwein_sample |&gt; \n  # dissolve to a MULTIPOINT:\n  summarise(do_union = FALSE) |&gt; \n  st_cast(\"LINESTRING\")\n\ntmap_options(basemaps = \"OpenStreetMap\")\n\ntm_shape(wildschwein_sample_line) +\n  tm_lines() +\n  tm_shape(wildschwein_sample) + \n  tm_dots()\n\n\n\n\n\n\n\nFigure 7.2: The interconnecting lines help us understand the animal’s movement trajectory.",
     "crumbs": [
-      "Exercise 2",
+      "Week 2",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Exercise A</span>"
     ]
   },
@@ -193,7 +193,7 @@
     "section": "",
     "text": "In preparation, you’ve read the paper by Laube and Purves (2011). In this paper, the authors analyse speed at different scales and compare these different values. Let’s conceptually reconstruct one of the experiments the authors conducted.\nFigure 8.1 shows how speed was calculated in the first of three scales. Do you notice how their method differs to how we calculated speed? We calculation the speed for a specific sample to be the distance travelled to the next sample devided by the according time difference. Laube and Purves (2011) use the distance travelled from the previous sample to the next sample (and the according time difference).\nTo reproduce this experiment, we will use a new wild boar dataset with following characteristics:\n\nSmall number of samples (200 locations)\nOnly one individual (caro)\nA constant sampling interval (60s)\n\nThis last aspect is important, since we would otherwise have to deal with varying sampling intervals, which would greatly complicate things. Download this dataset here: caro60.csv. Import it just like you imported the other wild boar data and save it to a new variable named caro (note that the locations are stored in EPSG 2056).\n\n\n\n\n\n\nFigure 8.1: Black points are used in calculation of speed, from Laube and Purves (2011)\n\n\n\nWe will need the following to functions from Exercise A:\n\nlibrary(\"readr\")\nlibrary(\"sf\")\nlibrary(\"dplyr\")\n\ndifftime_secs &lt;- function(x, y){\n  as.numeric(difftime(x, y, units = \"secs\"))\n}\n\ndistance_by_element &lt;- function(later, now){\n  as.numeric(\n    st_distance(later, now, by_element = TRUE)\n  )\n}\n\nWe can then import the data. We can discard all columns with the exception of DatetimeUTC with select (see below).\n\ncaro &lt;- read_delim(\"datasets/caro60.csv\", \",\") |&gt;\n  st_as_sf(coords = c(\"E\",\"N\"), crs = 2056) |&gt; \n  select(DatetimeUTC)\n\n\nTask 1: Calculate speed at scale 1\nIn our first scale, we will assume a sampling window \\(w\\) of 120 seconds. This conveniently means that for every location, you can use the previous and next location to calculate speed. Try to implement this in R.\nAfter completing the task, your dataset should look like this:\n\nhead(caro)\n\nSimple feature collection with 6 features and 4 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 2570489 ymin: 1205095 xmax: 2570589 ymax: 1205130\nProjected CRS: CH1903+ / LV95\n# A tibble: 6 × 5\n  DatetimeUTC                  geometry timelag steplength  speed\n  &lt;dttm&gt;                    &lt;POINT [m]&gt;   &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;\n1 2015-09-15 08:07:00 (2570589 1205095)      NA       NA   NA    \n2 2015-09-15 08:08:00 (2570573 1205096)     120       52.4  0.437\n3 2015-09-15 08:09:00 (2570536 1205099)     120       58.4  0.487\n4 2015-09-15 08:10:00 (2570518 1205115)     120       49.2  0.410\n5 2015-09-15 08:11:00 (2570499 1205130)     120       32.6  0.272\n6 2015-09-15 08:12:00 (2570489 1205130)     120       18.0  0.150\n\n\n\n\nTask 2: Calculate speed at scale 2\nTo compare the effect of different sampling intervals, Laube and Purves (2011) calculated speed at different scales (i.e. different sampling windows \\(w\\)).\nIn the previous task, we assumed a \\(w = 120s\\). In this task, try to implement \\(w = 240s\\) (see Figure 8.2), which means using an offset of 2.\n\nTip: Use the n = parameter in lead/lag to increase the offset.\nStore values timelag, steplength and speed in the columns timelag2, steplength2 and speed2 to distinguish them from the values from scale 1\n\n\n\n\n\n\n\nFigure 8.2: Calculate speed at scale 2 with a sampling window \\(w_2\\) (from Laube and Purves 2011)\n\n\n\nAfter completing the task, your dataset should look like this:\n\ncaro |&gt; \n  # drop geometry and select only specific columns\n  # to display relevant data only\n  st_drop_geometry() |&gt; \n  select(timelag2, steplength2, speed2) |&gt; \n  head()\n\n# A tibble: 6 × 3\n  timelag2 steplength2 speed2\n     &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt;\n1       NA        NA   NA    \n2       NA        NA   NA    \n3      240        96.5  0.402\n4      240        90.8  0.378\n5      240        59.6  0.248\n6      240        37.3  0.155\n\n\n\n\nTask 3: Calculate speed at scale 3\nRedo the previous task with \\(w = 480s\\) (offset of 4)\n\n\n\n\n\n\nFigure 8.3: Calculate speed at scale 3 with a sampling window \\(w_3\\) (from Laube and Purves 2011)\n\n\n\nAfter completing the task, your dataset should look like this:\n\ncaro |&gt; \n  st_drop_geometry() |&gt; \n  select(timelag3, steplength3, speed3) |&gt; \n  head()\n\n# A tibble: 6 × 3\n  timelag3 steplength3 speed3\n     &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt;\n1       NA        NA   NA    \n2       NA        NA   NA    \n3       NA        NA   NA    \n4       NA        NA   NA    \n5      480       102.   0.214\n6      480        82.5  0.172\n\n\n\n\nTask 4: Compare speed across scales\nWe now have a dataframe with three different speed values per sample, corresponding to the different scales / sampling windows (\\(w_1 = 120s\\), \\(w_2 = 240s\\) and \\(w_3=480s\\)). It would now be interesting to compare these measurements and see our results correspond to those of Laube and Purves (2011). In their experiments, the authors observe:\n\n\nA steady decrease in median speed as the temporal analysis scale increases;\nA decrease in the overall variance in speed as the temporal scale increases;\nLower minimum values at the shortest temporal scales;\n\n\nThe authors visualize these observations using box plots. To to the same, we need to process our data slightly. Currently, our data looks like this:\n\ncaro |&gt; \n  st_drop_geometry() |&gt; \n  select(DatetimeUTC, speed, speed2, speed3)\n\n# A tibble: 200 × 4\n   DatetimeUTC          speed speed2  speed3\n   &lt;dttm&gt;               &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;\n 1 2015-09-15 08:07:00 NA     NA     NA     \n 2 2015-09-15 08:08:00  0.437 NA     NA     \n 3 2015-09-15 08:09:00  0.487  0.402 NA     \n 4 2015-09-15 08:10:00  0.410  0.378 NA     \n 5 2015-09-15 08:11:00  0.272  0.248  0.214 \n 6 2015-09-15 08:12:00  0.150  0.155  0.172 \n 7 2015-09-15 08:13:00  0.195  0.140  0.0868\n 8 2015-09-15 08:14:00  0.206  0.124  0.0652\n 9 2015-09-15 08:15:00  0.104  0.146  0.0795\n10 2015-09-15 08:16:00  0.101  0.109  0.0848\n# ℹ 190 more rows\n\n\nWe can make a box plot of a single column using ggplot2:\n\nlibrary(ggplot2)\n\nggplot(caro, aes(y = speed)) + \n    # we remove outliers to increase legibility, analogue\n  # Laube and Purves (2011)\n  geom_boxplot(outliers = FALSE)\n\n\n\n\n\n\n\n\nHowever, if we want to compare speed with speed2 and speed3, we need need a long table rather than wide one (which is what we currently have). To make our table long, we can use the function pivot_longer from tidyr:\n\nlibrary(tidyr)\n\n# before pivoting, let's simplify our data.frame\ncaro2 &lt;- caro |&gt; \n  st_drop_geometry() |&gt; \n  select(DatetimeUTC, speed, speed2, speed3)\n\ncaro_long &lt;- caro2 |&gt; \n  pivot_longer(c(speed, speed2, speed3))\n  \nhead(caro_long)\n\n# A tibble: 6 × 3\n  DatetimeUTC         name    value\n  &lt;dttm&gt;              &lt;chr&gt;   &lt;dbl&gt;\n1 2015-09-15 08:07:00 speed  NA    \n2 2015-09-15 08:07:00 speed2 NA    \n3 2015-09-15 08:07:00 speed3 NA    \n4 2015-09-15 08:08:00 speed   0.437\n5 2015-09-15 08:08:00 speed2 NA    \n6 2015-09-15 08:08:00 speed3 NA    \n\n\n\nggplot(caro_long, aes(name, value)) +\n  # we remove outliers to increase legibility, analogue\n  # Laube and Purves (2011)\n  geom_boxplot(outliers = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\nLaube, Patrick, and Ross S. Purves. 2011. “How Fast Is a Cow? Cross - Scale Analysis of Movement Data.” Transactions in GIS 15 (3): 401–18. https://doi.org/10.1111/j.1467-9671.2011.01256.x.",
     "crumbs": [
-      "Exercise 2",
+      "Week 2",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Exercise B</span>"
     ]
   },
@@ -204,8 +204,195 @@
     "section": "",
     "text": "In the semester project, you will analyse your own movement data, collected with an app of your choice or the GPS tracker (see Preparation Project). Acquire this data and save it to a subfolder of your current R Project named data. Follow the instructions provided in the column Collect data in Table 2.1. If you use a GPS logger, bring us your logger, we will extract your data and send it to you.\nNow, import your data in the same way you imported the the wild boar data in task 1. Next, start exploring your data, similarly as you did in task 2. At a minimum:\n\nImport your data as a data frame and convert it to an sf object, using the correct CRS information\nConvert your data to CH1903+ LV95\nMake a map of your data using ggplot2 or tmap.",
     "crumbs": [
-      "Exercise 2",
+      "Week 2",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Exercise C</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/1_preparation.html",
+    "href": "Week3/1_preparation.html",
+    "title": "Preparation",
+    "section": "",
+    "text": "Quarto\nQuarto is a document format similar to RMarkdown and Jupyter Notebooks. It’s also the name of a standalone software which allows us to convert Quarto Documents to PDF or HTML. If you followed our instructions in Install or update RStudio, you should have Quarto installed on your computer. But please double-check this by running the following in your terminal (see Figure 10.1).\nIf the above command returns a version number (e.g. 1.5.30) this means quarto is installed. If the command returns something like command not found: quarto we highly recommend you Update Rstudio. Alternatively, you can also just download and install the Current Release of quarto.",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Preparation</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/1_preparation.html#sec-create-github",
+    "href": "Week3/1_preparation.html#sec-create-github",
+    "title": "Preparation",
+    "section": "Create a Github account",
+    "text": "Create a Github account\n\n\n\n\n\n\nImportant\n\n\n\nThis step is optional and only recommended for students who are keen to use the git commandline interface to GitHub.\n\n\nCreate a Github account on github.com (it’s free of course). We recommend you use your students email address. When choosing a username on Github, consider the following advice:\n\nincorporating your actual name is nice, people like to know who they are dealing with\nchoose a name that you are comfortable revealing it to a future boss\nshorter is better than longer\nmake it timeless (e.g. don’t incorporate your university’s name)\n\n\n\n\n\n\n\nNote 10.1: Users who already have a Github account\n\n\n\nIf you already have a Github account (e.g. for work) and don’t mind using this account for the tasks in this course, you are free to use this existing account. However, if you don’t want to mix these activities, we recommend you create a new Github account with your student mail address.",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Preparation</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/1_preparation.html#install-git",
+    "href": "Week3/1_preparation.html#install-git",
+    "title": "Preparation",
+    "section": "Install Git",
+    "text": "Install Git\n\n\n\n\n\n\nImportant\n\n\n\nThis step is optional and only recommended for students who are keen to use the git commandline interface to GitHub.\n\n\nGit is a software dedicated to tracking changes in text files (e.g. R scripts). It’s heavily used in the software industry as well as in the field of data science. In this course, we will teach use the basic functionalities of Git and combine it with the online portal Github.\nTherefore, the next step is to install Git. There are different Git installers to choose from, we recommend the following1:\n\nWindowsmacOSLinux\n\n\n\nWe recommend installing Git for Windows, also known as msysgit or “Git Bash”.\nWhen asked about “Adjusting your PATH environment”, select “Git from the command line and also from 3rd-party software”\nRStudio prefers Git to be installed in C:\\Program Files\\Git, we recommend following this convention\nOtherwise, we believe it is good to accept the defaults\n\n\n\n\nWe recommend you install the Xcode command line tools (not all of Xcode), which includes Git\nGo to the shell and enter xcode-select --install to install developer command line tools\n\n\n\n\nOn Ubuntu or Debian Linux: sudo apt-get install git\nOn Fedora or RedHat Linux: sudo yum install git\n\n\n\n\nNow, restart RStudio. Then, go to Tools → Global options → Git / SVN.\n\nActivate the option “Enable version control interface for RStudio projects”\nIf the Field “Git executable:” shows (Not Found), browse to your git installation from the previous step.\nThis path should look something like this:\n\n\nWindowsLinux / macOS\n\n\nC:\\Program Files\\Git\\bin\\git.exe (not C:\\Program Files\\Git\\cmd\\git.exe or some-path\\git-bash.exe)\n\n\n/usr/bin/git\n\n\n\n\n\n\n\nBryan, Jenny, and Jim Heister. 2021. Happy Git and GitHub for the useR. https://happygitwithr.com/.\n\n\nChacon, Scott, and Ben Straub. 2014. Pro Git. 2nd Edition. Apress. https://git-scm.com/book/en/v2.",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Preparation</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/1_preparation.html#footnotes",
+    "href": "Week3/1_preparation.html#footnotes",
+    "title": "Preparation",
+    "section": "",
+    "text": "Much of this chapter was taken from Bryan and Heister (2021). If you want to dive deeper into using Git, we highly recommend this book. For an even deeper dive into Git, read Chacon and Straub (2014). Both books are available free and open source on happygitwithr.com and git-scm.com/book, respectively.↩︎",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Preparation</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/2_exercise_A.html",
+    "href": "Week3/2_exercise_A.html",
+    "title": "Exercise A: Git",
+    "section": "",
+    "text": "Working in the shell / terminal\nTo use git, we will have to use the shell, which is why we are going to spend a few word on the shell first.\nThe shell is a program on your computer whose job is to run other programs. It looks very much like the R-console (in the bottom left of RStudio) that you are already know: You have a place to input text which is transferred to (and interpreted by) the computer when you press “enter”. RStudio has a shell terminal right next to the R-console (tab Terminal).\nEvery Windows comes with two different shell installations: “Command prompt” and “PowerShell”. After installing Git we now have a third option, “Git Bash”. Let’s configure RStudio to use “Git Bash” as the default shell. Go to Tools → Global options → Terminal and set option “New terminals open with” to “Git Bash”.",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Exercise A: Git</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/2_exercise_A.html#introduce-yourself-git",
+    "href": "Week3/2_exercise_A.html#introduce-yourself-git",
+    "title": "Exercise A: Git",
+    "section": "Introduce yourself to Git",
+    "text": "Introduce yourself to Git\nTypically, you do this once (per computer)\nUse the terminal in RStudio to introduce yourself:\n\n\n\nListing 11.1: Setting your git user.name and user.email\n\n\ngit config --global user.name \"Maria Nusslinger\"   # proper name or a pseudonym\ngit config --global user.email \"nussmar@email.com\" # your (student) mailadress \n\n\n\nReplace the name and email with your credentials. Use the email address that you used to create your GitHub account (see Create a Github account) . We propose using your student mail address, you can always change this later.\n\n\n\n\n\n\nNote 11.1: Users who already have a Github account\n\n\n\nIf you have multiple GitHub accounts (see Note 10.1) and you know that the laptop you are currently using is only for student work, you can set your user.email to your student mailadress. However, if you expect to work with both GitHub accounts with your current laptop, you have to set user.email on a per project basis (by omitting the --global flag).\nPlease feel free to contact us if you have questions about this.",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Exercise A: Git</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/2_exercise_A.html#initialize-git-version-control",
+    "href": "Week3/2_exercise_A.html#initialize-git-version-control",
+    "title": "Exercise A: Git",
+    "section": "Initialize Git Version Control",
+    "text": "Initialize Git Version Control\nOpen the RStudio-project from last week (Exercise A). Initialize Git Version control on this project by opening the terminal and typing the following:\ngit init\nNow restart RStudio.",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Exercise A: Git</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/2_exercise_A.html#tracking-changes-with-git-via-the-gui",
+    "href": "Week3/2_exercise_A.html#tracking-changes-with-git-via-the-gui",
+    "title": "Exercise A: Git",
+    "section": "Tracking changes with git (via the GUI)",
+    "text": "Tracking changes with git (via the GUI)\nIn the Git panel of RStudio, you should now see all files of your project (see Figure 11.1 (a)). In future, you will only see the files with changes. This panel is the built in interface to git for RStudio. It’s not great, but ok to get us started.\n\nSelect your RScripts by checking the checkbox ☑ in the column staged, see Figure 11.1 (b). This is the equivalent of adding a file to your upcoming commit.\nClick on the Button ☑ Commit. This will open a popup where we are asked to add a commit message, see Figure 11.1 (c).\nWrite your commit message, and click on commit again. This will show an obscure message, see Figure 11.1 (d), which we can close by clicking on the according button. Close the git popup as well.\n\n\n\n\n\n\n\n\n\n\n\n\n(a) The git panel shows changed files\n\n\n\n\n\n\n\n\n\n\n\n(b) To commit files, select via the checkbox\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Enter a commit message in the popup\n\n\n\n\n\n\n\n\n\n\n\n(d) Close the obscure message\n\n\n\n\n\n\n\nFigure 11.1: Working with git from within RStudio’s git Graphical User Interface (GUI)",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Exercise A: Git</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/2_exercise_A.html#tracking-changes-with-git-via-the-terminal",
+    "href": "Week3/2_exercise_A.html#tracking-changes-with-git-via-the-terminal",
+    "title": "Exercise A: Git",
+    "section": "Tracking changes with git (via the terminal)",
+    "text": "Tracking changes with git (via the terminal)\nGit was originally designed to be used via the terminal. Rstudio’s Graphical Interface to git just translates your clicks into terminal commands. Let’s do the steps above in the shell.\ngit status                                   # get an overview\ngit add cma-2.Rproj                          # equivalent of clicking the checkbox\nNow refresh your git panel. You should see that the file cma-2.Rproj is selected (☑). You can commit the file with a commit message using the following command.\ngit commit -m \"committing the project file\"  # committing with a message\nRefresh your git panel again: cma-2.Rproj has now dissappeared from the list.",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Exercise A: Git</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/2_exercise_A.html#view-your-commit-history",
+    "href": "Week3/2_exercise_A.html#view-your-commit-history",
+    "title": "Exercise A: Git",
+    "section": "View your commit history",
+    "text": "View your commit history\nYou can view your commit history by clicking on the little ⏰-symbol in the git panel.",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Exercise A: Git</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/2_exercise_A.html#ignoring-files",
+    "href": "Week3/2_exercise_A.html#ignoring-files",
+    "title": "Exercise A: Git",
+    "section": "Ignoring files",
+    "text": "Ignoring files\nSome of the files in the repository are too large to be tracked via git. To make sure that git ignores these, we can add them to a textfile with the name .gitignore. You should already have such a file in your projects root folder. If this is not the case you can create one by clicking on File → New File → Text File and then saving this file in the root directory of your project with the name .gitignore (note the period!).\nAppend the following line to your .gitignore File:\n*.tif\nNow, all files with the extension .tif are ignored in your repo. You might also want to remove your personal movement data from being tracked with git (unless you don’t mind your data being publicly visible). You have several possibilites for this.\n1data/\n2garmin-export.csv\n\n1\n\nignores all files within the folder “data”\n\n2\n\nignores the file “garmin-export”\n\n\nNow, let’s connect our local repository to GitHub (Connect your local repo with the remote repository). But before we can do this, we need to authenticate git to work with our GitHub account (Authenticate Git to work with Github) and then create a repo on GitHub (Create a repo on GitHub repo).",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Exercise A: Git</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/3_exercise_B.html",
+    "href": "Week3/3_exercise_B.html",
+    "title": "Exercise B: GitHub",
+    "section": "",
+    "text": "Authenticate Git to work with Github\nTypically, you do this once (per computer)\nIf we want to push changes from our local repository to your Github cloud repository, Github must verify your credentials. Other software might just ask for your username and password, it’s a little different with Git. Basically there are two ways to connect with your remote repo (ssh and https), we will use https in this course.\nFirst, create a personal access token (PAT) on Github\nThen, store your PAT in you local Git",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Exercise B: GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/3_exercise_B.html#sec-github-auth",
+    "href": "Week3/3_exercise_B.html#sec-github-auth",
+    "title": "Exercise B: GitHub",
+    "section": "",
+    "text": "Login into github.com, click on your user profile (top right) and click on “Settings”\nChoose Developer settings &gt; Personal access tokens &gt; Generate new token\nAdd a descriptive note (e.g. https access from my personal laptop)\nSelect scope “repo”\nClick on “Generate token”\nCopy your new personal access token (in the green box)\n\nYou won’t be able to see this token again\nIf you loose it, you can simply create a new one\nIf you want to store it, you neeed to treat this Personal access tokens (PAT) like a password. Only store it in a secure place (like a password management app) and never publish this PAT publicly\n\n\n\n\nIn R, install the gitcreds package (install.packages(\"gitcreds\"))\nLoad this library (library(\"gitcreds\"))\nCall the function gitcreds_set()\nRespond to the prompt with your PAT from the last step\nCheck that you have stored a credential with gitcreds_get()",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Exercise B: GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/3_exercise_B.html#sec-github-repo",
+    "href": "Week3/3_exercise_B.html#sec-github-repo",
+    "title": "Exercise B: GitHub",
+    "section": "Create a repo on GitHub repo",
+    "text": "Create a repo on GitHub repo\nTypically, you do this once per project\nNow you can create a repository on Github that you can afterwards connect to your RStudio project from this week (which you will create in the next step). To do this, go to github.com and click on the plus sign in the top right corner, then fill in the following information:\n\nRepository name: Give a meaningful name, e.g. cma-week2\nDescription: Give a meaningful description, e.g. Solving exercise 3 of the course \"Computational Movement Analysis\"\nMake the repo public, not private\nChoose Deselect Add a README file\n\nClick on Create repository, then on the green button “Code”. Select HTTPS (it might already be selected) and then copy the URL by clicking on the clipboard symbol. The URL should look something list this https://github.com/GITHUB-USERNAME/cma-week2.git.",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Exercise B: GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/3_exercise_B.html#sec-github-connect",
+    "href": "Week3/3_exercise_B.html#sec-github-connect",
+    "title": "Exercise B: GitHub",
+    "section": "Connect your local repo with the remote repository",
+    "text": "Connect your local repo with the remote repository\nTypically, you do this once per project\nIn RStudio, open the RStudio project from week 3. Open the shell and follow the instructions described in …or push an existing repository from the command line in the website you were just forwarded to on Github (under https://github.com/GITHUB-USERNAME/cma-week2). These instructions should look something like this:\ngit remote add origin https://github.com/GITHUB-USERNAME/cma-week2.git\ngit push -u origin main\nType these commands line by line into your terminal. If you want to copy and paste the commands rather than type them: Note that ctrl + V for “pasting” won’t work via the keyboard shortcut, you will have to paste by right clicking into the terminal and choosing “paste”. Now refresh your repo on Github (https://github.com/GITHUB-USERNAME/cma-week2): You should now see the files from week 2 on GitHub. Didn’t work? 👉 Contact us!",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Exercise B: GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/3_exercise_B.html#synchronize-changes-with-github",
+    "href": "Week3/3_exercise_B.html#synchronize-changes-with-github",
+    "title": "Exercise B: GitHub",
+    "section": "Synchronize changes with GitHub",
+    "text": "Synchronize changes with GitHub\nFrom now on, you should periodically synchronize your local changes with GitHub by pulling changes (from potential collegues) and pushing your own changes. You can do this via the git panel of the GUI (🠯 pull, 🠭 push), or via the git equivalent git commands:\ngit pull\ngit push",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Exercise B: GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "Week3/4_exercise_C.html",
+    "href": "Week3/4_exercise_C.html",
+    "title": "Exercise C: Quarto",
+    "section": "",
+    "text": "Use the dataset Game of Thrones (on moodle), and do the exercises in sections 4 Quarto, 5 Quarto Advanced and 6 Publishing HTML / Websites. Submit the URL of your published analysis via moodle.",
+    "crumbs": [
+      "Week 3",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Exercise C: Quarto</span>"
     ]
   },
   {
@@ -213,9 +400,9 @@
     "href": "90_references.html",
     "title": "References",
     "section": "",
-    "text": "Laube, Patrick, and Ross S. Purves. 2011. “How Fast Is a Cow?\nCross - Scale Analysis of Movement Data.” Transactions in\nGIS 15 (3): 401–18. https://doi.org/10.1111/j.1467-9671.2011.01256.x.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023.\nR for Data Science. \" O’Reilly Media, Inc.\".",
+    "text": "Bryan, Jenny, and Jim Heister. 2021. Happy Git and GitHub for the\nuseR. https://happygitwithr.com/.\n\n\nChacon, Scott, and Ben Straub. 2014. Pro Git. 2nd Edition.\nApress. https://git-scm.com/book/en/v2.\n\n\nLaube, Patrick, and Ross S. Purves. 2011. “How Fast Is a Cow?\nCross - Scale Analysis of Movement Data.” Transactions in\nGIS 15 (3): 401–18. https://doi.org/10.1111/j.1467-9671.2011.01256.x.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023.\nR for Data Science. \" O’Reilly Media, Inc.\".",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>References</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>References</span>"
     ]
   },
   {
@@ -225,7 +412,7 @@
     "section": "",
     "text": "Data-import: base-r vs readr\nOur reasons for preferring readr over base-R import functions:\nHOWEVER: Using external libraries (such as readr) creates additional dependencies which has it’s own downsides (which is one of the reasons we don’t do library(\"tidyverse\")).",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -235,7 +422,7 @@
     "section": "",
     "text": "base R imports strings as factors by default (since R 4.0.0, this is not the case anymore)\nreadr is generally faster (which only matters if you have a large dataset)\nreadr makes safer assumptions about your data (e.g. the default timezone for datetime columns is UTC)\ndata.frames created by readr are prettier when printed to the console and contain more information using less characters",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -243,9 +430,9 @@
     "href": "Appendix/Appendix.html#comitting-files-with-git",
     "title": "Appendix",
     "section": "Comitting files with git",
-    "text": "Comitting files with git\n\n\n\n\n\n\nNote 11.1: Committing files with git\n\n\n\n\nSave your (R/RMarkdown/Quarto) file\nSwitch to the “Git”-Tab in the pane in the top right corner\nClick “commit” to open the “Commit Window”\nClick in the checkbox next to the file(s) you want to commit\nAdd a commit message to explain what you are committing (e.g. “initial commit”)\nClick on “commit” to commit your changes",
+    "text": "Comitting files with git\n\n\n\n\n\n\nNote 15.1: Committing files with git\n\n\n\n\nSave your (R/RMarkdown/Quarto) file\nSwitch to the “Git”-Tab in the pane in the top right corner\nClick “commit” to open the “Commit Window”\nClick in the checkbox next to the file(s) you want to commit\nAdd a commit message to explain what you are committing (e.g. “initial commit”)\nClick on “commit” to commit your changes",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -255,7 +442,7 @@
     "section": "Mapmatching GPS points to the road network",
     "text": "Mapmatching GPS points to the road network\n\nlibrary(sf)\nlibrary(tmap)\n\n# Get a sample road dataset\nHighWays &lt;- read_sf(system.file(\"sqlite/test3.sqlite\",package=\"sf\"), \"HighWays\")[6, ] \n\n# since we want to find the closest location on the road over ALL roads\n# we need to create a union of the roads first.\nHighWays &lt;- st_union(HighWays)\n\n# Let's simulate 1000 GPS locations within 3km of the highway\ngps_locations &lt;- HighWays |&gt; st_buffer(3000) |&gt; st_sample(100)\n\n# Now we can get the nearset point for each GPS location\nnearest &lt;- st_nearest_points(gps_locations, HighWays)\n\n# The output is a line for each point (see plot below)\n# Now we need convert the output from LINE to POINT. \n# This doubles the number of features\nnear_p &lt;- st_cast(nearest, \"POINT\")\n\n# now we subset the points. Uneven numbers are the original\n# points, even numbers are the new, mapmatched points.\nnear_from &lt;- near_p[c(TRUE, FALSE)]\nnear_to &lt;- near_p[c(FALSE,TRUE)]\n\n\ntm_shape(HighWays) + tm_lines() +\n  tm_shape(nearest) + tm_lines(lty = 3) +\n  tm_shape(near_from) + tm_dots() +\n  tm_shape(near_to) + tm_dots(col = \"red\")\n\n\n\n\nOriginal Points (black) are matched to the closest point on the road (red)",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -263,9 +450,9 @@
     "href": "Appendix/Appendix.html#exporting-location-data-from-google",
     "title": "Appendix",
     "section": "Exporting location data from Google",
-    "text": "Exporting location data from Google\nA simple way to download your location data from Google is described in the following steps:\n\nGo to takeout.google.com\nDeselect all “Products” and select only the following product: Location History (Timeline)\nClick Next and Create Export to get an Export of your data (see Figure 11.1)\nDownload and extract the data in your R-Project folder\nFollow the script below (adjust the path!)\n\nlibrary(sf)\nlibrary(jsonlite)\nlibrary(dplyr)\nrecords_json &lt;- jsonlite::read_json(\"takeout-20240501T094208Z-001/Takeout/Location History (Timeline)/Records.json\",simplifyVector = TRUE)\n\nrecords &lt;- records_json[[1]]\n\n# inspired by the following SO-answer\n# https://gis.stackexchange.com/a/319067/40929\nrecords_sf &lt;- records |&gt; \n  mutate(\n    lat = latitudeE7/1e7,\n    lon = longitudeE7/1e7\n  ) |&gt; \n  st_as_sf(coords = c(\"lon\", \"lat\"), crs = 4326)\n\n\n\n\n\n\nFigure 11.1",
+    "text": "Exporting location data from Google\nA simple way to download your location data from Google is described in the following steps:\n\nGo to takeout.google.com\nDeselect all “Products” and select only the following product: Location History (Timeline)\nClick Next and Create Export to get an Export of your data (see Figure 15.1)\nDownload and extract the data in your R-Project folder\nFollow the script below (adjust the path!)\n\nlibrary(sf)\nlibrary(jsonlite)\nlibrary(dplyr)\nrecords_json &lt;- jsonlite::read_json(\"takeout-20240501T094208Z-001/Takeout/Location History (Timeline)/Records.json\",simplifyVector = TRUE)\n\nrecords &lt;- records_json[[1]]\n\n# inspired by the following SO-answer\n# https://gis.stackexchange.com/a/319067/40929\nrecords_sf &lt;- records |&gt; \n  mutate(\n    lat = latitudeE7/1e7,\n    lon = longitudeE7/1e7\n  ) |&gt; \n  st_as_sf(coords = c(\"lon\", \"lat\"), crs = 4326)\n\n\n\n\n\n\nFigure 15.1",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Appendix</span>"
     ]
   }
 ]
