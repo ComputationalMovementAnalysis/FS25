@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Preparation Project – Computational Movement Analysis: Patterns and Trends in Environmental Data</title>
+<title>Exercise A: Segmentation – Computational Movement Analysis: Patterns and Trends in Environmental Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +84,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Week1/1_preparation.html" rel="next">
-<link href="../Intro/1_preparations_course.html" rel="prev">
+<link href="../Week4/2_tasks_B.html" rel="next">
+<link href="../Week4/1_input.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -71,8 +125,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../aux/custom.css">
@@ -88,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Intro/2_preparations_project.html"><span class="chapter-title">Preparation Project</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week4/1_preparation.html">Week 4</a></li><li class="breadcrumb-item"><a href="../Week4/2_tasks_and_inputs.html"><span class="chapter-title">Exercise A: Segmentation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -139,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Intro/2_preparations_project.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Preparation Project</span></a>
+  <a href="../Intro/2_preparations_project.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation Project</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -237,13 +289,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Week 4</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Week4/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
@@ -256,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Week4/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercise A: Segmentation</span></a>
+  <a href="../Week4/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Exercise A: Segmentation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -294,17 +346,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#option-1-tracking-app" id="toc-option-1-tracking-app" class="nav-link active" data-scroll-target="#option-1-tracking-app">Option 1: Tracking App</a></li>
-  <li><a href="#option-2-gps-tracker" id="toc-option-2-gps-tracker" class="nav-link" data-scroll-target="#option-2-gps-tracker">Option 2: GPS Tracker</a></li>
+  <li><a href="#task-1-calculate-distances" id="toc-task-1-calculate-distances" class="nav-link active" data-scroll-target="#task-1-calculate-distances">Task 1: Calculate distances</a></li>
+  <li><a href="#task-2-specify-and-apply-threshold-d" id="toc-task-2-specify-and-apply-threshold-d" class="nav-link" data-scroll-target="#task-2-specify-and-apply-threshold-d">Task 2: Specify and apply threshold <em>d</em></a></li>
+  <li><a href="#task-3-visualize-segmented-trajectories" id="toc-task-3-visualize-segmented-trajectories" class="nav-link" data-scroll-target="#task-3-visualize-segmented-trajectories">Task 3: Visualize segmented trajectories</a></li>
+  <li><a href="#task-4-segment-based-analysis" id="toc-task-4-segment-based-analysis" class="nav-link" data-scroll-target="#task-4-segment-based-analysis">Task 4: Segment-based analysis</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Intro/2_preparations_project.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week4/2_tasks_and_inputs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week4/1_preparation.html">Week 4</a></li><li class="breadcrumb-item"><a href="../Week4/2_tasks_and_inputs.html"><span class="chapter-title">Exercise A: Segmentation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-preperation-project" class="quarto-section-identifier"><span class="chapter-title">Preparation Project</span></span></h1>
+<h1 class="title"><span class="chapter-title">Exercise A: Segmentation</span></h1>
 </div>
 
 
@@ -321,97 +375,121 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>As your course assignment (Leistungsnachweis) you will develop a semester project, in groups of two. In this semester project you will analyze trajectory data of movement activities (e.g.&nbsp;biking, hiking, running, shopping).</p>
-<p>In fact, we give you the opportunity to track your own movement behavior, generating trajectory data you will subsequently analyze yourself. There are two ways for you to generate your own trajectory data.</p>
-<p>Please let us know which option you choose by filling out the following <a href="https://moodle.zhaw.ch/mod/choice/view.php?id=1539895">survey</a> on Moodle.</p>
-<section id="option-1-tracking-app" class="level2">
-<h2 class="anchored" data-anchor-id="option-1-tracking-app">Option 1: Tracking App</h2>
-<p>By using a tracking app, your phone will collect your movement data automatically. There are different types of tracking apps, from tracking specific activities to passivly tracking 24 hours. Here is a not conclusive list of tracking tools you could use. But fill free to use your own tracking tool if you are already using one:</p>
-<div id="tbl-data-collection" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-data-collection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2.1: Tracking Methods
-</figcaption>
-<div aria-describedby="tbl-data-collection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell">
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Name</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Tracking Type</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Android</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">iOS</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Information</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Collect data</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Export data</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left; min-width: 10em;">Posmo Project</td>
-<td style="text-align: left;">24h Tracking</td>
-<td style="text-align: left;"><a href="https://play.google.com/store/apps/details?id=io.datamap.posmoone&amp;pli=1" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://apps.apple.com/rs/app/posmo-project/id1619128694" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://posmo.coop/about-us/wer-wir-sind" style="     ">Link</a></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"><a href="https://posmo.datamap.io" style="     ">Link</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; min-width: 10em;">Google Timeline</td>
-<td style="text-align: left;">24h Tracking</td>
-<td style="text-align: left;"><a href="https://play.google.com/store/apps/details?id=com.google.android.apps.maps" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://apps.apple.com/us/app/google-maps/id585027354" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://support.google.com/maps/answer/6258979" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://www.businessinsider.com/guides/tech/google-maps-timeline" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://support.google.com/maps/thread/264641290/export-full-location-timeline-data-in-json-or-similar-format-in-the-new-version-of-timeline?hl=en" style="     ">Link</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; min-width: 10em;">Strava</td>
-<td style="text-align: left;">per Activity</td>
-<td style="text-align: left;"><a href="https://play.google.com/store/apps/details?id=com.strava" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://apps.apple.com/us/app/strava-run-bike-hike/id426826309" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://www.strava.com/about" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://support.strava.com/hc/en-us/articles/216917397-Recording-an-Activity" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://support.strava.com/hc/en-us/articles/216918437-Exporting-your-Data-and-Bulk-Export" style="     ">Link</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; min-width: 10em;">Komoot</td>
-<td style="text-align: left;">per Activity</td>
-<td style="text-align: left;"><a href="https://play.google.com/store/apps/details?id=de.komoot.android" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://apps.apple.com/us/app/komoot-hike-bike-run/id447374873" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://www.komoot.com/" style="     ">Link</a></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"><a href="https://support.komoot.com/hc/en-us/articles/360022834132-Export-and-import-GPS-files" style="     ">Link</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; min-width: 10em;">Garmin + Watch</td>
-<td style="text-align: left;">per Activity</td>
-<td style="text-align: left;"><a href="https://play.google.com/store/apps/details?id=com.garmin.android.apps.connectmobile" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://apps.apple.com/us/app/garmin-connect/id583446403" style="     ">Link</a></td>
-<td style="text-align: left;"><a href="https://www.garmin.com/" style="     ">Link</a></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"><a href="https://support.garmin.com/en-US/en/?faq=W1TvTPW8JZ6LfJSfK512Q8" style="     ">Link</a></td>
-</tr>
-</tbody>
-</table>
-
-
+<p>With the skills from <a href="1_input.html" class="quarto-xref"><span>Input: Segmentation</span></a> you can now implement the segmentation algorithm described in <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> to either your own movement data or to a different wild boar using different sampling intervals.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you use Git…
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Once you have completed this prepartions, commit your changes with a meaningful commit message. <em>Before committing, make sure your location data is ignored!</em> Then, test your connection to Github by pushing your changes to your remote repository.</p>
 </div>
 </div>
 </div>
-</figure>
+<section id="task-1-calculate-distances" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-calculate-distances">Task 1: Calculate distances</h3>
+<p>Now, you can <a href="1_input.html#sec-segmentation-a" class="quarto-xref"><span>Step a): Specify a temporal window v</span></a> and <a href="1_input.html#sec-segmentation-b" class="quarto-xref"><span>Step b): Measure the distance to every point within v</span></a>, which you had used with <em>sabi</em>, on on your own movement data or to a different wild boar using different sampling intervals.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Please check after a view days if the tracking is working properly. If you have any issues during installation or you are not able to track yourself after the installtion <a href="mailto:terz@zhaw.ch">please get in contact with us</a>.</p>
-<p><strong><em>If, however, for privacy reasons, you dont want to use a Tracking App we can hand out a GPS tracker to you.</em></strong></p>
+<div class="callout-title-container flex-fill">
+If you use Git…
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Once you have completed the task, commit your changes with a meaningful commit message and test your connection to Github by pushing your changes to your remote repository.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="option-2-gps-tracker" class="level2">
-<h2 class="anchored" data-anchor-id="option-2-gps-tracker">Option 2: GPS Tracker</h2>
-<p>You can use a GPS tracker, provided by our research group. By using a GPS tracker all your data will stay with you locally.</p>
-<p>The drawback off this option is, that in order to retreave the data, you need to bring the tracker to us. Also more manual preprocessing is necessary when preparing your data for the project.</p>
-<p>If you choose this option please send us a quick <a href="mailto:terz@zhaw.ch">E-Mail</a> so we can arrange the handover of the GPS tracker. You can get the tracker in our office GC 134 at the <a href="https://goo.gl/maps/xDvGFMBEvwBMdWiz7">Campus Grüental, Wädenswil</a>.</p>
+<section id="task-2-specify-and-apply-threshold-d" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-specify-and-apply-threshold-d">Task 2: Specify and apply threshold <em>d</em></h3>
+<p>After calculating the Euclidean distances to positions within the temporal window <em>v</em> in task 1, you can explore these values (we stored them in the column <code>stepMean</code>) using summary statistics (histograms, boxplot, <code>summary()</code>): This way we can define a reasonable threshold value to differentiate between <em>stops</em> and <em>moves</em>. There is no “correct” way of doing this, specifying a threshold always depends on data as well as the question that needs to be answered. In this exercise, use the mean of all <code>stepMean</code> values.</p>
+<p>Store the new information (boolean to differentiate between stops (<code>TRUE</code>) and moves (<code>FALSE</code>)) in a new column named <code>static</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you use Git…
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Commit your changes with a meaningful commit message.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="task-3-visualize-segmented-trajectories" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-visualize-segmented-trajectories">Task 3: Visualize segmented trajectories</h3>
+<p>Now visualize the segmented trajectory spatially. Just like last week, you can use ggplot with <code>geom_path()</code>, <code>geom_point()</code> and <code>coord_equal()</code>. Assign <code>colour = static</code> within <code>aes()</code> to distinguish between segments <em>with</em> “movement” and <em>without</em>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you use Git…
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Commit your changes with a meaningful commit message.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="task-4-segment-based-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-segment-based-analysis">Task 4: Segment-based analysis</h3>
+<p>In applying <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>, we’ve come as far as step b) in <a href="1_input.html#fig-laubeimg" class="quarto-xref">Figure&nbsp;<span>16.1</span></a>. In order to complete the last steps (c and d), we need a <em>unique</em> ID for each segment that we can use as a grouping variable. The following function does just that (it assigns unique IDs based on the column <code>static</code> which you created in Task 2). You will learn about functions next week. For now, just copy the following code chunk into your script and run it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rle_id <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rle</span>(vec)<span class="sc">$</span>lengths</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.factor</span>(<span class="fu">rep</span>(<span class="fu">seq_along</span>(x), <span class="at">times =</span> x))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can use the newly created function <code>rle_id</code> to assign unique IDs to subtrajectories (as shown below). Visualize the <em>moving</em> segments by colourizing them by <code>segment_ID</code>. Then use <code>segment_ID</code> as a grouping variable to determine the segments duration and remove short segments (e.g.&nbsp;segments with a duration &lt; 5 Minutes)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>your_data_frame <span class="ot">&lt;-</span> your_data_frame <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">segment_id =</span> <span class="fu">rle_id</span>(static))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you use Git…
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Commit your changes with a meaningful commit message.</p>
+</div>
+</div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-laube2011" class="csl-entry" role="listitem">
+Laube, Patrick, and Ross S. Purves. 2011. <span>“How Fast Is a Cow? Cross - Scale Analysis of Movement Data.”</span> <em>Transactions in GIS</em> 15 (3): 401–18. <a href="https://doi.org/10.1111/j.1467-9671.2011.01256.x">https://doi.org/10.1111/j.1467-9671.2011.01256.x</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1029,13 +1107,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../Intro/1_preparations_course.html" class="pagination-link" aria-label="Preparation Course">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Preparation Course</span></span>
+      <a href="../Week4/1_input.html" class="pagination-link" aria-label="Input: Segmentation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Input: Segmentation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Week1/1_preparation.html" class="pagination-link" aria-label="Preparation">
-        <span class="nav-page-text"><span class="chapter-title">Preparation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Week4/2_tasks_B.html" class="pagination-link" aria-label="Exercise B: Similarity">
+        <span class="nav-page-text"><span class="chapter-title">Exercise B: Similarity</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1044,4 +1122,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Intro/2_preparations_project.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week4/2_tasks_and_inputs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
