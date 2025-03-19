@@ -73,9 +73,9 @@ book:
       - Week4/2_tasks_B.qmd
       # - Week4/3_solutions.qmd
     - part: Week 5
-      # chapters:
-      # - Week5/1_preparation.qmd
-      # - Week5/2_tasks_and_inputs.qmd
+      chapters:
+      - Week5/1_preparation.qmd
+      - Week5/2_tasks_and_inputs.qmd
       # - Week4/3_solutions.qmd
     - part: Week 6
       # chapters:
