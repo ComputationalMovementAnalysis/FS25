@@ -11,7 +11,7 @@ To reproduce this experiment, we will use a new wild boar dataset with following
 - A constant sampling interval (60s)
 
 This last aspect is important, since we would otherwise have to deal with varying sampling intervals, which would greatly complicate things. 
-Download this dataset here: [caro60.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125). Import it just like you imported the other wild boar data and save it to a new variable named `caro` (note that the locations are stored in EPSG 2056).
+Download this dataset from moodle (`caro60.csv`). Import it just like you imported the other wild boar data and save it to a new variable named `caro` (note that the locations are stored in EPSG 2056).
 
 ::: {#fig-laube2011a}
 

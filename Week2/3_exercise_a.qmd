@@ -1,7 +1,7 @@
 ## Exercise A {#sec-week2-ex-a}
 
 - Create a new RStudio Project for this exercise (see @sec-create-rstudio-project)
-- Download the new wild boar movement data, and save it to your new project's directory [wildschwein_BE_2056.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125)
+- Download the new wild boar movement data (`wildschwein_BE_2056.csv`) from moodle, and save it to your new project's directory
 
 ### Task 1: Import your data {#sec-w2a-task1}
 

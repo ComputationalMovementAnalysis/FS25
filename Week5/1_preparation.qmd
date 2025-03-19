@@ -1,3 +1,5 @@
 ## Preparation
 
-Create a new RStudio Project and a new Github Repo for this week's exercises, just like you did [last week](#w4-preparation).
+Create a new RStudio Project for this week's exercises, just like you did [last week](#w4-preparation).
+
+If you would like to work with Git and GitHub, [create a GitHub repo](https://github.com/new) as well.

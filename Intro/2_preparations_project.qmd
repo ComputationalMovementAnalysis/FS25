@@ -4,7 +4,7 @@ As your course assignment (Leistungsnachweis) you will develop a semester projec
 
 In fact, we give you the opportunity to track your own movement behavior, generating trajectory data you will subsequently analyze yourself. There are two ways for you to generate your own trajectory data. 
 
-Please let us know which option you choose by filling out the following [survey](https://moodle.zhaw.ch/mod/choice/view.php?id=1539895) on Moodle.
+Please let us know which option you choose by filling out the survey on Moodle.
 
 ## Option 1: Tracking App
 

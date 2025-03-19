@@ -6,7 +6,7 @@
 # source("01_R_Files/helperfunctions.R")
 ```
 
-Open your RStudio Project [which you prepared](#w6-preperation) for this week. Create a new RScript and import the libraries we need for this week. Import your wild boar dataset [wildschwein_BE_2056.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125) as an `sf` object
+Open your RStudio Project [which you prepared](#w6-preperation) for this week. Create a new RScript and import the libraries we need for this week. Import your wild boar dataset `wildschwein_BE_2056.csv` (on moodle) as an `sf` object
 
 ```{r}
 #| echo: true
@@ -20,9 +20,9 @@ wildschwein_BE <- read_delim("datasets/wildschwein_BE_2056.csv", ",") |>
     st_as_sf(coords = c("E", "N"), crs = 2056, remove = FALSE)
 ```
 
-Download the dataset [Feldaufnahmen_Fanel.gpkg](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125) and save it to your project folder. This is a vector dataset stored in the filetype *Geopackage*, which is similar to a *Shapefile*, with some advantages (see the website [shapefile must die](http://switchfromshapefile.org/)).
+Download the dataset `Feldaufnahmen_Fanel.gpkg` (on moodle) and save it to your project folder. This is a vector dataset stored in the filetype *Geopackage*, which is similar to a *Shapefile*, with some advantages (see the website [shapefile must die](http://switchfromshapefile.org/)).
 
-Also download the dataset [vegetationshoehe_LFI.tif](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125). This is a "raster" dataset stored in a Geotiff, similar to the map we imported in [week 1](#w1-importing-raster). Also store this file in your project folder and commit these to your repo.
+Also download the dataset `vegetationshoehe_LFI.tif` (on moodle). This is a "raster" dataset stored in a Geotiff, similar to the map we imported in [week 1](#w1-importing-raster). Also store this file in your project folder and commit these to your repo.
 
 ### Tasks 1: Import and visualize spatial data
 
