@@ -1,0 +1,17 @@
+{
+  "hash": "0d269e7c56622516fce928d8a233aefd",
+  "result": {
+    "engine": "knitr",
+    "markdown": "## Exercise B: Similarity\n\n### Task 1: Similarity measures \n\nWe will now calculate similarties between trajectories using a new dataset pedestrian.csv (available on moodle). Download an import this dataset as a `data.frame` or `tibble`. It it a set of six different but similar trajectories from pedestrians walking on a path. \n\nFor this task, explore the trajectories first and get an idea on how the pedestrians moved. \n\n::: {.cell}\n::: {.cell-output-display}\n![](2_tasks_B_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n:::{.callout-note collapse=\"true\"}\n\n## If you use Git...\n\nCommit your changes with a meaningful commit message. \n\n\n:::\n\n### Task 2: Calculate similarity\n\nInstall the package `SimilarityMeasures` (`install.packages(\"SimilarityMeasures\")`). Familiarize yourself with this package by skimming through the function descriptions `help(package = \"SimilarityMeasures\")`. Now compare trajectory 1 to trajectories 2-6 using different similarity measures from the package. Your options are. `DTW`, `EditDist`, `Frechet` and `LCSS`.\n\nBefore visualizing your results think about the following: Which two trajectories to you percieve to be most similar, which are most dissimilar? Now visualize the results from the computed similarity measures. Which measure reflects your own intuition the closest? \n\nNote: \n\n- **All functions in the package need matrices as input, with one trajectory per matrix.**\n- `LCSS`takes very long to compute. The accuracy of the algorithm (`pointSpacing =` ,`pointDistance =` and `errorMarg =`) can be varied to provide faster calculations. Please see @vlachos2002 for more information.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2_tasks_B_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n:::{.callout-note collapse=\"true\"}\n\n## If you use Git...\n\nCommit your changes with a meaningful commit message. Now push all your changes to Github.\n\n\n:::\n",
+    "supporting": [
+      "2_tasks_B_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
