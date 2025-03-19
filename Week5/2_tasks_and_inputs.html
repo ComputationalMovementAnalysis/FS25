@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.7.13">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -85,18 +51,19 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../90_references.html" rel="next">
-<link href="../Week5/1_preparation.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<link href="../Week5/2_demo.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2f5df379a58b258e96c21c0638c20c03.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-66ab7fd5e73b7f0a764e0d49b3e29ab1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-66ab7fd5e73b7f0a764e0d49b3e29ab1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-435317fe34ea3e1cffeb2f3e0e9f38a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-3903b7712aa79f8988fd9580e8efc31a.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a1bacad83237f0cccc39127c932b004f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-da487177a582bbb5e21119c4f48dc411.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -371,6 +338,11 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Week5/2_demo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demo: R Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Week5/2_tasks_and_inputs.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Tasks and inputs</span></a>
   </div>
 </li>
@@ -432,133 +404,27 @@ window.Quarto = {
 </header>
 
 
-<p>Up to now, we have used a variety of different functions designed by other developers. Sometimes we need to execute an operation multiple times, and most often it is reasonable to write a function to do so. Whenever you have copied and pasted a block of code more than twice, you should consider writing a function <span class="citation" data-cites="wickham2023">(<a href="../90_references.html#ref-wickham2023" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span>.</p>
-<p>The first step in writing a function, is picking a name and assigning <code>&lt;- function(){}</code> to it.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>To run the function, we have to call the assigned name with the brackets. The function <code>testfun</code> gives no output, which is why we get <code>NULL</code> back. ::: {.cell}</p>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">testfun</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>NULL</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(testfun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "function"</code></pre>
-</div>
-<p>:::</p>
-<p>To make the function actually <em>do</em> something, we need to specify <em>what</em> should be done within the curly brackets <code>{}</code>. The following function always prints the same statement and accepts no input values:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"this function does nothing"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">testfun</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "this function does nothing"</code></pre>
-</div>
-</div>
-<p>If we want the function to accept some input values, we have to define them within the round brackets. For example, I specify a variable named <code>sometext</code> and can call this variable within the execution.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> <span class="cf">function</span>(sometext) {</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(sometext)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">testfun</span>(<span class="at">sometext =</span> <span class="st">"this function does slightly more, but still not much"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "this function does slightly more, but still not much"</code></pre>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> <span class="cf">function</span>(sometext) {</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(sometext)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Note that since R Version 4.1, the above syntax can also be written as follows:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> \(sometext){</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(sometext)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>or even more compact:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> \(sometext) <span class="fu">print</span>(sometext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<p>Let’s take a more practical example. Say we want a function that calculates our age if provided with the date of our birthday. We can use <code>Sys.time()</code> to provide today’s date and <code>difftime()</code> to calculate the time difference between today and our birthday.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>my_age <span class="ot">&lt;-</span> <span class="cf">function</span>(birthday, output_unit) {</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">difftime</span>(<span class="fu">Sys.time</span>(), birthday, <span class="at">units =</span> output_unit)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="at">birthday =</span> <span class="st">"1997-04-23"</span>, <span class="at">output_unit =</span> <span class="st">"days"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 10192.43 days</code></pre>
-</div>
-</div>
-<p>As we already know from using other functions, if we declare our variables in the order that we initially listed them, we do not need to specify the parameters (no need of <code>birthday =</code> and <code>output_unit =</code>). ::: {.cell}</p>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="st">"1997-04-23"</span>, <span class="st">"days"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 10192.43 days</code></pre>
-</div>
-<p>:::</p>
-<p>If we want any of our parameters to have default value, we can assign an initial value to the parameter when declaring the variables within the round brackets. ::: {.cell}</p>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>my_age <span class="ot">&lt;-</span> <span class="cf">function</span>(birthday, <span class="at">output_unit =</span> <span class="st">"days"</span>) {</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">difftime</span>(<span class="fu">Sys.time</span>(), birthday, <span class="at">units =</span> output_unit)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># if not stated otherwise, our function uses the unit "days"</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="st">"1997-04-23"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 10192.43 days</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can still overwrite units</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="st">"1997-04-23"</span>, <span class="st">"hours"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 244618.3 hours</code></pre>
-</div>
-<p>:::</p>
-<p>All you need to do now is run execute the function deceleration (<code>myage &lt;- function...</code> etc.) at the beginning of your script, and you can use the function for your entire R session.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Always try to make your function self sufficient: Only use objects within your function that are either passed as function arguments or created within the funtion. See more on this topic <a href="https://raps-with-r.dev/fprog.html#referentially-transparent-and-pure-functions">here</a>, in the online version of the book by <span class="citation" data-cites="rodrigues2023">Rodrigues (<a href="../90_references.html#ref-rodrigues2023" role="doc-biblioref">2023</a>)</span>.</p>
-</div>
-</div>
 <section id="task-1-write-your-own-functions" class="level3">
 <h3 class="anchored" data-anchor-id="task-1-write-your-own-functions">Task 1: Write your own functions</h3>
 <p>Create the following two functions:</p>
 <ol type="1">
-<li>A function which calculates a persons BMI based on their height and weight (<span class="math inline">\(\text{BMI} = \frac{\text{Weight (kg)}}{\text{Height (m)}^2}\)</span>)</li>
-<li>A function which converts degrees Celcius to Farenheight (<span class="math inline">\(\text{Farenheight} = \text{Celcius} \times \frac{9}{5} + 32\)</span>)</li>
-<li>A function which calculates the (Euclidean) distance between two sets of coordinates (<span class="math inline">\(x_1\)</span>, <span class="math inline">\(y_1\)</span> and <span class="math inline">\(x_2\)</span>, <span class="math inline">\(y_2\)</span>) based on the formula below:</li>
+<li>A function which calculates a persons BMI based on their height and weight (<a href="#eq-bmi" class="quarto-xref">Equation&nbsp;<span>21.1</span></a>)</li>
+<li>A function which converts degrees Celcius to Farenheight (<a href="#eq-temperature" class="quarto-xref">Equation&nbsp;<span>21.2</span></a>)</li>
+<li>A function which calculates the (Euclidean) distance between two sets of coordinates (<span class="math inline">\(x_1\)</span>, <span class="math inline">\(y_1\)</span> and <span class="math inline">\(x_2\)</span>, <span class="math inline">\(y_2\)</span>), see <a href="#eq-euclidean" class="quarto-xref">Equation&nbsp;<span>21.3</span></a></li>
 </ol>
-<p><span class="math display">\[\text{Euclidean distance} = \sqrt{(x_2 - x_1)^2+(y_2 - y_1)^2}\]</span></p>
+<p><span id="eq-bmi"><span class="math display">\[
+\text{BMI} = \frac{\text{Weight (kg)}}{\text{Height (m)}^2}
+\tag{21.1}\]</span></span></p>
+<p><span id="eq-temperature"><span class="math display">\[
+\text{Farenheight} = \text{Celcius} \times \frac{9}{5} + 32
+\tag{21.2}\]</span></span></p>
+<p><span id="eq-euclidean"><span class="math display">\[
+\text{Euclidean distance} = \sqrt{(x_2 - x_1)^2+(y_2 - y_1)^2}
+\tag{21.3}\]</span></span></p>
 </section>
 <section id="task-2-prepare-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="task-2-prepare-analysis">Task 2: Prepare Analysis</h3>
-<p>In the next tasks we will look for “meet” patterns in our wild boar data. To simplify this, we will only use a subset of our wild boar data: The individuals <em>Rosa</em> and <em>Sabi</em> for the timespan <em>01.04.2015 - 15.04.2015</em>. You can download the dataset from moodle. Import the csv as a data.frame and filter it with the aforementioned criteria. You do not need to convert the data.frame to an <code>sf</code> object.</p>
+<p>In the next tasks we will look for “meet” patterns in our wild boar data. To simplify this, we will only use a subset of our wild boar data: The individuals <em>Rosa</em> and <em>Sabi</em> for the timespan <em>01.04.2015 - 15.04.2015</em>. Use the dataset <code>wildschwein_BE_2056.csv</code> (on moodle). Import the csv as a data.frame and filter it with the aforementioned criteria. You do not need to convert the data.frame to an <code>sf</code> object.</p>
 </section>
 <section id="task-3-create-join-key" class="level3">
 <h3 class="anchored" data-anchor-id="task-3-create-join-key">Task 3: Create Join Key</h3>
@@ -586,11 +452,10 @@ Important
 <p>To measure the distance between concurrent locations, we need to follow the following steps.</p>
 <ol type="1">
 <li>Split the <code>wildschwein_filter</code> object into one <code>data.frame</code> per animal</li>
-<li>Join* these datasets by the new <code>Datetime</code> column created in the last task. The joined observations are <em>temporally close</em>.</li>
+<li>Join<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> these datasets by the new <code>Datetime</code> column created in the last task. The joined observations are <em>temporally close</em>.</li>
 <li>In the joined dataset, calculate Euclidean distances between concurrent observations and store the values in a new column</li>
 <li>Use a reasonable threshold on <code>distance</code> to determine if the animals are also <em>spatially close</em> enough to constitute a <em>meet</em> (we use 100 meters). Store this Boolean information (<code>TRUE</code>/<code>FALSE</code>) in a new column</li>
 </ol>
-<p>* We recommend using one <code>dplyr</code>s join methods (<code>inner_join()</code>, <code>left_join()</code>, <code>right_join()</code> or <code>full_join()</code>), which one is appropriate? Tip: specify <code>suffix</code> to prevent column names ending in <code>.x</code> or <code>.y</code>.</p>
 </section>
 <section id="task-5-visualize-data" class="level3">
 <h3 class="anchored" data-anchor-id="task-5-visualize-data">Task 5: Visualize data</h3>
@@ -604,7 +469,7 @@ Important
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="2_tasks_and_inputs_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="2_tasks_and_inputs_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -617,25 +482,34 @@ Important
 </section>
 <section id="submission" class="level3">
 <h3 class="anchored" data-anchor-id="submission">Submission</h3>
-<p>To submit your exercise, provide us with the URL of your Github repo as described <a href="../Week3/3_exercise_B.html#sec-github-repo">in the preperation</a>.</p>
-<p>You can give other GitHub users write access to your repository throught the repository settings. You will be needing this for your semester project. To practice this, add Dominic (<a href="https://github.com/DLND8/">@DLND8</a>) and Nils (<a href="https://github.com/ratnanil/">@ratnanil</a>) to your GitHub repo:</p>
+<p>To submit your exercise, provide us with the URL of the rendered quarto document (e.g.&nbsp;on <a href="https://quarto.org/docs/publishing/quarto-pub.html">QuartoPub</a>, <a href="https://rpubs.com/">RPubs</a> or <a href="https://quarto.org/docs/publishing/github-pages.html">GitHub Pages</a>) on moodle, as you did last week.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you use GitHub…
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can give other GitHub users write access to your repository throught the repository settings. You might want to use this this for your semester project. To practice this, add Evelyn (<a href="https://github.com/terzev/">@DLND8</a>) and Nils (<a href="https://github.com/ratnanil/">@ratnanil</a>) to your GitHub repo:</p>
 <ol type="1">
 <li>Go to your GitHub repository on GitHub.com</li>
 <li>Go to the repository settings by clicking on the <em>Settings</em> tab</li>
 <li>In the left panel, click on <em>Collaborators and teams</em> and then <em>Add people</em></li>
-<li>Add the mentioned Persons via their GitHub Usernames, give them <em>Write</em> privilages.</li>
+<li>Add the mentioned Persons via their GitHub Usernames, give them <em>Write</em> privileges.</li>
 </ol>
+</div>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-hagerstraand1970" class="csl-entry" role="listitem">
 Hägerstraand, Torsten. 1970. <span>“What about People in Regional Science?”</span> <em>Papers in Regional Science</em> 24 (1): 7–24.
-</div>
-<div id="ref-rodrigues2023" class="csl-entry" role="listitem">
-Rodrigues, Bruno. 2023. <em>Building Reproducible Analytical Pipelines with r</em>. leanpub.
-</div>
-<div id="ref-wickham2023" class="csl-entry" role="listitem">
-Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science</em>. " O’Reilly Media, Inc.".
 </div>
 </div>
 </section>
@@ -643,6 +517,7 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for 
 <hr>
 <ol>
 <li id="fn1"><p><em>Please note:</em> We are manipulating our time stamps without adjusting the x,y-coordinates. This is fine for our simple example, but we would advice against this in a more serious research endeavour, e.g.&nbsp;in your semester projects. One simple approach would be to linearly interpolate the positions to the new timestamps. If you choose Option A the wild boar projects as your semester projects, you should aim for a linear interpolation. Get in touch if you need help with this.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>We recommend using one <code>dplyr</code>s join methods (<code>inner_join()</code>, <code>left_join()</code>, <code>right_join()</code> or <code>full_join()</code>), which one is appropriate? Tip: specify <code>suffix</code> to prevent column names ending in <code>.x</code> or <code>.y</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1261,8 +1136,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../Week5/1_preparation.html" class="pagination-link" aria-label="Preparation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Preparation</span></span>
+      <a href="../Week5/2_demo.html" class="pagination-link" aria-label="Demo: R Functions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Demo: R Functions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

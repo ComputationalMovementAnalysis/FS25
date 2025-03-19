@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Exercise B – Computational Movement Analysis: Patterns and Trends in Environmental Data</title>
+<title>Demo: R Functions – Computational Movement Analysis: Patterns and Trends in Environmental Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,8 +84,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Week2/3_exercise_c.html" rel="next">
-<link href="../Week2/3_exercise_a.html" rel="prev">
+<link href="../Week5/2_tasks_and_inputs.html" rel="next">
+<link href="../Week5/1_preparation.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -126,35 +126,6 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../aux/custom.css">
 <link rel="stylesheet" href="../aux/theme-custom.scss">
@@ -169,7 +140,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week2/2_demo_tidyverse.html">Week 2</a></li><li class="breadcrumb-item"><a href="../Week2/3_exercise_b.html"><span class="chapter-title">Exercise B</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week5/1_preparation.html">Week 5</a></li><li class="breadcrumb-item"><a href="../Week5/2_demo.html"><span class="chapter-title">Demo: R Functions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -251,13 +222,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Week 2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Week2/2_demo_tidyverse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demo</span></a>
@@ -270,7 +241,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Week2/3_exercise_b.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Exercise B</span></a>
+  <a href="../Week2/3_exercise_b.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercise B</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -349,13 +320,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Week 5</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Week5/1_preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preparation</span></a>
@@ -363,7 +334,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Week5/2_demo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demo: R Functions</span></a>
+  <a href="../Week5/2_demo.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Demo: R Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -392,24 +363,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#sec-w2-task4" id="toc-sec-w2-task4" class="nav-link active" data-scroll-target="#sec-w2-task4">Task 1: Calculate speed at scale 1</a></li>
-  <li><a href="#sec-w2b-task2" id="toc-sec-w2b-task2" class="nav-link" data-scroll-target="#sec-w2b-task2">Task 2: Calculate speed at scale 2</a></li>
-  <li><a href="#sec-w2b-task3" id="toc-sec-w2b-task3" class="nav-link" data-scroll-target="#sec-w2b-task3">Task 3: Calculate speed at scale 3</a></li>
-  <li><a href="#task-4-compare-speed-across-scales" id="toc-task-4-compare-speed-across-scales" class="nav-link" data-scroll-target="#task-4-compare-speed-across-scales">Task 4: Compare speed across scales</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week2/3_exercise_b.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week2/2_demo_tidyverse.html">Week 2</a></li><li class="breadcrumb-item"><a href="../Week2/3_exercise_b.html"><span class="chapter-title">Exercise B</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week5/1_preparation.html">Week 5</a></li><li class="breadcrumb-item"><a href="../Week5/2_demo.html"><span class="chapter-title">Demo: R Functions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-week2-ex-b" class="quarto-section-identifier"><span class="chapter-title">Exercise B</span></span></h1>
+<h1 class="title"><span class="chapter-title">Demo: R Functions</span></h1>
 </div>
 
 
@@ -426,236 +388,133 @@ window.Quarto = {
 </header>
 
 
-<p>In preparation, you’ve read the paper by <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>. In this paper, the authors analyse speed at different scales and compare these different values. Let’s conceptually reconstruct one of the experiments the authors conducted.</p>
-<p><a href="#fig-laube2011a" class="quarto-xref">Figure&nbsp;<span>8.1</span></a> shows how speed was calculated in the first of three scales. Do you notice how their method differs to how we calculated speed? We calculation the speed for a specific sample to be the distance travelled to the next sample devided by the according time difference. <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> use the distance travelled from the <em>previous</em> sample to the <em>next</em> sample (and the according time difference).</p>
-<p>To reproduce this experiment, we will use a new wild boar dataset with following characteristics:</p>
-<ul>
-<li>Small number of samples (200 locations)</li>
-<li>Only one individual (caro)</li>
-<li>A constant sampling interval (60s)</li>
-</ul>
-<p>This last aspect is important, since we would otherwise have to deal with varying sampling intervals, which would greatly complicate things. Download this dataset from moodle (<code>caro60.csv</code>). Import it just like you imported the other wild boar data and save it to a new variable named <code>caro</code> (note that the locations are stored in EPSG 2056).</p>
-<div id="fig-laube2011a" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-laube2011a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../02_Images/laube_2011_2a.jpg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-laube2011a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.1: Black points are used in calculation of speed, from <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>
-</figcaption>
-</figure>
-</div>
-<p>We will need the following to functions from <a href="3_exercise_a.html" class="quarto-xref"><span>Exercise A</span></a>:</p>
+<p>Up to now, we have used a variety of different functions designed by other developers. Sometimes we need to execute an operation multiple times, and most often it is reasonable to write a function to do so. Whenever you have copied and pasted a block of code more than twice, you should consider writing a function <span class="citation" data-cites="wickham2023">(<a href="../90_references.html#ref-wickham2023" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span>.</p>
+<p>The first step in writing a function, is picking a name and assigning <code>&lt;- function(){}</code> to it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readr"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"sf"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>difftime_secs <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y){</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(x, y, <span class="at">units =</span> <span class="st">"secs"</span>))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>distance_by_element <span class="ot">&lt;-</span> <span class="cf">function</span>(later, now){</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>(</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_distance</span>(later, now, <span class="at">by_element =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> <span class="cf">function</span>() {}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can then import the data. We can discard all columns with the exception of <code>DatetimeUTC</code> with <code>select</code> (see below).</p>
+<p>To run the function, we have to call the assigned name with the brackets. The function <code>testfun</code> gives no output, which is why we get <code>NULL</code> back.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>caro <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/caro60.csv"</span>, <span class="st">","</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"E"</span>,<span class="st">"N"</span>), <span class="at">crs =</span> <span class="dv">2056</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DatetimeUTC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="sec-w2-task4" class="level3">
-<h3 class="anchored" data-anchor-id="sec-w2-task4">Task 1: Calculate speed at scale 1</h3>
-<p>In our first scale, we will assume a sampling window <span class="math inline">\(w\)</span> of 120 seconds. This conveniently means that for every location, you can use the previous and next location to calculate speed. Try to implement this in R.</p>
-<p>After completing the task, your dataset should look like this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">testfun</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 6 features and 4 fields
-Geometry type: POINT
-Dimension:     XY
-Bounding box:  xmin: 2570489 ymin: 1205095 xmax: 2570589 ymax: 1205130
-Projected CRS: CH1903+ / LV95
-# A tibble: 6 × 5
-  DatetimeUTC                  geometry timelag steplength  speed
-  &lt;dttm&gt;                    &lt;POINT [m]&gt;   &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;
-1 2015-09-15 08:07:00 (2570589 1205095)      NA       NA   NA    
-2 2015-09-15 08:08:00 (2570573 1205096)     120       52.4  0.437
-3 2015-09-15 08:09:00 (2570536 1205099)     120       58.4  0.487
-4 2015-09-15 08:10:00 (2570518 1205115)     120       49.2  0.410
-5 2015-09-15 08:11:00 (2570499 1205130)     120       32.6  0.272
-6 2015-09-15 08:12:00 (2570489 1205130)     120       18.0  0.150</code></pre>
+<pre><code>NULL</code></pre>
 </div>
-</div>
-</section>
-<section id="sec-w2b-task2" class="level3">
-<h3 class="anchored" data-anchor-id="sec-w2b-task2">Task 2: Calculate speed at scale 2</h3>
-<p>To compare the effect of different sampling intervals, <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span> calculated speed at different scales (i.e.&nbsp;different sampling windows <span class="math inline">\(w\)</span>).</p>
-<p>In the previous task, we assumed a <span class="math inline">\(w = 120s\)</span>. In this task, try to implement <span class="math inline">\(w = 240s\)</span> (see <a href="#fig-laube2011b" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>), which means using an offset of <em>2</em>.</p>
-<ul>
-<li>Tip: Use the <code>n =</code> parameter in <code>lead</code>/<code>lag</code> to increase the offset.</li>
-<li>Store values <em>timelag</em>, <em>steplength</em> and <em>speed</em> in the columns <code>timelag2</code>, <code>steplength2</code> and <code>speed2</code> to distinguish them from the values from scale 1</li>
-</ul>
-<div id="fig-laube2011b" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-laube2011b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../02_Images/laube_2011_2b.jpg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-laube2011b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.2: Calculate speed at <em>scale 2</em> with a sampling window <span class="math inline">\(w_2\)</span> <span class="citation" data-cites="laube2011">(from <a href="../90_references.html#ref-laube2011" role="doc-biblioref">Laube and Purves 2011</a>)</span>
-</figcaption>
-</figure>
-</div>
-<p>After completing the task, your dataset should look like this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>caro <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># drop geometry and select only specific columns</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># to display relevant data only</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(timelag2, steplength2, speed2) <span class="sc">|&gt;</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(testfun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-  timelag2 steplength2 speed2
-     &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt;
-1       NA        NA   NA    
-2       NA        NA   NA    
-3      240        96.5  0.402
-4      240        90.8  0.378
-5      240        59.6  0.248
-6      240        37.3  0.155</code></pre>
+<pre><code>[1] "function"</code></pre>
 </div>
 </div>
-</section>
-<section id="sec-w2b-task3" class="level3">
-<h3 class="anchored" data-anchor-id="sec-w2b-task3">Task 3: Calculate speed at scale 3</h3>
-<p>Redo the previous task with <span class="math inline">\(w = 480s\)</span> (offset of <em>4</em>)</p>
-<div id="fig-laube2011c" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-laube2011c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../02_Images/laube_2011_2c.jpg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-laube2011c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.3: Calculate speed at <em>scale 3</em> with a sampling window <span class="math inline">\(w_3\)</span> <span class="citation" data-cites="laube2011">(from <a href="../90_references.html#ref-laube2011" role="doc-biblioref">Laube and Purves 2011</a>)</span>
-</figcaption>
-</figure>
-</div>
-<p>After completing the task, your dataset should look like this:</p>
+<p>To make the function actually <em>do</em> something, we need to specify <em>what</em> should be done within the curly brackets <code>{}</code>. The following function always prints the same statement and accepts no input values:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>caro <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(timelag3, steplength3, speed3) <span class="sc">|&gt;</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"this function does nothing"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">testfun</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-  timelag3 steplength3 speed3
-     &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt;
-1       NA        NA   NA    
-2       NA        NA   NA    
-3       NA        NA   NA    
-4       NA        NA   NA    
-5      480       102.   0.214
-6      480        82.5  0.172</code></pre>
+<pre><code>[1] "this function does nothing"</code></pre>
 </div>
 </div>
-</section>
-<section id="task-4-compare-speed-across-scales" class="level3">
-<h3 class="anchored" data-anchor-id="task-4-compare-speed-across-scales">Task 4: Compare speed across scales</h3>
-<p>We now have a dataframe with three different speed values per sample, corresponding to the different scales / sampling windows (<span class="math inline">\(w_1 = 120s\)</span>, <span class="math inline">\(w_2 = 240s\)</span> and <span class="math inline">\(w_3=480s\)</span>). It would now be interesting to compare these measurements and see our results correspond to those of <span class="citation" data-cites="laube2011">Laube and Purves (<a href="../90_references.html#ref-laube2011" role="doc-biblioref">2011</a>)</span>. In their experiments, the authors observe:</p>
-<blockquote class="blockquote">
-<ul>
-<li>A steady decrease in median speed as the temporal analysis scale increases;</li>
-<li>A decrease in the overall variance in speed as the temporal scale increases;</li>
-<li>Lower minimum values at the shortest temporal scales;</li>
-</ul>
-</blockquote>
-<p>The authors visualize these observations using box plots. To to the same, we need to process our data slightly. Currently, our data looks like this:</p>
+<p>If we want the function to accept some input values, we have to define them within the round brackets. For example, I specify a variable named <code>sometext</code> and can call this variable within the execution.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>caro <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DatetimeUTC, speed, speed2, speed3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> <span class="cf">function</span>(sometext) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(sometext)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">testfun</span>(<span class="at">sometext =</span> <span class="st">"this function does slightly more, but still not much"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 200 × 4
-   DatetimeUTC          speed speed2  speed3
-   &lt;dttm&gt;               &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
- 1 2015-09-15 08:07:00 NA     NA     NA     
- 2 2015-09-15 08:08:00  0.437 NA     NA     
- 3 2015-09-15 08:09:00  0.487  0.402 NA     
- 4 2015-09-15 08:10:00  0.410  0.378 NA     
- 5 2015-09-15 08:11:00  0.272  0.248  0.214 
- 6 2015-09-15 08:12:00  0.150  0.155  0.172 
- 7 2015-09-15 08:13:00  0.195  0.140  0.0868
- 8 2015-09-15 08:14:00  0.206  0.124  0.0652
- 9 2015-09-15 08:15:00  0.104  0.146  0.0795
-10 2015-09-15 08:16:00  0.101  0.109  0.0848
-# ℹ 190 more rows</code></pre>
+<pre><code>[1] "this function does slightly more, but still not much"</code></pre>
 </div>
 </div>
-<p>We can make a box plot of a single column using ggplot2:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(caro, <span class="fu">aes</span>(<span class="at">y =</span> speed)) <span class="sc">+</span> </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># we remove outliers to increase legibility, analogue</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Laube and Purves (2011)</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outliers =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="3_exercise_b_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> <span class="cf">function</span>(sometext) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(sometext)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<p>However, if we want to compare <code>speed</code> with <code>speed2</code> and <code>speed3</code>, we need need a <em>long</em> table rather than <em>wide</em> one (which is what we currently have). To make our table <em>long</em>, we can use the function <code>pivot_longer</code> from <code>tidyr</code>:</p>
+<p>Note that since R Version 4.1, the above syntax can also be written as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># before pivoting, let's simplify our data.frame</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>caro2 <span class="ot">&lt;-</span> caro <span class="sc">|&gt;</span> </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DatetimeUTC, speed, speed2, speed3)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>caro_long <span class="ot">&lt;-</span> caro2 <span class="sc">|&gt;</span> </span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(speed, speed2, speed3))</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caro_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> \(sometext){</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(sometext)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>or even more compact:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>testfun <span class="ot">&lt;-</span> \(sometext) <span class="fu">print</span>(sometext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Let’s take a more practical example. Say we want a function that calculates our age if provided with the date of our birthday. We can use <code>Sys.time()</code> to provide today’s date and <code>difftime()</code> to calculate the time difference between today and our birthday.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>my_age <span class="ot">&lt;-</span> <span class="cf">function</span>(birthday, output_unit) {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">difftime</span>(<span class="fu">Sys.time</span>(), birthday, <span class="at">units =</span> output_unit)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="at">birthday =</span> <span class="st">"1997-04-23"</span>, <span class="at">output_unit =</span> <span class="st">"days"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-  DatetimeUTC         name    value
-  &lt;dttm&gt;              &lt;chr&gt;   &lt;dbl&gt;
-1 2015-09-15 08:07:00 speed  NA    
-2 2015-09-15 08:07:00 speed2 NA    
-3 2015-09-15 08:07:00 speed3 NA    
-4 2015-09-15 08:08:00 speed   0.437
-5 2015-09-15 08:08:00 speed2 NA    
-6 2015-09-15 08:08:00 speed3 NA    </code></pre>
+<pre><code>Time difference of 10192.44 days</code></pre>
 </div>
 </div>
+<p>As we already know from using other functions, if we declare our variables in the order that we initially listed them, we do not need to specify the parameters (no need of <code>birthday =</code> and <code>output_unit =</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(caro_long, <span class="fu">aes</span>(name, value)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we remove outliers to increase legibility, analogue</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Laube and Purves (2011)</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outliers =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="3_exercise_b_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="st">"1997-04-23"</span>, <span class="st">"days"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 10192.44 days</code></pre>
 </div>
+</div>
+<p>If we want any of our parameters to have default value, we can assign an initial value to the parameter when declaring the variables within the round brackets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>my_age <span class="ot">&lt;-</span> <span class="cf">function</span>(birthday, <span class="at">output_unit =</span> <span class="st">"days"</span>) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">difftime</span>(<span class="fu">Sys.time</span>(), birthday, <span class="at">units =</span> output_unit)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># if not stated otherwise, our function uses the unit "days"</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="st">"1997-04-23"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 10192.44 days</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can still overwrite units</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">my_age</span>(<span class="st">"1997-04-23"</span>, <span class="st">"hours"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 244618.6 hours</code></pre>
+</div>
+</div>
+<p>All you need to do now is run execute the function deceleration (<code>myage &lt;- function...</code> etc.) at the beginning of your script, and you can use the function for your entire R session.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Always try to make your function self sufficient: Only use objects within your function that are either passed as function arguments or created within the funtion. See more on this topic <a href="https://raps-with-r.dev/fprog.html#referentially-transparent-and-pure-functions">here</a>, in the online version of the book by <span class="citation" data-cites="rodrigues2023">Rodrigues (<a href="../90_references.html#ref-rodrigues2023" role="doc-biblioref">2023</a>)</span>.</p>
 </div>
 </div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-laube2011" class="csl-entry" role="listitem">
-Laube, Patrick, and Ross S. Purves. 2011. <span>“How Fast Is a Cow? Cross - Scale Analysis of Movement Data.”</span> <em>Transactions in GIS</em> 15 (3): 401–18. <a href="https://doi.org/10.1111/j.1467-9671.2011.01256.x">https://doi.org/10.1111/j.1467-9671.2011.01256.x</a>.
+<div id="ref-rodrigues2023" class="csl-entry" role="listitem">
+Rodrigues, Bruno. 2023. <em>Building Reproducible Analytical Pipelines with r</em>. leanpub.
+</div>
+<div id="ref-wickham2023" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science</em>. " O’Reilly Media, Inc.".
 </div>
 </div>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1272,13 +1131,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../Week2/3_exercise_a.html" class="pagination-link" aria-label="Exercise A">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Exercise A</span></span>
+      <a href="../Week5/1_preparation.html" class="pagination-link" aria-label="Preparation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Preparation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Week2/3_exercise_c.html" class="pagination-link" aria-label="Exercise C">
-        <span class="nav-page-text"><span class="chapter-title">Exercise C</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Week5/2_tasks_and_inputs.html" class="pagination-link" aria-label="Tasks and inputs">
+        <span class="nav-page-text"><span class="chapter-title">Tasks and inputs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1287,4 +1146,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week2/3_exercise_b.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/ComputationalMovementAnalysis/FS24/edit/main/Week5/2_demo.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

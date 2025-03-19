@@ -400,7 +400,7 @@
     "href": "Week3/4_exercise_C.html",
     "title": "Exercise C: Quarto",
     "section": "",
-    "text": "Use the dataset Game of Thrones (on moodle), and do the exercises in sections 4 Quarto, 5 Quarto Advanced and 6 Publishing HTML / Websites. Submit the URL of your published analysis via moodle.",
+    "text": "Use the dataset Game of Thrones (on moodle), and do the exercises in sections 4 Quarto, 5 Quarto Advanced and 6 Publishing HTML / Websites from the slides.\nSubmit the URL of your published analysis via moodle.",
     "crumbs": [
       "Week 3",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Exercise C: Quarto</span>"
@@ -462,14 +462,25 @@
     ]
   },
   {
+    "objectID": "Week5/2_demo.html",
+    "href": "Week5/2_demo.html",
+    "title": "Demo: R Functions",
+    "section": "",
+    "text": "Up to now, we have used a variety of different functions designed by other developers. Sometimes we need to execute an operation multiple times, and most often it is reasonable to write a function to do so. Whenever you have copied and pasted a block of code more than twice, you should consider writing a function (Wickham, Çetinkaya-Rundel, and Grolemund 2023).\nThe first step in writing a function, is picking a name and assigning &lt;- function(){} to it.\n\ntestfun &lt;- function() {}\n\nTo run the function, we have to call the assigned name with the brackets. The function testfun gives no output, which is why we get NULL back.\n\ntestfun()\n\nNULL\n\nclass(testfun)\n\n[1] \"function\"\n\n\nTo make the function actually do something, we need to specify what should be done within the curly brackets {}. The following function always prints the same statement and accepts no input values:\n\ntestfun &lt;- function() {\n    print(\"this function does nothing\")\n}\n\ntestfun()\n\n[1] \"this function does nothing\"\n\n\nIf we want the function to accept some input values, we have to define them within the round brackets. For example, I specify a variable named sometext and can call this variable within the execution.\n\ntestfun &lt;- function(sometext) {\n    print(sometext)\n}\n\ntestfun(sometext = \"this function does slightly more, but still not much\")\n\n[1] \"this function does slightly more, but still not much\"\n\n\n\n\n\n\n\n\nNote\n\n\n\n\n\n\ntestfun &lt;- function(sometext) {\n    print(sometext)\n}\n\nNote that since R Version 4.1, the above syntax can also be written as follows:\n\ntestfun &lt;- \\(sometext){\n    print(sometext)\n}\n\nor even more compact:\n\ntestfun &lt;- \\(sometext) print(sometext)\n\n\n\n\nLet’s take a more practical example. Say we want a function that calculates our age if provided with the date of our birthday. We can use Sys.time() to provide today’s date and difftime() to calculate the time difference between today and our birthday.\n\nmy_age &lt;- function(birthday, output_unit) {\n    difftime(Sys.time(), birthday, units = output_unit)\n}\n\nmy_age(birthday = \"1997-04-23\", output_unit = \"days\")\n\nTime difference of 10192.44 days\n\n\nAs we already know from using other functions, if we declare our variables in the order that we initially listed them, we do not need to specify the parameters (no need of birthday = and output_unit =).\n\nmy_age(\"1997-04-23\", \"days\")\n\nTime difference of 10192.44 days\n\n\nIf we want any of our parameters to have default value, we can assign an initial value to the parameter when declaring the variables within the round brackets.\n\nmy_age &lt;- function(birthday, output_unit = \"days\") {\n    difftime(Sys.time(), birthday, units = output_unit)\n}\n\n# if not stated otherwise, our function uses the unit \"days\"\nmy_age(\"1997-04-23\")\n\nTime difference of 10192.44 days\n\n# We can still overwrite units\nmy_age(\"1997-04-23\", \"hours\")\n\nTime difference of 244618.6 hours\n\n\nAll you need to do now is run execute the function deceleration (myage &lt;- function... etc.) at the beginning of your script, and you can use the function for your entire R session.\n\n\n\n\n\n\nImportant\n\n\n\nAlways try to make your function self sufficient: Only use objects within your function that are either passed as function arguments or created within the funtion. See more on this topic here, in the online version of the book by Rodrigues (2023).\n\n\n\n\n\n\nRodrigues, Bruno. 2023. Building Reproducible Analytical Pipelines with r. leanpub.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. \" O’Reilly Media, Inc.\".",
+    "crumbs": [
+      "Week 5",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Demo: R Functions</span>"
+    ]
+  },
+  {
     "objectID": "Week5/2_tasks_and_inputs.html",
     "href": "Week5/2_tasks_and_inputs.html",
     "title": "Tasks and inputs",
     "section": "",
-    "text": "Task 1: Write your own functions\nUp to now, we have used a variety of different functions designed by other developers. Sometimes we need to execute an operation multiple times, and most often it is reasonable to write a function to do so. Whenever you have copied and pasted a block of code more than twice, you should consider writing a function (Wickham, Çetinkaya-Rundel, and Grolemund 2023).\nThe first step in writing a function, is picking a name and assigning &lt;- function(){} to it.\nTo run the function, we have to call the assigned name with the brackets. The function testfun gives no output, which is why we get NULL back. ::: {.cell}\n:::\nTo make the function actually do something, we need to specify what should be done within the curly brackets {}. The following function always prints the same statement and accepts no input values:\nIf we want the function to accept some input values, we have to define them within the round brackets. For example, I specify a variable named sometext and can call this variable within the execution.\nLet’s take a more practical example. Say we want a function that calculates our age if provided with the date of our birthday. We can use Sys.time() to provide today’s date and difftime() to calculate the time difference between today and our birthday.\nAs we already know from using other functions, if we declare our variables in the order that we initially listed them, we do not need to specify the parameters (no need of birthday = and output_unit =). ::: {.cell}\n:::\nIf we want any of our parameters to have default value, we can assign an initial value to the parameter when declaring the variables within the round brackets. ::: {.cell}\n:::\nAll you need to do now is run execute the function deceleration (myage &lt;- function... etc.) at the beginning of your script, and you can use the function for your entire R session.\nCreate the following two functions:\n\\[\\text{Euclidean distance} = \\sqrt{(x_2 - x_1)^2+(y_2 - y_1)^2}\\]",
+    "text": "Task 1: Write your own functions\nCreate the following two functions:\n\\[\n\\text{BMI} = \\frac{\\text{Weight (kg)}}{\\text{Height (m)}^2}\n\\tag{21.1}\\]\n\\[\n\\text{Farenheight} = \\text{Celcius} \\times \\frac{9}{5} + 32\n\\tag{21.2}\\]\n\\[\n\\text{Euclidean distance} = \\sqrt{(x_2 - x_1)^2+(y_2 - y_1)^2}\n\\tag{21.3}\\]",
     "crumbs": [
       "Week 5",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Tasks and inputs</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Tasks and inputs</span>"
     ]
   },
   {
@@ -477,10 +488,10 @@
     "href": "Week5/2_tasks_and_inputs.html#footnotes",
     "title": "Tasks and inputs",
     "section": "",
-    "text": "Please note: We are manipulating our time stamps without adjusting the x,y-coordinates. This is fine for our simple example, but we would advice against this in a more serious research endeavour, e.g. in your semester projects. One simple approach would be to linearly interpolate the positions to the new timestamps. If you choose Option A the wild boar projects as your semester projects, you should aim for a linear interpolation. Get in touch if you need help with this.↩︎",
+    "text": "Please note: We are manipulating our time stamps without adjusting the x,y-coordinates. This is fine for our simple example, but we would advice against this in a more serious research endeavour, e.g. in your semester projects. One simple approach would be to linearly interpolate the positions to the new timestamps. If you choose Option A the wild boar projects as your semester projects, you should aim for a linear interpolation. Get in touch if you need help with this.↩︎\nWe recommend using one dplyrs join methods (inner_join(), left_join(), right_join() or full_join()), which one is appropriate? Tip: specify suffix to prevent column names ending in .x or .y.↩︎",
     "crumbs": [
       "Week 5",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Tasks and inputs</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Tasks and inputs</span>"
     ]
   },
   {
@@ -490,7 +501,7 @@
     "section": "",
     "text": "Bryan, Jenny, and Jim Heister. 2021. Happy Git and GitHub for the\nuseR. https://happygitwithr.com/.\n\n\nChacon, Scott, and Ben Straub. 2014. Pro Git. 2nd Edition.\nApress. https://git-scm.com/book/en/v2.\n\n\nHägerstraand, Torsten. 1970. “What about People in Regional\nScience?” Papers in Regional Science 24 (1): 7–24.\n\n\nLaube, Patrick, and Ross S. Purves. 2011. “How Fast Is a Cow?\nCross - Scale Analysis of Movement Data.” Transactions in\nGIS 15 (3): 401–18. https://doi.org/10.1111/j.1467-9671.2011.01256.x.\n\n\nRodrigues, Bruno. 2023. Building Reproducible Analytical Pipelines\nwith r. leanpub.\n\n\nVlachos, Michail, Dimitrios Gunopoulos, and George Kollios. 2002.\n“Discovering Similar Multidimensional Trajectories.” In\nProceedings of the 18th International Conference on Data\nEngineering, 673–73. ICDE ’02. Washington, DC, USA: IEEE Computer\nSociety. http://dl.acm.org/citation.cfm?id=876875.878994.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023.\nR for Data Science. \" O’Reilly Media, Inc.\".",
     "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>References</span>"
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>References</span>"
     ]
   },
   {
@@ -500,7 +511,7 @@
     "section": "",
     "text": "Data-import: base-r vs readr\nOur reasons for preferring readr over base-R import functions:\nHOWEVER: Using external libraries (such as readr) creates additional dependencies which has it’s own downsides (which is one of the reasons we don’t do library(\"tidyverse\")).",
     "crumbs": [
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -510,7 +521,7 @@
     "section": "",
     "text": "base R imports strings as factors by default (since R 4.0.0, this is not the case anymore)\nreadr is generally faster (which only matters if you have a large dataset)\nreadr makes safer assumptions about your data (e.g. the default timezone for datetime columns is UTC)\ndata.frames created by readr are prettier when printed to the console and contain more information using less characters",
     "crumbs": [
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -518,9 +529,9 @@
     "href": "Appendix/Appendix.html#comitting-files-with-git",
     "title": "Appendix",
     "section": "Comitting files with git",
-    "text": "Comitting files with git\n\n\n\n\n\n\nNote 22.1: Committing files with git\n\n\n\n\nSave your (R/RMarkdown/Quarto) file\nSwitch to the “Git”-Tab in the pane in the top right corner\nClick “commit” to open the “Commit Window”\nClick in the checkbox next to the file(s) you want to commit\nAdd a commit message to explain what you are committing (e.g. “initial commit”)\nClick on “commit” to commit your changes",
+    "text": "Comitting files with git\n\n\n\n\n\n\nNote 23.1: Committing files with git\n\n\n\n\nSave your (R/RMarkdown/Quarto) file\nSwitch to the “Git”-Tab in the pane in the top right corner\nClick “commit” to open the “Commit Window”\nClick in the checkbox next to the file(s) you want to commit\nAdd a commit message to explain what you are committing (e.g. “initial commit”)\nClick on “commit” to commit your changes",
     "crumbs": [
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -530,7 +541,7 @@
     "section": "Mapmatching GPS points to the road network",
     "text": "Mapmatching GPS points to the road network\n\nlibrary(sf)\nlibrary(tmap)\n\n# Get a sample road dataset\nHighWays &lt;- read_sf(system.file(\"sqlite/test3.sqlite\",package=\"sf\"), \"HighWays\")[6, ] \n\n# since we want to find the closest location on the road over ALL roads\n# we need to create a union of the roads first.\nHighWays &lt;- st_union(HighWays)\n\n# Let's simulate 1000 GPS locations within 3km of the highway\ngps_locations &lt;- HighWays |&gt; st_buffer(3000) |&gt; st_sample(100)\n\n# Now we can get the nearset point for each GPS location\nnearest &lt;- st_nearest_points(gps_locations, HighWays)\n\n# The output is a line for each point (see plot below)\n# Now we need convert the output from LINE to POINT. \n# This doubles the number of features\nnear_p &lt;- st_cast(nearest, \"POINT\")\n\n# now we subset the points. Uneven numbers are the original\n# points, even numbers are the new, mapmatched points.\nnear_from &lt;- near_p[c(TRUE, FALSE)]\nnear_to &lt;- near_p[c(FALSE,TRUE)]\n\n\ntm_shape(HighWays) + tm_lines() +\n  tm_shape(nearest) + tm_lines(lty = 3) +\n  tm_shape(near_from) + tm_dots() +\n  tm_shape(near_to) + tm_dots(col = \"red\")\n\n\n\n\nOriginal Points (black) are matched to the closest point on the road (red)",
     "crumbs": [
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
@@ -538,9 +549,9 @@
     "href": "Appendix/Appendix.html#exporting-location-data-from-google",
     "title": "Appendix",
     "section": "Exporting location data from Google",
-    "text": "Exporting location data from Google\nA simple way to download your location data from Google is described in the following steps:\n\nGo to takeout.google.com\nDeselect all “Products” and select only the following product: Location History (Timeline)\nClick Next and Create Export to get an Export of your data (see Figure 22.1)\nDownload and extract the data in your R-Project folder\nFollow the script below (adjust the path!)\n\nlibrary(sf)\nlibrary(jsonlite)\nlibrary(dplyr)\nrecords_json &lt;- jsonlite::read_json(\"takeout-20240501T094208Z-001/Takeout/Location History (Timeline)/Records.json\",simplifyVector = TRUE)\n\nrecords &lt;- records_json[[1]]\n\n# inspired by the following SO-answer\n# https://gis.stackexchange.com/a/319067/40929\nrecords_sf &lt;- records |&gt; \n  mutate(\n    lat = latitudeE7/1e7,\n    lon = longitudeE7/1e7\n  ) |&gt; \n  st_as_sf(coords = c(\"lon\", \"lat\"), crs = 4326)\n\n\n\n\n\n\nFigure 22.1",
+    "text": "Exporting location data from Google\nA simple way to download your location data from Google is described in the following steps:\n\nGo to takeout.google.com\nDeselect all “Products” and select only the following product: Location History (Timeline)\nClick Next and Create Export to get an Export of your data (see Figure 23.1)\nDownload and extract the data in your R-Project folder\nFollow the script below (adjust the path!)\n\nlibrary(sf)\nlibrary(jsonlite)\nlibrary(dplyr)\nrecords_json &lt;- jsonlite::read_json(\"takeout-20240501T094208Z-001/Takeout/Location History (Timeline)/Records.json\",simplifyVector = TRUE)\n\nrecords &lt;- records_json[[1]]\n\n# inspired by the following SO-answer\n# https://gis.stackexchange.com/a/319067/40929\nrecords_sf &lt;- records |&gt; \n  mutate(\n    lat = latitudeE7/1e7,\n    lon = longitudeE7/1e7\n  ) |&gt; \n  st_as_sf(coords = c(\"lon\", \"lat\"), crs = 4326)\n\n\n\n\n\n\nFigure 23.1",
     "crumbs": [
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Appendix</span>"
     ]
   }
 ]
