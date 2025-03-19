@@ -89,7 +89,7 @@ wildschwein_BE_sf
 :::
 
 
-As you can see, `st_as_sf()` has added some metadata to our dataframe (`Geometry type`, `Dimension`, `Bounding box`, `Geodetic CRS`) and replaced the columns `Lat` and `Long` with a column named `geometry`. Other than that, the new `sf` object is very similar to our original dataframe. In fact, `sf` objects *are* essentially `dataframes`, as you can verify with the function `is.data.frame()`:
+As you can see, `st_as_sf()` has added some metadata to our dataframe (`Geometry type`, `Dimension`, `Bounding box`, `Geodetic CRS`) and replaced the columns `Lat` and `Long` with a column named `geometry`. Other than that, the new `sf` object is very similar to our original dataframe. In fact, `sf` objects *are* essentially dataframes, as you can verify with the function `is.data.frame()`:
 
 ```{r}
 #| echo: true
@@ -130,7 +130,9 @@ remove(wildschwein_BE_sf)
 
 ### Task 3: Project data from WGS84 {#sec-week1-task3-reproject}
 
-So what can we do with our new `sf` object that we couldn't before? One example is projecting the WGS84 (`Lat`/`Long`) coordinates into the new Swiss CRS `CH1903+ LV95`[^50]. Do this by using the function `st_transform`. By the way, do you notice a pattern here? The package `sf` names most functions for spatial operations with the prefix `st_*`, just as in PostGIS.
+So what can we do with our new `sf` object that we couldn't before? One example is projecting the WGS84 (`Lat`/`Long`) coordinates into the new Swiss CRS `CH1903+ LV95`[^50]. Do this by using the function `st_transform`. 
+
+By the way, do you notice a pattern here? The package `sf` names most functions for spatial operations with the prefix `st_*`, just as in PostGIS.
 
 [^50]: As we've mentioned in the first Input, you can look up the EPSG codes under [epsg.io](http://epsg.io). For information specific to Switzerland, check the [swisstopo website](https://www.swisstopo.admin.ch/en/knowledge-facts/surveying-geodesy/reference-systems.html) 
 
@@ -141,7 +143,7 @@ So what can we do with our new `sf` object that we couldn't before? One example 
 
 ```
 
-Here's the resulting `sf` object from the operation:
+Here's the resulting `sf` object from the operation. Note how the numeric values in the `geometry` column have changed.
 
 ```{r}
 #| echo: true
@@ -175,7 +177,7 @@ wildschwein_BE_grouped
 :::{.br}
 :::
 
-Second: use `summarise()` to "dissolve" all points into a multipoint object. 
+Second: use `summarise()` to "union" all points into a multipoint object. 
 
 ```{r}
 #| echo: true
@@ -203,7 +205,7 @@ Using base plot to visualize `sf` objects is easy enough, just try the following
 plot(mcp)
 ```
 
-One wildboar is seems to be hidden by one of the others. Try and plot the object `mcp` with `ggplot`, setting the layer's `alpha`
+One wild boar is seems to be hidden by one of the others. Try and plot the object `mcp` with `ggplot`, setting the layer's `alpha`
 Note: `ggplot` refuses to use our specified CRS, so we need to force this by specifying `datum = ` in `coord_sf()`. Try it out.
 
 ```{r}

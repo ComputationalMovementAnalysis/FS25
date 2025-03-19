@@ -22,8 +22,7 @@ format:
     number-sections: false
     code-tools:
       source: false
-    include-in-header:
-      - script.html
+
 
 execute:
   freeze: true
@@ -47,34 +46,38 @@ book:
     - index.qmd
     - Intro/1_preparations_course.qmd
     - Intro/2_preparations_project.qmd
-    - part: Exercise 1
+    - part: Week 1
       chapters:
       - Week1/1_preparation.qmd
       - Week1/2_tasks_and_inputs.qmd
-      # - Week1/3_solutions.qmd
-    - part: Exercise 2 
-      # chapters:
-      # - Week2/2_demo_tidyverse.qmd
-      # - Week2/3_exercise_a.qmd
-      # - Week2/3_exercise_b.qmd
-      # - Week2/3_exercise_c.qmd
-      # - Week2/4_solutions.qmd
-    - part: Exercise 3
-    #   chapters: 
-        # - Week3/1_preparation.qmd
-        # - Week3/2_exercise_A.qmd
-        # - Week3/3_exercise_B.qmd
-    - part: Exercise 4
-      # chapters:
-      # - Week4/1_preparation.qmd
-      # - Week4/2_tasks_and_inputs.qmd
+      - Week1/3_solutions.qmd
+    - part: Week 2 
+      chapters:
+      - Week2/2_demo_tidyverse.qmd
+      - Week2/3_exercise_a.qmd
+      - Week2/3_exercise_b.qmd
+      - Week2/3_exercise_c.qmd
+      - Week2/4_solutions.qmd
+    - part: Week 3
+      chapters:
+      - Week3/1_preparation.qmd
+      - Week3/2_exercise_A.qmd
+      - Week3/3_exercise_B.qmd
+      - Week3/4_exercise_C.qmd
+
+    - part: Week 4
+      chapters:
+      - Week4/1_preparation.qmd
+      - Week4/1_input.qmd
+      - Week4/2_tasks_and_inputs.qmd
+      - Week4/2_tasks_B.qmd
       # - Week4/3_solutions.qmd
-    - part: Exercise 5
+    - part: Week 5
       # chapters:
       # - Week5/1_preparation.qmd
       # - Week5/2_tasks_and_inputs.qmd
       # - Week4/3_solutions.qmd
-    - part: Exercise 6
+    - part: Week 6
       # chapters:
       # - Week6/1_preparation.qmd
       # - Week6/2_tasks_and_inputs.qmd

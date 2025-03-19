@@ -1,7 +1,4 @@
-# Quarto (WIP ⚠️)
+# Exercise C: Quarto
 
-:::{.callout-important}
 
-## WIP ⚠️
-
-:::
+Use the dataset *Game of Thrones* (on moodle), and do the exercises in sections *4 Quarto*, *5 Quarto Advanced* and *6 Publishing HTML / Websites*. Submit the URL of your published analysis via moodle.

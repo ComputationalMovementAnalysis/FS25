@@ -1,4 +1,10 @@
-# Git
+# Exercise A: Git
+
+:::{.callout-important}
+
+This exercise is optional
+
+:::
 
 ## Working in the shell / terminal
 

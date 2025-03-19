@@ -1,148 +1,28 @@
-## Tasks and Inputs
+## Exercise A: Segmentation
 
-```{r}
-#| include: false
+With the skills from @sec-input-segmentation you can now implement the segmentation algorithm described in @laube2011 to either your own movement data or to a different wild boar using different sampling intervals. 
 
-# source("01_R_Files/helperfunctions.R")
-```
+:::{.callout-note collapse="true"}
 
-### Input
-
-You've read @laube2011 about segmenting trajectories. In the paper, the authors define "*static*" fixes as "*those whose average Euclidean distance to other fixes inside a temporal window v is less than some threshold d*", as illustrated in @fig-laubeimg
-
-:::{#fig-laubeimg}
-
-![](../02_Images/laube_2011.jpg)
-
-The figure from @laube2011 visualizes steps a) zu d), which will be explained below
-
-:::
-
-(a) Specify a temporal windows $v$ for in which to measure Euclidean distances.
-(b) Measure the distance from every point to every other point within this temporal window $v$.
-(c) Remove "static points": These are points where the average distance is less than a given threshold. This segments the trajectory into subtrajectories.
-(d) Now remove short subtrajectories: These are trajectories with a short duration (whereas "short" is tbd).
-
-We will **demonstrate** implementing this method on the wild boar "Sabi", restricting ourselves to a couple of tracking days. Your task will be to understand this implementation and apply it to your own movement data. 
-
-Open the RStudio Project [you have prepared](#w4-preparation) for this week. Next, copy the wild boar data you downloaded last week (*wildschwein_BE_2056.csv*) to your project folder. If you cannot find this dataset on your computer, you can re-download it [here](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125). Transform the data into an `sf` object, filter for the wildboar Sabi and a datetime between "2015-07-01" and "2015-07-03".
-
-```{r}
-#| echo: true
-
-library("readr")
-library("dplyr")
-library("sf")
-
-wildschwein <- read_delim("datasets/wildschwein_BE_2056.csv", ",")
-
-# Careful! What Timezone is assumed?
-sabi <- wildschwein |>
-    st_as_sf(coords = c("E", "N"), crs = 2056, remove = FALSE) |>
-    filter(TierName == "Sabi", DatetimeUTC >= "2015-07-01", DatetimeUTC < "2015-07-03")
-```
-
-```{r}
-#| echo: false
-#| fig.cap: "Movement of the wild boar 'Sabi' in the timespan 01 - 02.07.2015. The circle highlights possible 'static points'"
-
-library("ggplot2")
-
-ggplot(sabi, aes(E, N, color = DatetimeUTC)) +
-    geom_point() +
-    geom_path() +
-    coord_fixed() +
-    scale_color_datetime(low = "blue", high = "red") +
-    guides(color = guide_colorbar(title.position = "top", title.hjust = .5, barwidth = unit(20, "lines"), barheight = unit(.5, "lines"))) +
-    theme(legend.position = "bottom") +
-    geom_point(y = 1205120, x = 2570470, size = 20, pch = 21, color = "black", stroke = 4)
-```
-
-#### Step a): Specify a temporal window $v$
-
-In the above dataset, the sampling interval is 15 minutes. If we take a temporal window of 60 minutes, that would mean including 4 fixes. We need to calculate the following Euclidean distances (pos representing single location):
-
-1. `pos[n-2]` to `pos[n]`
-2. `pos[n-1]` to `pos[n]`
-3. `pos[n]` to `pos[n+1]`
-4. `pos[n]` to `pos[n+2]`
-
-#### Step b): Measure the distance from every point to every other point within this temporal window $v$
-
-We can use the function distance_by_element from week 2 in combination with `lead()` and `lag()` to calculate the Euclidean distance. For example, to create the necessary offset of n-2, we use `lag(x, 2)`. For each offset, we create one individual column.
-
-```{r}
-#| echo: true
-
-distance_by_element <- function(later, now) {
-  as.numeric(
-    st_distance(later, now, by_element = TRUE)
-  )
-}
-
-sabi <- sabi |>
-    mutate(
-        nMinus2 = distance_by_element(lag(geometry, 2), geometry),  # distance to pos -30 minutes
-        nMinus1 = distance_by_element(lag(geometry, 1), geometry),  # distance to pos -15 minutes
-        nPlus1  = distance_by_element(geometry, lead(geometry, 1)), # distance to pos +15 mintues
-        nPlus2  = distance_by_element(geometry, lead(geometry, 2))  # distance to pos +30 minutes
-    )
-```
-
-Now we want to calculate the mean distance of `nMinus2`, `nMinus1`, `nPlus1`, `nPlus2` for each row. Since we want the mean value *per Row*, we have to explicitly specify this before `mutate()` with the function `rowwise()`. To remove this rowwise-grouping, we end the operation with `ungroup()`. 
-
-Note that for the first two positions, we cannot calculate a `stepMean` since there is no Position `n-2` for these positions. This is also true for the last to positions (lacking a position `n+2`).
-
-```{r}
-#| echo: true
-
-sabi <- sabi |>
-    rowwise() |>
-    mutate(
-        stepMean = mean(c(nMinus2, nMinus1, nPlus1, nPlus2))
-    ) |>
-    ungroup()
-
-sabi
-```
-
-#### Step c): Remove "static points"
-
-We can now determine if an animal is moving or not by specifying a threshold distance on `stepMean`. In our example, we use the mean value as a threshold: Positions with distances below this value are considered static.
-
-```{r}
-#| echo: true
-#| fig.cap: "The trajectory of sabi, filtered to the positions where the animal was not static"
-
-sabi <- sabi |>
-    mutate(static = stepMean < mean(stepMean, na.rm = TRUE))
-
-sabi_filter <- sabi |>
-    filter(!static)
-
-sabi_filter |>
-    ggplot(aes(E, N)) +
-    geom_path() +
-    geom_point() +
-    coord_fixed() +
-    theme(legend.position = "bottom")
-```
-
-### Preperation
-
-With the skills from the input above you can now implement the segmentation algorithm described in @laube2011 to your own movement data. Export your data from your provider and import is as a `data.frame` in R. 
-
-As before, we will calculate the euclidean distance "by hand". Complete the following preparations in order to start the calculations:
-
- - We need the coordinates of our locations stored in a **Projected CRS**. Check in which coordinate reference system your data is stored and if necessairy transform it to EPSG 2056 with the function `st_transform`, as we explained in [the first week](#sec-week1-task3-reproject). You have already done this in [week 2](#sec-week2-ex-c).
-- To be able to compute Euclidean distances by hand, we need the coordinates stored in separate columns. The function `st_coordinates` extracts the coordinates from our `sf` object. We can bind these coordinates back to our `sf` object using `cbind`.
-- Explore your data and choose a single day for the next steps.
+## If you use Git...
 
 Once you have completed this prepartions, commit your changes with a meaningful commit message. *Before committing, make sure your location data is ignored!* Then, test your connection to Github by pushing your changes to your remote repository.
 
-### Task 1: Segmentation
+:::
 
-Now, you can implement steps a) and b), which you had used with sabi, on on your own movement data. Once you have completed the task, commit your changes with a meaningful commit message and test your connection to Github by pushing your changes to your remote repository.
+### Task 1: Calculate distances
+
+
+Now, you can @sec-segmentation-a and @sec-segmentation-b, which you had used with *sabi*, on on your own movement data or to a different wild boar using different sampling intervals.
+
+
+:::{.callout-note collapse="true"}
+
+## If you use Git...
+
+Once you have completed the task, commit your changes with a meaningful commit message and test your connection to Github by pushing your changes to your remote repository.
+
+:::
 
 ### Task 2: Specify and apply threshold *d*
 
@@ -150,13 +30,27 @@ After calculating the Euclidean distances to positions within the temporal windo
 
 Store the new information (boolean to differentiate between stops (`TRUE`) and moves (`FALSE`)) in a new column named `static`.
 
+:::{.callout-note collapse="true"}
+
+## If you use Git...
+
 Commit your changes with a meaningful commit message. 
+
+
+:::
 
 ### Task 3: Visualize segmented trajectories
 
 Now visualize the segmented trajectory spatially. Just like last week, you can use ggplot with `geom_path()`, `geom_point()` and `coord_equal()`. Assign `colour = static` within `aes()` to distinguish between segments *with* "movement" and *without*.
 
+:::{.callout-note collapse="true"}
+
+## If you use Git...
+
 Commit your changes with a meaningful commit message. 
+
+
+:::
 
 ### Task 4: Segment-based analysis
 
@@ -179,41 +73,12 @@ your_data_frame <- your_data_frame |>
     mutate(segment_id = rle_id(static))
 ```
 
-Commit your changes with a meaningful commit message. 
+:::{.callout-note collapse="true"}
 
-### Task 5: Similarity measures 
-
-We will now calculate similarties between trajectories using a new dataset [pedestrian.csv](https://moodle.zhaw.ch/mod/folder/view.php?id=1192125). Download an import this dataset as a `data.frame` or `tibble`. It it a set of six different but similar trajectories from pedestrians walking on a path. 
-
-For this task, explore the trajectories first and get an idea on how the pedestrians moved. 
-
-```{r}
-#| file: "solutions/week4/task_5.R"
-#| echo: false
-#| output: true
-#| eval: true
-
-```
+## If you use Git...
 
 Commit your changes with a meaningful commit message. 
 
-### Task 6: Calculate similarity
 
-Install the package `SimilarityMeasures` (`install.packages("SimilarityMeasures")`). Familiarize yourself with this package by skimming through the function descriptions `help(package = "SimilarityMeasures")`. Now compare trajectory 1 to trajectories 2-6 using different similarity measures from the package. Your options are. `DTW`, `EditDist`, `Frechet` and `LCSS`.
+:::
 
-Before visualizing your results think about the following: Which two trajectories to you percieve to be most similar, which are most dissimilar? Now visualize the results from the computed similarity measures. Which measure reflects your own intuition the closest? 
-
-Note: 
-
-- **All functions in the package need matrices as input, with one trajectory per matrix.**
-- `LCSS`takes very long to compute. The accuracy of the algorithm (`pointSpacing =` ,`pointDistance =` and `errorMarg =`) can be varied to provide faster calculations. Please see @vlachos2002 for more information.
-
-```{r}
-#| file: "solutions/week4/task_6.R"
-#| echo: false
-#| output: true
-#| eval: true
-
-```
-
-Commit your changes with a meaningful commit message. Now push all your changes to Github.

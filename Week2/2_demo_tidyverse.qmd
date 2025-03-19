@@ -21,8 +21,6 @@ Assume we want to calculate the timelag between subsequent positions. To achieve
 now <- as.POSIXct("2024-04-26 10:20:00")
 later <- as.POSIXct("2024-04-26 11:35:00")
 
-later <- now + 10000
-
 later
 
 time_difference <- difftime(later, now)
@@ -39,6 +37,7 @@ time_difference
 ```
 
 `difftime` returns an object of the class `difftime`. 
+
 ```{r}
 #| collapse: true
 class(time_difference)
@@ -96,8 +95,8 @@ lag(numbers, n = 5, default = 0)
 Using the above functions (`difftime()` and `lead()`), we can calculate the time lag, that is, the time difference between consecutive positions. We will try this on a dummy version of our wild boar dataset.
 
 ```{r}
-wildschwein <- tibble(
-    TierID = c(rep("Hans", 5), rep("Klara", 5)),
+wildschwein <- tibble(       # aka data.frame
+    TierID = rep(c("Hans", "Klara"), each = 5),
     DatetimeUTC = rep(as.POSIXct("2015-01-01 00:00:00", tz = "UTC") + 0:4 * 15 * 60, 2)
 )
 
@@ -111,13 +110,15 @@ If we are interested to calculate the speed travelled between subsequent locatio
 now <- wildschwein$DatetimeUTC
 later <- lead(now)
 
+# View(wildschwein)
+
 wildschwein$timelag <- difftime_secs(later, now)
 
 wildschwein
 
 ```
 
-However, we have an issue at the transion between the two animals. We can overcome this issue using dplyr's `mutate` with `group_by`. **If we use `mutate`, we do not use the `$` notation!**
+However, we have an issue at the transition between the two animals. We can overcome this issue using dplyr's `mutate` with `group_by`. **If we use `mutate`, we do not use the `$` notation!**
 
 ```{r}
 # note the lack of "$"
@@ -141,7 +142,7 @@ After adding this grouping variable, calculating the `timelag` automatically acc
 
 ```{r}
 # again, note the lack of "$"
-wildschwein <- mutate(wildschwein, timelag = difftime(lead(DatetimeUTC), DatetimeUTC))
+wildschwein <- mutate(wildschwein, timelag = difftime_secs(lead(DatetimeUTC), DatetimeUTC))
 
 wildschwein
 ```
@@ -157,7 +158,7 @@ In order to make code readable in a more human-friendly way, we can use the pipi
 wildschwein |>                                            # Take wildschwein...
     group_by(TierID) |>                                   # ...group it by TierID
     mutate(
-        timelag = difftime(lead(DatetimeUTC), DatetimeUTC)# Caculate difftime
+        timelag = difftime_secs(lead(DatetimeUTC), DatetimeUTC)# Caculate difftime
         )
 ```
 

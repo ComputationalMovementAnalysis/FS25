@@ -1,4 +1,10 @@
-# GitHub
+# Exercise B: GitHub
+
+:::{.callout-important}
+
+This exercise is optional
+
+:::
 
 ## Authenticate Git to work with Github {#sec-github-auth}
 
@@ -35,7 +41,7 @@ Now you can create a repository on Github that you can afterwards connect to you
 - Repository name: Give a meaningful name, e.g.  `cma-week2`
 - Description: Give a meaningful description, e.g. `Solving exercise 3 of the course "Computational Movement Analysis"`
 - Make the repo public, not private
-- ~~Choose~~ Deselect `Add a README file`
+- Deselect `Add a README file`
 
 Click on `Create repository`, then on the green button "Code". Select HTTPS (it might already be selected) and then copy the URL by clicking on the clipboard symbol. The URL should look something list this `https://github.com/GITHUB-USERNAME/cma-week2.git`. 
 

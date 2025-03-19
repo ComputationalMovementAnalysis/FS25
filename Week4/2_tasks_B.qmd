@@ -1,0 +1,53 @@
+## Exercise B: Similarity
+
+### Task 1: Similarity measures 
+
+We will now calculate similarties between trajectories using a new dataset pedestrian.csv (available on moodle). Download an import this dataset as a `data.frame` or `tibble`. It it a set of six different but similar trajectories from pedestrians walking on a path. 
+
+For this task, explore the trajectories first and get an idea on how the pedestrians moved. 
+
+```{r}
+#| file: "solutions/week4/task_5.R"
+#| echo: false
+#| output: true
+#| eval: true
+
+```
+
+:::{.callout-note collapse="true"}
+
+## If you use Git...
+
+Commit your changes with a meaningful commit message. 
+
+
+:::
+
+### Task 2: Calculate similarity
+
+Install the package `SimilarityMeasures` (`install.packages("SimilarityMeasures")`). Familiarize yourself with this package by skimming through the function descriptions `help(package = "SimilarityMeasures")`. Now compare trajectory 1 to trajectories 2-6 using different similarity measures from the package. Your options are. `DTW`, `EditDist`, `Frechet` and `LCSS`.
+
+Before visualizing your results think about the following: Which two trajectories to you percieve to be most similar, which are most dissimilar? Now visualize the results from the computed similarity measures. Which measure reflects your own intuition the closest? 
+
+Note: 
+
+- **All functions in the package need matrices as input, with one trajectory per matrix.**
+- `LCSS`takes very long to compute. The accuracy of the algorithm (`pointSpacing =` ,`pointDistance =` and `errorMarg =`) can be varied to provide faster calculations. Please see @vlachos2002 for more information.
+
+
+```{r}
+#| file: "solutions/week4/task_6.R"
+#| echo: false
+#| output: true
+#| eval: true
+
+```
+
+:::{.callout-note collapse="true"}
+
+## If you use Git...
+
+Commit your changes with a meaningful commit message. Now push all your changes to Github.
+
+
+:::

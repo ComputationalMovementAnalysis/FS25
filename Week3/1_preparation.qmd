@@ -16,7 +16,35 @@ If the above command returns a version number (e.g. `1.5.30`) this means quarto 
 The terminal should be located next to the R-Console. If you don't see it there, create a new terminal by clicking on *Tools* → *Terminal* → *New Terminal*.
 :::
 
-### Install Git {#install-git}
+## Create a Github account{#sec-create-github}
+
+:::{.callout-important}
+
+This step is optional and only recommended for students who are keen to use the git commandline interface to GitHub.
+
+:::
+
+Create a Github account on [github.com](https://github.com/) (it's free of course). We recommend you use your students email address. When choosing a username on Github, consider the following advice: 
+
+- incorporating your actual name is nice, people like to know who they are dealing with
+- choose a name that you are comfortable revealing it to a future boss
+- shorter is better than longer
+- make it timeless (e.g. don't incorporate your university's name)
+
+:::{#nte-github1 .callout-note}
+## Users who already have a Github account
+
+If you already have a Github account (e.g. for work) and don't mind using this account for the tasks in this course, you are free to use this existing account. However, if you don't want to mix these activities, we recommend you *create a new Github account with your student mail address*. 
+:::
+
+
+## Install Git {#install-git}
+
+:::{.callout-important}
+
+This step is optional and only recommended for students who are keen to use the git commandline interface to GitHub.
+
+:::
 
 Git is a software dedicated to tracking changes in text files (e.g. R scripts). It's heavily used in the software industry as well as in the field of data science. In this course, we will teach use the basic functionalities of Git and combine it with the online portal Github.
 
@@ -44,7 +72,6 @@ Therefore, the next step is to install Git. There are different Git installers t
   - On Fedora or RedHat Linux: `sudo yum install git`
 :::
 
-## Change RStudio Settings
 
 Now, **restart RStudio**. Then, go to *Tools → Global options → Git / SVN*.
 
@@ -62,17 +89,3 @@ Now, **restart RStudio**. Then, go to *Tools → Global options → Git / SVN*.
 `/usr/bin/git`
 :::
 
-## Create a Github account{#sec-create-github}
-
-Create a Github account on [github.com](https://github.com/) (it's free of course). We recommend you use your students email address. When choosing a username on Github, consider the following advice: 
-
-- incorporating your actual name is nice, people like to know who they are dealing with
-- choose a name that you are comfortable revealing it to a future boss
-- shorter is better than longer
-- make it timeless (e.g. don't incorporate your university's name)
-
-:::{#nte-github1 .callout-note}
-## Users who already have a Github account
-
-If you already have a Github account (e.g. for work) and don't mind using this account for the tasks in this course, you are free to use this existing account. However, if you don't want to mix these activities, we recommend you *create a new Github account with your student mail address*. 
-:::

@@ -1,5 +1,11 @@
 ## Preparation {#w4-preparation}
 
+:::{.callout-important}
+
+These preparatory steps are optional and recommended for users who want to learn Git / GitHub.
+
+:::
+
 ### Step 1: Create a RStudio Project
 
 Create a new RStudio Project *File > New Project > New Directory > New Project*.
