@@ -1,130 +1,32 @@
 ## Tasks and inputs
 
-```{r}
-#| include: false
-
-# source("01_R_Files/helperfunctions.R")
-```
-
-Up to now, we have used a variety of different functions designed by other developers. Sometimes we need to execute an operation multiple times, and most often it is reasonable to write a function to do so. Whenever you have copied and pasted a block of code more than twice, you should consider writing a function [@wickham2023]. 
-
-The first step in writing a function, is picking a name and assigning `<- function(){}` to it.
-
-```{r}
-#| echo: true
-
-testfun <- function() {}
-```
-
-To run the function, we have to call the assigned name with the brackets. The function `testfun` gives no output, which is why we get `NULL` back. 
-```{r}
-#| echo: true
-
-testfun()
-
-class(testfun)
-```
-
-To make the function actually *do* something, we need to specify *what* should be done within the curly brackets `{}`. The following function always prints the same statement and accepts no input values:
-
-```{r}
-#| echo: true
-
-testfun <- function() {
-    print("this function does nothing")
-}
-
-testfun()
-```
-
-If we want the function to accept some input values, we have to define them within the round brackets. For example, I specify a variable named `sometext` and can call this variable within the execution.
-
-```{r}
-#| echo: true
-
-testfun <- function(sometext) {
-    print(sometext)
-}
-
-testfun(sometext = "this function does slightly more, but still not much")
-```
-
-:::{.callout-note collapse="true"}
-
-```{r}
-testfun <- function(sometext) {
-    print(sometext)
-}
-```
-
-Note that since R Version 4.1, the above syntax can also be written as follows:
-
-```{r}
-testfun <- \(sometext){
-    print(sometext)
-}
-```
-
-or even more compact:
-
-```{r}
-testfun <- \(sometext) print(sometext)
-```
-:::
-
-Let's take a more practical example. Say we want a function that calculates our age if provided with the date of our birthday. We can use `Sys.time()` to provide today's date and `difftime()` to calculate the time difference between today and our birthday.
-
-```{r}
-#| echo: true
-
-my_age <- function(birthday, output_unit) {
-    difftime(Sys.time(), birthday, units = output_unit)
-}
-
-my_age(birthday = "1997-04-23", output_unit = "days")
-```
-
-As we already know from using other functions, if we declare our variables in the order that we initially listed them, we do not need to specify the parameters (no need of `birthday = ` and `output_unit =`).
-```{r}
-#| echo: true
-
-my_age("1997-04-23", "days")
-```
-
-If we want any of our parameters to have default value, we can assign an initial value to the parameter when declaring the variables within the round brackets.
-```{r}
-#| echo: true
-
-my_age <- function(birthday, output_unit = "days") {
-    difftime(Sys.time(), birthday, units = output_unit)
-}
-
-# if not stated otherwise, our function uses the unit "days"
-my_age("1997-04-23")
-
-# We can still overwrite units
-my_age("1997-04-23", "hours")
-```
-
-All you need to do now is run execute the function deceleration (`myage <- function...` etc.) at the beginning of your script, and you can use the function for your entire R session. 
-
-:::{.callout-important}
-Always try to make your function self sufficient: Only use objects within your function that are either passed as function arguments or created within the funtion. See more on this topic [here](https://raps-with-r.dev/fprog.html#referentially-transparent-and-pure-functions), in the online version of the book by @rodrigues2023.
-:::
 
 ### Task 1: Write your own functions
 
 Create the following two functions:
 
-1. A function which calculates a persons BMI based on their height and weight ($\text{BMI} = \frac{\text{Weight (kg)}}{\text{Height (m)}^2}$)
-2. A function which converts degrees Celcius to Farenheight ($\text{Farenheight} = \text{Celcius} \times \frac{9}{5} + 32$)
-3. A function which calculates the (Euclidean) distance between two sets of coordinates ($x_1$, $y_1$ and $x_2$, $y_2$) based on the formula below:
+1. A function which calculates a persons BMI based on their height and weight (@eq-bmi)
+2. A function which converts degrees Celcius to Farenheight (@eq-temperature)
+3. A function which calculates the (Euclidean) distance between two sets of coordinates ($x_1$, $y_1$ and $x_2$, $y_2$), see @eq-euclidean
 
-$$\text{Euclidean distance} = \sqrt{(x_2 - x_1)^2+(y_2 - y_1)^2}$$
+
+$$
+\text{BMI} = \frac{\text{Weight (kg)}}{\text{Height (m)}^2}
+$$ {#eq-bmi}
+
+$$
+\text{Farenheight} = \text{Celcius} \times \frac{9}{5} + 32
+$$ {#eq-temperature}
+
+
+$$
+\text{Euclidean distance} = \sqrt{(x_2 - x_1)^2+(y_2 - y_1)^2}
+$$ {#eq-euclidean}
+
 
 ### Task 2: Prepare Analysis
 
-In the next tasks we will look for "meet" patterns in our wild boar data. To simplify this, we will only use a subset of our wild boar data: The individuals *Rosa* and *Sabi* for the timespan *01.04.2015 - 15.04.2015*. You can download the dataset from moodle. Import the csv as a data.frame and filter it with the aforementioned criteria. You do not need to convert the data.frame to an `sf` object. 
+In the next tasks we will look for "meet" patterns in our wild boar data. To simplify this, we will only use a subset of our wild boar data: The individuals *Rosa* and *Sabi* for the timespan *01.04.2015 - 15.04.2015*. Use the dataset `wildschwein_BE_2056.csv` (on moodle). Import the csv as a data.frame and filter it with the aforementioned criteria. You do not need to convert the data.frame to an `sf` object. 
 
 
 
@@ -157,11 +59,11 @@ Your new dataset should look something like this (note the additional column):
 To measure the distance between concurrent locations, we need to follow the following steps.
 
 1. Split the `wildschwein_filter` object into one `data.frame` per animal
-2. Join\* these datasets by the new `Datetime` column created in the last task. The joined observations are *temporally close*.
+2. Join[^join] these datasets by the new `Datetime` column created in the last task. The joined observations are *temporally close*.
 3. In the joined dataset, calculate Euclidean distances between concurrent observations and store the values in a new column
 4. Use a reasonable threshold on `distance` to determine if the animals are also *spatially close* enough to constitute a *meet* (we use 100 meters). Store this Boolean information (`TRUE`/`FALSE`) in a new column
 
-\* We recommend using one `dplyr`s join methods (`inner_join()`, `left_join()`, `right_join()` or `full_join()`), which one is appropriate? Tip: specify `suffix` to prevent column names ending in `.x` or `.y`.
+[^join]: We recommend using one `dplyr`s join methods (`inner_join()`, `left_join()`, `right_join()` or `full_join()`), which one is appropriate? Tip: specify `suffix` to prevent column names ending in `.x` or `.y`.
 
 ```{r}
 #| file: "solutions/week5/task_4.R"
@@ -199,11 +101,18 @@ Finally, you can nicely visualize the meeting patterns and trajectories in a Spa
 
 ### Submission
 
-To submit your exercise, provide us with the URL of your Github repo as described [in the preperation](#sec-github-repo).
+To submit your exercise, provide us with the URL of the rendered quarto document (e.g. on [QuartoPub](https://quarto.org/docs/publishing/quarto-pub.html), [RPubs](https://rpubs.com/) or [GitHub Pages](https://quarto.org/docs/publishing/github-pages.html)) on moodle, as you did last week.
 
-You can give other GitHub users write access to your repository throught the repository settings. You will be needing this for your semester project. To practice this, add Dominic ([\@DLND8](https://github.com/DLND8/)) and Nils ([\@ratnanil](https://github.com/ratnanil/)) to your GitHub repo: 
+
+:::{.callout-note collapse="true"}
+
+## If you use GitHub...
+
+You can give other GitHub users write access to your repository throught the repository settings. You might want to use this this for your semester project. To practice this, add Evelyn ([\@DLND8](https://github.com/terzev/)) and Nils ([\@ratnanil](https://github.com/ratnanil/)) to your GitHub repo: 
 
 1. Go to your GitHub repository on GitHub.com
 2. Go to the repository settings by clicking on the *Settings* tab
 3. In the left panel, click on *Collaborators and teams* and then *Add people*
-4. Add the mentioned Persons via their GitHub Usernames, give them *Write* privilages. 
+4. Add the mentioned Persons via their GitHub Usernames, give them *Write* privileges. 
+
+:::

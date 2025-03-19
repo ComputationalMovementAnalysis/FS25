@@ -1,0 +1,114 @@
+---
+title: "Demo: R Functions"
+---
+
+
+Up to now, we have used a variety of different functions designed by other developers. Sometimes we need to execute an operation multiple times, and most often it is reasonable to write a function to do so. Whenever you have copied and pasted a block of code more than twice, you should consider writing a function [@wickham2023]. 
+
+The first step in writing a function, is picking a name and assigning `<- function(){}` to it.
+
+```{r}
+#| echo: true
+
+testfun <- function() {}
+```
+
+To run the function, we have to call the assigned name with the brackets. The function `testfun` gives no output, which is why we get `NULL` back. 
+
+```{r}
+#| echo: true
+
+testfun()
+
+class(testfun)
+```
+
+To make the function actually *do* something, we need to specify *what* should be done within the curly brackets `{}`. The following function always prints the same statement and accepts no input values:
+
+```{r}
+#| echo: true
+
+testfun <- function() {
+    print("this function does nothing")
+}
+
+testfun()
+```
+
+If we want the function to accept some input values, we have to define them within the round brackets. For example, I specify a variable named `sometext` and can call this variable within the execution.
+
+```{r}
+#| echo: true
+
+testfun <- function(sometext) {
+    print(sometext)
+}
+
+testfun(sometext = "this function does slightly more, but still not much")
+```
+
+:::{.callout-note collapse="true"}
+
+```{r}
+testfun <- function(sometext) {
+    print(sometext)
+}
+```
+
+Note that since R Version 4.1, the above syntax can also be written as follows:
+
+```{r}
+testfun <- \(sometext){
+    print(sometext)
+}
+```
+
+or even more compact:
+
+```{r}
+testfun <- \(sometext) print(sometext)
+```
+
+:::
+
+Let's take a more practical example. Say we want a function that calculates our age if provided with the date of our birthday. We can use `Sys.time()` to provide today's date and `difftime()` to calculate the time difference between today and our birthday.
+
+```{r}
+#| echo: true
+
+my_age <- function(birthday, output_unit) {
+    difftime(Sys.time(), birthday, units = output_unit)
+}
+
+my_age(birthday = "1997-04-23", output_unit = "days")
+```
+
+As we already know from using other functions, if we declare our variables in the order that we initially listed them, we do not need to specify the parameters (no need of `birthday = ` and `output_unit =`).
+
+```{r}
+#| echo: true
+
+my_age("1997-04-23", "days")
+```
+
+If we want any of our parameters to have default value, we can assign an initial value to the parameter when declaring the variables within the round brackets.
+
+```{r}
+#| echo: true
+
+my_age <- function(birthday, output_unit = "days") {
+    difftime(Sys.time(), birthday, units = output_unit)
+}
+
+# if not stated otherwise, our function uses the unit "days"
+my_age("1997-04-23")
+
+# We can still overwrite units
+my_age("1997-04-23", "hours")
+```
+
+All you need to do now is run execute the function deceleration (`myage <- function...` etc.) at the beginning of your script, and you can use the function for your entire R session. 
+
+:::{.callout-important}
+Always try to make your function self sufficient: Only use objects within your function that are either passed as function arguments or created within the funtion. See more on this topic [here](https://raps-with-r.dev/fprog.html#referentially-transparent-and-pure-functions), in the online version of the book by @rodrigues2023.
+:::
