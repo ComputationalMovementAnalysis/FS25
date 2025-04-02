@@ -22,7 +22,8 @@ wildschwein_BE <- read_delim("datasets/wildschwein_BE_2056.csv", ",") |>
 
 Download the dataset `Feldaufnahmen_Fanel.gpkg` (on moodle) and save it to your project folder. This is a vector dataset stored in the filetype *Geopackage*, which is similar to a *Shapefile*, with some advantages (see the website [shapefile must die](http://switchfromshapefile.org/)).
 
-Also download the dataset `vegetationshoehe_LFI.tif` (on moodle). This is a "raster" dataset stored in a Geotiff, similar to the map we imported in [week 1](#w1-importing-raster). Also store this file in your project folder and commit these to your repo.
+Also download the dataset `vegetationshoehe_LFI.tif` (on moodle) and store it in your project folder. This is a *raster* dataset stored in a Geotiff. 
+
 
 ### Tasks 1: Import and visualize spatial data
 
@@ -61,15 +62,16 @@ Think of ways you could visually explore the spatio-temporal patterns of wild bo
 ```{r}
 #| file: "solutions/week6/task_3.R"
 #| echo: false
+#| fig-cap: Percentages of samples in a given crop per hour. Only showing the most common categories
+#| label: fig-crop
 ```
 
 ### Task 4: Import and visualize vegetationindex (raster data)
 
-You have already downloaded the dataset `vegetationshoehe_LFI.tif`. Import this dataset 
-
 In terms of raster data, we have prepared the [Vegetation Height Model](https://map.geo.admin.ch/index.html?zoom=7&lang=en&topic=ech&bgLayer=ch.swisstopo.pixelkarte-grau&layers_opacity=0.5&layers=ch.bafu.landesforstinventar-vegetationshoehenmodell&E=2570723.63&N=1205388.11) provided by the Swiss National Forest Inventory (NFI). This dataset contains high resolution information (1x1 Meter) on the vegetation height, which is determined from the difference between the digital surface models DSM and the digital terrain model by swisstopo (swissAlti3D). Buildings are eliminated using a combination of the ground areas of the swisstopo topographic landscape model (TLM) and spectral information from the stereo aerial photos. 
 
-Import the dataset just like you imported the raster map in [week 1](#w1-importing-raster) (using `terra::rast()`). Visualize the raster data using `tmap` (`ggplot` is very slow with raster data).
+Import this dataset using the function `rast` from the package `terra`.
+Visualize the raster data using the base `plot` function and `tmap`. We do not recommend using `ggplot2` in this case, as is *very* slow with raster data.
 
 ```{r}
 #| file: "solutions/week6/task_4.R"
@@ -88,7 +90,8 @@ Semantically annotate your wild boar locations with the vegetation index (simila
 
 ```
 
-You can now explore the spatiotemporal patterns of this new data.
+You can now explore the spatio-temporal patterns of this new data, similarly to as we did in @fig-crop.
+
 
 
 <!-- ### Submission

@@ -1,5 +1,6 @@
 ## Preparation {#w6-preperation}
 
-Create a new RStudio Project and a new Github Repo for this week's exercises similar to [Exercise 4](#w4-preparation).
+Create a new RStudio Project for this week's exercises, just like you did [last week](#w4-preparation).
 
+If you would like to work with Git and GitHub, [create a GitHub repo](https://github.com/new) as well.
 If you want to publish your Report as a website (to share with others), activate Github Pages by going to your repo on Github, clicking on *Settings > Pages*, and under *Source* switch from *None* to your Main branch. **You can do this only after pushing your first commit**.
